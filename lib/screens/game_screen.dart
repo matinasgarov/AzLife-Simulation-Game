@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import '../models/player.dart';
+import '../services/sound_manager.dart';
 import 'activities_screen.dart';
 import 'relationships_screen.dart';
 import 'occupation_screen.dart';
@@ -10,14 +13,6 @@ class YearLog {
   final List<String> events;
 
   YearLog({required this.age, required this.events});
-}
-
-class Decision {
-  final String title;
-  final String description;
-  final Map<String, Function(Player)> options;
-
-  Decision({required this.title, required this.description, required this.options});
 }
 
 class GameScreen extends StatefulWidget {
@@ -33,6 +28,7 @@ class _GameScreenState extends State<GameScreen> {
   List<YearLog> logs = [];
   final Random _random = Random();
   int _earlyDecisionCountTotal = 0;
+  Map<String, dynamic>? _allDecisions;
 
   final List<String> _boyNames = ["Murad", "Elvin", "Nihad", "Tural", "Fuad", "Zaur", "Emil", "Oqtay", "Kənan", "Orxan"];
   final List<String> _girlNames = ["Aysel", "Leyla", "Fidan", "Günay", "Nigar", "Sevda", "Aytən", "Lamiyə", "Nərmin", "Arzu"];
@@ -41,12 +37,29 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     super.initState();
     player = widget.player;
+    _loadDecisions();
     _initializeFamily();
     logs.add(YearLog(age: 0, events: [
       "Sən ${player.birthCity} qəsəbəsində anadan olmusan.",
       "Sən sağlam ${player.gender == Gender.male ? 'oğlan' : 'qız'} uşağısan.",
       "Valideynlərin çox xoşbəxtdir."
     ]));
+    // Play sound when baby is born (age 0)
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      SoundManager.playBabyBorn();
+    });
+  }
+
+  Future<void> _loadDecisions() async {
+    try {
+      final String response = await rootBundle.loadString('lib/asset/decisions.json');
+      final data = await json.decode(response);
+      setState(() {
+        _allDecisions = data;
+      });
+    } catch (e) {
+      debugPrint("Error loading decisions: $e");
+    }
   }
 
   void _initializeFamily() {
@@ -74,6 +87,7 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void ageUp() {
+    SoundManager.playAgeUp();
     setState(() {
       player.age++;
       player.health = (player.health + _random.nextInt(10) - 5).clamp(0, 100);
@@ -115,93 +129,51 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void _handleDecisions() {
+    if (_allDecisions == null) return;
+
     if (player.age < 6 && _earlyDecisionCountTotal < 2) {
       if (player.age == 2 || player.age == 4) {
         _earlyDecisionCountTotal++;
-        Future.delayed(const Duration(milliseconds: 500), () => _triggerEarlyChildhoodDecision());
+        Future.delayed(const Duration(milliseconds: 500), () => _triggerDecisionFromCategory("earlyChildhood"));
       }
-    } else if (player.age >= 6 && _random.nextDouble() < 0.2) {
-      Future.delayed(const Duration(milliseconds: 500), () => _triggerRandomDecision());
+    } else if (player.age >= 6 && _random.nextDouble() < 0.25) {
+      String category = _getCategoryByAge(player.age);
+      Future.delayed(const Duration(milliseconds: 500), () => _triggerDecisionFromCategory(category));
     }
   }
 
-  void _triggerEarlyChildhoodDecision() {
-    List<Decision> pool = [
-      Decision(title: "Pişik", description: "Yolda tənha bir pişik gördün. Quyruğunu çəkmək istəyirsən?", options: {
-        "Quyruğunu çək": (p) {
-          if (_random.nextBool()) {
-            p.health -= 20;
-            logs.first.events.add("Pişiyin quyruğunu çəkdin. O isə qəfildən sənə hücum etdi və əlini cırmaqladı! Çox ağrıyır.");
-          } else {
-            p.happiness += 5;
-            logs.first.events.add("Pişiyin quyruğunu çəkdin. O bərk qorxub qaçdı. Sən isə buna bərkdən güldün.");
-          }
-        },
-        "Sığalla": (p) {
-          p.happiness += 10;
-          logs.first.events.add("Pişiyi sığalladın, o isə sənə mırıldayıb sevgi göstərdi.");
-        }
-      }),
-      Decision(title: "Oyuncaq", description: "Dostun sevimli oyuncağını istəyir. Nə edirsən?", options: {
-        "Paylaş": (p) {
-          p.happiness += 10;
-          logs.first.events.add("Oyuncağını dostunla paylaşdın. Birlikdə çox əyləncəli oyun qurdunuz.");
-        }, 
-        "Vermə": (p) {
-          p.happiness -= 5;
-          logs.first.events.add("Oyuncağı vermədin. Dostun incidi və ağlamağa başladı.");
-        }
-      }),
-      Decision(title: "Yemək", description: "Anan sənə dadı xoş olmayan tərəvəz yedirtmək istəyir.", options: {
-        "Ye": (p) {
-          p.health += 15;
-          logs.first.events.add("Tərəvəzləri yedin. Özünü daha sağlam və güclü hiss edirsən.");
-        }, 
-        "Ağla": (p) {
-          p.happiness -= 10;
-          logs.first.events.add("Bərkdən ağladın və yeməkdən imtina etdin. Anan səndən bir az incidi.");
-        }
-      }),
-    ];
-    _showDecision(pool[_random.nextInt(pool.length)]);
+  String _getCategoryByAge(int age) {
+    if (age < 6) return "earlyChildhood";
+    if (age < 13) return "childhood";
+    if (age < 20) return "teenager";
+    if (age < 36) return "youngAdult";
+    if (age < 60) return "middleAge";
+    return "senior";
   }
 
-  void _triggerRandomDecision() {
-    List<Decision> pool = [
-      Decision(title: "Novruz", description: "Həyətdə böyük tonqal qalanıb! Nə edəcəksən?", options: {
-        "Üstündən tullan": (p) {
-          if (_random.nextBool()) {
-            p.happiness += 20;
-            logs.first.events.add("Tonqalın üstündən tullananda hamı necə yüksək tullandığına heyran qaldı!");
-          } else {
-            p.health -= 15;
-            p.money -= 5;
-            logs.first.events.add("Tonqalın üstündən tullanarkən pul qabın oda düşüb yandı.");
-          }
-        }, 
-        "Şəkərbura ye": (p) {
-          p.happiness += 25;
-          p.health -= 10;
-          logs.first.events.add("Novruz şirniyyatlarından doyunca yedin. Çox dadlı idi, amma mədən bir az ağrıyır.");
-        }
-      }),
-      Decision(title: "Qonaqlar", description: "Evə qonaq gəlib. Valideynlərin çay gətirməyi sənə tapşırır.", options: {
-        "Mükəmməl gətir": (p) {
-          p.happiness += 10;
-          p.smarts += 5;
-          logs.first.events.add("Çayı peşəkar kimi payladın. Qonaqlar sənin tərbiyənə heyran qaldılar.");
-        }, 
-        "Sındır": (p) {
-          p.happiness -= 15;
-          p.looks -= 5;
-          logs.first.events.add("Stəkanı sındırdın! Qonaqların yanında pərt oldun və valideynlərin sənə acıqlı baxdı.");
-        }
-      }),
-    ];
-    _showDecision(pool[_random.nextInt(pool.length)]);
+  void _triggerDecisionFromCategory(String category) {
+    if (_allDecisions == null || _allDecisions![category] == null) return;
+    List<dynamic> categoryDecisions = _allDecisions![category];
+    if (categoryDecisions.isEmpty) return;
+
+    var decisionJson = categoryDecisions[_random.nextInt(categoryDecisions.length)];
+    _showDecision(decisionJson);
   }
 
-  void _showDecision(Decision decision) {
+  void _applyEffects(Player p, Map<String, dynamic> effects) {
+    effects.forEach((key, value) {
+      int val = (value is int) ? value : 0;
+      switch (key) {
+        case 'health': p.health = (p.health + val).clamp(0, 100); break;
+        case 'happiness': p.happiness = (p.happiness + val).clamp(0, 100); break;
+        case 'smarts': p.smarts = (p.smarts + val).clamp(0, 100); break;
+        case 'looks': p.looks = (p.looks + val).clamp(0, 100); break;
+        case 'money': p.money += val; break;
+      }
+    });
+  }
+
+  void _showDecision(Map<String, dynamic> decision) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -212,11 +184,11 @@ class _GameScreenState extends State<GameScreen> {
           children: [
             const Icon(Icons.help_outline, color: Colors.blueAccent),
             const SizedBox(width: 10),
-            Text(decision.title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+            Expanded(child: Text(decision['title'] ?? "Qərar", style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20))),
           ],
         ),
-        content: Text(decision.description, style: const TextStyle(fontSize: 16, height: 1.4)),
-        actions: decision.options.entries.map((entry) {
+        content: Text(decision['description'] ?? "", style: const TextStyle(fontSize: 16, height: 1.4)),
+        actions: (decision['options'] as List<dynamic>).map((option) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
             child: ElevatedButton(
@@ -228,12 +200,31 @@ class _GameScreenState extends State<GameScreen> {
                 elevation: 0,
               ),
               onPressed: () {
+                SoundManager.playClick();
                 setState(() {
-                  entry.value(player);
+                  bool isRandom = option['random'] ?? false;
+                  if (isRandom) {
+                    if (_random.nextBool()) {
+                      // Success
+                      SoundManager.playSuccess();
+                      _applyEffects(player, option['successEffects'] ?? {});
+                      logs.first.events.add(option['successLog'] ?? "Uğurlu qərar!");
+                    } else {
+                      // Failure
+                      SoundManager.playFail();
+                      _applyEffects(player, option['effects'] ?? {});
+                      logs.first.events.add(option['failLog'] ?? "Uğursuz qərar.");
+                    }
+                  } else {
+                    _applyEffects(player, option['effects'] ?? {});
+                    if (option['log'] != null) {
+                      logs.first.events.add(option['log']);
+                    }
+                  }
                 });
                 Navigator.pop(context);
               },
-              child: Text(entry.key, style: const TextStyle(fontWeight: FontWeight.bold)),
+              child: Text(option['label'] ?? "", style: const TextStyle(fontWeight: FontWeight.bold)),
             ),
           );
         }).toList(),
@@ -264,7 +255,10 @@ class _GameScreenState extends State<GameScreen> {
               const SizedBox(height: 25),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.white, foregroundColor: Colors.blueAccent, minimumSize: const Size(double.infinity, 50), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
-                onPressed: () => Navigator.pop(context),
+                onPressed: () {
+                  SoundManager.playClick();
+                  Navigator.pop(context);
+                },
                 child: const Text("Həyatım Məhv Oldu... yəni, Başlayaq!", style: TextStyle(fontWeight: FontWeight.bold)),
               ),
             ],
@@ -274,10 +268,17 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  void _openActivities() { Navigator.push(context, MaterialPageRoute(builder: (context) => ActivitiesScreen(player: player, onActivityPerformed: (msg) => setState(() => logs.first.events.add(msg))))); }
-  void _openRelationships() { Navigator.push(context, MaterialPageRoute(builder: (context) => RelationshipsScreen(player: player))); }
+  void _openActivities() { 
+    SoundManager.playClick();
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ActivitiesScreen(player: player, onActivityPerformed: (msg) => setState(() => logs.first.events.add(msg))))); 
+  }
+  void _openRelationships() { 
+    SoundManager.playClick();
+    Navigator.push(context, MaterialPageRoute(builder: (context) => RelationshipsScreen(player: player))); 
+  }
   void _openOccupation() { 
     if (!player.isEnrolledInSchool) return;
+    SoundManager.playClick();
     Navigator.push(context, MaterialPageRoute(builder: (context) => OccupationScreen(player: player, onAction: (msg) => setState(() => logs.first.events.add(msg))))); 
   }
 

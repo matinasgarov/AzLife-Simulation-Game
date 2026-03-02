@@ -1,0 +1,2235 @@
+{
+  "earlyChildhood": [
+    {
+      "title": "Pişik",
+      "description": "Yolda tənha bir pişik gördün. Quyruğunu çəkmək istəyirsən?",
+      "options": [
+        {
+          "label": "Quyruğunu çək",
+          "random": true,
+          "effects": {
+            "health": -20
+          },
+          "successEffects": {
+            "happiness": 5
+          },
+          "successLog": "Pişiyin quyruğunu çəkdin. O bərk qorxub qaçdı. Sən isə bərkdən güldün.",
+          "failLog": "Pişiyin quyruğunu çəkdin. O isə qəfildən sənə hücum etdi və əlini cırmaqladı!"
+        },
+        {
+          "label": "Sığalla",
+          "effects": {
+            "happiness": 10
+          },
+          "log": "Pişiyi sığalladın, o isə sənə mırıldayıb sevgi göstərdi."
+        }
+      ]
+    },
+    {
+      "title": "Oyuncaq",
+      "description": "Dostun sevimli oyuncağını istəyir. Nə edirsən?",
+      "options": [
+        {
+          "label": "Paylaş",
+          "effects": {
+            "happiness": 10
+          },
+          "log": "Oyuncağını dostunla paylaşdın. Birlikdə çox əyləncəli oyun qurdunuz."
+        },
+        {
+          "label": "Vermə",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Oyuncağı vermədin. Dostun incidi və ağlamağa başladı."
+        }
+      ]
+    },
+    {
+      "title": "Yemək",
+      "description": "Anan sənə dadı xoş olmayan tərəvəz yedirtmək istəyir.",
+      "options": [
+        {
+          "label": "Ye",
+          "effects": {
+            "health": 15
+          },
+          "log": "Tərəvəzləri yedin. Özünü daha sağlam və güclü hiss edirsən."
+        },
+        {
+          "label": "Ağla",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "Bərkdən ağladın və yeməkdən imtina etdin. Anan səndən bir az incidi."
+        }
+      ]
+    },
+    {
+      "title": "Yuxu vaxtı",
+      "description": "Vaxt gec olub, anan sənin yatmağını istəyir. Amma sən hələ oynamaq istəyirsən.",
+      "options": [
+        {
+          "label": "Yat",
+          "effects": {
+            "health": 10,
+            "happiness": -5
+          },
+          "log": "Yatdın. Səhər çox enerjili oyandın."
+        },
+        {
+          "label": "Oyna",
+          "effects": {
+            "health": -10,
+            "happiness": 10
+          },
+          "log": "Gecə gec oynadın. Səhər çox yorğun oyandın və məktəbdə mürgülədin."
+        }
+      ]
+    },
+    {
+      "title": "Şirniyyat",
+      "description": "Mətbəxdə şirniyyat var. Anan izin verməyib. Nə edəcəksən?",
+      "options": [
+        {
+          "label": "Oğurla",
+          "random": true,
+          "effects": {
+            "health": -5
+          },
+          "successEffects": {
+            "happiness": 15,
+            "health": -5
+          },
+          "successLog": "Şirniyyatı gizlicə götürdün. Çox dadlı idi! Amma dişlərin ağrıyır.",
+          "failLog": "Anan seni tutdu! Cəza aldın və yeməyin üstünü kəsdilər."
+        },
+        {
+          "label": "Gözlə",
+          "effects": {
+            "happiness": 5
+          },
+          "log": "Səbr etdin. Anan axşam sənə mükafat olaraq şirniyyat verdi."
+        }
+      ]
+    },
+    {
+      "title": "Rəsm dərsi",
+      "description": "Müəllim rəsm çəkməyi tapşırıb. Nə çəkirsən?",
+      "options": [
+        {
+          "label": "Ailənin rəsmini çək",
+          "effects": {
+            "happiness": 10,
+            "smarts": 5
+          },
+          "log": "Ailənin gözəl rəsmini çəkdin. Müəllim onu lövhəyə asdı."
+        },
+        {
+          "label": "Karandaşla oyna",
+          "effects": {
+            "smarts": -5
+          },
+          "log": "Rəsm çəkmək əvəzinə oynadın. Müəllim məyus oldu."
+        }
+      ]
+    },
+    {
+      "title": "Yağış",
+      "description": "Çöldə yağış yağır. Anan xəbərdarlıq etdi, amma sən çölə çıxmaq istəyirsən.",
+      "options": [
+        {
+          "label": "Çıx çölə",
+          "effects": {
+            "health": -15,
+            "happiness": 15
+          },
+          "log": "Yağışda oynadın, çox əyləncəli idi. Amma sonra xəstələndin."
+        },
+        {
+          "label": "Evdə qal",
+          "effects": {
+            "health": 5,
+            "happiness": -5
+          },
+          "log": "Evdə qaldın. Kitab oxudun. Sıxıcı idi amma sağlam qaldın."
+        }
+      ]
+    },
+    {
+      "title": "Qardaş döyüşü",
+      "description": "Qardaşın/bacın sənin oyuncağını sındırdı. Nə edirsən?",
+      "options": [
+        {
+          "label": "Ağla və şikayət et",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Valideynlərinə şikayət etdin. Qardaşın cəzalandırıldı, amma sən hələ də üzgünsən."
+        },
+        {
+          "label": "Bağışla",
+          "effects": {
+            "happiness": 10
+          },
+          "log": "Qardaşını bağışladın. O isə sənə qucaq açdı və ağladı. Özünü yaxşı hiss etdin."
+        }
+      ]
+    },
+    {
+      "title": "Həyət oyunu",
+      "description": "Uşaqlar həyətdə top oynayır. Sən də oynamaq istəyirsən.",
+      "options": [
+        {
+          "label": "Özün qoşul",
+          "effects": {
+            "happiness": 15,
+            "health": 5
+          },
+          "log": "Özün gedib qoşulduğunu söylədin. Seni qəbul etdilər. Çox əyləncəli idi!"
+        },
+        {
+          "label": "Kənarda izlə",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Uzaqdan izlədin. Ürəyin sıxıldı. Bir az tənha hiss etdin özünü."
+        }
+      ]
+    },
+    {
+      "title": "Kitab oxumaq",
+      "description": "Atan sənə şəkilli kitab gətirdi. Nə edəcəksən?",
+      "options": [
+        {
+          "label": "Həvəslə oxu",
+          "effects": {
+            "smarts": 15,
+            "happiness": 5
+          },
+          "log": "Kitabı başa qədər oxudun. Çox maraqlı hekayə idi. Atan fəxr etdi."
+        },
+        {
+          "label": "Kənara at",
+          "effects": {
+            "smarts": -5
+          },
+          "log": "Kitabı kənara atdın. Atan kədərləndi. Sonradan kitabı qaçırdığın üçün peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Qayda pozma",
+      "description": "Sinif yoldaşın müəllim yoxkən şəkil çəkib lövhəyə yapışdırmağı təklif edir.",
+      "options": [
+        {
+          "label": "Qoşul",
+          "random": true,
+          "effects": {
+            "happiness": -10
+          },
+          "successEffects": {
+            "happiness": 15
+          },
+          "successLog": "Müəllim görmədi. Hamı güldü. Əyləndiniz.",
+          "failLog": "Müəllim gəlib sizi tutdu. İkisi də guşəyə dayandırıldı."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "smarts": 5
+          },
+          "log": "Rədd etdin. Müəllim sonradan sənin yaxşı davranışını vurğuladı."
+        }
+      ]
+    },
+    {
+      "title": "Küçə heyvanı",
+      "description": "Küçədə ac it var. Onu evə aparmaq istəyirsən.",
+      "options": [
+        {
+          "label": "Evə apar",
+          "effects": {
+            "happiness": 15,
+            "health": -5
+          },
+          "log": "İti evə apardın. Anan əvvəl razı olmadı. Sonra o da sevdi."
+        },
+        {
+          "label": "Burax",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "Geri döndün amma itin getdiyini gördün. Günlərlə üzgün oldun."
+        }
+      ]
+    },
+    {
+      "title": "Birinci gün",
+      "description": "Məktəbin birinci günü. Heç kimi tanımırsan.",
+      "options": [
+        {
+          "label": "Yeni dostlar qazan",
+          "effects": {
+            "happiness": 20,
+            "smarts": 5
+          },
+          "log": "Cəsarətlə yanındakı uşağa yaxınlaşdın. O indi ən yaxın dostundur."
+        },
+        {
+          "label": "Küncdə otur",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "Tək oturdun. Uzun, darıxdırıcı gün keçirdin."
+        }
+      ]
+    },
+    {
+      "title": "Hədiyyə seçimi",
+      "description": "Anan sənə doğum günündə hədiyyə seçmə imkanı verdi.",
+      "options": [
+        {
+          "label": "Kitab seç",
+          "effects": {
+            "smarts": 15,
+            "happiness": 10
+          },
+          "log": "Böyük şəkilli kitab seçdin. Ananın gözləri parıldadı. Çox oxudun."
+        },
+        {
+          "label": "Oyun konsolü seç",
+          "effects": {
+            "happiness": 20,
+            "smarts": -5
+          },
+          "log": "Oyun konsolü seçdin. Günlərlə oynadın. Dərslərin geri qaldı."
+        }
+      ]
+    },
+    {
+      "title": "Yaşlı komşu",
+      "description": "Qonşu nənə çətin çantasını daşımaqda çətinlik çəkir.",
+      "options": [
+        {
+          "label": "Kömək et",
+          "effects": {
+            "happiness": 15
+          },
+          "log": "Çantasını daşıdın. O sənə şirniyyat verdi və dua etdi."
+        },
+        {
+          "label": "Keç get",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Davam etdin. Amma evə çatanda özünü pis hiss etdin."
+        }
+      ]
+    },
+    {
+      "title": "Yataq vaxtı hekayəsi",
+      "description": "Atan hər gece sənə hekayə oxuyur. Bu gün o çox yorğundur.",
+      "options": [
+        {
+          "label": "Hekayə istə",
+          "effects": {
+            "happiness": 15,
+            "smarts": 5
+          },
+          "log": "Atanı ikna etdin. O yavaş yavaş oxudu, yarıda yuxuya getdi. Çox şirin an idi."
+        },
+        {
+          "label": "Onu burax yatsın",
+          "effects": {
+            "happiness": 10
+          },
+          "log": "'Yat, ata' dedin. O çox şaşırdı. Sən isə özün kitab baxdın."
+        }
+      ]
+    },
+    {
+      "title": "Uçurtma",
+      "description": "Uçurtman ağaca ilişdi. Yuxarı dırmaşmaq istəyirsən.",
+      "options": [
+        {
+          "label": "Dırmaş",
+          "random": true,
+          "effects": {
+            "health": -10
+          },
+          "successEffects": {
+            "happiness": 20
+          },
+          "successLog": "Uçurtmanı aldın! Qəhrəman kimi hiss etdin özünü.",
+          "failLog": "Düşdün. Dizin cırıldı. Ağladın. Amma ertəsi gün gülümsəyərək danışdın."
+        },
+        {
+          "label": "Kömək istə",
+          "effects": {
+            "happiness": 10
+          },
+          "log": "Böyüklərə dedın. Onlar kömək etdi. Uçurtma geri gəldi."
+        }
+      ]
+    },
+    {
+      "title": "Ulduz saymaq",
+      "description": "Gecə atan ilə baxçada oturub ulduz sayırsınız.",
+      "options": [
+        {
+          "label": "Suallar ver",
+          "effects": {
+            "smarts": 10,
+            "happiness": 20
+          },
+          "log": "Saysız sual verdın. Atan hər birinə cavab verdi. Həmin gecəni həmişə xatırladın."
+        },
+        {
+          "label": "Yuxulanıb get",
+          "effects": {
+            "happiness": 5
+          },
+          "log": "Tez yuxulandın. Atan səni qollarında içəriyə apardı."
+        }
+      ]
+    }
+  ],
+  "childhood": [
+    {
+      "title": "Novruz",
+      "description": "Həyətdə böyük tonqal qalanıb! Nə edəcəksən?",
+      "options": [
+        {
+          "label": "Üstündən tullan",
+          "random": true,
+          "effects": {
+            "health": -15,
+            "money": -5
+          },
+          "successEffects": {
+            "happiness": 20
+          },
+          "successLog": "Tonqalın üstündən tullananda hamı necə yüksək tullandığına heyran qaldı!",
+          "failLog": "Tonqalın üstündən tullanarkən pul qabın oda düşüb yandı."
+        },
+        {
+          "label": "Şəkərbura ye",
+          "effects": {
+            "happiness": 25,
+            "health": -10
+          },
+          "log": "Novruz şirniyyatlarından doyunca yedin. Çox dadlı idi, amma mədən bir az ağrıyır."
+        }
+      ]
+    },
+    {
+      "title": "Qonaqlar",
+      "description": "Evə qonaq gəlib. Valideynlərin çay gətirməyi sənə tapşırır.",
+      "options": [
+        {
+          "label": "Mükəmməl gətir",
+          "effects": {
+            "happiness": 10,
+            "smarts": 5
+          },
+          "log": "Çayı peşəkar kimi payladın. Qonaqlar sənin tərbiyənə heyran qaldılar."
+        },
+        {
+          "label": "Sındır",
+          "effects": {
+            "happiness": -15,
+            "looks": -5
+          },
+          "log": "Stəkanı sındırdın! Qonaqların yanında pərt oldun."
+        }
+      ]
+    },
+    {
+      "title": "İmtahan",
+      "description": "Sabah böyük imtahan var. Sənin sevimli kartun serialın da yayımlanır.",
+      "options": [
+        {
+          "label": "Oxu",
+          "effects": {
+            "smarts": 20,
+            "happiness": -5
+          },
+          "log": "Bütün gecə oxudun. İmtahanda ən yüksək qiyməti aldın. Müəllim seni alqışladı."
+        },
+        {
+          "label": "Kartun izlə",
+          "effects": {
+            "happiness": 10,
+            "smarts": -15
+          },
+          "log": "Karton izlədin. Çox əyləncəli idi. Amma imtahanda kəsildin. Valideynlerin məyus oldu."
+        }
+      ]
+    },
+    {
+      "title": "Dost dava",
+      "description": "Ən yaxın dostunla mübahisə etdin. O indi küsüb.",
+      "options": [
+        {
+          "label": "Üzr istə",
+          "effects": {
+            "happiness": 15
+          },
+          "log": "Üzr istədin. Dostun güldü və sizi barışdı. Dostluğunuz daha da möhkəmləndi."
+        },
+        {
+          "label": "İnad et",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "İnad etdin. Dostun bir həftə səninlə danışmadı. Özünü çox tənha hiss etdin."
+        }
+      ]
+    },
+    {
+      "title": "Futbol",
+      "description": "Məktəb futbol komandasına seçim var. Sən oynamaq istəyirsən.",
+      "options": [
+        {
+          "label": "Müraciət et",
+          "random": true,
+          "effects": {
+            "happiness": -5
+          },
+          "successEffects": {
+            "happiness": 25,
+            "health": 10
+          },
+          "successLog": "Komandaya seçildin! İlk oyunda qol vurduğunda hamı sənə alqış çaldı.",
+          "failLog": "Komandaya seçilmədin. Ürəyin sıxıldı ama növbəti il daha çox məşq etməyə qərar verdin."
+        },
+        {
+          "label": "Küncə çəkil",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Müraciət etmədin. Sonradan peşman oldun. Dostların oynadı, sən izlədın."
+        }
+      ]
+    },
+    {
+      "title": "Cib pulu",
+      "description": "Atan sənə 5 manat cib pulu verdi. Nə edəcəksən?",
+      "options": [
+        {
+          "label": "Yığ",
+          "effects": {
+            "money": 5,
+            "happiness": -5
+          },
+          "log": "Pulu yığdın. Ay sonunda istədiyin oyuncağı aldın. Xoşbəxt oldun!"
+        },
+        {
+          "label": "Dərhal xərc",
+          "effects": {
+            "happiness": 15,
+            "money": -5
+          },
+          "log": "Pulu dərhal şirniyyata xərclədIn. Çox dadlı idi, amma bir gün sonra heç nəyin qalmadı."
+        }
+      ]
+    },
+    {
+      "title": "Yeni uşaq",
+      "description": "Sinfə yeni bir şagird gəldi. Hamı onunla tanış olmaqdan çəkinir.",
+      "options": [
+        {
+          "label": "Tanış ol",
+          "effects": {
+            "happiness": 15
+          },
+          "log": "Ona yaxınlaşıb tanış oldun. O çox sevindi. Sonradan ən yaxın dostun oldu."
+        },
+        {
+          "label": "Laqeyd qal",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Onu görməzlikdən gəldin. Sonra onun başqa biri ilə dost olduğunu gördün, bir az peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Ev tapşırığı",
+      "description": "Ev tapşırığın var amma həyətdə dostların sənə uçurtma uçurmağı çağırır.",
+      "options": [
+        {
+          "label": "Əvvəl tapşırığı et",
+          "effects": {
+            "smarts": 10,
+            "happiness": 5
+          },
+          "log": "Tapşırığı bitirdikdən sonra dostların yanına getdin. İkisini də etdin!"
+        },
+        {
+          "label": "Uçurtmaya get",
+          "effects": {
+            "happiness": 15,
+            "smarts": -10
+          },
+          "log": "Çox əyləncəli idi! Amma tapşırığı etmədin. Müəllim sənə pis qiymət verdi."
+        }
+      ]
+    },
+    {
+      "title": "Zərərli vərdiş",
+      "description": "Bir böyük uşaq sənə siqaret sunu etdi. 'Kişi kimi iç' dedi.",
+      "options": [
+        {
+          "label": "Rədd et",
+          "effects": {
+            "health": 10,
+            "happiness": 5
+          },
+          "log": "'Yox' dedin. O güldü, amma sən getdin. Özünü güclü hiss etdin."
+        },
+        {
+          "label": "Sına",
+          "effects": {
+            "health": -25,
+            "happiness": -15
+          },
+          "log": "Sındın. Həm öskürək tutdu həm də özünü çox pis hiss etdin. Valideynin öyrəndi."
+        }
+      ]
+    },
+    {
+      "title": "Məktəb yarışması",
+      "description": "Rəsm yarışmasına qatılmaq istəyirsən. Hazırlıq vaxt aparır.",
+      "options": [
+        {
+          "label": "Ciddi hazırlaş",
+          "effects": {
+            "smarts": 10,
+            "looks": 5,
+            "happiness": 10
+          },
+          "log": "Həftələrlə hazırlandın. Yarışmada ikinci yeri tutdun. Medal aldın!"
+        },
+        {
+          "label": "Qatılma",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Qatılmadın. Sonra qalib gələn uşağın medalını görüb peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Kitabxana kartı",
+      "description": "Məktəb kitabxanası pulsuz kart verir. Ancaq boş vaxtında oraya getmək lazımdır.",
+      "options": [
+        {
+          "label": "Al",
+          "effects": {
+            "smarts": 15,
+            "happiness": 10
+          },
+          "log": "Hər həftə kitabxanaya getdin. Bilgin artdı. Müəllimlər sənə heyran qaldı."
+        },
+        {
+          "label": "Alma",
+          "effects": {
+            "smarts": -5
+          },
+          "log": "Almadın. Dostların oxuyub danışanda nə dediklərini anlamadın."
+        }
+      ]
+    },
+    {
+      "title": "Müəllimə hədiyyə",
+      "description": "Müəllimlər günüdür. Bir şey almaq istəyirsən amma pul azdır.",
+      "options": [
+        {
+          "label": "Əl işi hazırla",
+          "effects": {
+            "happiness": 20,
+            "smarts": 5
+          },
+          "log": "Müəllimə əl ilə hazırladığın kart verdin. O ağladı. Ən gözəl hədiyyə oldu."
+        },
+        {
+          "label": "Heç nə vermə",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Heç nə vermədin. Müəllim başqalarının hədiyyələrini alarkən özünü pis hiss etdin."
+        }
+      ]
+    },
+    {
+      "title": "Xəbərçilik",
+      "description": "Bir sinif yoldaşın qaydanı pozdu. Müəllim kimi elədiyin barədə soruşur.",
+      "options": [
+        {
+          "label": "Dürüst ol",
+          "effects": {
+            "smarts": 10,
+            "happiness": -5
+          },
+          "log": "Həqiqəti söylədin. Yoldaşın incidi amma müəllim sənə etibar etdi."
+        },
+        {
+          "label": "Sus",
+          "effects": {
+            "happiness": 5
+          },
+          "log": "Susqun qaldın. Dostluğunu qorudun amma özün daxilən narahat oldun."
+        }
+      ]
+    },
+    {
+      "title": "Bayram hazırlığı",
+      "description": "Sinif bayram tamaşası üçün rol seçir. Böyük rol istəyirsən.",
+      "options": [
+        {
+          "label": "Könüllü ol",
+          "effects": {
+            "happiness": 20,
+            "looks": 5
+          },
+          "log": "Könüllü oldun. Rolu mükəmməl oynadın. Valideynlerin alqış çaldı."
+        },
+        {
+          "label": "Kiçik rol al",
+          "effects": {
+            "happiness": 5
+          },
+          "log": "Kiçik rol aldın. Rahat keçdi amma parlaya bilmədin."
+        }
+      ]
+    },
+    {
+      "title": "İdman günü",
+      "description": "Məktəb idman yarışmasında qaçış yarışına qatılmaq istəyirsən.",
+      "options": [
+        {
+          "label": "Qatıl",
+          "random": true,
+          "effects": {
+            "health": 5
+          },
+          "successEffects": {
+            "happiness": 25,
+            "health": 10
+          },
+          "successLog": "Qaçışda birinci oldun! Medal aldın. Sinif sənə alqış çaldı.",
+          "failLog": "Sonuncu gəldin. Amma hamı sənin cəsarəti alqışladı."
+        },
+        {
+          "label": "Yaxın izlə",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Kənarda durub izlədin. Dostların yarışarkən ürəyin yanırdı."
+        }
+      ]
+    },
+    {
+      "title": "Mütaliə mükafatı",
+      "description": "Məktəb kitab oxuma yarışması keçirir. 10 kitab oxuyana mükafat var.",
+      "options": [
+        {
+          "label": "Yarışmaya qatıl",
+          "effects": {
+            "smarts": 20,
+            "happiness": 15
+          },
+          "log": "10 kitab oxudun. Mükafat aldın. Oxumaq sənin ən böyük sevincin oldu."
+        },
+        {
+          "label": "Qatılma",
+          "effects": {
+            "smarts": -5
+          },
+          "log": "Qatılmadın. Qalib olan uşağın aldığı hədiyyəyi gördün. Peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Sinif deputatı",
+      "description": "Sinfin nümayəndəsi seçimi var. Özünü namizəd göstərəsən?",
+      "options": [
+        {
+          "label": "Namizəd ol",
+          "random": true,
+          "effects": {
+            "happiness": -5
+          },
+          "successEffects": {
+            "happiness": 25,
+            "smarts": 10
+          },
+          "successLog": "Seçildin! Sinifin nümayəndəsi oldun. Məsuliyyəti öyrəndin.",
+          "failLog": "Seçilmədin. Üzüldün. Amma cəsarətini alqışladılar."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Qatılmadın. Başqası seçildi. 'Niyə cəhd etmədim?' dedın."
+        }
+      ]
+    },
+    {
+      "title": "Xəzinə tapma",
+      "description": "Həyətdə qazdıqda köhnə mis sikkə tapdın.",
+      "options": [
+        {
+          "label": "Muzeyə ver",
+          "effects": {
+            "smarts": 10,
+            "happiness": 15
+          },
+          "log": "Muzeyə apardın. Tarixçi sənə tarixi izah etdi. Məktəbdə məruzə etdin. Qəhrəman oldun."
+        },
+        {
+          "label": "Özündə saxla",
+          "effects": {
+            "happiness": 10
+          },
+          "log": "Saxladın. Kolleksiyona əlavə etdin. Dostların çox maraqlandı."
+        }
+      ]
+    }
+  ],
+  "teenager": [
+    {
+      "title": "İlk sevgi",
+      "description": "Sinif yoldaşın sənə məktub yazıb. Sənə vurulub. Nə edəcəksən?",
+      "options": [
+        {
+          "label": "Cavab yaz",
+          "random": true,
+          "effects": {
+            "happiness": -5
+          },
+          "successEffects": {
+            "happiness": 30
+          },
+          "successLog": "Cavab yazdın. O çox sevindi. İlk görüşünüz çox romantik keçdi.",
+          "failLog": "Cavab yazdın amma o daha isti hiss etmirdi. Rədd edildin. Bir müddət üzgün oldun."
+        },
+        {
+          "label": "Laqeyd qal",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "Məktubu görməzlikdən gəldin. O sonra başqa biri ilə dost oldu. Bir az peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Sosial media",
+      "description": "Şagirdlər sənin haqqında yalanda şayiə yayıblar. Nə edirsən?",
+      "options": [
+        {
+          "label": "Cavab ver",
+          "effects": {
+            "happiness": 10,
+            "smarts": 5
+          },
+          "log": "Sakit, ağıllı şəkildə cavab verdin. Hamı həqiqəti anladı. Şayiə sona çatdı."
+        },
+        {
+          "label": "Susa",
+          "effects": {
+            "happiness": -15
+          },
+          "log": "Susqun qaldın. Şayiə daha da böyüdü. Bir müddət çətin günlər keçirdin."
+        }
+      ]
+    },
+    {
+      "title": "Parti",
+      "description": "Valideynlerin olmadığı bir gecə dostun böyük parti keçirir. Çağırılmısan.",
+      "options": [
+        {
+          "label": "Get",
+          "random": true,
+          "effects": {
+            "happiness": -5
+          },
+          "successEffects": {
+            "happiness": 20
+          },
+          "successLog": "Getdin. Çox əyləncəli idi. Yeni dostlar qazandın.",
+          "failLog": "Getdin. Orада problem çıxdı. Valideynlerin öyrəndi. Bir ay həbs oldun."
+        },
+        {
+          "label": "Getmə",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Getmədin. Evdə kitab oxudun. Sonra dostların parti haqqında danışanda bir az peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Aldatmaq",
+      "description": "İmtahanda yanındakı uşağın cavablarını görmək imkanın var.",
+      "options": [
+        {
+          "label": "Kopyala",
+          "random": true,
+          "effects": {
+            "smarts": -10
+          },
+          "successEffects": {
+            "smarts": 5
+          },
+          "successLog": "Tutulmadın. Yaxşı qiymət aldın. Amma özünü rahat hiss etmədin.",
+          "failLog": "Müəllim tutdu. Kağızın ləğv edildi. Valideynin çağırıldı."
+        },
+        {
+          "label": "Öz biliyin ilə yaz",
+          "effects": {
+            "smarts": 15
+          },
+          "log": "Öz biliyin ilə yazdın. Orta qiymət aldın. Amma vicdan əzabı çəkmədin."
+        }
+      ]
+    },
+    {
+      "title": "Pəhriz",
+      "description": "Sosial mediada 'mükəmməl bədən' şəkillərini görürsən. Pəhrizə başlamaq istəyirsən.",
+      "options": [
+        {
+          "label": "Sağlam qidalanma",
+          "effects": {
+            "health": 15,
+            "looks": 10
+          },
+          "log": "Həkim tövsiyəli sağlam pəhrizi seçdin. Enerji səviyyən artdı, özünü daha yaxşı hiss etdin."
+        },
+        {
+          "label": "Radikal pəhriz",
+          "effects": {
+            "health": -20,
+            "looks": -5
+          },
+          "log": "Çox az yemək yedin. Həddən artıq zəifladin. Müəllimlər narahat oldu."
+        }
+      ]
+    },
+    {
+      "title": "Yetkinlik haqqı",
+      "description": "Atan sənə araba sürmə dərsi verəcək. Hazır olduğunu düşünürsən?",
+      "options": [
+        {
+          "label": "Cəsarətlə razılaş",
+          "random": true,
+          "effects": {
+            "happiness": 5
+          },
+          "successEffects": {
+            "happiness": 20,
+            "smarts": 10
+          },
+          "successLog": "İlk dəfəyə gözəl sürdün. Atanın gözləri parıldadı.",
+          "failLog": "Direksiyon başında çox gərgin oldun. Kiçik qəza yaratdın. Atan tərlədi."
+        },
+        {
+          "label": "Sonraya saxla",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "'Hələ hazır deyiləm' dedin. Atan başa düşdü. Növbəti ay dərslərə başladın."
+        }
+      ]
+    },
+    {
+      "title": "Part-time iş",
+      "description": "Bir kafe sənə həftə sonları işləmək təklifi edir. Valideynlerin razıdır.",
+      "options": [
+        {
+          "label": "Qəbul et",
+          "effects": {
+            "money": 20,
+            "smarts": 5,
+            "happiness": 10
+          },
+          "log": "İşə başladın. İlk maaşını alan gün çox xoşbəxt oldun. Məsuliyyəti öyrəndin."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "happiness": 5
+          },
+          "log": "Rədd etdin. Dostlarınla daha çox vaxt keçirdin. Amma pul sıxıntısı hiss etdin."
+        }
+      ]
+    },
+    {
+      "title": "Pis dost",
+      "description": "Yaxın dostun sənə dərman həbi sunur. 'Çox əyləncəlidir' deyir.",
+      "options": [
+        {
+          "label": "Rədd et",
+          "effects": {
+            "health": 20,
+            "happiness": 5
+          },
+          "log": "Möhkəm rədd etdin. 'Yox' deməyi bacardın. O sonra problemlərə düşdü, sən yox."
+        },
+        {
+          "label": "Sına",
+          "effects": {
+            "health": -30,
+            "money": -10,
+            "happiness": -20
+          },
+          "log": "Sınadın. Çox pis hiss etdin. Valideynin öyrəndi. Müalicə lazım oldu."
+        }
+      ]
+    },
+    {
+      "title": "Universitetə hazırlıq",
+      "description": "Yay tətilindəsən. Dostların əylənirlər, sən isə kursa getməlisən.",
+      "options": [
+        {
+          "label": "Kursa get",
+          "effects": {
+            "smarts": 25,
+            "happiness": -5
+          },
+          "log": "Bütün yay oxudun. Universitet imtahanında çox yüksək bal topladın."
+        },
+        {
+          "label": "Əylən",
+          "effects": {
+            "happiness": 20,
+            "smarts": -10
+          },
+          "log": "Yayı əyləncəylə keçirdin. İmtahanda balın az çıxdı. İstədiyin universitetə girə bilmədin."
+        }
+      ]
+    },
+    {
+      "title": "Valideyn konflikti",
+      "description": "Anan sənin sevdiyin musiqini 'gurultu' adlandırıb silməyi əmr edir.",
+      "options": [
+        {
+          "label": "Sakit danış",
+          "effects": {
+            "happiness": 10,
+            "smarts": 5
+          },
+          "log": "Musiqi haqqında ananla sakit söhbət etdin. O anladı. Sən kulaqlıqla dinləməyə razı oldun."
+        },
+        {
+          "label": "Bağır",
+          "effects": {
+            "happiness": -20
+          },
+          "log": "Bərkdən bağırdın. Anan ağladı. Sonra çox pis hiss etdin. Üzr istədin."
+        }
+      ]
+    },
+    {
+      "title": "İlk iş müsahibəsi",
+      "description": "Yay üçün part-time iş müsahibənə gedirsən.",
+      "options": [
+        {
+          "label": "Ciddi hazırlaş",
+          "effects": {
+            "smarts": 10,
+            "money": 15,
+            "happiness": 15
+          },
+          "log": "Gözəl hazırlandın. Müsahibəni mükəmməl keçirdin. İşi qazandın!"
+        },
+        {
+          "label": "İmprovize et",
+          "random": true,
+          "effects": {
+            "happiness": -5
+          },
+          "successEffects": {
+            "happiness": 10,
+            "money": 10
+          },
+          "successLog": "Hazırlaşmadan getdin amma xoşbəxtlikdən təbii danışdın. İşi qazandın.",
+          "failLog": "Müsahibədə donub qaldın. İşi qaçırdın. Növbəti dəfə hazırlanmağa söz verdin."
+        }
+      ]
+    },
+    {
+      "title": "Sosial media profili",
+      "description": "Bir tanışın sosial mediada sənin haqqında yalan paylaşım edib.",
+      "options": [
+        {
+          "label": "Dəlil ilə cavab ver",
+          "effects": {
+            "smarts": 10,
+            "happiness": 10
+          },
+          "log": "Faktları ortaya qoydun. Hamı həqiqəti gördü. İtibarın arttı."
+        },
+        {
+          "label": "Onun profilini hack et",
+          "effects": {
+            "happiness": -20,
+            "smarts": -10
+          },
+          "log": "Etdin amma izin tapıldı. Problemə düşdün. Valideynin polisdən məktub aldı."
+        }
+      ]
+    },
+    {
+      "title": "Gönüllü iş",
+      "description": "Yaşlı evinin könüllü proqramına qoşulmaq imkanın var.",
+      "options": [
+        {
+          "label": "Qoşul",
+          "effects": {
+            "happiness": 20,
+            "smarts": 10
+          },
+          "log": "Yaşlılarla vaxt keçirdin. Hekayələrini dinlədin. Həyata baxışın dəyişdi."
+        },
+        {
+          "label": "Keç",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Keçdin. Dosturun oradan çox gözəl hekayələr danışanda qısqandın."
+        }
+      ]
+    },
+    {
+      "title": "Yeni musiqi alət",
+      "description": "Gitara öyrənmək istəyirsən. Dərslər bahalıdır.",
+      "options": [
+        {
+          "label": "Özün öyrən",
+          "effects": {
+            "smarts": 15,
+            "happiness": 15
+          },
+          "log": "YouTube vasitəsilə öyrəndin. 6 ayda ilk mahnını çaldın."
+        },
+        {
+          "label": "Burax",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "'Çox çətindir' dedin. Heç vaxt öyrənmədin. Zamanla peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Gec qayıtmaq",
+      "description": "Dostlarınla xaricdə gec qalmaq istəyirsən. Anan razı deyil.",
+      "options": [
+        {
+          "label": "Razılaş",
+          "effects": {
+            "happiness": -5,
+            "smarts": 5
+          },
+          "log": "Ananın qaydasına razılaşdın. Evə erkən qayıtdın. Münasibətiniz yaxşılaşdı."
+        },
+        {
+          "label": "Gizli get",
+          "random": true,
+          "effects": {
+            "happiness": -10
+          },
+          "successEffects": {
+            "happiness": 10
+          },
+          "successLog": "Anan bilmədi. Əyləncəli gecə keçirdin.",
+          "failLog": "Anan seni müntəzir idi. Böyük dava oldu. Bir ay çölə buraxılmadın."
+        }
+      ]
+    },
+    {
+      "title": "Diplom layihəsi",
+      "description": "Son il layihəsi üçün mövzu seçməlisən. Maraqlı amma çətin, yoxsa asan amma cansıxıcı?",
+      "options": [
+        {
+          "label": "Çətin mövzu seç",
+          "effects": {
+            "smarts": 25,
+            "happiness": 10
+          },
+          "log": "Çətin mövzunu seçdin. Çox çalışdın. Ən yüksək qiymət sənin oldu."
+        },
+        {
+          "label": "Asan mövzu seç",
+          "effects": {
+            "smarts": -5,
+            "happiness": 5
+          },
+          "log": "Asan mövzu seçdin. Orta qiymət aldın. Layihə bitdi. Heç nə öyrənmədın."
+        }
+      ]
+    },
+    {
+      "title": "Peer pressure",
+      "description": "Dostların sənin üçün çox bahalı restorana gedəcəklər. Pulun yoxdur.",
+      "options": [
+        {
+          "label": "Dürüst ol",
+          "effects": {
+            "happiness": 10,
+            "smarts": 5
+          },
+          "log": "'Mənim pulum yoxdur' dedin. Həqiqi dostların anladı. Ucuz yer seçdilər."
+        },
+        {
+          "label": "Kredit kartı iş",
+          "effects": {
+            "money": -15,
+            "happiness": -5
+          },
+          "log": "Getdin. Pulunu istəməkdən utanıb xərclədın. Aylarca borcunla boğuşdun."
+        }
+      ]
+    }
+  ],
+  "youngAdult": [
+    {
+      "title": "Universitet seçimi",
+      "description": "İki universitetə qəbul olunmusan. Biri prestijli amma bahalı, biri sadə amma pulsuz.",
+      "options": [
+        {
+          "label": "Prestijli universitetə get",
+          "effects": {
+            "smarts": 20,
+            "money": -30
+          },
+          "log": "Prestijli universitetə getdin. Çox çalışdın. Məzun olan gün çox fəxr etdin."
+        },
+        {
+          "label": "Pulsuz universitetə get",
+          "effects": {
+            "smarts": 10,
+            "money": 10
+          },
+          "log": "Maliyyə ağıllılığını seçdin. Universiteti bitirdin. Borcla başlamadın həyata."
+        }
+      ]
+    },
+    {
+      "title": "Sevgili",
+      "description": "Bir nəfər sənə çox bağlı olub. Sən isə tək olmağı sevirsən.",
+      "options": [
+        {
+          "label": "Münasibəti qəbul et",
+          "random": true,
+          "effects": {
+            "happiness": -5
+          },
+          "successEffects": {
+            "happiness": 25
+          },
+          "successLog": "Münasibəti qəbul etdin. Həyatının ən xoşbəxt dövrü başladı.",
+          "failLog": "Münasibət düzgün getmədi. Ayrıldınız. Bir müddət üzgün oldun."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Tək qalmağı seçdin. Azadlığını qorudun, amma bəzən tənhalıq hiss etdin."
+        }
+      ]
+    },
+    {
+      "title": "Şirkət təklifi",
+      "description": "Xarici bir şirkət sənə yaxşı maaşla iş təklifi edir. Amma başqa şəhərə köçməlisinə.",
+      "options": [
+        {
+          "label": "Qəbul et",
+          "effects": {
+            "money": 30,
+            "happiness": 10
+          },
+          "log": "Yeni şəhərə köçdün. Əvvəl çətin idi. Sonra yeni həyatını sevdin."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "happiness": 10,
+            "money": -10
+          },
+          "log": "Ailəndən ayrılmadın. Yerli işdə qaldın. Az qazandın ama sevdiklərinlə yaxın oldun."
+        }
+      ]
+    },
+    {
+      "title": "Kredit kartı",
+      "description": "Bank sənə kredit kartı verir. İstədiyin hər şeyi ala bilərsən.",
+      "options": [
+        {
+          "label": "Ağıllı istifadə et",
+          "effects": {
+            "money": 10,
+            "smarts": 5
+          },
+          "log": "Kartı yalnız vacib məsrəflər üçün istifadə etdin. Kredit tarixçən mükəmməl oldu."
+        },
+        {
+          "label": "Hər şey al",
+          "effects": {
+            "happiness": 10,
+            "money": -30
+          },
+          "log": "Hər şeyi aldın. Ay sonunda böyük borc altında qaldın. Stres artdı."
+        }
+      ]
+    },
+    {
+      "title": "Startap",
+      "description": "Dostun sənə startap qurmağı təklif edir. Risklidir amma maraqlıdır.",
+      "options": [
+        {
+          "label": "Qoşul",
+          "random": true,
+          "effects": {
+            "money": -20,
+            "happiness": -5
+          },
+          "successEffects": {
+            "money": 50,
+            "happiness": 30,
+            "smarts": 15
+          },
+          "successLog": "Startapınız uğur qazandı! İki il sonra böyük şirkət sizi satın aldı.",
+          "failLog": "Startap bağlandı. Pulunu itirdin. Amma çox şey öyrəndin."
+        },
+        {
+          "label": "Sabit işdə qal",
+          "effects": {
+            "money": 10,
+            "happiness": 5
+          },
+          "log": "Sabit işdə qaldın. Riski almadın. Arxayın amma bəzən 'ya olsaydı' fikirləşdin."
+        }
+      ]
+    },
+    {
+      "title": "Sağlamlıq",
+      "description": "İdmana başlamaq istəyirsən amma vaxt azdır.",
+      "options": [
+        {
+          "label": "Hər gün 30 dəqiqə",
+          "effects": {
+            "health": 20,
+            "looks": 10,
+            "happiness": 10
+          },
+          "log": "Hər gün 30 dəqiqə idman etdin. 3 ayda özünü tanımadın. Həyatın dəyişdi."
+        },
+        {
+          "label": "Sonraya burax",
+          "effects": {
+            "health": -10
+          },
+          "log": "'Sonra başlayacam' dedin. Aylar keçdi, heç vaxt başlamadın."
+        }
+      ]
+    },
+    {
+      "title": "Köçmək",
+      "description": "Valideynlərin evindən ayrılıb öz evinə köçmək istəyirsən.",
+      "options": [
+        {
+          "label": "Köç",
+          "effects": {
+            "happiness": 20,
+            "money": -15,
+            "smarts": 10
+          },
+          "log": "Öz evinə köçdün. Müstəqillik çox gözəldi. Məsuliyyəti öyrəndin."
+        },
+        {
+          "label": "Qal",
+          "effects": {
+            "money": 15,
+            "happiness": -5
+          },
+          "log": "Valideynlərinin yanında qaldın. Pul yığdın. Amma müstəqilliyi gecikdirdin."
+        }
+      ]
+    },
+    {
+      "title": "Nikahlı dost",
+      "description": "Evlənmiş dostun sənə nikahın çətin olduğunu danışır. Nə deyirsən?",
+      "options": [
+        {
+          "label": "Dəstək ol",
+          "effects": {
+            "happiness": 10
+          },
+          "log": "Onu dinlədın. O çox minətdar oldu. Dostluğunuz dərinləşdi."
+        },
+        {
+          "label": "Laqeyd ol",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Onu dinləmək istəmədin. Dostluğunuz zamanla soyudu."
+        }
+      ]
+    },
+    {
+      "title": "Peşəkar inkişaf",
+      "description": "Şirkətin xarici ölkədə kurs təklif edir. 2 aylıq. Pulsuz.",
+      "options": [
+        {
+          "label": "Get",
+          "effects": {
+            "smarts": 25,
+            "happiness": 15,
+            "money": 10
+          },
+          "log": "2 ay ərzində çox şey öyrəndin. Yeni dil, yeni mədəniyyət, yeni peşə bacarıqları."
+        },
+        {
+          "label": "Qəbul etmə",
+          "effects": {
+            "happiness": 5
+          },
+          "log": "İmkanı buraxdın. Həmkarın getdi. Bir il sonra onu terfi etdirdilər."
+        }
+      ]
+    },
+    {
+      "title": "Valideyn köməyi",
+      "description": "Atan xəstəxanaya düşdü. Pulun azdır. Kredit götürməlisən.",
+      "options": [
+        {
+          "label": "Hər şeyi et",
+          "effects": {
+            "money": -20,
+            "happiness": 15
+          },
+          "log": "Kredit götürdün. Atanı müalicə etdirdin. O sağaldı. Ən doğru qərar idi."
+        },
+        {
+          "label": "Pul yığana qədər gözlə",
+          "effects": {
+            "money": 5,
+            "happiness": -25
+          },
+          "log": "Gözlədin. Ata vəziyyəti pisləşdi. Özünü bağışlaya bilmədin."
+        }
+      ]
+    },
+    {
+      "title": "Pərakəndə alış",
+      "description": "Satışda olan bahalı geyim kolleksiyasını görmüsən. Qiymət hələ də yüksəkdir.",
+      "options": [
+        {
+          "label": "Al",
+          "effects": {
+            "happiness": 10,
+            "money": -15,
+            "looks": 10
+          },
+          "log": "Aldın. Geyindiyin gün hamı baxdı. Özünü çox yaxşı hiss etdin."
+        },
+        {
+          "label": "Gözlə",
+          "effects": {
+            "money": 10
+          },
+          "log": "Səbr etdin. Ay sonunda daha da enişli oldu. Ağıllı alış etdin."
+        }
+      ]
+    },
+    {
+      "title": "Uzaq münasibət",
+      "description": "Sevgilinin başqa şəhərə işə keçdi. Uzaq münasibəti qorumaq istəyirsiniz.",
+      "options": [
+        {
+          "label": "Cəhd et",
+          "random": true,
+          "effects": {
+            "happiness": -5
+          },
+          "successEffects": {
+            "happiness": 25
+          },
+          "successLog": "Uzaqlıq sınaqdan çıxdı. 2 ildən sonra bir araya gəldiniz.",
+          "failLog": "Uzaq münasibət çətin oldu. Ayrıldınız. Ürək sıxıntısı yaşadın."
+        },
+        {
+          "label": "Qoy bitsin",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "Bitirdin. Ağrılı idi amma irəli getdin."
+        }
+      ]
+    },
+    {
+      "title": "Qidalanma seçimi",
+      "description": "Fast food hər gün hazır və ucuzdur. Yoxsa bişirib yemək?",
+      "options": [
+        {
+          "label": "Bişir",
+          "effects": {
+            "health": 15,
+            "money": 10
+          },
+          "log": "Yemək bişirməyi öyrəndin. Sağlam oldun, pul da yığdın."
+        },
+        {
+          "label": "Fast food",
+          "effects": {
+            "health": -15,
+            "money": -10
+          },
+          "log": "Hər gün fast food. Bir ildən sonra həkim müayinəsindəki nəticələr sənizi qorxutdu."
+        }
+      ]
+    },
+    {
+      "title": "Dost xahişi",
+      "description": "Dostun sənin adına referens məktubu yazmağını istəyir iş üçün. Onun keyfiyyətlərini həqiqətən bilmirsən.",
+      "options": [
+        {
+          "label": "Dürüst məktub yaz",
+          "effects": {
+            "smarts": 10,
+            "happiness": 5
+          },
+          "log": "Bildiklərini yazdın. Dürüst oldun. Dost da bunu qiymətləndirdi."
+        },
+        {
+          "label": "Şişirt",
+          "effects": {
+            "money": -5,
+            "happiness": -10
+          },
+          "log": "Şişirdin. Dost işi aldı amma öhdəsindən gələ bilmədi. Sən üzüntü yaşadın."
+        }
+      ]
+    },
+    {
+      "title": "Sağlam yuxu",
+      "description": "Gec yatmaq vərdiş halına gəlib. Həkim 8 saat yuxunu tövsiyə edir.",
+      "options": [
+        {
+          "label": "Rutini dəyiş",
+          "effects": {
+            "health": 20,
+            "smarts": 10,
+            "happiness": 10
+          },
+          "log": "Tez yatıb tez oyanmağa başladın. Həyat keyfiyyətin inanılmaz artdı."
+        },
+        {
+          "label": "Elə keçin",
+          "effects": {
+            "health": -10,
+            "smarts": -5
+          },
+          "log": "Davam etdin. Yavaş-yavaş diqqətin azaldı, yorğunluq artdı."
+        }
+      ]
+    },
+    {
+      "title": "Bağışlanma",
+      "description": "Uşaqlıqda sənə pislik edən biri üzr istəyir. Nə edirsən?",
+      "options": [
+        {
+          "label": "Bağışla",
+          "effects": {
+            "happiness": 20
+          },
+          "log": "Bağışladın. O ağladı. Sən isə ürəyindən ağır yükün qalxdığını hiss etdin."
+        },
+        {
+          "label": "Bağışlama",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "Bağışlamadın. Hər dəfə onu görəndə o ağır hiss geri gəldi."
+        }
+      ]
+    },
+    {
+      "title": "Meditasiya",
+      "description": "Stres çox artıb. Bir dost meditasiya tətbiqini tövsiyə edir.",
+      "options": [
+        {
+          "label": "Sına",
+          "effects": {
+            "health": 10,
+            "happiness": 20,
+            "smarts": 5
+          },
+          "log": "Hər gün 10 dəqiqə. 30 gün sonra həyatın dəyişdiyini gördün."
+        },
+        {
+          "label": "Boş şeydir",
+          "effects": {
+            "health": -10,
+            "happiness": -10
+          },
+          "log": "'Boş şeydir' dedin. Stres artmağa davam etdi."
+        }
+      ]
+    }
+  ],
+  "middleAge": [
+    {
+      "title": "Karyera zirvəsi",
+      "description": "Müdir vəzifəsinə namizəd göstərilirsən. Çox məsuliyyət var.",
+      "options": [
+        {
+          "label": "Qəbul et",
+          "effects": {
+            "money": 30,
+            "smarts": 10,
+            "happiness": 10
+          },
+          "log": "Müdir oldun. Çətin idi amma öz yerin haqqında fəxr etdin."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "happiness": 10,
+            "money": -10
+          },
+          "log": "Rədd etdin. Daha az stresli oldun. Ailənlə daha çox vaxt keçirdin."
+        }
+      ]
+    },
+    {
+      "title": "Övlad problemi",
+      "description": "Uşağın məktəbdə dava edib. Müəllim görüşmək istəyir.",
+      "options": [
+        {
+          "label": "Hər şeyi din",
+          "effects": {
+            "happiness": 10,
+            "smarts": 5
+          },
+          "log": "Müəllimlə açıq danışdın. Uşağın problemini anladın. Birlikdə həll yolu tapdınız."
+        },
+        {
+          "label": "Uşağı müdafiə et",
+          "effects": {
+            "happiness": -15
+          },
+          "log": "Müəllimə üstün çıxdın. Amma uşağın davranışı pisləşdi. Peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Sağlıq yoxlaması",
+      "description": "Həkim illik yoxlama üçün çağırır. Məşğulsan.",
+      "options": [
+        {
+          "label": "Get",
+          "effects": {
+            "health": 20
+          },
+          "log": "Getdin. Kiçik problem aşkarlandı. Vaxtında müalicə etdin. Böyük bəladan qurtardın."
+        },
+        {
+          "label": "Burax",
+          "effects": {
+            "health": -15
+          },
+          "log": "Gecikdirdin. Sonra problem böyüdü. Çox vaxt və pul xərcləndi."
+        }
+      ]
+    },
+    {
+      "title": "Ev almaq",
+      "description": "Gözəl bir ev tapsan. Amma çox bahadır. İpoteka götürmək lazım olacaq.",
+      "options": [
+        {
+          "label": "Al",
+          "effects": {
+            "money": -20,
+            "happiness": 25
+          },
+          "log": "Evi aldın. İlk gecə öz evindəki hissi heç nəyə dəyişməzdin."
+        },
+        {
+          "label": "Kirayədə qal",
+          "effects": {
+            "money": 10,
+            "happiness": -5
+          },
+          "log": "Daha əlverişli ev axtarmağa davam etdin. Pul yığdın amma öz evin yox idi."
+        }
+      ]
+    },
+    {
+      "title": "Köhnə dost",
+      "description": "Universitetdən köhnə dostun sənlə əlaqə saxladı. Pul istəyir.",
+      "options": [
+        {
+          "label": "Ver",
+          "random": true,
+          "effects": {
+            "money": -10
+          },
+          "successEffects": {
+            "happiness": 10,
+            "money": 10
+          },
+          "successLog": "Verdin. O pulu geri qaytardı. Dostluğunuz möhkəmləndi.",
+          "failLog": "Verdin. O bir daha görünmədi. Pulu qaçırdın. Xeyir olsun!"
+        },
+        {
+          "label": "Vermə",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Rədd etdin. O incimiş kimi göründü. Amma sonra sağ oldu ki, vermişdin."
+        }
+      ]
+    },
+    {
+      "title": "Ailə toyu",
+      "description": "Qohum toyuna dəvətlisən. Vacib iş görüşün var o gün.",
+      "options": [
+        {
+          "label": "Toya get",
+          "effects": {
+            "happiness": 20
+          },
+          "log": "Toya getdin. Ailənlə keçirdiyin vaxt sənin üçün qiymətliydi. Xoş xatirələr qaldı."
+        },
+        {
+          "label": "İşdə qal",
+          "effects": {
+            "money": 10,
+            "happiness": -10
+          },
+          "log": "İşi seçdin. İş uğurlu keçdi. Amma ailən narazı qaldı."
+        }
+      ]
+    },
+    {
+      "title": "Sağlam yemək",
+      "description": "Həkim kolesterol həddindən artıq olduğunu deyir. Pəhriz lazımdır.",
+      "options": [
+        {
+          "label": "Dərhal dəyiş",
+          "effects": {
+            "health": 25,
+            "happiness": -5
+          },
+          "log": "Qidalanma vərdişlərini dəyişdin. 3 ayda nəticə gözəl oldu. Özünü yeni adam kimi hiss etdin."
+        },
+        {
+          "label": "Elə keçinirəm",
+          "effects": {
+            "health": -20
+          },
+          "log": "'Elə keçinirəm' dedin. Altı ay sonra hospitala düşdün."
+        }
+      ]
+    },
+    {
+      "title": "Şirkətdə haqsızlıq",
+      "description": "Bir həmkarın sənin işini özününkü kimi təqdim etdi. Hamı görüb.",
+      "options": [
+        {
+          "label": "Açıq danış",
+          "effects": {
+            "happiness": 15,
+            "smarts": 5
+          },
+          "log": "Vəziyyəti rəhbərliyə bildirdin. Həqiqət üzə çıxdı. Ədalət bərpa olundu."
+        },
+        {
+          "label": "Sus",
+          "effects": {
+            "happiness": -15
+          },
+          "log": "Susqun qaldın. Həmkarın terfi aldı. Sən isə öz susqunluğuna peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Pensiya fondu",
+      "description": "Pensiya üçün pul yığmağa başlamaq lazımdır. Hər ay 200 manat.",
+      "options": [
+        {
+          "label": "Başla",
+          "effects": {
+            "money": 20,
+            "happiness": 5
+          },
+          "log": "Hər ay yığmağa başladın. İllər sonra bu qərar sənin ən ağıllı addımın oldu."
+        },
+        {
+          "label": "Sonraya burax",
+          "effects": {
+            "money": -10
+          },
+          "log": "'Sonra başlayacam' dedin. İllər keçdi. Pensiyaya az vaxt qalarkən çox narahat oldun."
+        }
+      ]
+    },
+    {
+      "title": "Keçmiş peşmanlıq",
+      "description": "Gənclikdə bitirmədiyin universiteti indi distant olaraq bitirmək imkanın var.",
+      "options": [
+        {
+          "label": "Qeydiyyatdan keç",
+          "effects": {
+            "smarts": 20,
+            "money": 15,
+            "happiness": 15
+          },
+          "log": "Distant olaraq oxudun. 3 ildə bitirdin. Diplom aldın. Heç vaxt gec deyil!"
+        },
+        {
+          "label": "Burax",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "'Artıq gec' dedin. Amma həmkarların diplomu ilə irəliləyəndə peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Könüllü liderlik",
+      "description": "Məhəllə icmasına lider lazımdır. Sənin adını vermək istəyirlər.",
+      "options": [
+        {
+          "label": "Qəbul et",
+          "effects": {
+            "happiness": 20,
+            "smarts": 10
+          },
+          "log": "Qəbul etdin. Məhəlləni inkişaf etdirdin. Hamı sənə hörmət etdi."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Rədd etdin. Başqası mövqeyi aldı. Nəticə pis oldu. Peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Köhnə sevgi",
+      "description": "İlk sevgin sosial mediada sənlə əlaqə saxladı. Ailəli ikisi də.",
+      "options": [
+        {
+          "label": "Nəzakətlə rədd et",
+          "effects": {
+            "happiness": 5
+          },
+          "log": "Sadəcə köhnə dost kimi salamlaşdın. Öz ailəna sadiqliyini qorudun."
+        },
+        {
+          "label": "Gizli görüşlər başlat",
+          "effects": {
+            "happiness": -30,
+            "money": -10
+          },
+          "log": "Başlattın. Ailən öyrəndi. Hər şey dağıldı. Ən ağır dövr başladı."
+        }
+      ]
+    },
+    {
+      "title": "Şirkət etikası",
+      "description": "Şirkətin qeyri-etik bir sxem həyata keçirir. Sən bunu bilirsən.",
+      "options": [
+        {
+          "label": "İfşa et",
+          "effects": {
+            "smarts": 15,
+            "happiness": 10,
+            "money": -10
+          },
+          "log": "İfşa etdin. İşini itirdin amma daxili rahat oldun. Sonra daha yaxşı iş tapdın."
+        },
+        {
+          "label": "Sus",
+          "effects": {
+            "money": 10,
+            "happiness": -20
+          },
+          "log": "Susqun qaldın. Pul qazandın amma özünü mənəvi cəhətdən boş hiss etdin."
+        }
+      ]
+    },
+    {
+      "title": "Sağlam vərdiş",
+      "description": "Həkimin siqareti buraxmağı tövsiyə edir. 20 ildir çəkirsən.",
+      "options": [
+        {
+          "label": "Burax",
+          "effects": {
+            "health": 30,
+            "money": 15,
+            "happiness": 10
+          },
+          "log": "Buraxdın. İlk aylar çətin idi. Amma 6 ayda özünü yeni adam kimi hiss etdin."
+        },
+        {
+          "label": "Davam et",
+          "effects": {
+            "health": -25
+          },
+          "log": "Davam etdin. 2 il sonra ciyər problemi başladı."
+        }
+      ]
+    },
+    {
+      "title": "Online kurs",
+      "description": "Şirkətin yeni texnologiya üçün kurs pulunu ödəyir. Axşamlar vaxt ayırmaq lazım.",
+      "options": [
+        {
+          "label": "Qeydiyyatdan keç",
+          "effects": {
+            "smarts": 20,
+            "money": 15
+          },
+          "log": "Kursu bitirdin. Yeni bacarıqlar şirkətdə sənə terfi qazandırdı."
+        },
+        {
+          "label": "Keç",
+          "effects": {
+            "smarts": -5
+          },
+          "log": "Keçdin. Gənc həmkarlar o texnologiyanı bildikləri üçün sən geridə qaldın."
+        }
+      ]
+    }
+  ],
+  "senior": [
+    {
+      "title": "Pensiya",
+      "description": "Pensiyaya çıxma vaxtı gəldi. Amma müdirin qalmanı istəyir.",
+      "options": [
+        {
+          "label": "Qal",
+          "effects": {
+            "money": 20,
+            "health": -10
+          },
+          "log": "Qaldın. Daha çox pul qazandın. Amma yorğunluq artdı."
+        },
+        {
+          "label": "Pensiyaya çıx",
+          "effects": {
+            "happiness": 25,
+            "health": 10
+          },
+          "log": "Pensiyaya çıxdın. İlk azad günün çox xoş keçdi. Ailənlə vaxt keçirdin."
+        }
+      ]
+    },
+    {
+      "title": "Sağlamlıq",
+      "description": "Həkim gündəlik gəzinti etməyi tövsiyə edir. Amma sən televizor izləməyi sevirsən.",
+      "options": [
+        {
+          "label": "Gəzintiyə çıx",
+          "effects": {
+            "health": 20,
+            "happiness": 15
+          },
+          "log": "Hər gün 30 dəqiqə gəzintiyə çıxdın. Qonşularla tanış oldun. Özünü çox yaxşı hiss etdin."
+        },
+        {
+          "label": "Evdə otur",
+          "effects": {
+            "health": -15,
+            "happiness": -10
+          },
+          "log": "Evdə oturdun. Zamanla özünü tənha və yorğun hiss etdin."
+        }
+      ]
+    },
+    {
+      "title": "Nəvə",
+      "description": "Nəvən sənə rəsm çəkməyi öyrətməni xahiş edir.",
+      "options": [
+        {
+          "label": "Öyrət",
+          "effects": {
+            "happiness": 30
+          },
+          "log": "Həftələrlə birlikdə rəsm çəkdiniz. Nəvən sənin portretini çəkdi. Həyatının ən gözəl yadıgarı."
+        },
+        {
+          "label": "Yorğanam",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "'Yorğanam' dedin. Nəvən üzüldü. Sonradan vaxtı qaçırdığına görə peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Köhnə ev",
+      "description": "Köhnə evinizi satmaq lazım gəlir. Xatirələr dolu yerdir.",
+      "options": [
+        {
+          "label": "Sat",
+          "effects": {
+            "money": 30,
+            "happiness": -10
+          },
+          "log": "Sattın. Pul lazım idi. Amma hər payız o evin pəncərəsini yadına saldın."
+        },
+        {
+          "label": "Saxla",
+          "effects": {
+            "happiness": 15,
+            "money": -10
+          },
+          "log": "Saxladın. Hər yay ailənlə oraya getdiniz. Ən gözəl xatirə yeri oldu."
+        }
+      ]
+    },
+    {
+      "title": "Xeyirxahlıq",
+      "description": "Bir xeyriyyə fondu sənin yardımını istəyir.",
+      "options": [
+        {
+          "label": "Yardım et",
+          "effects": {
+            "happiness": 20,
+            "money": -10
+          },
+          "log": "Yardım etdin. Həmin uşaqların sevinc ifadəsini heç vaxt unutmadın."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Rədd etdin. Sonra o fondun uğurlarını görəndə bir az kədərləndin."
+        }
+      ]
+    },
+    {
+      "title": "Xatirə kitabı",
+      "description": "Həyat hekayənizi yazmağı planlaşdırırsan. Vaxt aparır.",
+      "options": [
+        {
+          "label": "Yaz",
+          "effects": {
+            "happiness": 25,
+            "smarts": 10
+          },
+          "log": "Yazmağa başladın. Bir il sonra kitab hazır idi. Ailən onu töhfə olaraq qəbul etdi."
+        },
+        {
+          "label": "Burax",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "'Sonra yazacam' dedin. Amma hekayələrin yavaş-yavaş unuduldu."
+        }
+      ]
+    },
+    {
+      "title": "Gənclik həvəsi",
+      "description": "Gənclikdə öyrənmək istədiyin gitara dərsi indi var. Heç vaxt gec deyil?",
+      "options": [
+        {
+          "label": "Başla",
+          "effects": {
+            "happiness": 25,
+            "smarts": 5
+          },
+          "log": "Gitara dərslərinə başladın. 6 ayda sevimli mahnını çaldın. Nəvən alqış çaldı."
+        },
+        {
+          "label": "Gec deyilmi",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "'Artıq gec' dedin. Amma dərsdəki 70 yaşlı qadını görəndə peşman oldun."
+        }
+      ]
+    },
+    {
+      "title": "Qonşu münasibəti",
+      "description": "Qonşun səs-küy edir. Nə edirsən?",
+      "options": [
+        {
+          "label": "Mehribanlıqla danış",
+          "effects": {
+            "happiness": 15
+          },
+          "log": "Mehribanlıqla danışdın. O üzr istədi. Sonradan çox yaxın qonşular oldunuz."
+        },
+        {
+          "label": "Şikayət et",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "Şikayət etdin. Qonşun incimiş qaldı. Hər dəfə görüşəndə gərgin olurdunuz."
+        }
+      ]
+    },
+    {
+      "title": "Texnologiya",
+      "description": "Nəvən sənə smartfon istifadəsini öyrədəcək.",
+      "options": [
+        {
+          "label": "Öyrən",
+          "effects": {
+            "smarts": 10,
+            "happiness": 20
+          },
+          "log": "Öyrəndin. Artıq ailə qrupunda aktiv idın. Video zəng etməyi sevdin."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "'Bacarammaram' dedin. Ailə söhbətlərindən kənarda qaldın."
+        }
+      ]
+    },
+    {
+      "title": "Son seçim",
+      "description": "Həyatın boyu toplanan bütün var-dövlətini nə edəcəksən?",
+      "options": [
+        {
+          "label": "Ailənə burax",
+          "effects": {
+            "happiness": 30
+          },
+          "log": "Hər şeyi ailənə bağışladın. Onların sevinc göz yaşları sənin ən böyük mükavatın oldu."
+        },
+        {
+          "label": "Xeyriyyəyə ver",
+          "effects": {
+            "happiness": 25,
+            "smarts": 10
+          },
+          "log": "Var-dövlətini xeyriyyəyə verdin. Adın şəhərdə bir kitabxanaya verildi. Əbədi yaşadın."
+        }
+      ]
+    },
+    {
+      "title": "Sağlam ağıl",
+      "description": "Beyin məşqləri üçün krossvord həll etmə qrupu var.",
+      "options": [
+        {
+          "label": "Qoşul",
+          "effects": {
+            "smarts": 15,
+            "happiness": 20
+          },
+          "log": "Həftəlik qrupa qoşuldun. Yeni dostlar qazandın. Beynin canlı qaldı."
+        },
+        {
+          "label": "Ev qal",
+          "effects": {
+            "smarts": -10,
+            "happiness": -10
+          },
+          "log": "Evdə tək qaldın. Zamanla yaddaşın zəiflədi."
+        }
+      ]
+    },
+    {
+      "title": "Nəvəyə töhfə",
+      "description": "Nəvən universitetə gedir. Pul gərəkdir.",
+      "options": [
+        {
+          "label": "Köməyi ver",
+          "effects": {
+            "money": -15,
+            "happiness": 25
+          },
+          "log": "Qənaətsizliyinə rəğmən kömək etdin. Nəvən məzun olduğu gün ağladı."
+        },
+        {
+          "label": "Gözlə",
+          "effects": {
+            "money": 10,
+            "happiness": -10
+          },
+          "log": "Gözlədin. Nəvən kreditlə başladı. Sonra özünü günahkar hiss etdin."
+        }
+      ]
+    },
+    {
+      "title": "Ev baxımı",
+      "description": "Uşaqların istəyir ki, qocalar evinə gedəsən. Ev çox sakit olub.",
+      "options": [
+        {
+          "label": "Qəbul et",
+          "effects": {
+            "happiness": 15,
+            "health": 10
+          },
+          "log": "Qəbul etdin. Orada yeni dostlar tapdın. Fəaliyyət artdı. Tənhalıq azaldı."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "happiness": -10,
+            "health": -5
+          },
+          "log": "Rədd etdin. Evdə tənha qaldın. Uşaqlar narahat oldu."
+        }
+      ]
+    },
+    {
+      "title": "Həyat balansi",
+      "description": "Bir həyat məşqçisi təklifin var - həyatını yenidən nəzərdən keçirmək üçün.",
+      "options": [
+        {
+          "label": "Razılaş",
+          "effects": {
+            "happiness": 25,
+            "smarts": 10
+          },
+          "log": "Razılaşdın. Seanslar sənə çox şey öyrətdi. Axır illərini daha şüurlu yaşadın."
+        },
+        {
+          "label": "Rədd et",
+          "effects": {
+            "happiness": -5
+          },
+          "log": "'Bu yaşda?' dedin. Amma müşahidə etdiyin dəyişiklikləri özünə tətbiq etmək çətin oldu."
+        }
+      ]
+    },
+    {
+      "title": "Miras məktubu",
+      "description": "Övladlarına miras məktubu yazacaqsan. Hər sözün önəmlidir.",
+      "options": [
+        {
+          "label": "Ürəkdən yaz",
+          "effects": {
+            "happiness": 30
+          },
+          "log": "Hər söz ürəkdən gəldi. Məktub oxunanda hamı ağladı. Söyləmək istədiyin hər şeyi söylədin."
+        },
+        {
+          "label": "Sonraya burax",
+          "effects": {
+            "happiness": -10
+          },
+          "log": "'Sonra yazacam' dedin. Amma bu 'sonra' heç vaxt gəlmədi."
+        }
+      ]
+    }
+  ]
+}
