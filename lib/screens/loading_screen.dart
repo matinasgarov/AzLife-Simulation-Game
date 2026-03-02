@@ -39,7 +39,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
             const SizedBox(height: 20),
             Text(
               "Simulating life in Azerbaijan...",
-              style: TextStyle(color: Colors.white.withOpacity(0.8)),
+              style: TextStyle(color: Colors.white.withValues(alpha: 0.8)),
             ),
           ],
         ),

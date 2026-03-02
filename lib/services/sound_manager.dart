@@ -1,13 +1,16 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/foundation.dart';
 
 class SoundManager {
   static final AudioPlayer _player = AudioPlayer();
 
   static Future<void> playSound(String fileName) async {
     try {
+      // For audioplayers ^5.2.1, AssetSource starts FROM the root of the 'assets' folder defined in pubspec.
+      // After moving files to root assets folder, use this path:
       await _player.play(AssetSource('sounds/$fileName'));
     } catch (e) {
-      print("Error playing sound: $e");
+      debugPrint("Error playing sound: $e");
     }
   }
 

@@ -158,7 +158,7 @@ class ActivitiesScreen extends StatelessWidget {
                     leading: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: activity.isSchoolActivity ? Colors.orange.withOpacity(0.1) : Colors.blueAccent.withOpacity(0.1),
+                        color: activity.isSchoolActivity ? Colors.orange.withValues(alpha: 0.1) : Colors.blueAccent.withValues(alpha: 0.1),
                         shape: BoxShape.circle,
                       ),
                       child: Icon(activity.icon, color: activity.isSchoolActivity ? Colors.orange : Colors.blueAccent),

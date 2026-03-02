@@ -22,5 +22,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/assets/decisions.json
-    - lib/assets/sounds/
+    - assets/decisions.json
+    - assets/sounds/

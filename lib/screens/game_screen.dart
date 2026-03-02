@@ -52,7 +52,7 @@ class _GameScreenState extends State<GameScreen> {
 
   Future<void> _loadDecisions() async {
     try {
-      final String response = await rootBundle.loadString('lib/asset/decisions.json');
+      final String response = await rootBundle.loadString('assets/decisions.json');
       final data = await json.decode(response);
       setState(() {
         _allDecisions = data;
@@ -340,7 +340,7 @@ class _GameScreenState extends State<GameScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min, 
             children: [
-              Container(padding: const EdgeInsets.all(10), decoration: BoxDecoration(color: const Color(0xFFF8F8F8), borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.black.withOpacity(0.05))), child: Icon(icon, size: 24, color: Colors.black87)), 
+              Container(padding: const EdgeInsets.all(10), decoration: BoxDecoration(color: const Color(0xFFF8F8F8), borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.black.withOpacity(0.05))), child: Icon(icon, size: 24, color: Colors.black87)),
               const SizedBox(height: 4), 
               Text(label, textAlign: TextAlign.center, style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold))
             ]
