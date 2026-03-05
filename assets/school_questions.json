@@ -1,0 +1,479 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "subject": "math",
+      "question": "2 + 2 = ?",
+      "options": ["3", "4", "5", "6"],
+      "correctIndex": 1,
+      "successLog": "Düzgün! 2 + 2 = 4. Müəllim başını yellədi.",
+      "failLog": "Səhv! 2 + 2 = 4-dür. Sinif güldü, üzün qızardı."
+    },
+    {
+      "id": 2,
+      "subject": "math",
+      "question": "5 × 3 = ?",
+      "options": ["10", "12", "15", "18"],
+      "correctIndex": 2,
+      "successLog": "Əla! 5 × 3 = 15. Müəllim sənə 'Afərin!' dedi.",
+      "failLog": "Səhv! 5 × 3 = 15-dir. Bir az daha diqqətli ol."
+    },
+    {
+      "id": 3,
+      "subject": "math",
+      "question": "10 - 4 = ?",
+      "options": ["5", "6", "7", "8"],
+      "correctIndex": 1,
+      "successLog": "Düzgün! 10 - 4 = 6. Sən cəbrdə çox güclüsən!",
+      "failLog": "Səhv cavab! 10 - 4 = 6-dır. Müəllim qaşlarını çatdı."
+    },
+    {
+      "id": 4,
+      "subject": "math",
+      "question": "20 ÷ 4 = ?",
+      "options": ["4", "5", "6", "7"],
+      "correctIndex": 1,
+      "successLog": "Mükəmməl! 20 ÷ 4 = 5. Sinif sənə alqış çaldı.",
+      "failLog": "Səhv! 20 ÷ 4 = 5-dir. Növbəti dəfə daha diqqətli ol."
+    },
+    {
+      "id": 5,
+      "subject": "math",
+      "question": "7 + 8 = ?",
+      "options": ["13", "14", "15", "16"],
+      "correctIndex": 2,
+      "successLog": "Doğru! 7 + 8 = 15. Sürətli hesablamağı bacarırsan.",
+      "failLog": "Yanlış! 7 + 8 = 15-dir. Barmaqlarını say!"
+    },
+    {
+      "id": 6,
+      "subject": "math",
+      "question": "100 - 37 = ?",
+      "options": ["53", "63", "73", "67"],
+      "correctIndex": 1,
+      "successLog": "Əla! 100 - 37 = 63. Müəllim sənin adını lövhəyə yazdı.",
+      "failLog": "Düzgün deyil! Cavab 63-dür. Yenidən hesabla."
+    },
+    {
+      "id": 7,
+      "subject": "math",
+      "question": "9 × 9 = ?",
+      "options": ["72", "81", "90", "78"],
+      "correctIndex": 1,
+      "successLog": "Bravo! 9 × 9 = 81. Çoxaltma cədvəlini yaxşı bilirsən.",
+      "failLog": "Səhv! 9 × 9 = 81-dir. Çoxaltma cədvəlini yenidən öyrən."
+    },
+    {
+      "id": 8,
+      "subject": "math",
+      "question": "Üçbucağın neçə tərəfi var?",
+      "options": ["2", "3", "4", "5"],
+      "correctIndex": 1,
+      "successLog": "Düzgün! Üçbucağın 3 tərəfi var. Çox sadə, elə deyilmi?",
+      "failLog": "Səhv! Üçbucağın 3 tərəfi var. Adından da bilinir!"
+    },
+    {
+      "id": 9,
+      "subject": "math",
+      "question": "50 + 50 = ?",
+      "options": ["90", "100", "110", "150"],
+      "correctIndex": 1,
+      "successLog": "Doğru! 50 + 50 = 100. Asandı, eləmi?",
+      "failLog": "Yanlış! 50 + 50 = 100-dür. Bu çox asan idi..."
+    },
+    {
+      "id": 10,
+      "subject": "math",
+      "question": "12 ÷ 3 = ?",
+      "options": ["3", "4", "5", "6"],
+      "correctIndex": 1,
+      "successLog": "Mükəmməl! 12 ÷ 3 = 4. Bölmə əməliyyatını gözəl bilirsən.",
+      "failLog": "Səhv! 12 ÷ 3 = 4-dür. Daha diqqətli ol."
+    },
+    {
+      "id": 11,
+      "subject": "math",
+      "question": "Kvadratın neçə tərəfi var?",
+      "options": ["3", "4", "5", "6"],
+      "correctIndex": 1,
+      "successLog": "Əla! Kvadratın 4 tərəfi var. Həm də hamısı bərabərdir!",
+      "failLog": "Yanlış! Kvadratın 4 tərəfi var. Həndəsəni daha yaxşı öyrən."
+    },
+    {
+      "id": 12,
+      "subject": "math",
+      "question": "15 + 15 = ?",
+      "options": ["25", "30", "35", "40"],
+      "correctIndex": 1,
+      "successLog": "Doğru! 15 + 15 = 30. Tez hesabladın!",
+      "failLog": "Səhv! 15 + 15 = 30-dur. Yenidən say."
+    },
+    {
+      "id": 13,
+      "subject": "math",
+      "question": "3² (3 kvadrat) = ?",
+      "options": ["6", "8", "9", "12"],
+      "correctIndex": 2,
+      "successLog": "Bravo! 3² = 9-dur. Qüvvətləri yaxşı bilirsən!",
+      "failLog": "Səhv! 3² = 3 × 3 = 9-dur. Qüvvəti xatırla."
+    },
+    {
+      "id": 14,
+      "subject": "math",
+      "question": "1000-dən 1 çıxsan nə olar?",
+      "options": ["998", "999", "1001", "990"],
+      "correctIndex": 1,
+      "successLog": "Doğru! 1000 - 1 = 999. Sadə amma gözəl!",
+      "failLog": "Yanlış! 1000 - 1 = 999-dur. Belə sadə sualda səhv etdin."
+    },
+    {
+      "id": 15,
+      "subject": "math",
+      "question": "6 × 7 = ?",
+      "options": ["36", "42", "48", "54"],
+      "correctIndex": 1,
+      "successLog": "Əla! 6 × 7 = 42. Çoxaltma cədvəlini mənimsəmisən!",
+      "failLog": "Səhv! 6 × 7 = 42-dir. Çoxaltma cədvəlini yenidən bax."
+    },
+    {
+      "id": 16,
+      "subject": "math",
+      "question": "Dairənin mərkəzindən kənara olan xəttə nə deyilir?",
+      "options": ["Diametr", "Radius", "Veter", "Çevrə"],
+      "correctIndex": 1,
+      "successLog": "Düzgün! Radiusdur. Həndəsəni gözəl bilirsən.",
+      "failLog": "Yanlış! Dairənin mərkəzindən kənara olan xətt radiusdur."
+    },
+    {
+      "id": 17,
+      "subject": "math",
+      "question": "25 × 4 = ?",
+      "options": ["80", "90", "100", "120"],
+      "correctIndex": 2,
+      "successLog": "Mükəmməl! 25 × 4 = 100. Sürətli düşündün!",
+      "failLog": "Yanlış! 25 × 4 = 100-dür. Yenidən hesabla."
+    },
+    {
+      "id": 18,
+      "subject": "geography",
+      "question": "Azərbaycanın paytaxtı hansıdır?",
+      "options": ["Gəncə", "Bakı", "Sumqayıt", "Lənkəran"],
+      "correctIndex": 1,
+      "successLog": "Əlbəttə! Bakı Azərbaycanın paytaxtıdır. Əla!",
+      "failLog": "Ayıb! Azərbaycanın paytaxtı Bakıdır. Öz paytaxtını bilməlisən!"
+    },
+    {
+      "id": 19,
+      "subject": "geography",
+      "question": "Yer kürəsinin ən böyük okeanı hansıdır?",
+      "options": ["Atlantik", "Hind", "Sakit", "Şimal Buzlu"],
+      "correctIndex": 2,
+      "successLog": "Düzgün! Sakit okean ən böyük okeandır. Coğrafiyanı gözəl bilirsən!",
+      "failLog": "Yanlış! Yer kürəsinin ən böyük okeanı Sakit okeandır."
+    },
+    {
+      "id": 20,
+      "subject": "geography",
+      "question": "Hansı ölkə dünyada əhalisi ən çox olan ölkədir?",
+      "options": ["Hindistan", "Çin", "ABŞ", "Rusiya"],
+      "correctIndex": 0,
+      "successLog": "Doğru! Hindistan hazırda ən çox əhalisi olan ölkədir. Çox bilgilisən!",
+      "failLog": "Yanlış! Hazırda ən çox əhalisi olan ölkə Hindustandır."
+    },
+    {
+      "id": 21,
+      "subject": "geography",
+      "question": "Avropanın ən uzun çayı hansıdır?",
+      "options": ["Dunay", "Reyn", "Volqa", "Dnepr"],
+      "correctIndex": 2,
+      "successLog": "Əla! Volqa Avropanın ən uzun çayıdır. Coğrafiya bilgin güclüdür!",
+      "failLog": "Yanlış! Avropanın ən uzun çayı Volqadır."
+    },
+    {
+      "id": 22,
+      "subject": "geography",
+      "question": "Dünyanın ən hündür dağı hansıdır?",
+      "options": ["K2", "Everest", "Kilimanjaro", "Elbruz"],
+      "correctIndex": 1,
+      "successLog": "Doğru! Everest 8849 m ilə dünyanın ən hündür dağıdır. Əla!",
+      "failLog": "Yanlış! Dünyanın ən hündür dağı Everestdir."
+    },
+    {
+      "id": 23,
+      "subject": "geography",
+      "question": "Azərbaycan hansı dənizin sahilindədir?",
+      "options": ["Qara dəniz", "Xəzər dənizi", "Aral dənizi", "Ərəb dənizi"],
+      "correctIndex": 1,
+      "successLog": "Düzgün! Azərbaycan Xəzər dənizinin sahilindədir. Vətənini yaxşı tanıyırsan!",
+      "failLog": "Ayıb! Azərbaycan Xəzər dənizinin sahilindədir."
+    },
+    {
+      "id": 24,
+      "subject": "geography",
+      "question": "Avstraliyanın paytaxtı hansıdır?",
+      "options": ["Sidney", "Melburn", "Kanberra", "Brisban"],
+      "correctIndex": 2,
+      "successLog": "Əla! Avstraliyanın paytaxtı Kanberradır. Çoxları Sidneyi düşünür, sən bildin!",
+      "failLog": "Yanlış! Avstraliyanın paytaxtı Kanberradır, Sidney deyil."
+    },
+    {
+      "id": 25,
+      "subject": "geography",
+      "question": "Yer kürəsinin ən böyük qitəsi hansıdır?",
+      "options": ["Afrika", "Şimali Amerika", "Avrasiya", "Antarktida"],
+      "correctIndex": 2,
+      "successLog": "Doğru! Avrasiya ən böyük qitədir. Coğrafiya bilgin möhtəşəmdir!",
+      "failLog": "Yanlış! Ən böyük qitə Avropa ilə Asiyanı birləşdirən Avrasiya qitəsidir."
+    },
+    {
+      "id": 26,
+      "subject": "geography",
+      "question": "Nil çayı hansı qitədədir?",
+      "options": ["Asiya", "Cənubi Amerika", "Afrika", "Avropa"],
+      "correctIndex": 2,
+      "successLog": "Əla! Nil çayı Afrikadadır. Dünyanın ən uzun çaylarından biridir!",
+      "failLog": "Yanlış! Nil çayı Afrikadadır."
+    },
+    {
+      "id": 27,
+      "subject": "geography",
+      "question": "Fransanın paytaxtı hansıdır?",
+      "options": ["Lion", "Marsel", "Paris", "Bordo"],
+      "correctIndex": 2,
+      "successLog": "Bien sûr! Paris Fransanın paytaxtıdır. Əla!",
+      "failLog": "Yanlış! Fransanın paytaxtı Parisdır."
+    },
+    {
+      "id": 28,
+      "subject": "geography",
+      "question": "Amazon çayı hansı qitədədir?",
+      "options": ["Afrika", "Şimali Amerika", "Cənubi Amerika", "Asiya"],
+      "correctIndex": 2,
+      "successLog": "Doğru! Amazon çayı Cənubi Amerikadadır. Dünyanın ən geniş çayıdır!",
+      "failLog": "Yanlış! Amazon çayı Cənubi Amerikadadır."
+    },
+    {
+      "id": 29,
+      "subject": "geography",
+      "question": "Dünyada neçə qitə var?",
+      "options": ["5", "6", "7", "8"],
+      "correctIndex": 2,
+      "successLog": "Düzgün! Dünyada 7 qitə var. Coğrafiyanı gözəl bilirsən!",
+      "failLog": "Yanlış! Dünyada 7 qitə var: Asiya, Afrika, Şimali Amerika, Cənubi Amerika, Antarktida, Avropa, Avstraliya."
+    },
+    {
+      "id": 30,
+      "subject": "geography",
+      "question": "Yer kürəsinin ən böyük ölkəsi (ərazicə) hansıdır?",
+      "options": ["Kanada", "Çin", "ABŞ", "Rusiya"],
+      "correctIndex": 3,
+      "successLog": "Əla! Rusiya ərazicə dünyanın ən böyük ölkəsidir. Bilgin var!",
+      "failLog": "Yanlış! Ərazicə dünyanın ən böyük ölkəsi Rusiyadır."
+    },
+    {
+      "id": 31,
+      "subject": "geography",
+      "question": "Sakit okean hansı iki qitə arasındadır (ən geniş hissəsi)?",
+      "options": ["Afrika və Avropa", "Asiya və Amerika", "Avstraliya və Antarktida", "Şimali və Cənubi Amerika"],
+      "correctIndex": 1,
+      "successLog": "Düzgün! Sakit okean əsasən Asiya ilə Amerika arasındadır. Möhtəşəm!",
+      "failLog": "Yanlış! Sakit okean əsasən Asiya ilə Amerika arasında yerləşir."
+    },
+    {
+      "id": 32,
+      "subject": "geography",
+      "question": "Bakı şəhərinin ləqəbi nədir?",
+      "options": ["Şərqin Parisi", "Küləklər şəhəri", "Çiçəklər şəhəri", "Daşlar şəhəri"],
+      "correctIndex": 1,
+      "successLog": "Əla! Bakıya 'Küləklər şəhəri' deyilir. Öz şəhərini yaxşı tanıyırsan!",
+      "failLog": "Yanlış! Bakıya 'Küləklər şəhəri' deyilir."
+    },
+    {
+      "id": 33,
+      "subject": "geography",
+      "question": "Sahara səhrası hansı qitədədir?",
+      "options": ["Asiya", "Cənubi Amerika", "Afrika", "Avstraliya"],
+      "correctIndex": 2,
+      "successLog": "Doğru! Sahara Afrikadadır. Dünyanın ən böyük isti səhrasıdır!",
+      "failLog": "Yanlış! Sahara Afrikadadır."
+    },
+    {
+      "id": 34,
+      "subject": "biology",
+      "question": "İnsanın neçə dişi var (tam komplekt)?",
+      "options": ["28", "30", "32", "34"],
+      "correctIndex": 2,
+      "successLog": "Düzgün! İnsanın 32 dişi olur. Biologiyanı gözəl bilirsən!",
+      "failLog": "Yanlış! İnsanın tam komplekt 32 dişi olur."
+    },
+    {
+      "id": 35,
+      "subject": "biology",
+      "question": "Fotosintez nədir?",
+      "options": [
+        "Heyvanların nəfəs alması",
+        "Bitkilərin günəş işığından qida hazırlaması",
+        "Suyun buxarlanması",
+        "Torpağın gübrələnməsi"
+      ],
+      "correctIndex": 1,
+      "successLog": "Əla! Fotosintez bitkilərin günəş işığından qida hazırlamasıdır. Müəllim çox məmnun oldu!",
+      "failLog": "Yanlış! Fotosintez bitkilərin günəş işığı, su və CO₂ istifadə edərək qida hazırlaması prosesidir."
+    },
+    {
+      "id": 36,
+      "subject": "biology",
+      "question": "İnsanda ən böyük orqan hansıdır?",
+      "options": ["Ürək", "Qaraciyər", "Dəri", "Ağciyər"],
+      "correctIndex": 2,
+      "successLog": "Doğru! İnsanın ən böyük orqanı dəridir. Çox az adam bunu bilir!",
+      "failLog": "Yanlış! İnsanın ən böyük orqanı dəridir."
+    },
+    {
+      "id": 37,
+      "subject": "biology",
+      "question": "Balıqlar nə ilə nəfəs alır?",
+      "options": ["Ağciyər", "Dəri", "Qəlsəmə", "Burun"],
+      "correctIndex": 2,
+      "successLog": "Düzgün! Balıqlar qəlsəmə ilə nəfəs alır. Biologiyanı gözəl bilirsən!",
+      "failLog": "Yanlış! Balıqlar qəlsəmə ilə nəfəs alır."
+    },
+    {
+      "id": 38,
+      "subject": "biology",
+      "question": "İnsan skeleti neçə sümükdən ibarətdir?",
+      "options": ["156", "206", "256", "306"],
+      "correctIndex": 1,
+      "successLog": "Əla! İnsan skeleti 206 sümükdən ibarətdir. Anatomiya bilgin var!",
+      "failLog": "Yanlış! İnsan skeleti 206 sümükdən ibarətdir."
+    },
+    {
+      "id": 39,
+      "subject": "biology",
+      "question": "Bitkilər fotosintez üçün nəyi udur?",
+      "options": ["Oksigen", "Azot", "Karbon dioksid", "Hidrogen"],
+      "correctIndex": 2,
+      "successLog": "Doğru! Bitkilər fotosintez üçün karbon dioksid udur. Mükəmməl!",
+      "failLog": "Yanlış! Bitkilər fotosintez zamanı karbon dioksid udur."
+    },
+    {
+      "id": 40,
+      "subject": "biology",
+      "question": "Ağciyər nə üçün lazımdır?",
+      "options": [
+        "Qanı təmizləmək üçün",
+        "Nəfəs almaq üçün",
+        "Həzm etmək üçün",
+        "Hərəkət etmək üçün"
+      ],
+      "correctIndex": 1,
+      "successLog": "Düzgün! Ağciyər nəfəs almaq üçündür. Yaxşı bilirsən!",
+      "failLog": "Yanlış! Ağciyər nəfəs almaq üçün lazımdır."
+    },
+    {
+      "id": 41,
+      "subject": "biology",
+      "question": "Kəpənəyin həyat dövrü neçə mərhələdən ibarətdir?",
+      "options": ["2", "3", "4", "5"],
+      "correctIndex": 2,
+      "successLog": "Əla! Kəpənəyin 4 mərhələsi var: yumurta, tırtıl, pup, kəpənək. Möhtəşəm!",
+      "failLog": "Yanlış! Kəpənəyin 4 mərhələsi var: yumurta → tırtıl → pup → kəpənək."
+    },
+    {
+      "id": 42,
+      "subject": "biology",
+      "question": "Hansı heyvan ən yavaş hərəkət edir?",
+      "options": ["Tısbağa", "Ağcaqanad", "Yastı qurd", "Tənbəl"],
+      "correctIndex": 3,
+      "successLog": "Doğru! Tənbəl (sloth) ən yavaş məməlidir. Biologiyanı əla bilirsən!",
+      "failLog": "Yanlış! Ən yavaş məməli heyvan tənbəldir (sloth)."
+    },
+    {
+      "id": 43,
+      "subject": "biology",
+      "question": "Ürək döyüntüsü nə üçündür?",
+      "options": [
+        "Havadan oksigen almaq üçün",
+        "Qanı bədənə pompalamaq üçün",
+        "Həzm etmək üçün",
+        "Beyinə impuls göndərmək üçün"
+      ],
+      "correctIndex": 1,
+      "successLog": "Düzgün! Ürək qanı bədənə pompalayan nasosdur. Yaxşı bilirsən!",
+      "failLog": "Yanlış! Ürəyin vəzifəsi qanı bütün bədənə pompalamaqdir."
+    },
+    {
+      "id": 44,
+      "subject": "biology",
+      "question": "Güneş çiçəyi günəşi izləyirmi?",
+      "options": [
+        "Xeyr, bu mifdir",
+        "Bəli, yetkin çiçəklər izləyir",
+        "Bəli, amma yalnız gecə",
+        "Bəli, yalnız cavan bitkilər izləyir"
+      ],
+      "correctIndex": 3,
+      "successLog": "Əla! Yalnız cavan güneş çiçəkləri günəşi izləyir. Bu fenomenə heliotrop deyilir!",
+      "failLog": "Yanlış! Yalnız cavan güneş çiçəkləri günəşi izləyir. Bu heliotrop hadisəsidir."
+    },
+    {
+      "id": 45,
+      "subject": "biology",
+      "question": "İnsanın neçə ədəd ribi (qabırğası) var?",
+      "options": ["10", "12", "14", "24"],
+      "correctIndex": 3,
+      "successLog": "Düzgün! İnsanda 24 ədəd qabırğa var (hər tərəfdə 12). Anatomiya bilgin güclüdür!",
+      "failLog": "Yanlış! İnsanda cəmi 24 qabırğa var – hər iki tərəfdə 12-dən."
+    },
+    {
+      "id": 46,
+      "subject": "biology",
+      "question": "Klorofil bitkilərə hansı rəngi verir?",
+      "options": ["Sarı", "Qırmızı", "Yaşıl", "Mavi"],
+      "correctIndex": 2,
+      "successLog": "Əla! Klorofil bitkilərin yaşıl rəngini verir. Bitki biologiyasını bilirsən!",
+      "failLog": "Yanlış! Klorofil bitkilərə yaşıl rəng verir."
+    },
+    {
+      "id": 47,
+      "subject": "biology",
+      "question": "Göbələk bitki sayılırmı?",
+      "options": [
+        "Bəli, bitkilər aləminə aiddir",
+        "Xeyr, öz ayrıca aləmindədir",
+        "Bəli, amma ibtidai bitkilərdir",
+        "Xeyr, heyvanlara aiddir"
+      ],
+      "correctIndex": 1,
+      "successLog": "Doğru! Göbələklər öz ayrıca aləmindədir — nə bitki, nə heyvandır. Biologiyanı gözəl bilirsən!",
+      "failLog": "Yanlış! Göbələklər nə bitki, nə heyvandır — onların öz ayrıca aləmi var."
+    },
+    {
+      "id": 48,
+      "subject": "biology",
+      "question": "Hansı heyvan dünyanın ən böyük heyvanıdır?",
+      "options": ["Fil", "Zürafə", "Mavi balina", "Ağ köpəkbalığı"],
+      "correctIndex": 2,
+      "successLog": "Əla! Mavi balina dünyanın ən böyük heyvanıdır. 30 metrə qədər böyüyür!",
+      "failLog": "Yanlış! Dünyanın ən böyük heyvanı mavi balinadır."
+    },
+    {
+      "id": 49,
+      "subject": "biology",
+      "question": "Çöpçü hüceyrə (qırmızı qan cisimciyi) nə daşıyır?",
+      "options": ["Qida maddəsi", "Oksigen", "Su", "Hormon"],
+      "correctIndex": 1,
+      "successLog": "Düzgün! Qırmızı qan cisimcikləri oksigen daşıyır. Biokimya bilgin var!",
+      "failLog": "Yanlış! Qırmızı qan cisimcikləri oksigen daşıyır."
+    },
+    {
+      "id": 50,
+      "subject": "biology",
+      "question": "İnsan beyninin orta çəkisi nə qədərdir?",
+      "options": ["0.5 kq", "1 kq", "1.4 kq", "2 kq"],
+      "correctIndex": 2,
+      "successLog": "Əla! İnsan beyninin orta çəkisi 1.4 kq-dır. Və bu beyin bu cavabı verdi!",
+      "failLog": "Yanlış! İnsan beyninin orta çəkisi təxminən 1.4 kq-dır."
+    }
+  ]
+}

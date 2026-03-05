@@ -1,0 +1,1993 @@
+{
+  "meta": {
+    "totalUniversities": 45,
+    "questionsPerUniversity": 3,
+    "passingLogic": {
+      "difficulty_1_2": "3 sualdan 1-ni düzgün cavablandır (çox asan)",
+      "difficulty_3": "3 sualdan 2-ni düzgün cavablandır (orta)",
+      "difficulty_4_5": "3 sualdan 2-ni düzgün cavablandır (çətin, amma uğur qazanmaq mümkündür)"
+    }
+  },
+  "universityExams": [
+    {
+      "universityId": 1,
+      "universityName": "Bakı Dövlət Universiteti",
+      "shortName": "BDU",
+      "difficulty": 5,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Azərbaycanın ən nüfuzlu universitetinə qəbul imtahanı. Diqqətli ol!",
+      "questions": [
+        {
+          "question": "Azərbaycan Respublikasının Konstitusiyası neçə-ci ildə qəbul edilib?",
+          "options": [
+            "1991",
+            "1995",
+            "2000",
+            "2003"
+          ],
+          "correctIndex": 1,
+          "explanation": "Azərbaycan Konstitusiyası 12 noyabr 1995-ci ildə referendum yolu ilə qəbul edilib."
+        },
+        {
+          "question": "Işığın boşluqda sürəti təxminən nə qədərdir?",
+          "options": [
+            "300 km/s",
+            "3000 km/s",
+            "300,000 km/s",
+            "3,000,000 km/s"
+          ],
+          "correctIndex": 2,
+          "explanation": "Işığın sürəti saniyədə təxminən 300,000 km-dir."
+        },
+        {
+          "question": "'Hello' sözü hansı dildədir?",
+          "options": [
+            "Fransız",
+            "Alman",
+            "İngilis",
+            "İspan"
+          ],
+          "correctIndex": 2,
+          "explanation": "Hello ingilis dilindəki 'salam' deməkdir."
+        }
+      ]
+    },
+    {
+      "universityId": 2,
+      "universityName": "Azərbaycan Dövlət Neft və Sənaye Universiteti",
+      "shortName": "ADNSU",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Neft mühəndisliyi üzrə imtahan. Enerjini yoxlayaq!",
+      "questions": [
+        {
+          "question": "Neft əsasən hansı elementdən ibarətdir?",
+          "options": [
+            "Dəmir",
+            "Karbon",
+            "Kalsium",
+            "Natrium"
+          ],
+          "correctIndex": 1,
+          "explanation": "Neft karbohidrogen birləşmələrdən ibarətdir, yəni əsas element karbondur."
+        },
+        {
+          "question": "Azərbaycanda ilk sənaye neft quyusu neçə-ci ildə qazılıb?",
+          "options": [
+            "1846",
+            "1859",
+            "1871",
+            "1900"
+          ],
+          "correctIndex": 2,
+          "explanation": "Dünyada ilk sənaye neft quyusu 1871-ci ildə Bakıda qazılıb."
+        },
+        {
+          "question": "Elektrik enerjisi ölçülür...",
+          "options": [
+            "Kilogram ilə",
+            "Vatt ilə",
+            "Metr ilə",
+            "Litr ilə"
+          ],
+          "correctIndex": 1,
+          "explanation": "Elektrik enerjisi gücü Vatt (W) ilə ölçülür."
+        }
+      ]
+    },
+    {
+      "universityId": 3,
+      "universityName": "Bakı Musiqi Akademiyası",
+      "shortName": "BMA",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Musiqi istedadını sınayaq! Notları tanıyırsanmı?",
+      "questions": [
+        {
+          "question": "Bir oktavada neçə not var?",
+          "options": [
+            "5",
+            "7",
+            "8",
+            "12"
+          ],
+          "correctIndex": 1,
+          "explanation": "Bir oktavada Do, Re, Mi, Fa, Sol, La, Si — 7 əsas not var."
+        },
+        {
+          "question": "Fortepiano neçə düyməyə malikdir?",
+          "options": [
+            "52",
+            "76",
+            "88",
+            "100"
+          ],
+          "correctIndex": 2,
+          "explanation": "Standart fortepianoda 88 düymə var."
+        },
+        {
+          "question": "Hansı musiqi aləti yaylı alətlər qrupuna aiddir?",
+          "options": [
+            "Fleyta",
+            "Skripka",
+            "Truba",
+            "Baraban"
+          ],
+          "correctIndex": 1,
+          "explanation": "Skripka yaylı musiqi alətidir — yay ilə çalınır."
+        }
+      ]
+    },
+    {
+      "universityId": 4,
+      "universityName": "Azərbaycan Dövlət Pedaqoji Universiteti",
+      "shortName": "ADPU",
+      "difficulty": 3,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Gələcək müəllimlər üçün imtahan. Uşaqları sevməli olacaqsan!",
+      "questions": [
+        {
+          "question": "Müəllimin əsas vəzifəsi nədir?",
+          "options": [
+            "Qiymət vermək",
+            "Bilik öyrətmək",
+            "Kitab satmaq",
+            "İmtahan yazmaq"
+          ],
+          "correctIndex": 1,
+          "explanation": "Müəllimin əsas vəzifəsi şagirdlərə bilik və bacarıqlar öyrətməkdir."
+        },
+        {
+          "question": "Psixologiya nəyi öyrənir?",
+          "options": [
+            "Bitkiləri",
+            "Ulduzları",
+            "İnsan davranışını",
+            "Riyazi formüllərı"
+          ],
+          "correctIndex": 2,
+          "explanation": "Psixologiya insan davranışını, düşüncəsini və hisslərini öyrənən elmdir."
+        },
+        {
+          "question": "İbtidai sinif dedikdə hansı siniflər nəzərdə tutulur?",
+          "options": [
+            "1-4",
+            "5-8",
+            "9-11",
+            "1-6"
+          ],
+          "correctIndex": 0,
+          "explanation": "İbtidai siniflər 1-4-cü sinifləri əhatə edir."
+        }
+      ]
+    },
+    {
+      "universityId": 5,
+      "universityName": "Azərbaycan Dövlət Mədəniyyət və İncəsənət Universiteti",
+      "shortName": "ADMIU",
+      "difficulty": 3,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Mədəniyyət dünyasına giriş imtahanı!",
+      "questions": [
+        {
+          "question": "Kitabxanada kitablar necə düzülür?",
+          "options": [
+            "Rənginə görə",
+            "Kataloqua görə",
+            "Ağırlığına görə",
+            "Hündürlüyünə görə"
+          ],
+          "correctIndex": 1,
+          "explanation": "Kitabxanalarda kitablar katalog (mövzu, müəllif, əlifba) sisteminə görə düzülür."
+        },
+        {
+          "question": "Teatrda tamaşanı kim idarə edir?",
+          "options": [
+            "Aktyorlar",
+            "Rejissor",
+            "Dramaturq",
+            "Dekorator"
+          ],
+          "correctIndex": 1,
+          "explanation": "Rejissor tamaşanı hazırlayan və idarə edən şəxsdir."
+        },
+        {
+          "question": "Azərbaycan milli mədəniyyətinin simvolu sayılan oyun növü hansıdır?",
+          "options": [
+            "Şahmat",
+            "Tennis",
+            "Xalq rəqsləri",
+            "Boks"
+          ],
+          "correctIndex": 2,
+          "explanation": "Xalq rəqsləri Azərbaycan milli mədəniyyətinin əvəzsiz hissəsidir."
+        }
+      ]
+    },
+    {
+      "universityId": 6,
+      "universityName": "Azərbaycan Dövlət Aqrar Universiteti",
+      "shortName": "ADAU",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Kənd təsərrüfatına salam! Torpağı sevirsənmi?",
+      "questions": [
+        {
+          "question": "Bitkilər böyümək üçün nəyə ehtiyac duyur?",
+          "options": [
+            "Yalnız suya",
+            "Su, günəş işığı və torpağa",
+            "Yalnız torpağa",
+            "Yalnız gübrəyə"
+          ],
+          "correctIndex": 1,
+          "explanation": "Bitkilər böyümək üçün su, günəş işığı, torpaq və hava lazımdır."
+        },
+        {
+          "question": "Baytarlıq nə ilə məşğul olur?",
+          "options": [
+            "İnsanları müalicə etmək",
+            "Heyvanları müalicə etmək",
+            "Bitkiçilik",
+            "Torpaq analizi"
+          ],
+          "correctIndex": 1,
+          "explanation": "Baytarlıq (veterinariya) heyvanların sağlamlığı ilə məşğul olan sahədir."
+        },
+        {
+          "question": "Buğda hansı məhsula çevrilir?",
+          "options": [
+            "Şəkər",
+            "Un",
+            "Yağ",
+            "Süd"
+          ],
+          "correctIndex": 1,
+          "explanation": "Buğda üyüdülərək una çevrilir, un isə çörək bişirmək üçün istifadə olunur."
+        }
+      ]
+    },
+    {
+      "universityId": 7,
+      "universityName": "Azərbaycan Tibb Universiteti",
+      "shortName": "ATU",
+      "difficulty": 5,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Tibb universiteti imtahanı. Həkim olmaq istəyirsən?",
+      "questions": [
+        {
+          "question": "İnsanın ürəyi gündə təxminən neçə dəfə döyünür?",
+          "options": [
+            "1,000",
+            "10,000",
+            "100,000",
+            "1,000,000"
+          ],
+          "correctIndex": 2,
+          "explanation": "İnsan ürəyi gündə orta hesabla 100,000 dəfə döyünür."
+        },
+        {
+          "question": "Qanın hansı hissəsi oksigen daşıyır?",
+          "options": [
+            "Ağ qan cisimcikləri",
+            "Qırmızı qan cisimcikləri",
+            "Trombositlər",
+            "Plazma"
+          ],
+          "correctIndex": 1,
+          "explanation": "Qırmızı qan cisimcikləri (eritrositlər) hemoglobin sayəsində oksigen daşıyır."
+        },
+        {
+          "question": "Vitaminlər hansı sahəyə aiddir?",
+          "options": [
+            "Fizika",
+            "Riyaziyyat",
+            "Kimya / Biologiya",
+            "Coğrafiya"
+          ],
+          "correctIndex": 2,
+          "explanation": "Vitaminlər kimyəvi birləşmələrdir; onların canlı orqanizmdəki rolu biologiya ilə öyrənilir."
+        }
+      ]
+    },
+    {
+      "universityId": 8,
+      "universityName": "Azərbaycan Dövlət İqtisad Universiteti",
+      "shortName": "UNEC",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "İqtisad üzrə imtahan. Pul hesablamağı sevirsənmi?",
+      "questions": [
+        {
+          "question": "Əgər bir şey 10 manata alınıb 15 manata satılırsa, qazanc nə qədərdir?",
+          "options": [
+            "3 manat",
+            "5 manat",
+            "10 manat",
+            "25 manat"
+          ],
+          "correctIndex": 1,
+          "explanation": "Qazanc = Satış qiyməti − Alış qiyməti = 15 − 10 = 5 manat."
+        },
+        {
+          "question": "Bank nə edir?",
+          "options": [
+            "Ərzaq satar",
+            "Pul saxlayar və kredit verir",
+            "Torpaq icarəyə verir",
+            "Kitab nəşr edir"
+          ],
+          "correctIndex": 1,
+          "explanation": "Banklar pul saxlama, kredit vermə və maliyyə əməliyyatları ilə məşğul olur."
+        },
+        {
+          "question": "İnflyasiya nə deməkdir?",
+          "options": [
+            "Qiymətlərin aşağı düşməsi",
+            "Qiymətlərin ümumi artması",
+            "Əmək haqqının artması",
+            "Vergilərin azalması"
+          ],
+          "correctIndex": 1,
+          "explanation": "İnflyasiya pulun alıcılıq qüvvəsinin azalması — qiymətlərin ümumi artmasıdır."
+        }
+      ]
+    },
+    {
+      "universityId": 9,
+      "universityName": "Azərbaycan Dövlət Dəmir Yolu Liseyi",
+      "shortName": "ADDYL",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Dəmir yoluna salam! Qatarları sevirsənmi?",
+      "questions": [
+        {
+          "question": "Dəmir yolu nəqliyyatı nə üçün istifadə olunur?",
+          "options": [
+            "Yalnız sərnişin daşımaq üçün",
+            "Həm sərnişin həm yük daşımaq üçün",
+            "Yalnız yük daşımaq üçün",
+            "Uçmaq üçün"
+          ],
+          "correctIndex": 1,
+          "explanation": "Dəmir yolu həm sərnişin, həm də yük daşınmasında istifadə olunur."
+        },
+        {
+          "question": "Qatarın hərəkət etdiyi xüsusi yola nə deyilir?",
+          "options": [
+            "Yol",
+            "Dəmir yolu relsləri",
+            "Körpü",
+            "Tunel"
+          ],
+          "correctIndex": 1,
+          "explanation": "Qatarlar dəmir yolu relsləri üzərində hərəkət edir."
+        },
+        {
+          "question": "Baku-Tbilisi-Kars dəmir yolu hansı ölkələri birləşdirir?",
+          "options": [
+            "Azərbaycan, Ermənistan, Türkiyə",
+            "Azərbaycan, Gürcüstan, Türkiyə",
+            "Azərbaycan, Rusiya, İran",
+            "Azərbaycan, Ukrayna, Polşa"
+          ],
+          "correctIndex": 1,
+          "explanation": "BTK dəmir yolu Azərbaycan, Gürcüstan və Türkiyəni birləşdirir."
+        }
+      ]
+    },
+    {
+      "universityId": 10,
+      "universityName": "Azərbaycan İdman Akademiyası",
+      "shortName": "AİA",
+      "difficulty": 3,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "İdman sınağı! Hazırsanmı?",
+      "questions": [
+        {
+          "question": "Futbol meydançasında neçə oyunçu olur (hər komandadan)?",
+          "options": [
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          "correctIndex": 2,
+          "explanation": "Hər futbol komandasında 11 oyunçu olur."
+        },
+        {
+          "question": "Olimpiya Oyunları neçə ildən bir keçirilir?",
+          "options": [
+            "2",
+            "4",
+            "5",
+            "10"
+          ],
+          "correctIndex": 1,
+          "explanation": "Olimpiya Oyunları hər 4 ildən bir keçirilir."
+        },
+        {
+          "question": "Aerobika hansı sahəyə aiddir?",
+          "options": [
+            "Rəssamlıq",
+            "Musiqi",
+            "Fiziki məşq",
+            "Riyaziyyat"
+          ],
+          "correctIndex": 2,
+          "explanation": "Aerobika ürək-damar sistemini gücləndirən fiziki məşq növüdür."
+        }
+      ]
+    },
+    {
+      "universityId": 11,
+      "universityName": "Gəncə Dövlət Universiteti",
+      "shortName": "GDU",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Gəncə universitetinə xoş gəldin!",
+      "questions": [
+        {
+          "question": "Gəncə hansı ölkədədir?",
+          "options": [
+            "Gürcüstan",
+            "Türkiyə",
+            "Azərbaycan",
+            "Rusiya"
+          ],
+          "correctIndex": 2,
+          "explanation": "Gəncə Azərbaycanın ikinci böyük şəhəridir."
+        },
+        {
+          "question": "Tarix nəyi öyrənir?",
+          "options": [
+            "Gələcəyi",
+            "Keçmişi",
+            "Riyaziyyatı",
+            "Bitkiləri"
+          ],
+          "correctIndex": 1,
+          "explanation": "Tarix elm olaraq keçmişdə baş vermiş hadisələri öyrənir."
+        },
+        {
+          "question": "Hansı peşə insanlara bilik öyrədir?",
+          "options": [
+            "Aşpaz",
+            "Müəllim",
+            "Sürücü",
+            "Tikişçi"
+          ],
+          "correctIndex": 1,
+          "explanation": "Müəllim insanlara bilik öyrədən peşə sahibidir."
+        }
+      ]
+    },
+    {
+      "universityId": 12,
+      "universityName": "Bakı Slavyan Universiteti",
+      "shortName": "BSU",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Dil imtahanı! Rusca bilirsənmi?",
+      "questions": [
+        {
+          "question": "'Привет' rus dilindən nə deməkdir?",
+          "options": [
+            "Sağol",
+            "Salam",
+            "Bağışla",
+            "Əlvida"
+          ],
+          "correctIndex": 1,
+          "explanation": "Privet (Привет) rusca 'salam' deməkdir."
+        },
+        {
+          "question": "Slavyan dilləri hansı ölkələrdə danışılır?",
+          "options": [
+            "Yalnız Rusiyada",
+            "Rusiya, Polşa, Çexiya və digər ölkələrdə",
+            "Yalnız Almaniyada",
+            "Yalnız Fransada"
+          ],
+          "correctIndex": 1,
+          "explanation": "Slavyan dilləri Rusiya, Ukrayna, Polşa, Çexiya, Serbiya və digər ölkələrdə danışılır."
+        },
+        {
+          "question": "Tərcüməçi nə edir?",
+          "options": [
+            "Kitab yazır",
+            "Bir dildəki mətni başqa dilə çevirir",
+            "Dil öyrədir",
+            "Lüğət hazırlayır"
+          ],
+          "correctIndex": 1,
+          "explanation": "Tərcüməçi mətn və ya nitqi bir dildən başqa dilə çevirir."
+        }
+      ]
+    },
+    {
+      "universityId": 13,
+      "universityName": "Azərbaycan Texniki Universiteti",
+      "shortName": "AzTU",
+      "difficulty": 3,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Texniki imtahan. Mühəndislik sənin üçündür!",
+      "questions": [
+        {
+          "question": "Elektrik cərəyanı ölçmək üçün hansı cihaz istifadə olunur?",
+          "options": [
+            "Termometr",
+            "Ampermetr",
+            "Barometr",
+            "Kompas"
+          ],
+          "correctIndex": 1,
+          "explanation": "Elektrik cərəyanı Amper (A) ilə ölçülür, ampermetr bu ölçməni aparır."
+        },
+        {
+          "question": "Kompüter proqramlarını yazan mütəxəssislərə nə deyilir?",
+          "options": [
+            "Dizayner",
+            "Mühasib",
+            "Proqramçı",
+            "Memar"
+          ],
+          "correctIndex": 2,
+          "explanation": "Proqramçılar kompüter proqramları (software) yazır."
+        },
+        {
+          "question": "Mühərrik nə üçündür?",
+          "options": [
+            "Su saxlamaq üçün",
+            "Hərəkət enerjisi yaratmaq üçün",
+            "Işıq vermək üçün",
+            "Səs çıxarmaq üçün"
+          ],
+          "correctIndex": 1,
+          "explanation": "Mühərrik yanacağı hərəkət enerjisinə çevirən qurğudur."
+        }
+      ]
+    },
+    {
+      "universityId": 14,
+      "universityName": "Sumqayıt Dövlət Universiteti",
+      "shortName": "SDU",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Kimya sənin güclü tərəfin olacaq!",
+      "questions": [
+        {
+          "question": "Suyun kimyəvi formulu nədir?",
+          "options": [
+            "CO2",
+            "H2O",
+            "O2",
+            "NaCl"
+          ],
+          "correctIndex": 1,
+          "explanation": "Suyun kimyəvi formulu H2O-dur — iki hidrogen, bir oksigen atomu."
+        },
+        {
+          "question": "Ekologiya nəyi öyrənir?",
+          "options": [
+            "Planetləri",
+            "Canlılar ilə ətraf mühitin əlaqəsini",
+            "Tarixi hadisələri",
+            "Riyazi məsələləri"
+          ],
+          "correctIndex": 1,
+          "explanation": "Ekologiya canlı orqanizmlərin ətraf mühitlə qarşılıqlı əlaqəsini öyrənir."
+        },
+        {
+          "question": "Plastik torbalar ətraf mühitə niyə zərərlidir?",
+          "options": [
+            "Çox ağırdır",
+            "Çürümür, uzun illər qalır",
+            "Çox ucuzdur",
+            "Şəffafdır"
+          ],
+          "correctIndex": 1,
+          "explanation": "Plastik torbalar onlarca il çürümədən ətraf mühiti çirkləndirir."
+        }
+      ]
+    },
+    {
+      "universityId": 15,
+      "universityName": "Naxçıvan Dövlət Universiteti",
+      "shortName": "NDU",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Naxçıvan universitetinə xoş gəldin!",
+      "questions": [
+        {
+          "question": "Naxçıvan Azərbaycana daxildir, lakin necə adlanır?",
+          "options": [
+            "Şəhər",
+            "Muxtar Respublika",
+            "Rayon",
+            "Paytaxt"
+          ],
+          "correctIndex": 1,
+          "explanation": "Naxçıvan Muxtar Respublikası Azərbaycanın ayrılmaz tərkib hissəsidir."
+        },
+        {
+          "question": "Qanun nə üçün lazımdır?",
+          "options": [
+            "İnsanları cəzalandırmaq üçün",
+            "Cəmiyyətdə qaydanı qorumaq üçün",
+            "Pul qazanmaq üçün",
+            "Vergi toplamaq üçün"
+          ],
+          "correctIndex": 1,
+          "explanation": "Qanunlar cəmiyyətdə ədaləti və qaydanı təmin etmək üçün lazımdır."
+        },
+        {
+          "question": "Naxçıvanda Araz çayının sahilindəki möhtəşəm abidə hansıdır?",
+          "options": [
+            "Qız qalası",
+            "Möminə Xatun türbəsi",
+            "Şirvanşahlar sarayı",
+            "İçərişəhər"
+          ],
+          "correctIndex": 1,
+          "explanation": "Möminə Xatun türbəsi Naxçıvanda 12-ci əsrdə inşa edilmiş möhtəşəm tarixi abidədir."
+        }
+      ]
+    },
+    {
+      "universityId": 16,
+      "universityName": "Azərbaycan Dillər Universiteti",
+      "shortName": "ADU",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Dillər universiteti imtahanı. Dil bacarığını sınayaq!",
+      "questions": [
+        {
+          "question": "Dünyada ən çox danışılan dil hansıdır?",
+          "options": [
+            "İngilis",
+            "Mandarin Çincəsi",
+            "İspan",
+            "Fransız"
+          ],
+          "correctIndex": 1,
+          "explanation": "Mandarin Çincəsi ana dili olaraq ən çox danışılan dildir."
+        },
+        {
+          "question": "'Bonjour' hansı dildədir?",
+          "options": [
+            "Alman",
+            "İtalyan",
+            "Fransız",
+            "Portuqal"
+          ],
+          "correctIndex": 2,
+          "explanation": "Bonjour fransızca 'Günaydin / Salam' deməkdir."
+        },
+        {
+          "question": "Diplomatlıq nə deməkdir?",
+          "options": [
+            "Xarici dil öyrənmək",
+            "Ölkələr arasında sülh yolu ilə danışıqlar aparmaq",
+            "Sənədlər çevirmək",
+            "Qanun yazmaq"
+          ],
+          "correctIndex": 1,
+          "explanation": "Diplomat ölkəsini xarici ölkələrdə təmsil edən, danışıqlar aparan şəxsdir."
+        }
+      ]
+    },
+    {
+      "universityId": 17,
+      "universityName": "Azərbaycan Memarlıq və İnşaat Universiteti",
+      "shortName": "AMİU",
+      "difficulty": 3,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Tikinti dünyasına giriş imtahanı!",
+      "questions": [
+        {
+          "question": "Memarlıq nəyi əhatə edir?",
+          "options": [
+            "Rəsm çəkmək",
+            "Binaların dizaynını və tikintisini",
+            "Torpaq becərməyi",
+            "Dənizçiliyi"
+          ],
+          "correctIndex": 1,
+          "explanation": "Memarlıq binaların, körpülərin və digər konstruksiyaların layihələndirilməsi sənətidir."
+        },
+        {
+          "question": "Piramidalar hansı ölkədədir?",
+          "options": [
+            "Çin",
+            "Hindistan",
+            "Misir",
+            "Meksika"
+          ],
+          "correctIndex": 2,
+          "explanation": "Ən məşhur piramidalar Misirdə, Giza yaylasındadır."
+        },
+        {
+          "question": "Tikintidə ən çox istifadə edilən material hansıdır?",
+          "options": [
+            "Ağac",
+            "Şüşə",
+            "Beton",
+            "Plastik"
+          ],
+          "correctIndex": 2,
+          "explanation": "Beton (sement, qum, su qarışığı) müasir tikintidə ən çox istifadə olunan materialdır."
+        }
+      ]
+    },
+    {
+      "universityId": 18,
+      "universityName": "Azərbaycan Texnologiya Universiteti",
+      "shortName": "AzTexU",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Ərzaq texnologiyasına xoş gəldin!",
+      "questions": [
+        {
+          "question": "Çörək hansı material ilə bişirilir?",
+          "options": [
+            "Düyü",
+            "Un",
+            "Şəkər",
+            "Yağ"
+          ],
+          "correctIndex": 1,
+          "explanation": "Çörəyin əsas xammalı buğda unundan hazırlanan xəmirdir."
+        },
+        {
+          "question": "Pastörizasiya nə deməkdir?",
+          "options": [
+            "Meyvə qurutmaq",
+            "Südü qızdırıb mikrobları öldürmək",
+            "Unu üyütmək",
+            "Pendir düzəltmək"
+          ],
+          "correctIndex": 1,
+          "explanation": "Pastörizasiya mayenin (məs. südün) qısa müddət qızdırılması ilə zərərli mikrobları məhv etməkdir."
+        },
+        {
+          "question": "Hansı ərzaq ən sürətli xarab olur?",
+          "options": [
+            "Quru düyü",
+            "Duz",
+            "Təzə ət",
+            "Konserv"
+          ],
+          "correctIndex": 2,
+          "explanation": "Təzə ət soyuducu olmadan çox tez xarab olur."
+        }
+      ]
+    },
+    {
+      "universityId": 19,
+      "universityName": "Lənkəran Dövlət Universiteti",
+      "shortName": "LDU",
+      "difficulty": 1,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Lənkərana xoş gəldin! Asan imtahan sənin üçündür.",
+      "questions": [
+        {
+          "question": "Lənkəran hansı dənizin sahilindədir?",
+          "options": [
+            "Qara dəniz",
+            "Xəzər dənizi",
+            "Aral dənizi",
+            "Atlantik okeanı"
+          ],
+          "correctIndex": 1,
+          "explanation": "Lənkəran Xəzər dənizinin cənub-qərb sahilindədir."
+        },
+        {
+          "question": "Turizm nə deməkdir?",
+          "options": [
+            "İdman növü",
+            "Müxtəlif yerləri gəzib-görmək",
+            "Dil öyrənmək",
+            "Bitkiçilik"
+          ],
+          "correctIndex": 1,
+          "explanation": "Turizm insanların istirahət, tanışlıq və ya iş məqsədi ilə digər yerləri ziyarət etməsidir."
+        },
+        {
+          "question": "Lənkəran hansı iqlim ilə məşhurdur?",
+          "options": [
+            "Çox soyuq iqlim",
+            "Subtropik, yağışlı iqlim",
+            "Quru səhra iqlimi",
+            "Arktika iqlimi"
+          ],
+          "correctIndex": 1,
+          "explanation": "Lənkəran subtropik iqlimi, çayı bağları, çay sahilləri ilə məşhurdur."
+        }
+      ]
+    },
+    {
+      "universityId": 20,
+      "universityName": "Milli Aviasiya Akademiyası",
+      "shortName": "MAA",
+      "difficulty": 5,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Göyə uçmaq istəyirsən? Aviasiya imtahanına hazır ol!",
+      "questions": [
+        {
+          "question": "Təyyarənin uçmasını mümkün edən əsas qüvvə nədir?",
+          "options": [
+            "İtmə qüvvəsi",
+            "Yerçəkimi qüvvəsi",
+            "Lift (qaldırma) qüvvəsi",
+            "Sürtünmə qüvvəsi"
+          ],
+          "correctIndex": 2,
+          "explanation": "Qanadlar üzərindəki hava axını lift (qaldırma) qüvvəsi yaradaraq təyyarəni yuxarı qaldırır."
+        },
+        {
+          "question": "Pilot fəaliyyəti zamanı hansı istiqaməti göstərən alət ən vacibdir?",
+          "options": [
+            "Termometr",
+            "Kompas / Kurs göstəricisi",
+            "Barometr",
+            "Saatlıq"
+          ],
+          "correctIndex": 1,
+          "explanation": "Kompas pilotlara uçuş istiqamətini müəyyən etməyə kömək edir."
+        },
+        {
+          "question": "Beynəlxalq Bakı Hava Limanının IATA kodu nədir?",
+          "options": [
+            "BAK",
+            "AZE",
+            "GYD",
+            "BKU"
+          ],
+          "correctIndex": 2,
+          "explanation": "Heydər Əliyev Beynəlxalq Aeroportunun IATA kodu GYD-dir."
+        }
+      ]
+    },
+    {
+      "universityId": 21,
+      "universityName": "Azərbaycan Dövlət Dəniz Akademiyası",
+      "shortName": "ADDA",
+      "difficulty": 3,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Dənizçi olmaq istəyirsənmi? Hazır ol!",
+      "questions": [
+        {
+          "question": "Gəminin yönünü müəyyən etmək üçün nə istifadə olunur?",
+          "options": [
+            "Termometr",
+            "Kompas",
+            "Teleskop",
+            "Barometr"
+          ],
+          "correctIndex": 1,
+          "explanation": "Kompas gəminin istiqamətini müəyyən etmək üçün dənizçiliyin əvəzsiz alətidir."
+        },
+        {
+          "question": "Xəzər dənizi əslində nədir?",
+          "options": [
+            "Okean",
+            "Çay",
+            "Qapalı su hövzəsi (göl)",
+            "Körfəz"
+          ],
+          "correctIndex": 2,
+          "explanation": "Xəzər dənizi adlansa da, əslində dünyanın ən böyük qapalı su hövzəsi — gölüdür."
+        },
+        {
+          "question": "Lövbər gəmidə nə üçün istifadə olunur?",
+          "options": [
+            "Gəmini sürətləndirmək üçün",
+            "Gəmini bir yerdə saxlamaq üçün",
+            "Yük qaldırmaq üçün",
+            "Siqnal vermək üçün"
+          ],
+          "correctIndex": 1,
+          "explanation": "Lövbər gəmini dib tərəfə bağlayaraq hərəkətsiz saxlayan ağır metal qurğudur."
+        }
+      ]
+    },
+    {
+      "universityId": 22,
+      "universityName": "Dövlət İdarəçilik Akademiyası",
+      "shortName": "DİA",
+      "difficulty": 5,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Dövlət idarəçiliyi imtahanı. Lider ruhunu sınayaq!",
+      "questions": [
+        {
+          "question": "Azərbaycan Respublikasında dövlət idarəçiliyinin ali orqanı hansıdır?",
+          "options": [
+            "Parlament",
+            "Prezident",
+            "Nazirlər Kabineti",
+            "Konstitusiya Məhkəməsi"
+          ],
+          "correctIndex": 1,
+          "explanation": "Azərbaycanda prezident dövlət başçısı kimi ən ali icra hakimiyyətini həyata keçirir."
+        },
+        {
+          "question": "Demokratiya nə deməkdir?",
+          "options": [
+            "Bir şəxsin ölkəni idarə etməsi",
+            "Xalqın öz seçkiləri vasitəsilə idarəçilikdə iştirak etməsi",
+            "Orduya əsaslanan idarəçilik",
+            "Kilsəyə əsaslanan idarəçilik"
+          ],
+          "correctIndex": 1,
+          "explanation": "Demokratiya xalqın öz nümayəndələrini seçərək ölkəni idarə etməsi sistemidir."
+        },
+        {
+          "question": "BMT nə üçün yaradılmışdır?",
+          "options": [
+            "Ticarəti artırmaq üçün",
+            "Beynəlxalq sülhü və təhlükəsizliyi qorumaq üçün",
+            "Kosmosda araşdırma aparmaq üçün",
+            "Elm mükafatları vermək üçün"
+          ],
+          "correctIndex": 1,
+          "explanation": "Birləşmiş Millətlər Təşkilatı (BMT) 1945-ci ildə dünya sülhünü qorumaq məqsədi ilə yaradılıb."
+        }
+      ]
+    },
+    {
+      "universityId": 23,
+      "universityName": "Azərbaycan Dövlət Rəssamlıq Akademiyası",
+      "shortName": "ADRA",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Rəssamlıq imtahanı. Sənəti sevirsənmi?",
+      "questions": [
+        {
+          "question": "Əsas rənglər hansılardır?",
+          "options": [
+            "Qırmızı, sarı, mavi",
+            "Qırmızı, yaşıl, mavi",
+            "Narıncı, bənövşəyi, yaşıl",
+            "Ağ, qara, boz"
+          ],
+          "correctIndex": 0,
+          "explanation": "Rəssamlıqda əsas (primer) rənglər qırmızı, sarı və mavidir."
+        },
+        {
+          "question": "Heykəltəraşlıq nədir?",
+          "options": [
+            "Düz səthdə rəsm çəkməkdir",
+            "Üçölçülü əsərlər yaratmaq sənətidir",
+            "Xalça toxumaq sənətidir",
+            "Fotosurat çəkməkdir"
+          ],
+          "correctIndex": 1,
+          "explanation": "Heykəltəraşlıq daş, metal, torpaq və digər materiallardan üçölçülü sənət əsərləri yaratmaqdır."
+        },
+        {
+          "question": "Monaliza tablosu kimin əsəridir?",
+          "options": [
+            "Mikelandjelo",
+            "Leonardo da Vinci",
+            "Pikasso",
+            "Van Qoq"
+          ],
+          "correctIndex": 1,
+          "explanation": "Monaliza Leonardo da Vincinin ən məşhur əsəridir, 16-cı əsrdə çəkilib."
+        }
+      ]
+    },
+    {
+      "universityId": 24,
+      "universityName": "Azərbaycan Milli Konservatoriyası",
+      "shortName": "AMK",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Muğam dünyasına giriş imtahanı!",
+      "questions": [
+        {
+          "question": "Muğam nədir?",
+          "options": [
+            "Azərbaycan xalq oyun növü",
+            "Azərbaycan klassik vokal-instrumental musiqi forması",
+            "Azərbaycan milli rəqsi",
+            "Azərbaycan şeir forması"
+          ],
+          "correctIndex": 1,
+          "explanation": "Muğam UNESCO-nun qeyri-maddi mədəni irs siyahısına daxil olan Azərbaycan klassik musiqi formasıdır."
+        },
+        {
+          "question": "Tar hansı ölkənin milli musiqisinə aiddir?",
+          "options": [
+            "Türkiyə",
+            "İran",
+            "Azərbaycan",
+            "Gürcüstan"
+          ],
+          "correctIndex": 2,
+          "explanation": "Tar Azərbaycanın milli çalğı alətidir."
+        },
+        {
+          "question": "Üzeyir Hacıbəyov kim olmuşdur?",
+          "options": [
+            "Azərbaycan rəssamı",
+            "Azərbaycan bəstəkarı",
+            "Azərbaycan şairi",
+            "Azərbaycan alimi"
+          ],
+          "correctIndex": 1,
+          "explanation": "Üzeyir Hacıbəyov Azərbaycanın böyük bəstəkarı, 'Leyli və Məcnun' operasının müəllifidir."
+        }
+      ]
+    },
+    {
+      "universityId": 25,
+      "universityName": "Naxçıvan Müəllimlər İnstitutu",
+      "shortName": "NMİ",
+      "difficulty": 1,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Müəllim olmaq istəyirsən? Çox asan imtahan!",
+      "questions": [
+        {
+          "question": "Sinif otağında şagirdlər nə edir?",
+          "options": [
+            "Yatır",
+            "Öyrənir",
+            "Yemək yeyir",
+            "Oynayır"
+          ],
+          "correctIndex": 1,
+          "explanation": "Şagirdlər sinif otağında bilik əldə edir, öyrənir."
+        },
+        {
+          "question": "Müəllim dərsi hansı alətlə izah edir?",
+          "options": [
+            "Baraban",
+            "Lövhə və təbaşir",
+            "Kamera",
+            "Kompas"
+          ],
+          "correctIndex": 1,
+          "explanation": "Müəllim lövhədə yazaraq dərs keçir."
+        },
+        {
+          "question": "Müəllim şagirdlərə nə verir?",
+          "options": [
+            "Pul",
+            "Bilik",
+            "Yeməklik",
+            "Geyim"
+          ],
+          "correctIndex": 1,
+          "explanation": "Müəllimin əsas işi şagirdlərə bilik vermək, onları inkişaf etdirməkdir."
+        }
+      ]
+    },
+    {
+      "universityId": 26,
+      "universityName": "ADA Universiteti",
+      "shortName": "ADA",
+      "difficulty": 5,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Azərbaycanın ən prestijli universitetinin imtahanı. Hazırsanmı?",
+      "questions": [
+        {
+          "question": "İnternet üzərindən göndərilən məktubalara nə deyilir?",
+          "options": [
+            "SMS",
+            "Faks",
+            "E-poçt (Email)",
+            "Telegram"
+          ],
+          "correctIndex": 2,
+          "explanation": "Elektron poçt (e-mail) internet vasitəsilə göndərilən rəqəmsal məktubdur."
+        },
+        {
+          "question": "Dünya ticarəti hansı təşkilat tərəfindən tənzimlənir?",
+          "options": [
+            "BMT",
+            "NATO",
+            "DTT (Dünya Ticarət Təşkilatı)",
+            "FIFA"
+          ],
+          "correctIndex": 2,
+          "explanation": "Dünya Ticarət Təşkilatı (DTT/WTO) beynəlxalq ticarəti tənzimləyir."
+        },
+        {
+          "question": "Startap nə deməkdir?",
+          "options": [
+            "Köhnə bir şirkətin filialı",
+            "Yeni, innovativ bir iş ideyasına əsaslanan yeni şirkət",
+            "Dövlət müəssisəsi",
+            "Bank növü"
+          ],
+          "correctIndex": 1,
+          "explanation": "Startap adətən texnologiya əsaslı, yüksək böyümə potensialı olan yeni şirkətdir."
+        }
+      ]
+    },
+    {
+      "universityId": 27,
+      "universityName": "Azərbaycan Turizm və Menecment Universiteti",
+      "shortName": "ATMU",
+      "difficulty": 3,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Turizm imtahanı! Dünyagəzən olmaq istəyirsənmi?",
+      "questions": [
+        {
+          "question": "Otelin ulduz sayı nəyi göstərir?",
+          "options": [
+            "Otelin hündürlüyünü",
+            "Xidmət keyfiyyəti və rahatlıq səviyyəsini",
+            "Otelin yaşını",
+            "Oteldəki otaqların sayını"
+          ],
+          "correctIndex": 1,
+          "explanation": "Ulduz reytinqi otelin xidmət keyfiyyətini və rahatlığını göstərir; 5 ulduz ən yüksəkdir."
+        },
+        {
+          "question": "Turizm ölkənin iqtisadiyyatına necə kömək edir?",
+          "options": [
+            "Kömək etmir",
+            "Xarici turistlərin xərclədikləri pul ölkəyə gəlir gətirir",
+            "Yalnız şəhərlərə fayda verir",
+            "Yalnız müvəqqəti iş yaradır"
+          ],
+          "correctIndex": 1,
+          "explanation": "Turizm xarici valyuta gəliri, iş yeri yaratması ilə ölkə iqtisadiyyatına böyük töhfə verir."
+        },
+        {
+          "question": "Vizit kartın turizmdə rolu nədir?",
+          "options": [
+            "Giriş bileti kimi istifadə olunur",
+            "Əlaqə məlumatlarını çatdırmaq üçün istifadə olunur",
+            "Pul kimi istifadə olunur",
+            "Pasport əvəzinə istifadə olunur"
+          ],
+          "correctIndex": 1,
+          "explanation": "Vizit kart şəxsi əlaqə məlumatlarını paylaşmaq üçün işlədilir."
+        }
+      ]
+    },
+    {
+      "universityId": 28,
+      "universityName": "Moskva Dövlət Universiteti (Bakı filialı)",
+      "shortName": "MDU-Bakı",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Moskva Dövlət Universitetinin imtahanı. Elmi yoxlayaq!",
+      "questions": [
+        {
+          "question": "√144 (144-ün kvadrat kökü) nəyə bərabərdir?",
+          "options": [
+            "10",
+            "11",
+            "12",
+            "14"
+          ],
+          "correctIndex": 2,
+          "explanation": "12 × 12 = 144, ona görə √144 = 12-dir."
+        },
+        {
+          "question": "Nyutonun birinci qanunu nə deyir?",
+          "options": [
+            "Hər cisim hərəkət edir",
+            "Cisim xarici qüvvə olmadan hərəkət vəziyyətini dəyişmir",
+            "Hər fəaliyyətin əks reaksiyası var",
+            "Qüvvə kütlə ilə sürətin hasilinə bərabərdir"
+          ],
+          "correctIndex": 1,
+          "explanation": "Nyutonun inersiya qanunu: xarici qüvvə olmadan cisim sükunətdə qalır və ya düzxətli bərabərsürətli hərəkət edir."
+        },
+        {
+          "question": "Dövrü cədvəli kim yaradıb?",
+          "options": [
+            "Albert Eynşteyn",
+            "Dmitri Mendeleev",
+            "Nikola Tesla",
+            "Mariya Küri"
+          ],
+          "correctIndex": 1,
+          "explanation": "Kimyəvi elementlərin dövrü sistemi 1869-cu ildə rus alimi Dmitri Mendeleev tərəfindən yaradılıb."
+        }
+      ]
+    },
+    {
+      "universityId": 29,
+      "universityName": "Bakı Ali Neft Məktəbi",
+      "shortName": "BANM",
+      "difficulty": 5,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "SOCAR-ın dəstəklədiyi BANM imtahanı. Neft mühəndisi olmaq istəyirsənmi?",
+      "questions": [
+        {
+          "question": "SOCAR nəyin abbreviaturasıdır?",
+          "options": [
+            "Sumqayıt Özəl Cəmiyyəti Azərbaycan Respublikası",
+            "Dövlət Neft Şirkəti Azərbaycan Respublikası",
+            "Sənaye Obyektləri Cəmiyyəti Azərbaycan",
+            "Sürəkli Olaraq Cavabdeh Azərbaycan Respublikası"
+          ],
+          "correctIndex": 1,
+          "explanation": "SOCAR — Dövlət Neft Şirkəti Azərbaycan Respublikası deməkdir."
+        },
+        {
+          "question": "Neft quyusu qazmaq üçün hansı avadan istifadə olunur?",
+          "options": [
+            "Traktor",
+            "Qazma qurğusu (buruq)",
+            "Ekskovator",
+            "Kran"
+          ],
+          "correctIndex": 1,
+          "explanation": "Neft quyuları xüsusi qazma qurğuları — buruqlar vasitəsilə qazılır."
+        },
+        {
+          "question": "Neftin emalı nəticəsinde hansı məhsul alınır?",
+          "options": [
+            "Yalnız benzin",
+            "Benzin, dizel, plastik, yağlar və digər məhsullar",
+            "Yalnız plastik",
+            "Yalnız mum"
+          ],
+          "correctIndex": 1,
+          "explanation": "Neft emalı zamanı benzin, dizel, aviasiya yanacağı, plastik, yağlar, bitum və daha çox məhsul alınır."
+        }
+      ]
+    },
+    {
+      "universityId": 30,
+      "universityName": "Bakı Xoreoqrafiya Akademiyası",
+      "shortName": "BXA",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Rəqs sənətinin imtahanı. Ritmini hiss edirsənmi?",
+      "questions": [
+        {
+          "question": "Balet hansı sahəyə aiddir?",
+          "options": [
+            "Ərzaq texnologiyası",
+            "Klassik teatr rəqsi sənəti",
+            "Coğrafiya",
+            "Tibb"
+          ],
+          "correctIndex": 1,
+          "explanation": "Balet klassik musiqi müşayiəti ilə icra edilən dramatik rəqs sənətidir."
+        },
+        {
+          "question": "Azərbaycan xalq rəqslərinin xarakteristik xüsusiyyəti nədir?",
+          "options": [
+            "Çox yavaş temp",
+            "Canlı temp, milli musiqi, parlaq geyim",
+            "Yalnız kişilər üçündür",
+            "Yalnız qış bayramlarında icra olunur"
+          ],
+          "correctIndex": 1,
+          "explanation": "Azərbaycan xalq rəqsləri canlı tempi, milli musiqi müşayiəti və rəngarəng milli geyimləri ilə seçilir."
+        },
+        {
+          "question": "Xoreoqraf kim adlanır?",
+          "options": [
+            "Musiqi bəstəkarı",
+            "Rəqs hərəkətlərini hazırlayan sənətkar",
+            "Teatrın direktoru",
+            "Kostüm dizayneri"
+          ],
+          "correctIndex": 1,
+          "explanation": "Xoreoqraf rəqs kompozisiyalarını, hərəkətlərini və formalarını hazırlayan sənətkardır."
+        }
+      ]
+    },
+    {
+      "universityId": 31,
+      "universityName": "Mingəçevir Dövlət Universiteti",
+      "shortName": "MİDU",
+      "difficulty": 1,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Mingəçevir universitetinə xoş gəldin! Asan imtahan sənin üçündür.",
+      "questions": [
+        {
+          "question": "Mingəçevir nə ilə məşhurdur?",
+          "options": [
+            "Neft hasil etməklə",
+            "Su anbarı və elektrik stansiyası ilə",
+            "Qızıl mədəni ilə",
+            "Dəniz limanı ilə"
+          ],
+          "correctIndex": 1,
+          "explanation": "Mingəçevir Azərbaycanın ən böyük su anbarı və su elektrik stansiyasına evidir."
+        },
+        {
+          "question": "Ədəbiyyat nəyi öyrənir?",
+          "options": [
+            "Riyaziyyatı",
+            "Şeir, nəsr, dram — yazılı sənəti",
+            "Tarixi",
+            "Hüququ"
+          ],
+          "correctIndex": 1,
+          "explanation": "Ədəbiyyat yazılı sənət əsərlərini — roman, şeir, hekayə, dramı — öyrənən elmdir."
+        },
+        {
+          "question": "Hər gün məktəbə getmək nə üçün lazımdır?",
+          "options": [
+            "Məcbur olduğu üçün",
+            "Bilik əldə etmək üçün",
+            "Dostlarını görmək üçün",
+            "Yeməkxanadan istifadə üçün"
+          ],
+          "correctIndex": 1,
+          "explanation": "Məktəb həyat boyu lazım olacaq bilik və bacarıqları öyrənmə yeridir."
+        }
+      ]
+    },
+    {
+      "universityId": 32,
+      "universityName": "Bakı Mühəndislik Universiteti",
+      "shortName": "BMU",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Kompüter mühəndisliyinin imtahanı. Koda hazırsanmı?",
+      "questions": [
+        {
+          "question": "HTML nədir?",
+          "options": [
+            "Riyazi bir formula",
+            "Veb səhifələri yaratmaq üçün işlədilən dil",
+            "Video oyun növü",
+            "Şifrələmə metodu"
+          ],
+          "correctIndex": 1,
+          "explanation": "HTML (HyperText Markup Language) veb səhifələrin strukturunu müəyyən edən dil."
+        },
+        {
+          "question": "Süni intellekt (AI) nə edir?",
+          "options": [
+            "Yalnız oyun oynayır",
+            "İnsana məxsus düşünmə qabiliyyətini kompüterdə simulyasiya edir",
+            "Yalnız hesablama aparır",
+            "Yalnız şəkil göstərir"
+          ],
+          "correctIndex": 1,
+          "explanation": "Süni intellekt öyrənmə, problemin həlli, qərar vermə kimi insan qabiliyyətlərini maşınlarda simulyasiya edir."
+        },
+        {
+          "question": "Bug proqramlaşdırmada nə deməkdir?",
+          "options": [
+            "Yeni bir xüsusiyyət",
+            "Proqramdakı xəta",
+            "Proqramın tez işləməsi",
+            "Proqramın yüksək qiyməti"
+          ],
+          "correctIndex": 1,
+          "explanation": "Bug proqramın gözlənilmədən səhv davranmasına səbəb olan koddakı xətadır."
+        }
+      ]
+    },
+    {
+      "universityId": 33,
+      "universityName": "Moskva Dövlət Tibb Universiteti (Bakı filialı)",
+      "shortName": "MSTU-Bakı",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Tibb imtahanı — beynəlxalq standart!",
+      "questions": [
+        {
+          "question": "Stetoskop nə üçün istifadə olunur?",
+          "options": [
+            "Qan təzyiqini ölçmək üçün",
+            "Ürək və nəfəs səslərini dinləmək üçün",
+            "Temperatur ölçmək üçün",
+            "Görmə qabiliyyətini yoxlamaq üçün"
+          ],
+          "correctIndex": 1,
+          "explanation": "Stetoskop həkimlərin ürək, ağciyər səslərini dinlədiyi tibbi alətdir."
+        },
+        {
+          "question": "İlk yardımda xəstəni necə yerə uzatmalı?",
+          "options": [
+            "Üzü aşağı",
+            "Üzü yuxarı, başı bir az yuxarı",
+            "Oturaq vəziyyətdə",
+            "Yan tərəfə"
+          ],
+          "correctIndex": 1,
+          "explanation": "Şüursuz xəstəni yan vəziyyətdə saxlamaq ən təhlükəsiz mövqedir."
+        },
+        {
+          "question": "Antibiotiklər nəyi müalicə edir?",
+          "options": [
+            "Virus xəstəliklərini",
+            "Bakterial infeksiyaları",
+            "Qırıq sümükləri",
+            "Allergiyanı"
+          ],
+          "correctIndex": 1,
+          "explanation": "Antibiotiklər bakterial infeksiyalara qarşı işlədilir; viruslara təsir göstərmir."
+        }
+      ]
+    },
+    {
+      "universityId": 34,
+      "universityName": "Azərbaycan İlahiyyat İnstitutu",
+      "shortName": "Aİİ",
+      "difficulty": 3,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "İlahiyyat imtahanı. Biliklərin dərinliyini sınayaq.",
+      "questions": [
+        {
+          "question": "İslamın müqəddəs kitabı hansıdır?",
+          "options": [
+            "İncil",
+            "Tövrat",
+            "Qurani Kərim",
+            "Zəbur"
+          ],
+          "correctIndex": 2,
+          "explanation": "Qurani-Kərim İslamın müqəddəs kitabıdır."
+        },
+        {
+          "question": "Ərəb əlifbası hansı istiqamətdə yazılır?",
+          "options": [
+            "Soldan sağa",
+            "Sağdan sola",
+            "Yuxarıdan aşağı",
+            "Aşağıdan yuxarı"
+          ],
+          "correctIndex": 1,
+          "explanation": "Ərəb əlifbası sağdan sola istiqamətdə yazılır."
+        },
+        {
+          "question": "Ramazan nədir?",
+          "options": [
+            "İslam yeni ili",
+            "Müsəlmanların oruc tutduğu müqəddəs ay",
+            "İslami bayram günü",
+            "Dua kitabının adı"
+          ],
+          "correctIndex": 1,
+          "explanation": "Ramazan Hicrət təqviminin doqquzuncu ayıdır; müsəlmanlar bu ay oruc tutur."
+        }
+      ]
+    },
+    {
+      "universityId": 35,
+      "universityName": "Azərbaycan Fransız Universiteti",
+      "shortName": "UFAZ",
+      "difficulty": 5,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Fransız-Azərbaycan universiteti imtahanı. İkidilli imtahan!",
+      "questions": [
+        {
+          "question": "Fransa paytaxtı hansıdır?",
+          "options": [
+            "Lion",
+            "Marsel",
+            "Paris",
+            "Bordo"
+          ],
+          "correctIndex": 2,
+          "explanation": "Paris Fransanın paytaxtı və dünyanın ən məşhur şəhərlərindən biridir."
+        },
+        {
+          "question": "Riyaziyyatda π (pi) ədədi təxminən nəyə bərabərdir?",
+          "options": [
+            "2.14",
+            "3.14",
+            "4.14",
+            "1.14"
+          ],
+          "correctIndex": 1,
+          "explanation": "Pi (π) ≈ 3.14159... Dairənin çevrəsini diametrinə bölən sabitdir."
+        },
+        {
+          "question": "Müasir mühəndislik problemlərini həll etmək üçün hansı bacarıq lazımdır?",
+          "options": [
+            "Yalnız fiziki güc",
+            "Riyazi düşüncə, yaradıcılıq və problem həll etmə bacarığı",
+            "Yalnız dil bilgisi",
+            "Yalnız çizmə bacarığı"
+          ],
+          "correctIndex": 1,
+          "explanation": "Mühəndislik riyaziyyat, elm, texnologiya və yaradıcılığı birləşdirən sahədir."
+        }
+      ]
+    },
+    {
+      "universityId": 36,
+      "universityName": "Qarabağ Universiteti",
+      "shortName": "QU",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Qarabağ Universitetinə xoş gəldin! Yeni başlanğıc!",
+      "questions": [
+        {
+          "question": "Qarabağ Azərbaycana nə vaxt tam qaytarıldı?",
+          "options": [
+            "2016",
+            "2020",
+            "2023",
+            "2010"
+          ],
+          "correctIndex": 1,
+          "explanation": "2020-ci il müharibəsindən sonra Qarabağın böyük hissəsi azad edildi, 2023-cü ildə tam azadlıq bərpa olundu."
+        },
+        {
+          "question": "Hüquq dövlətdə nə əhəmiyyət daşıyır?",
+          "options": [
+            "Heç bir əhəmiyyəti yoxdur",
+            "Cəmiyyətdəki münasibətləri tənzimləyir",
+            "Yalnız cinayətkarlara aiddir",
+            "Yalnız hökumətə aiddir"
+          ],
+          "correctIndex": 1,
+          "explanation": "Hüquq qaydaları hər bir insanın hüquqlarını qoruyur və cəmiyyəti tənzimləyir."
+        },
+        {
+          "question": "İqtisadiyyat nəyi öyrənir?",
+          "options": [
+            "Ulduzcuğu",
+            "Resursların istehsalı, bölgüsü və istehlakını",
+            "Heyvanları",
+            "Musiqini"
+          ],
+          "correctIndex": 1,
+          "explanation": "İqtisadiyyat məhdud resursların ən səmərəli şəkildə istifadəsini öyrənir."
+        }
+      ]
+    },
+    {
+      "universityId": 37,
+      "universityName": "Qərbi Kaspi Universiteti",
+      "shortName": "QKU",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Azərbaycanın ən prestijli özəl universitetinin imtahanı!",
+      "questions": [
+        {
+          "question": "Beynəlxalq münasibətlər sahəsi nə ilə məşğuldur?",
+          "options": [
+            "Ölkənin daxili qanunları",
+            "Dövlətlər arasındakı siyasi, iqtisadi əlaqələr",
+            "Yalnız hərbi məsələlər",
+            "Yalnız ticarət"
+          ],
+          "correctIndex": 1,
+          "explanation": "Beynəlxalq münasibətlər dövlətlər, beynəlxalq təşkilatlar arasındakı siyasi, iqtisadi, hərbi əlaqələri öyrənir."
+        },
+        {
+          "question": "Azərbaycan hansı beynəlxalq təşkilatın üzvüdür?",
+          "options": [
+            "NATO",
+            "Avropa İttifaqı",
+            "BMT",
+            "ASEAN"
+          ],
+          "correctIndex": 2,
+          "explanation": "Azərbaycan 1992-ci ildən BMT-nin üzvüdür."
+        },
+        {
+          "question": "Qanunverici hakimiyyəti hansı orqan həyata keçirir?",
+          "options": [
+            "Prezident",
+            "Məhkəmə",
+            "Parlament (Milli Məclis)",
+            "Nazirlər Kabineti"
+          ],
+          "correctIndex": 2,
+          "explanation": "Azərbaycanda qanunverici hakimiyyət Milli Məclisə (parlamentə) məxsusdur."
+        }
+      ]
+    },
+    {
+      "universityId": 38,
+      "universityName": "Azərbaycan Universiteti",
+      "shortName": "AU",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Azərbaycan Universitetinə xoş gəldin!",
+      "questions": [
+        {
+          "question": "Vəkil kimin hüquqlarını qoruyur?",
+          "options": [
+            "Yalnız dövlətin",
+            "Müştərisinin — məhkəmədə onu təmsil edir",
+            "Yalnız hakimin",
+            "Yalnız polislər üçündür"
+          ],
+          "correctIndex": 1,
+          "explanation": "Vəkil müştərisinin hüquqi maraqlarını qoruyur və məhkəmədə onu təmsil edir."
+        },
+        {
+          "question": "Universitetdə oxumaq nə üçün lazımdır?",
+          "options": [
+            "Vaxtı doldurmaq üçün",
+            "Peşəkar bilik və diplom əldə etmək üçün",
+            "Yalnız dostlar tapmaq üçün",
+            "Valideynlər istədiyi üçün"
+          ],
+          "correctIndex": 1,
+          "explanation": "Universitet peşəkar bilik, bacarıq və diplom verməklə karyera qurmağa kömək edir."
+        },
+        {
+          "question": "Iqtisadçı nə edir?",
+          "options": [
+            "Xəstələri müalicə edir",
+            "İqtisadi prosesləri təhlil edir və proqnozlar verir",
+            "Bina tikir",
+            "Dərs keçir"
+          ],
+          "correctIndex": 1,
+          "explanation": "İqtisadçı bazarları, iqtisadi tendensiyaları və maliyyə axınlarını öyrənib analiz edir."
+        }
+      ]
+    },
+    {
+      "universityId": 39,
+      "universityName": "Xəzər Universiteti",
+      "shortName": "XU",
+      "difficulty": 4,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Xəzər Universiteti imtahanı. Beynəlxalq standart!",
+      "questions": [
+        {
+          "question": "Konstitusiya nədir?",
+          "options": [
+            "Ölkənin əsas qanunu",
+            "Şəhər xəritəsi",
+            "Vergi siyahısı",
+            "Ordu qaydaları"
+          ],
+          "correctIndex": 0,
+          "explanation": "Konstitusiya dövlətin əsas qanunu olub bütün digər qanunların əsasını təşkil edir."
+        },
+        {
+          "question": "Biznes planı nə üçün yazılır?",
+          "options": [
+            "Bankı aldatmaq üçün",
+            "İş ideyasını, məqsədi və strategiyanı izah etmək üçün",
+            "Vergi ödəməmək üçün",
+            "Şirkəti satmaq üçün"
+          ],
+          "correctIndex": 1,
+          "explanation": "Biznes plan şirkətin məqsədlərini, strategiyasını, maliyyə proqnozunu ortaya qoyur."
+        },
+        {
+          "question": "Tibbi etika nə deməkdir?",
+          "options": [
+            "Tibbi avadanlıqların qiyməti",
+            "Həkimin öz peşəsinə münasibətdə riayət etməli olduğu əxlaq normaları",
+            "Tibb tarixi",
+            "Xəstə siyahısı"
+          ],
+          "correctIndex": 1,
+          "explanation": "Tibbi etika həkimin xəstəyə, cəmiyyətə, peşəsinə qarşı riayət etdiyi əxlaq prinsiplərini əhatə edir."
+        }
+      ]
+    },
+    {
+      "universityId": 40,
+      "universityName": "Bakı Biznes Universiteti",
+      "shortName": "BBU",
+      "difficulty": 3,
+      "passingScore": 2,
+      "totalQuestions": 3,
+      "examIntro": "Biznes imtahanı. Girişimçi ruhun varmı?",
+      "questions": [
+        {
+          "question": "Marketinq nədir?",
+          "options": [
+            "Mal daşımaq",
+            "Məhsul haqqında məlumatı müştəriyə çatdırmaq prosesi",
+            "Mühasibat işi",
+            "İstehsal prosesi"
+          ],
+          "correctIndex": 1,
+          "explanation": "Marketinq məhsul və ya xidməti müştəriyə tanıtmaq, satmaq üçün aparılan fəaliyyətlərdir."
+        },
+        {
+          "question": "Gəlir nə deməkdir?",
+          "options": [
+            "Xərclər",
+            "Qazanılan pul məbləği",
+            "Borc",
+            "Vergi"
+          ],
+          "correctIndex": 1,
+          "explanation": "Gəlir satış, xidmət göstərməsi və ya investisiyadan əldə edilən pul daxilolmasıdır."
+        },
+        {
+          "question": "Mühasib nə edir?",
+          "options": [
+            "Bina tikir",
+            "Şirkətin maliyyə hesablarını aparır",
+            "Reklam hazırlayır",
+            "İşçi işə götürür"
+          ],
+          "correctIndex": 1,
+          "explanation": "Mühasib şirkətin gəlir-xərc hesabatlarını tutur və maliyyə vəziyyətini izləyir."
+        }
+      ]
+    },
+    {
+      "universityId": 41,
+      "universityName": "Bakı Avrasiya Universiteti",
+      "shortName": "BAU",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Bakı Avrasiya Universiteti imtahanı!",
+      "questions": [
+        {
+          "question": "Psixoloq kimə kömək edir?",
+          "options": [
+            "Yalnız dəli insanlara",
+            "Emosional problemləri olan insanlara",
+            "Yalnız uşaqlara",
+            "Yalnız yaşlılara"
+          ],
+          "correctIndex": 1,
+          "explanation": "Psixoloq hər yaşda insanların emosional, davranış, stress problemlərini həll etməsinə köməklik göstərir."
+        },
+        {
+          "question": "Avrasiya nədir?",
+          "options": [
+            "Bir okean",
+            "Avropa və Asiyanı birləşdirən ən böyük qitə",
+            "Bir ölkə",
+            "Bir dəniz"
+          ],
+          "correctIndex": 1,
+          "explanation": "Avrasiya Avropa ilə Asiyanı birləşdirən dünyanın ən böyük qitəsidir."
+        },
+        {
+          "question": "Hüquqşünas nə edir?",
+          "options": [
+            "Xəstəlik müalicə edir",
+            "Hüquqi məsləhət verir, qanunlara əsasən insanlara kömək edir",
+            "Köprü tikir",
+            "Mühasibat aparır"
+          ],
+          "correctIndex": 1,
+          "explanation": "Hüquqşünas hüquq sahəsinin mütəxəssisi olaraq insanlara hüquqi yardım göstərir."
+        }
+      ]
+    },
+    {
+      "universityId": 42,
+      "universityName": "Bakı Qızlar Universiteti",
+      "shortName": "BQU",
+      "difficulty": 1,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Qızlar universiteti imtahanı! Asan və əyləncəli!",
+      "questions": [
+        {
+          "question": "Güclü bir qadın cəmiyyətdə nə edə bilər?",
+          "options": [
+            "Yalnız evdə oturmalıdır",
+            "Hər sahədə uğurlu karyera qura bilər",
+            "Yalnız müəllim ola bilər",
+            "Yalnız həkim ola bilər"
+          ],
+          "correctIndex": 1,
+          "explanation": "Qadınlar təhsillə hər sahədə uğur qazana bilər."
+        },
+        {
+          "question": "Uşaqların ilk müəllimi kimdir?",
+          "options": [
+            "Dövlət",
+            "Ailə, xüsusilə ana",
+            "Televizor",
+            "Qonşu"
+          ],
+          "correctIndex": 1,
+          "explanation": "Ailə — xüsusilə ana — uşağın ilk müəllimi sayılır."
+        },
+        {
+          "question": "Empati nə deməkdir?",
+          "options": [
+            "Başqasının hisslərini anlamaq",
+            "Pul qazanmaq",
+            "Sürətli qaçmaq",
+            "Xəritə oxumaq"
+          ],
+          "correctIndex": 0,
+          "explanation": "Empati başqasının hissini anlama, onun yerinə özünü qoyma qabiliyyətidir."
+        }
+      ]
+    },
+    {
+      "universityId": 43,
+      "universityName": "Azərbaycan Kooperasiya Universiteti",
+      "shortName": "AKU",
+      "difficulty": 1,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Kooperasiya universitetinə xoş gəldin!",
+      "questions": [
+        {
+          "question": "Kooperasiya nə deməkdir?",
+          "options": [
+            "Rəqabət",
+            "İnsanların ortaq məqsəd üçün birlikdə çalışması",
+            "Müharibə",
+            "Yalnız dövlət işi"
+          ],
+          "correctIndex": 1,
+          "explanation": "Kooperasiya insanların ortaq fayda üçün könüllü əsasda birlikdə fəaliyyət göstərməsidir."
+        },
+        {
+          "question": "Mağazada satıcı nə edir?",
+          "options": [
+            "Yalnız pul sayır",
+            "Müştərilərə mal satır və xidmət göstərir",
+            "Yalnız mal daşıyır",
+            "Yalnız reklam edir"
+          ],
+          "correctIndex": 1,
+          "explanation": "Satıcı müştərilərə xidmət göstərir, məhsullar haqqında məlumat verir, satışı həyata keçirir."
+        },
+        {
+          "question": "Alış-veriş nədir?",
+          "options": [
+            "Mal və ya xidmət almaq / satmaq prosesi",
+            "Pul yığmaq",
+            "Bank hesabı açmaq",
+            "Vergi ödəmək"
+          ],
+          "correctIndex": 0,
+          "explanation": "Alış-veriş pul müqabilində mal və ya xidmət əldə etmə prosesidir."
+        }
+      ]
+    },
+    {
+      "universityId": 44,
+      "universityName": "Odlar Yurdu Universiteti",
+      "shortName": "OYU",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Odlar Yurdu Universiteti imtahanı!",
+      "questions": [
+        {
+          "question": "'Odlar Yurdu' Azərbaycana verilmiş qədim ləqəbdir. Niyə?",
+          "options": [
+            "Çox isti iqlimi olduğuna görə",
+            "Qədim zamanlardan od (neft, qaz) mənbələrinə görə",
+            "Çox böyük meşələrinə görə",
+            "Dağlarının çox olmasına görə"
+          ],
+          "correctIndex": 1,
+          "explanation": "Azərbaycanda neft çıxdığı yerlerdəki qazın alovlanması bu ləqəbin yaranmasına səbəb olub."
+        },
+        {
+          "question": "Mühəndis nə edir?",
+          "options": [
+            "Xəstəlik müalicə edir",
+            "Texniki sistemlər layihələndirir və qurur",
+            "Dərs keçir",
+            "Şeir yazır"
+          ],
+          "correctIndex": 1,
+          "explanation": "Mühəndislər binaları, maşınları, texnologiyaları layihələndirir və inşa edir."
+        },
+        {
+          "question": "Hüquq pozuntusuna görə nə baş verir?",
+          "options": [
+            "Heç nə",
+            "Hüquqi məsuliyyət tədbirləri tətbiq olunur",
+            "Hər şey normal davam edir",
+            "Yalnız xəbərdarlıq edilir"
+          ],
+          "correctIndex": 1,
+          "explanation": "Hüquq pozuntusuna görə cərimə, həbs, digər cəza tədbirləri tətbiq oluna bilər."
+        }
+      ]
+    },
+    {
+      "universityId": 45,
+      "universityName": "Azərbaycan Əmək və Sosial Münasibətlər Akademiyası",
+      "shortName": "AƏSMA",
+      "difficulty": 2,
+      "passingScore": 1,
+      "totalQuestions": 3,
+      "examIntro": "Əmək akademiyasına xoş gəldin! Hüquqlarını bilirsənmi?",
+      "questions": [
+        {
+          "question": "İşçinin əmək haqqı nə deməkdir?",
+          "options": [
+            "İşçinin ödədiyi pul",
+            "İşçinin gördüyü iş müqabilində aldığı pul",
+            "Şirkətin ödədiyi vergi",
+            "Bank borcu"
+          ],
+          "correctIndex": 1,
+          "explanation": "Əmək haqqı işçinin öz əməyinə görə işəgötürəndən aldığı maaşdır."
+        },
+        {
+          "question": "Sosial siyasət nə üçündür?",
+          "options": [
+            "Yalnız zənginlər üçün",
+            "Cəmiyyətin bütün üzvlərinin rifah halını yaxşılaşdırmaq üçün",
+            "Yalnız pensiyaçılar üçün",
+            "Yalnız uşaqlar üçün"
+          ],
+          "correctIndex": 1,
+          "explanation": "Sosial siyasət dövlətin əhali sağlamlığı, təhsil, yaşayış, pensiya məsələlərini həll etmə fəaliyyətidir."
+        },
+        {
+          "question": "İşçi min manat maaş alır, vergisi 10% olsa, ələ nə keçər?",
+          "options": [
+            "800 manat",
+            "900 manat",
+            "950 manat",
+            "1000 manat"
+          ],
+          "correctIndex": 1,
+          "explanation": "1000 × 0.10 = 100 manat vergi; 1000 − 100 = 900 manat əlinə keçər."
+        }
+      ]
+    }
+  ]
+}

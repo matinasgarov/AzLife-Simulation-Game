@@ -29,6 +29,8 @@ class _GameScreenState extends State<GameScreen> {
   final Random _random = Random();
   int _earlyDecisionCountTotal = 0;
   Map<String, dynamic>? _allDecisions;
+  Map<String, dynamic>? _schoolQuestions;
+  Map<String, dynamic>? _universityExams;
 
   final List<String> _boyNames = ["Murad", "Elvin", "Nihad", "Tural", "Fuad", "Zaur", "Emil", "Oqtay", "Kənan", "Orxan"];
   final List<String> _girlNames = ["Aysel", "Leyla", "Fidan", "Günay", "Nigar", "Sevda", "Aytən", "Lamiyə", "Nərmin", "Arzu"];
@@ -37,7 +39,7 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     super.initState();
     player = widget.player;
-    _loadDecisions();
+    _loadData();
     _initializeFamily();
     logs.add(YearLog(age: 0, events: [
       "Sən ${player.birthCity} qəsəbəsində anadan olmusan.",
@@ -50,23 +52,24 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
-  Future<void> _loadDecisions() async {
+  Future<void> _loadData() async {
     try {
-      final String response = await rootBundle.loadString('assets/decisions.json');
-      final data = await json.decode(response);
+      final String decisionsResponse = await rootBundle.loadString('assets/decisions.json');
+      final String schoolResponse = await rootBundle.loadString('assets/school_questions.json');
+      final String uniResponse = await rootBundle.loadString('assets/university_exams.json');
       setState(() {
-        _allDecisions = data;
+        _allDecisions = json.decode(decisionsResponse);
+        _schoolQuestions = json.decode(schoolResponse);
+        _universityExams = json.decode(uniResponse);
       });
     } catch (e) {
-      debugPrint("Error loading decisions: $e");
+      debugPrint("Error loading data: $e");
     }
   }
 
   void _initializeFamily() {
-    if (_random.nextDouble() > 0.1) {
-      player.family.add(FamilyMember(name: _girlNames[_random.nextInt(_girlNames.length)], surname: player.surname, gender: Gender.female, relation: "Ana", age: 25 + _random.nextInt(10)));
-      player.family.add(FamilyMember(name: _boyNames[_random.nextInt(_boyNames.length)], surname: player.surname, gender: Gender.male, relation: "Ata", age: 28 + _random.nextInt(10)));
-    }
+    player.family.add(FamilyMember(name: _girlNames[_random.nextInt(_girlNames.length)], surname: player.surname, gender: Gender.female, relation: "Ana", age: 25 + _random.nextInt(10)));
+    player.family.add(FamilyMember(name: _boyNames[_random.nextInt(_boyNames.length)], surname: player.surname, gender: Gender.male, relation: "Ata", age: 28 + _random.nextInt(10)));
   }
 
   void _generateSchoolMates() {
@@ -96,16 +99,41 @@ class _GameScreenState extends State<GameScreen> {
       player.looks = (player.looks + _random.nextInt(4) - 1).clamp(0, 100);
 
       List<String> yearEvents = [];
-      if (player.isEnrolledInSchool) {
-        if (player.skippedSchoolThisYear) {
-          player.grades = (player.grades * 0.9).clamp(0, 100);
-          yearEvents.add("Dərsdən qaçdığın üçün qiymətlərin düşdü.");
-        } else if (player.studiedHardThisYear) {
-          player.grades = (player.grades * 1.1).clamp(0, 100);
-          yearEvents.add("Dərslərinə çox çalışdın.");
+      
+      // University Logic
+      if (player.isEnrolledInUniversity) {
+        player.universityYearsStudied++;
+        yearEvents.add("Universitetdə ${player.universityYearsStudied}-cü kursda oxuyursan.");
+        if (player.universityYearsStudied >= 4) {
+          player.isEnrolledInUniversity = false;
+          player.hasBachelorDegree = true;
+          player.title = "Məzun";
+          yearEvents.add("Təbriklər! Sən universiteti bitirdin və Bakalavr dərəcəsi aldın.");
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _showPostUniversityChoice();
+          });
         }
-        player.studiedHardThisYear = false;
-        player.skippedSchoolThisYear = false;
+      }
+
+      // School Logic
+      if (player.isEnrolledInSchool) {
+        if (player.age == 18) {
+          player.isEnrolledInSchool = false;
+          yearEvents.add("Sən məktəbi bitirdin!");
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _showPostSchoolChoice();
+          });
+        } else {
+          if (player.skippedSchoolThisYear) {
+            player.grades = (player.grades * 0.9).clamp(0, 100);
+            yearEvents.add("Dərsdən qaçdığın üçün qiymətlərin düşdü.");
+          } else if (player.studiedHardThisYear) {
+            player.grades = (player.grades * 1.1).clamp(0, 100);
+            yearEvents.add("Dərslərinə çox çalışdın.");
+          }
+          player.studiedHardThisYear = false;
+          player.skippedSchoolThisYear = false;
+        }
       }
 
       if (player.age == 6) {
@@ -128,8 +156,193 @@ class _GameScreenState extends State<GameScreen> {
     });
   }
 
+  void _showPostSchoolChoice() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        title: const Text("Gələcək Seçimi", style: TextStyle(fontWeight: FontWeight.bold)),
+        content: const Text("Məktəbi bitirdin. İndi nə etmək istəyirsən?"),
+        actions: [
+          _choiceButton("Universitetə müraciət et", () {
+            Navigator.pop(context);
+            _showUniversityList();
+          }),
+          if (player.gender == Gender.male)
+            _choiceButton("Hərbi xidmətə get", () {
+              Navigator.pop(context);
+              _triggerArmy(isBachelor: false);
+            }),
+          _choiceButton("İş axtar", () {
+            setState(() {
+              player.title = "İşsiz";
+              logs.first.events.add("İş axtarmağa başladın.");
+            });
+            Navigator.pop(context);
+          }),
+        ],
+      ),
+    );
+  }
+
+  void _showPostUniversityChoice() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        title: const Text("Məzuniyyət Seçimi", style: TextStyle(fontWeight: FontWeight.bold)),
+        content: const Text("Universiteti bitirdin. Növbəti addımın nə olacaq?"),
+        actions: [
+          _choiceButton("Magistraturaya müraciət et", () {
+            setState(() {
+              player.title = "Magistrant";
+              logs.first.events.add("Magistraturaya qəbul oldun!");
+            });
+            Navigator.pop(context);
+          }),
+          if (player.gender == Gender.male)
+            _choiceButton("Hərbi xidmətə get (1 il)", () {
+              Navigator.pop(context);
+              _triggerArmy(isBachelor: true);
+            }),
+          _choiceButton("İş axtar", () {
+            setState(() {
+              player.title = "Mütəxəssis";
+              logs.first.events.add("İxtisasın üzrə iş axtarmağa başladın.");
+            });
+            Navigator.pop(context);
+          }),
+        ],
+      ),
+    );
+  }
+
+  void _showUniversityList() {
+    if (_universityExams == null) return;
+    List<dynamic> unis = _universityExams!['universityExams'];
+    
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        title: const Text("Universitet Seç", style: TextStyle(fontWeight: FontWeight.bold)),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: unis.length,
+            itemBuilder: (context, index) {
+              var uni = unis[index];
+              return ListTile(
+                title: Text(uni['universityName']),
+                subtitle: Text("Çətinlik: ${uni['difficulty']}/5"),
+                onTap: () {
+                  Navigator.pop(context);
+                  _startUniversityExam(uni);
+                },
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _startUniversityExam(Map<String, dynamic> uni) {
+    List<dynamic> questions = List.from(uni['questions']);
+    questions.shuffle();
+    var q = questions.first; // Only ask 1 random question as requested
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        title: Text("${uni['shortName']} Qəbul İmtahanı"),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(uni['examIntro'], style: const TextStyle(fontStyle: FontStyle.italic, color: Colors.grey)),
+            const SizedBox(height: 15),
+            Text(q['question'], style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+          ],
+        ),
+        actions: (q['options'] as List<dynamic>).asMap().entries.map((entry) {
+          return _choiceButton(entry.value, () {
+            Navigator.pop(context);
+            bool passed = entry.key == q['correctIndex'];
+            _finishUniversityExam(uni, passed);
+          });
+        }).toList(),
+      ),
+    );
+  }
+
+  void _finishUniversityExam(Map<String, dynamic> uni, bool passed) {
+    if (passed) SoundManager.playSuccess(); else SoundManager.playFail();
+    
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(passed ? "Təbriklər!" : "Təəssüf..."),
+        content: Text(passed 
+          ? "${uni['universityName']} universitetinə qəbul oldun!"
+          : "Sualı səhv cavablandırdın və imtahandan kəsildin."),
+        actions: [
+          _choiceButton("Davam et", () {
+            setState(() {
+              if (passed) {
+                player.isEnrolledInUniversity = true;
+                player.universityYearsStudied = 0;
+                player.title = "Tələbə";
+                logs.first.events.add("${uni['shortName']} tələbəsi oldun.");
+              } else {
+                logs.first.events.add("${uni['universityName']} imtahanından kəsildin.");
+                if (player.gender == Gender.male) _triggerArmy(isBachelor: false);
+              }
+            });
+            Navigator.pop(context);
+          })
+        ],
+      ),
+    );
+  }
+
+  void _triggerArmy({required bool isBachelor}) {
+    double duration = isBachelor ? 1.0 : 1.5;
+    setState(() {
+      player.title = "Əsgər";
+      logs.first.events.add("Hərbi xidmətə çağırıldın. Xidmət müddəti: $duration il.");
+    });
+  }
+
+  Widget _choiceButton(String label, VoidCallback onPressed) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8.0),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.blueAccent,
+          foregroundColor: Colors.white,
+          minimumSize: const Size(double.infinity, 50),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        ),
+        onPressed: onPressed,
+        child: Text(label, style: const TextStyle(fontWeight: FontWeight.bold)),
+      ),
+    );
+  }
+
   void _handleDecisions() {
     if (_allDecisions == null) return;
+
+    if (player.isEnrolledInSchool && _random.nextDouble() < 0.3) {
+      Future.delayed(const Duration(milliseconds: 500), () => _triggerSchoolExam());
+      return;
+    }
 
     if (player.age < 6 && _earlyDecisionCountTotal < 2) {
       if (player.age == 2 || player.age == 4) {
@@ -140,6 +353,68 @@ class _GameScreenState extends State<GameScreen> {
       String category = _getCategoryByAge(player.age);
       Future.delayed(const Duration(milliseconds: 500), () => _triggerDecisionFromCategory(category));
     }
+  }
+
+  void _triggerSchoolExam() {
+    if (_schoolQuestions == null || _schoolQuestions!['questions'] == null) return;
+    List<dynamic> questions = _schoolQuestions!['questions'];
+    if (questions.isEmpty) return;
+
+    var question = questions[_random.nextInt(questions.length)];
+    _showExamDialog(question);
+  }
+
+  void _showExamDialog(Map<String, dynamic> q) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        title: Row(
+          children: [
+            const Icon(Icons.edit_note, color: Colors.blueAccent),
+            const SizedBox(width: 10),
+            Text("${q['subject'] == 'math' ? 'Riyaziyyat' : q['subject'] == 'geography' ? 'Coğrafiya' : 'Biologiya'} İmtahanı", 
+                 style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          ],
+        ),
+        content: Text(q['question'], style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+        actions: (q['options'] as List<dynamic>).asMap().entries.map((entry) {
+          int idx = entry.key;
+          String optionText = entry.value;
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                foregroundColor: Colors.blueAccent,
+                side: const BorderSide(color: Colors.blueAccent),
+                minimumSize: const Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                elevation: 0,
+              ),
+              onPressed: () {
+                setState(() {
+                  if (idx == q['correctIndex']) {
+                    SoundManager.playSuccess();
+                    player.smarts += 5;
+                    player.grades = (player.grades + 5).clamp(0, 100);
+                    logs.first.events.add(q['successLog']);
+                  } else {
+                    SoundManager.playFail();
+                    player.smarts -= 2;
+                    player.grades = (player.grades - 5).clamp(0, 100);
+                    logs.first.events.add(q['failLog']);
+                  }
+                });
+                Navigator.pop(context);
+              },
+              child: Text(optionText, style: const TextStyle(fontWeight: FontWeight.bold)),
+            ),
+          );
+        }).toList(),
+      ),
+    );
   }
 
   String _getCategoryByAge(int age) {
@@ -310,7 +585,7 @@ class _GameScreenState extends State<GameScreen> {
   Widget _buildActionButtons() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 15.0), 
-      color: Colors.white, 
+      color: Colors.blue.withOpacity(0.05), // Light blue tint for the action area
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
         children: [
@@ -340,9 +615,9 @@ class _GameScreenState extends State<GameScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min, 
             children: [
-              Container(padding: const EdgeInsets.all(10), decoration: BoxDecoration(color: const Color(0xFFF8F8F8), borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.black.withOpacity(0.05))), child: Icon(icon, size: 24, color: Colors.black87)),
+              Container(padding: const EdgeInsets.all(10), decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.blue.withOpacity(0.2))), child: Icon(icon, size: 24, color: Colors.blueAccent)), 
               const SizedBox(height: 4), 
-              Text(label, textAlign: TextAlign.center, style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold))
+              Text(label, textAlign: TextAlign.center, style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: Colors.blueAccent))
             ]
           )
         ),

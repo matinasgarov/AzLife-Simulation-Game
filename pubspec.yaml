@@ -23,4 +23,6 @@ flutter:
 
   assets:
     - assets/decisions.json
+    - assets/school_questions.json
+    - assets/university_exams.json
     - assets/sounds/

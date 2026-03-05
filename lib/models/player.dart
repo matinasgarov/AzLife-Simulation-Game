@@ -56,8 +56,12 @@ class Player {
   int looks;
   int money;
   
-  // School stats
+  // Education stats
   bool isEnrolledInSchool = false;
+  bool isEnrolledInUniversity = false;
+  int universityYearsStudied = 0;
+  bool hasBachelorDegree = false;
+
   double grades = 0.0; // 0.0 to 100.0
   int schoolPopularity = 50;
   int schoolActivity = 50;

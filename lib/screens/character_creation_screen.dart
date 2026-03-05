@@ -81,7 +81,7 @@ class _CharacterCreationScreenState extends State<CharacterCreationScreen> {
         title: const Text("Yeni Həyat", style: TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(24.0),
