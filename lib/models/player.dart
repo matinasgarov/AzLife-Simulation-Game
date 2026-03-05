@@ -7,6 +7,7 @@ class Person {
   int relationship; // 0-100
   bool isAlive;
   int age;
+  String? imagePath;
 
   Person({
     required this.name,
@@ -15,31 +16,56 @@ class Person {
     this.relationship = 100,
     this.isAlive = true,
     this.age = 0,
+    this.imagePath,
   });
 }
 
 class FamilyMember extends Person {
-  final String relation; // "Ana", "Ata", "Qardaş", "Bacıl"
+  final String relation; // "Ana", "Ata", "Qardaş", "Bacı"
+  String education;
+  String job;
+  int monthlyIncome;
+  int totalMoney;
+  int generosity; // 0-100
+  int religiousness; // 0-100
+  bool askedMoneyThisYear = false;
 
   FamilyMember({
     required super.name,
     required super.surname,
     required super.gender,
     required this.relation,
+    this.education = "Orta təhsil",
+    this.job = "İşsiz",
+    this.monthlyIncome = 0,
+    this.totalMoney = 1000,
+    this.generosity = 50,
+    this.religiousness = 50,
     super.relationship = 100,
     super.isAlive = true,
     super.age = 0,
+    super.imagePath,
   });
 }
 
 class SchoolMate extends Person {
+  int money;
+  int health;
+  int smarts;
+  int looks;
+
   SchoolMate({
     required super.name,
     required super.surname,
     required super.gender,
+    this.money = 0,
+    this.health = 100,
+    this.smarts = 50,
+    this.looks = 50,
     super.relationship = 50,
     super.isAlive = true,
     super.age = 0,
+    super.imagePath,
   });
 }
 
@@ -55,6 +81,7 @@ class Player {
   int smarts;
   int looks;
   int money;
+  String? imagePath;
   
   // Education stats
   bool isEnrolledInSchool = false;
@@ -62,6 +89,11 @@ class Player {
   int universityYearsStudied = 0;
   bool hasBachelorDegree = false;
 
+  // Military stats
+  bool isInMilitary = false;
+  int militaryYearsServed = 0;
+  double militaryServiceDuration = 0;
+  
   double grades = 0.0; // 0.0 to 100.0
   int schoolPopularity = 50;
   int schoolActivity = 50;
@@ -69,7 +101,7 @@ class Player {
   bool skippedSchoolThisYear = false;
 
   List<FamilyMember> family = [];
-  List<SchoolMate> schoolMates = [];
+  List<SchoolMate> friends = [];
 
   Player({
     required this.name,
@@ -83,6 +115,7 @@ class Player {
     this.smarts = 50,
     this.looks = 50,
     this.money = 0,
+    this.imagePath,
   });
 
   String getEmoji() {

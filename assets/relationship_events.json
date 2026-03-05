@@ -1,0 +1,5469 @@
+{
+  "meta": {
+    "description": "Münasibət əlaqə hadisələri — valideynlər və sevgili",
+    "effectKeys": {
+      "happiness": "Xoşbəxtlik (+/-)",
+      "relationship": "Münasibət gücü (+/-)",
+      "money": "Pul (+/-)",
+      "health": "Sağlamlıq (+/-)"
+    }
+  },
+  "parents": {
+    "conversation": [
+      {
+        "id": 1,
+        "text": "Atanla Azərbaycanın neft sənayesinin gələcəyi haqqında uzun söhbət etdiniz. O çox bilgili idi.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 10
+        }
+      },
+      {
+        "id": 2,
+        "text": "Anan sənə uşaqlıq xatirələrini danışdı. Gülməkdən göz yaşı axıtdınız.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 3,
+        "text": "Atanla siyasət mövzusunda mübahisə etdiniz. Fikirləriniz fərqli idi, amma hörmətlə dinlədilər.",
+        "effects": {
+          "happiness": 3,
+          "relationship": 5
+        }
+      },
+      {
+        "id": 4,
+        "text": "Ananla bazarın bahalaşması barədə danışdınız. O hər şeyin qiymətini bilirdi.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 8
+        }
+      },
+      {
+        "id": 5,
+        "text": "Atanın gəncliyindəki macəralarını dinlədin. Çox heyran qaldın.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 6,
+        "text": "Ananla qohum xəbərlərini danışdınız. Çox maraqlı şeylər eşitdin.",
+        "effects": {
+          "happiness": 6,
+          "relationship": 9
+        }
+      },
+      {
+        "id": 7,
+        "text": "Atanla futbol nəticəsi haqqında danışdınız. İkisi də çox həyəcanlı oldunuz.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 8,
+        "text": "Ananla gələcək planların barədə ciddi söhbət etdiniz. O sənə tövsiyələr verdi.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 9,
+        "text": "Atana işdə çətin bir vəziyyət danışdın. O sakit şəkildə dinlədi.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 10
+        }
+      },
+      {
+        "id": 10,
+        "text": "Ananla yemək reseptləri haqqında söhbət etdiniz. O sənə nənənin xinkali reseptini öyrətdi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 11,
+        "text": "Atanla dünyada gedən müharibələr barədə danışdınız. Hər ikinizdə kədər var idi.",
+        "effects": {
+          "happiness": 2,
+          "relationship": 7
+        }
+      },
+      {
+        "id": 12,
+        "text": "Ananla qonşu məsələlərini danışdınız. Anan hər şeyi bilirdi.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 8
+        }
+      },
+      {
+        "id": 13,
+        "text": "Atanla avtomobil seçimi haqqında məsləhətləşdiniz. O mütəxəssis kimi danışdı.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 9
+        }
+      },
+      {
+        "id": 14,
+        "text": "Ananla köhnə foto albomuna baxdınız. Hər şəkildə bir hekayə var idi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 15,
+        "text": "Atanla iqtisadi böhran mövzusunda danışdınız. O narahat görünürdü.",
+        "effects": {
+          "happiness": 3,
+          "relationship": 6
+        }
+      },
+      {
+        "id": 16,
+        "text": "Ananla seriallar haqqında danışdınız. İkisi də sevimli personajınızı müdafiə etdiniz.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 17,
+        "text": "Atanla karyera seçimin barədə ciddi söhbət etdiniz. O səni yönləndirdi.",
+        "effects": {
+          "happiness": 6,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 18,
+        "text": "Ananla yuxu yozmadan danışdınız. O hər yuxunun mənasını bilirdi.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 10
+        }
+      },
+      {
+        "id": 19,
+        "text": "Atanla Azərbaycan tarixini müzakirə etdiniz. O çox bilgili idi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 20,
+        "text": "Ananla qız dostun barədə danışdın. O həyəcanla suallar verdi.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 9
+        }
+      },
+      {
+        "id": 21,
+        "text": "Atanla bağçanı necə bəzəyəcəyinizi planladınız. Çox maraqlı idealar çıxdı.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 22,
+        "text": "Ananla yeni bayram hazırlıqlarını planladınız. Ev şənlikli olacaq!",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 23,
+        "text": "Atanla müzakirəsiz dinlədiyiniz musiqi haqqında danışdınız. Zövqlər tamam fərqli idi.",
+        "effects": {
+          "happiness": 6,
+          "relationship": 7
+        }
+      },
+      {
+        "id": 24,
+        "text": "Ananla toydakı geyim seçimini müzakirə etdiniz. Saatlarla vaxt keçdi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 25,
+        "text": "Atanla iqlim dəyişikliyi mövzusunda danışdınız. O çox narahat idi.",
+        "effects": {
+          "happiness": 4,
+          "relationship": 7
+        }
+      },
+      {
+        "id": 26,
+        "text": "Ananla Novruz hazırlıqları barədə danışdınız. Həvəsləndirici söhbət oldu.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 27,
+        "text": "Atanla qohum görüşməsi haqqında planlar qurdunuz. Uzun siyahı var idi.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 8
+        }
+      },
+      {
+        "id": 28,
+        "text": "Ananla texnologiya haqqında danışdınız. O smartfonunu yenidən sənə soruşdu.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 10
+        }
+      },
+      {
+        "id": 29,
+        "text": "Atanla onun ata-anasından — nənən-babandan söhbət etdiniz. Gözləri doldu.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 30,
+        "text": "Ananla xəstəlik haqqında danışdınız. O sənin narahat olmağını istəmirdi.",
+        "effects": {
+          "happiness": 4,
+          "relationship": 9
+        }
+      },
+      {
+        "id": 31,
+        "text": "Atanla idmanın faydaları barədə danışdınız. O sənə məşq tövsiyə etdi.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 9
+        }
+      },
+      {
+        "id": 32,
+        "text": "Ananla qonşu ailəsindəki yenilikləri danışdınız. Çox maraqlı xəbərlər var idi.",
+        "effects": {
+          "happiness": 6,
+          "relationship": 8
+        }
+      },
+      {
+        "id": 33,
+        "text": "Atanla mübarizə ruhunu danışdınız. O sənə həyatdan nümunələr gətirdi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 34,
+        "text": "Ananla dünya aşpazları haqqında danışdınız. O ən yaxşı aşpazın özü olduğunu düşünürdü.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 35,
+        "text": "Atanla bankın faiz dərəcələrini müzakirə etdiniz. O çox mütəxəssis kimi danışdı.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 8
+        }
+      },
+      {
+        "id": 36,
+        "text": "Ananla dost seçiminin vacibliyi barədə söhbət etdiniz. O sənə nəsihət verdi.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 37,
+        "text": "Atanla gəncliyindəki xatirələrini danışdı. Çox fərqli bir dünya idi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 38,
+        "text": "Ananla oxuduğun kitabı müzakirə etdiniz. O da oxumaq istədi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 39,
+        "text": "Atanla hava haqqında danışdınız. Qısa, amma rahat söhbət idi.",
+        "effects": {
+          "happiness": 4,
+          "relationship": 5
+        }
+      },
+      {
+        "id": 40,
+        "text": "Ananla xəyal etdiyiniz ölkələri danışdınız. İkisi də Türkiyəni seçdi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 41,
+        "text": "Atanla ölkənin inkişafı barədə ümidlə danışdınız. O nikbin idi.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 10
+        }
+      },
+      {
+        "id": 42,
+        "text": "Ananla maraqlı bir xəbər haqqında danışdınız. O, həmişəki kimi hər şeyi bilirdi.",
+        "effects": {
+          "happiness": 6,
+          "relationship": 8
+        }
+      },
+      {
+        "id": 43,
+        "text": "Atanla texnologiyanın gənclərə təsiri barədə danışdınız. O narahat görünürdü.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 7
+        }
+      },
+      {
+        "id": 44,
+        "text": "Ananla ev bəzəyi planları müzakirə etdiniz. O çox coşqulu idi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 45,
+        "text": "Atanla həyatın mənası haqqında dərin söhbət etdiniz. Gecə yarı qədər danışdınız.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 46,
+        "text": "Ananla qohum toyuna gedib-getməyəcəyinizi müzakirə etdiniz. Qərara gəlmək çətin idi.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 7
+        }
+      },
+      {
+        "id": 47,
+        "text": "Atanla yeni ev almaq barədə söhbət etdiniz. O sənə maliyyə məsləhəti verdi.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 10
+        }
+      },
+      {
+        "id": 48,
+        "text": "Ananla sağlam qidalanma haqqında danışdınız. O sənin nə yediyini yoxlayırdı.",
+        "effects": {
+          "happiness": 6,
+          "relationship": 9
+        }
+      },
+      {
+        "id": 49,
+        "text": "Atanla ustalıq işi barədə danışdınız. O hər şeyi öz əliylə düzəltməyi xoşlayırdı.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 50,
+        "text": "Ananla sabahkı plan barədə danışdınız. O sənin həyatını idarə etmək istəyirdi, lakin məhəbbətlə.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 10
+        }
+      }
+    ],
+    "spendTime": [
+      {
+        "id": 1,
+        "text": "Atanla bağçada birlikdə işlədiniz. Ağacları budadınız. Axşam əlləriniz ağrıyırdı, amma ruhiniz yüngül idi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15,
+          "health": 3
+        }
+      },
+      {
+        "id": 2,
+        "text": "Ananla birlikdə plov bişirdiniz. O sənin hər hərəkətini yönləndirdi. Çox dadlı çıxdı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 3,
+        "text": "Atanla futbol oyunu izlədilər. Komandan qalib gəldi. Sevincdən qışqırdınız.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 4,
+        "text": "Ananla bazara getdiniz. O hər dükkanda pazarlıq etdi. Pul qənaət etdiniz.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11,
+          "money": 5
+        }
+      },
+      {
+        "id": 5,
+        "text": "Atanla balıq tutmağa getdiniz. Heç nə tutmadınız, amma çox gülüşdünüz.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 6,
+        "text": "Ananla birlikdə tort bişirdiniz. Tort bir az yanıq çıxdı, amma hamısını yedilər.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 7,
+        "text": "Atanla parkda piyada gəzinti etdiniz. Uzun müddət sessizliklə yürüdünüz. Rahat idi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12,
+          "health": 5
+        }
+      },
+      {
+        "id": 8,
+        "text": "Ananla köhnə foto albomuna baxdınız. Hər şəkildə gülüşdünüz.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 9,
+        "text": "Atanla birlikdə köhnə maşını təmir etdiniz. O sənə hər şeyi öyrətdi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 10,
+        "text": "Ananla qonşuluğa birlikdə baş çəkdiniz. O hər evin hekayəsini bilirdi.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 11,
+        "text": "Atanla şahmat oynadınız. O həmişə qazandı, amma sən bu dəfə yaxın gəldin.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 12,
+        "text": "Ananla kafe getdiniz. O sənin seçdiyin hər şeyi bəyəndi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 13,
+          "money": -10
+        }
+      },
+      {
+        "id": 13,
+        "text": "Atanla birgə film izlədilər. O filmin yarısında yuxuya getdi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 10
+        }
+      },
+      {
+        "id": 14,
+        "text": "Ananla birlikdə paltar seçdiniz. O hər şeydə fikir verdi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12,
+          "money": -15
+        }
+      },
+      {
+        "id": 15,
+        "text": "Atanla bağa çıxdınız. O sənə meyvə yığmağı öyrətdi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 16,
+        "text": "Ananla birlikdə mətbəxi yığışdırdınız. O nəğmə oxuyurdu, sən rəqs edirdin.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 17,
+        "text": "Atanla uzun avtomobil səfəri etdiniz. Yol boyu mahnı oxuduğunuz.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 18,
+        "text": "Ananla birlikdə dizi baxdınız. O personajlara çox bağlandı.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 19,
+        "text": "Atanla birlikdə idman etdiniz. O sənin tempini tuta bilmirdi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 11,
+          "health": 8
+        }
+      },
+      {
+        "id": 20,
+        "text": "Ananla nahar üçün restorana getdiniz. O sifariş edərkən uzun oxudu menunu.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 14,
+          "money": -20
+        }
+      },
+      {
+        "id": 21,
+        "text": "Atanla birlikdə taxıl əkildi. O sənə torpağın qiymətini öyrətdi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 22,
+        "text": "Ananla birlikdə bayram süfrəsi hazırladınız. Hər şey mükəmməl görünürdü.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 23,
+        "text": "Atanla birlikdə ev köçürdünüz. Ağır işdi, amma birlikdə etdiniz.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 24,
+        "text": "Ananla birlikdə kitabxanaya getdiniz. İkisi də saatlarla oxudu.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 25,
+        "text": "Atanla birlikdə şəhər turuna çıxdınız. O sənə Bakı tarixini anlatasdı.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 26,
+        "text": "Ananla birlikdə nənəyə baş çəkdiniz. Nənə çox sevindi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 27,
+        "text": "Atanla birlikdə xalça toxudunuz. O çox səbirli idi, sən isə değil.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 28,
+        "text": "Ananla həyətdə oturdunuz. Çay içdilər. Sakitlik var idi. Yetərli idi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 29,
+        "text": "Atanla tennis oynadınız. Sən qalib gəldin. O isə bəhanə tapdı.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 10
+        }
+      },
+      {
+        "id": 30,
+        "text": "Ananla birlikdə musiqi dinlədilər. O köhnə mahnıları sevdi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 31,
+        "text": "Atanla birlikdə qonşuya kömək etdiniz. O fəxr etdi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 32,
+        "text": "Ananla birlikdə xeyirxahlıq aksiyasına getdiniz. İkisi də məmnun oldunuz.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 33,
+        "text": "Atanla birlikdə əl işi etdiniz. O hər şeyi bilirdi, sən öyrəndin.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 34,
+        "text": "Ananla birlikdə sabah saat 5-də oyandınız. O çörək bişirdi, sən köməklik etdin.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 35,
+        "text": "Atanla birlikdə şəhər kənarına piknik etdiniz. Hava gözəl idi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 15,
+          "health": 5
+        }
+      },
+      {
+        "id": 36,
+        "text": "Ananla birlikdə ailə albomunu düzəltdiniz. Hər şəkili öz yerinə qoydunuz.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 37,
+        "text": "Atanla birlikdə velosipedlə şəhəri gəzdiniz. O sizin uşaqlıq evinin önündə dayandı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 38,
+        "text": "Ananla birlikdə çiçək bağçası saldınız. O hər gün baxacaq dedi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 39,
+        "text": "Atanla birlikdə köhnə dostlarını ziyarət etdiniz. Köhnə hekayələr dinlədilər.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 40,
+        "text": "Ananla birlikdə xüsusi yemək hazırladınız. O sənin üçün bişirdi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 41,
+        "text": "Atanla birlikdə şəhər muzeyinə getdiniz. O hər eksponatın tarixini bilirdi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 42,
+        "text": "Ananla birlikdə körpə qohumunuza baxdınız. İkisi də həyəcanlı oldunuz.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 43,
+        "text": "Atanla birlikdə evə boyaqçı gətirdiniz. Birlikdə rəng seçdiniz.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 44,
+        "text": "Ananla birlikdə yuxuya getmədən sabaha qədər söhbət etdiniz.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 45,
+        "text": "Atanla birlikdə ziyarətə getdiniz. O yolda çox sınıq idi, sən onu güldürdün.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 46,
+        "text": "Ananla birlikdə köhnə videoları izlədilər. O ağladı, sən güldün.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 47,
+        "text": "Atanla birlikdə tibb müayinəsinə getdiniz. O sağlam çıxdı. Rahatladın.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 48,
+        "text": "Ananla birlikdə sübh namazına qalxdınız. Sakit bir an idi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 49,
+        "text": "Atanla birlikdə evdə şəhər modeli qurdunuz. Uşaq kimi əyləncəli idi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 50,
+        "text": "Ananla birlikdə gün batımını izlədilər. Sözsüz, amma dolu bir an.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      }
+    ],
+    "gift": [
+      {
+        "id": 1,
+        "text": "Atana doğum günü üçün qol saatı aldın. Gözləri doldu.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": -30
+        }
+      },
+      {
+        "id": 2,
+        "text": "Anana çiçək dəstəsi gətirdin. O sənə bərk qucaq açdı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": -10
+        }
+      },
+      {
+        "id": 3,
+        "text": "Atana sevimli komandanın köynəyini aldın. O hemen geyindi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -20
+        }
+      },
+      {
+        "id": 4,
+        "text": "Anana öz əlinlə kart yazdın. O ağladı.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 18,
+          "money": 0
+        }
+      },
+      {
+        "id": 5,
+        "text": "Atana kitab aldın. O sevmirdi, amma minnətdarlıq etdi.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 9,
+          "money": -15
+        }
+      },
+      {
+        "id": 6,
+        "text": "Anana ayakkabı aldın. Ölçü uyğun gəlmədi, amma onu sevindi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12,
+          "money": -25
+        }
+      },
+      {
+        "id": 7,
+        "text": "Atana yeni kravat aldın. O dedi 'Bu tip şeyə ehtiyacım yox idi', amma taxdı.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 10,
+          "money": -12
+        }
+      },
+      {
+        "id": 8,
+        "text": "Anana sevimli ətirini aldın. O heyrətləndi ki, nə vaxt öyrənmişdin.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 19,
+          "money": -35
+        }
+      },
+      {
+        "id": 9,
+        "text": "Atana ev üçün yeni alət dəsti aldın. Onu çox sevindi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": -20
+        }
+      },
+      {
+        "id": 10,
+        "text": "Anana ev heyvanı aldın. O əvvəl etiraz etdi, sonra onu sevdi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14,
+          "money": -40
+        }
+      },
+      {
+        "id": 11,
+        "text": "Atana onun sevdiyi çay dəmliyi aldın. O sənin bunu bildiyinə təəccübləndi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16,
+          "money": -15
+        }
+      },
+      {
+        "id": 12,
+        "text": "Anana bişirdiyin xinkali gətirdin. O dedi: 'Bunu sən bişirdin?' Sevinclə yedi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17,
+          "money": 0
+        }
+      },
+      {
+        "id": 13,
+        "text": "Atana telefon aldın. O 'Pul xərcləmə!' dedi, amma hemen baxmağa başladı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -80
+        }
+      },
+      {
+        "id": 14,
+        "text": "Anana masaj sessiyası hədiyyə etdin. O çox istəyirdi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -25
+        }
+      },
+      {
+        "id": 15,
+        "text": "Atana onun fotosu ilə hazırlanmış şəkil çərçivəsi aldın. O divarına asdı.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": -20
+        }
+      },
+      {
+        "id": 16,
+        "text": "Anana evə gəldin əliboş. O üzüldü, amma heç nə demədi.",
+        "effects": {
+          "happiness": -5,
+          "relationship": -3,
+          "money": 0
+        }
+      },
+      {
+        "id": 17,
+        "text": "Atana onun doğum günündə unudub sonradan xatırladın. Tez mağazaya qaçdın.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 4,
+          "money": -10
+        }
+      },
+      {
+        "id": 18,
+        "text": "Anana özün toxuduğun şərfini hədiyyə etdin. O onu qış boyu taxdı.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 19,
+          "money": 0
+        }
+      },
+      {
+        "id": 19,
+        "text": "Atana spirt etmişdin, amma yadına düşdü ki, saqindirmi? Geri qaytardın, meyvə aldın.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11,
+          "money": -8
+        }
+      },
+      {
+        "id": 20,
+        "text": "Anana xüsusi hazırlanmış albom aldın — ailə şəkilləri ilə. O saatlarla baxdı.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": -30
+        }
+      },
+      {
+        "id": 21,
+        "text": "Atana sevimli yeməyini bişirdin. O 'Bu ananın yeməyindən yaxşıdır' dedi. Anan eşitdi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 14,
+          "money": 0
+        }
+      },
+      {
+        "id": 22,
+        "text": "Anana yeni çanta aldın. O dedi çox bahalıdı. Amma içi gülürdü.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -50
+        }
+      },
+      {
+        "id": 23,
+        "text": "Atana rahat ev dəsti aldın. O onu heç çıxarmadı.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14,
+          "money": -18
+        }
+      },
+      {
+        "id": 24,
+        "text": "Anana sevimli yazıçısının imzalı kitabını aldın. O inanmadı ki, bu mümkündür.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": -45
+        }
+      },
+      {
+        "id": 25,
+        "text": "Atana onun şəklini peşəkar rəssama çəkdirdin. O üzündə əsmər rəng görüb güldü.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -35
+        }
+      },
+      {
+        "id": 26,
+        "text": "Anana vitaminlər aldın. O sənin öz sağlığına diqqət etmədiyini xatırlatdı.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12,
+          "money": -12
+        }
+      },
+      {
+        "id": 27,
+        "text": "Atana birlikdə konsert biletlərini aldın. O çox həyəcanlı idi.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 18,
+          "money": -40
+        }
+      },
+      {
+        "id": 28,
+        "text": "Anana tort sifariş etdin. O ölçüsünə baxıb kilo barədə zarafat etdi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 13,
+          "money": -20
+        }
+      },
+      {
+        "id": 29,
+        "text": "Atana yeni çəkmə aldın. O dedi köhnəsi hələ yaxşıdır.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 10,
+          "money": -30
+        }
+      },
+      {
+        "id": 30,
+        "text": "Anana tikdirdiyin paltar gətirdin. Tam ölçüsüdür. O sevinclə ağladı.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": -60
+        }
+      },
+      {
+        "id": 31,
+        "text": "Atana onun sevimli yeməkxanasına baxış etdin. O məmnuniyyətlə getdi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": -25
+        }
+      },
+      {
+        "id": 32,
+        "text": "Anana spa gediş hədiyyə etdin. O ilk dəfə gedirdi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17,
+          "money": -40
+        }
+      },
+      {
+        "id": 33,
+        "text": "Atana balıq tutma avadanlığı aldın. O hemen istifadəyə başladı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": -22
+        }
+      },
+      {
+        "id": 34,
+        "text": "Anana bağçadan özün yığdığın meyvəni gətirdin. O bunu mağazadan alanın qatı qiymətləndirdi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": 0
+        }
+      },
+      {
+        "id": 35,
+        "text": "Atana onun sevimli yazıçısının kitabını aldın. O isə onu artıq oxumuşdu.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 9,
+          "money": -15
+        }
+      },
+      {
+        "id": 36,
+        "text": "Anana əl işi çantası aldın. O hər gün götürdü.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -25
+        }
+      },
+      {
+        "id": 37,
+        "text": "Atana ev üçün yeni oturacaq aldın. O onu sənin otağına qoydu.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 11,
+          "money": -35
+        }
+      },
+      {
+        "id": 38,
+        "text": "Anana ev bitkiləri aldın. O hər birinə ad qoydu.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": -12
+        }
+      },
+      {
+        "id": 39,
+        "text": "Atana təzə papaq aldın. O dedi köhnəsi daha yaxşı oturur.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 8,
+          "money": -10
+        }
+      },
+      {
+        "id": 40,
+        "text": "Anana ailəlik yemək setinə sifariş verdin. O dedi içi boşdur, pul israf etmisən.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 10,
+          "money": -45
+        }
+      },
+      {
+        "id": 41,
+        "text": "Atana yeni çay dəsti aldın. O hər gün istifadə etdi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14,
+          "money": -18
+        }
+      },
+      {
+        "id": 42,
+        "text": "Anana şokolad qutusu gətirdin. O paylaşdı, özü ən azı yedi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14,
+          "money": -8
+        }
+      },
+      {
+        "id": 43,
+        "text": "Atana onun iş yerindəki ən vacib köməkçisi üçün de hədiyyə aldın. O razı qaldı.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13,
+          "money": -20
+        }
+      },
+      {
+        "id": 44,
+        "text": "Anana manikür üçün hədiyyə kartı aldın. O ilk dəfə getdi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -30
+        }
+      },
+      {
+        "id": 45,
+        "text": "Atana onunla birlikdə çəkilmiş şəkli büyüdüb çərçivəyə vurduğun gün, o heç nə demədi — amma şəkil divarında qaldı.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": -15
+        }
+      },
+      {
+        "id": 46,
+        "text": "Anana özün çəkdiyin portretini hədiyyə etdin. O ağladı.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": 0
+        }
+      },
+      {
+        "id": 47,
+        "text": "Atana nənənin köhnə saatını təmir etdirdın. O çox təsirləndı.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 19,
+          "money": -20
+        }
+      },
+      {
+        "id": 48,
+        "text": "Anana birlikdə gün batımı seyrinə bilet aldın. O sənin əlini tutdu.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17,
+          "money": -15
+        }
+      },
+      {
+        "id": 49,
+        "text": "Atana onun sevimli futbol komandasının imzalı topunu aldın. Divarına asdı.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 18,
+          "money": -55
+        }
+      },
+      {
+        "id": 50,
+        "text": "Anana özün yazdığın məktubu hədiyyə etdin. Heç nə almadın, amma o dedi bu ən gözəl hədiyyədir.",
+        "effects": {
+          "happiness": 18,
+          "relationship": 21,
+          "money": 0
+        }
+      }
+    ],
+    "fight": [
+      {
+        "id": 1,
+        "text": "Atanla pul xərcləmə barədə mübahisə etdiniz. O sənin israfçı olduğunu düşünürdü. Ev soyudu.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 2,
+        "text": "Ananla gecə gec evə qayıtmaq barədə dava etdiniz. O kapıda müntəzir idi.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 3,
+        "text": "Atanla seçdiyin karyera barədə mübahisə etdiniz. O sənin yolunu düzgün bilmirdi.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 4,
+        "text": "Ananla evdəki nizam-intizam barədə dava etdiniz. Sən otağını yığmamışdın.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 5,
+        "text": "Atanla sevgilinin barədə mübahisə etdiniz. O bəyənmirdi.",
+        "effects": {
+          "happiness": -13,
+          "relationship": -15
+        }
+      },
+      {
+        "id": 6,
+        "text": "Ananla yeməkdə seçim etmək barədə dava etdiniz. Kiçik şey böyüdü.",
+        "effects": {
+          "happiness": -6,
+          "relationship": -7
+        }
+      },
+      {
+        "id": 7,
+        "text": "Atanla siyasi fikirlər barədə mübahisə etdiniz. Hər ikiniz sükutla otaqdan çıxdınız.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 8,
+        "text": "Ananla geyim seçimin barədə mübahisə etdiniz. O sənin xarici görünüşünü tənqid etdi.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -9
+        }
+      },
+      {
+        "id": 9,
+        "text": "Atanla iş tapmaq barədə dava etdiniz. O səbrsiz idi.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 10,
+        "text": "Ananla qohumları tez-tez ziyarət etmədiyinə görə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -9
+        }
+      },
+      {
+        "id": 11,
+        "text": "Atanla ev qaydaları barədə dava etdiniz. O patriarx kimi danışdı.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 12,
+        "text": "Ananla sosial mediada çox vaxt keçirdiyin barədə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -9
+        }
+      },
+      {
+        "id": 13,
+        "text": "Atanla boş vaxtını necə keçirdiyin barədə mübahisə etdiniz. O daha faydalı olmağını istəyirdi.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 14,
+        "text": "Ananla qız dostun haqqında dava etdiniz. O razı deyildi.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 15,
+        "text": "Atanla evdə köməyin barədə mübahisə etdiniz. O dedi hər şeyi özü edir.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 16,
+        "text": "Ananla yatmaq saatı barədə dava etdiniz. Axı sən böyükmüsən artıq!",
+        "effects": {
+          "happiness": -6,
+          "relationship": -7
+        }
+      },
+      {
+        "id": 17,
+        "text": "Atanla pulun haraya getdiyi barədə mübahisə etdiniz. O hesabat istədi.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 18,
+        "text": "Ananla nahar vaxtı süfrəyə gəlməmək barədə dava etdiniz.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 19,
+        "text": "Atanla universitetdəki performansın barədə mübahisə etdiniz. O qiymətlərini tənqid etdi.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 20,
+        "text": "Ananla əri barədə — yəni atanla münasibəti barədə — danışarkən tərəf tutdun. Pisləşdi.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 21,
+        "text": "Atanla nənəyə daha az baş çəkdiyin barədə mübahisə etdiniz. Haqlı idi.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -6
+        }
+      },
+      {
+        "id": 22,
+        "text": "Ananla yemək yemədiyinə görə dava etdiniz. O sənin arıqladığını bildirdi.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 23,
+        "text": "Atanla səfər planın barədə mübahisə etdiniz. O qorxurdu, sən getmək istəyirdin.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 24,
+        "text": "Ananla xərclərini azaltmamaqla bağlı dava etdiniz. Mal almağa davam edirdin.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 25,
+        "text": "Atanla qohuma pul borç verdiyin barədə mübahisə etdiniz. O xəbərdar etmişdi.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 26,
+        "text": "Ananla dostların seçimi barədə mübahisə etdiniz. O bəzi dostlarını bəyənmirdi.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 27,
+        "text": "Atanla evin təmiri haqqında mübahisə etdiniz. Hər ikinizin fərqli görüşü var idi.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 28,
+        "text": "Ananla bayram geyimini seçərkən dava etdiniz. Sonra sən qalib gəldin.",
+        "effects": {
+          "happiness": -5,
+          "relationship": -6
+        }
+      },
+      {
+        "id": 29,
+        "text": "Atanla son illarda onunla az vaxt keçirdiyin barədə mübahisə etdiniz. Hər ikinizdə kəskin sözlər var idi.",
+        "effects": {
+          "happiness": -13,
+          "relationship": -15
+        }
+      },
+      {
+        "id": 30,
+        "text": "Ananla sağlam qidalanmaman barədə dava etdiniz. O yemək hazırladı, sən yemədin.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -9
+        }
+      },
+      {
+        "id": 31,
+        "text": "Atanla birlikdə evdə elektrik problemini həll etmək istəyərkən hər ikiniz gərginləşdi.",
+        "effects": {
+          "happiness": -6,
+          "relationship": -7
+        }
+      },
+      {
+        "id": 32,
+        "text": "Ananla telefon istifadəsi barədə mübahisə etdiniz. O 'Həmişə ekrana baxırsan' dedi.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 33,
+        "text": "Atanla sənin seçdiyin paltar barədə mübahisə etdiniz. O sənin zövqünü qəbul etmirdi.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 34,
+        "text": "Ananla nişan planları barədə mübahisə etdiniz. O sürətli gedirdiyini düşünürdü.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 35,
+        "text": "Atanla qardaş/bacın tərəfini tutduğun barədə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 36,
+        "text": "Ananla qohum məsələsini düzgün idarə etmədiyinə görə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -9
+        }
+      },
+      {
+        "id": 37,
+        "text": "Atanla gec saatlarda çöldə olduğun barədə dava etdiniz. O narahat idi.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 38,
+        "text": "Ananla ev işlərini yerinə yetirmədiyinə görə dava etdiniz. Köhnə şikayətlər ortaya çıxdı.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 39,
+        "text": "Atanla arabanı düzgün işlətmədiyinə görə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 40,
+        "text": "Ananla yuxarı tonla danışdığın üçün dava etdiniz. Sonra özün özündən utandın.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 41,
+        "text": "Atanla yaşam seçimlerin barədə uzun mübahisə etdiniz. Heç kim güzəştə getmedi.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 42,
+        "text": "Ananla pul barədə dava etdiniz. O sənə borç vermək istəmirdi.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 43,
+        "text": "Atanla qonşu problemi barədə mübahisə etdiniz. Hər ikinizin fərqli yanaşması var idi.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 44,
+        "text": "Ananla bayrama getmək istəmədiyinə görə dava etdiniz. Sən yorğun idin.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -9
+        }
+      },
+      {
+        "id": 45,
+        "text": "Atanla sənin qərar vermə tərzin barədə mübahisə etdiniz. O hər şeyi bildiğini düşünürdü.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 46,
+        "text": "Ananla qardaş/bacın qiymətləndirilməsi barədə mübahisə etdiniz. Köhnə qısqanclıq ortaya çıxdı.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 47,
+        "text": "Atanla ona söz verib yerinə yetirmədiyinə görə dava etdiniz.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 48,
+        "text": "Ananla naharada masaya gec gəldiyin üçün mübahisə etdiniz. Kiçik şey böyüdü.",
+        "effects": {
+          "happiness": -6,
+          "relationship": -7
+        }
+      },
+      {
+        "id": 49,
+        "text": "Atanla pul borcunu geri vermədiyinə görə ciddi dava etdiniz. Küsüşdünüz.",
+        "effects": {
+          "happiness": -13,
+          "relationship": -16
+        }
+      },
+      {
+        "id": 50,
+        "text": "Ananla sənin seçimlərinin onun xəyallarına uyğun gəlmədiyi barədə çox ağır sözlər dedilər. Hər ikiniz ağladınız.",
+        "effects": {
+          "happiness": -15,
+          "relationship": -18
+        }
+      }
+    ]
+  },
+  "girlfriend": {
+    "conversation": [
+      {
+        "id": 1,
+        "text": "Sevgilinlə gələcək planlarınızı danışdınız. Hər ikiniz eyni şeyi istəyirdiniz.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 2,
+        "text": "Sevgilinlə sevimli filmlərinizi müzakirə etdiniz. Zövqlər tamam fərqli idi.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 9
+        }
+      },
+      {
+        "id": 3,
+        "text": "Sevgilinlə gün keçirmisinizdə nə hiss etdiyinizi danışdınız. O dinlərdi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 4,
+        "text": "Sevgilinlə bəzi qohumların münasibəti barədə danışdınız. Çətin mövzu idi.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 7
+        }
+      },
+      {
+        "id": 5,
+        "text": "Sevgilinlə birlikdə gecə planlarınızı müzakirə etdiniz. Qərar verə bilmədiniz.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 9
+        }
+      },
+      {
+        "id": 6,
+        "text": "Sevgilinlə keçmiş münasibətlər haqqında danışdınız. Biraz gərgin oldu.",
+        "effects": {
+          "happiness": 4,
+          "relationship": 5
+        }
+      },
+      {
+        "id": 7,
+        "text": "Sevgilinlə xəyallarınızı paylaşdınız. O da sənin qədər böyük düşünürdü.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 8,
+        "text": "Sevgilinlə ailə barədə ciddi söhbət etdiniz. O ailəni çox sevdiğini bildirdi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 9,
+        "text": "Sevgilinlə hər birinin gözləntiləri barədə danışdınız. Açıq söhbət idi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 10,
+        "text": "Sevgilinlə siyasi fikirlər barədə mübahisə etdiniz. Fikirlər fərqli idi, amma hörmətlə dinlədilər.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 6
+        }
+      },
+      {
+        "id": 11,
+        "text": "Sevgilinlə sevdiyiniz musiqi haqqında danışdınız. Eyni sənətçiləri sevdiniz!",
+        "effects": {
+          "happiness": 11,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 12,
+        "text": "Sevgilinlə birlikdə bir şəhəri ziyarət etmək planladınız.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 13,
+        "text": "Sevgilinlə xarici dil öyrənmək barədə danışdınız. İkisi də ingilis dilini təkmilləşdirmək istədi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 14,
+        "text": "Sevgilinlə uşaqlıq xatirələrini paylaşdınız. Çox gülüşdünüz.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 15,
+        "text": "Sevgilinlə birinin şikayəti barədə uzun danışdınız. O sizi anlamağa çalışırdı.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 10
+        }
+      },
+      {
+        "id": 16,
+        "text": "Sevgilinlə rəng seçmək barədə zarafat söhbəti etdiniz. Çox əyləncəli idi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 17,
+        "text": "Sevgilinlə hər birinin güclü və zəif tərəflərini danışdınız. Cəsarətli söhbət idi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 18,
+        "text": "Sevgilinlə uzaqdakı ailə üzvləri barədə danışdınız. Hər ikinizdə nostalgiya var idi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 19,
+        "text": "Sevgilinlə iş stresi haqqında danışdınız. O anladığını bildirdi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 20,
+        "text": "Sevgilinlə xoşbəxtlik nədir mövzusunda dərin söhbət etdiniz.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 21,
+        "text": "Sevgilinlə xülya qurduğunuz ev haqqında danışdınız. Hər köşəni planladınız.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 22,
+        "text": "Sevgilinlə dost seçimləri barədə danışdınız. O bəzi dostlarını bəyənmirdi.",
+        "effects": {
+          "happiness": 6,
+          "relationship": 7
+        }
+      },
+      {
+        "id": 23,
+        "text": "Sevgilinlə pul idarəetməsi barədə danışdınız. Fikirləriniz oxşar idi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 24,
+        "text": "Sevgilinlə sağlıqlı həyat barədə danışdınız. Birlikdə idmana başlamaq qərara gəldiniz.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 25,
+        "text": "Sevgilinlə çox köhnə bir xatirəni paylaşdınız. O təəccübləndi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 26,
+        "text": "Sevgilinlə filmlərdəki sevgi sahələrini müzakirə etdiniz. O dedi: 'Bu həyatda olmur.'",
+        "effects": {
+          "happiness": 9,
+          "relationship": 10
+        }
+      },
+      {
+        "id": 27,
+        "text": "Sevgilinlə hər birinin qorxularını danışdınız. Daha yaxınlaşdınız.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 28,
+        "text": "Sevgilinlə münasibətinizdə nəyi daha yaxşı edə biləcəyinizi danışdınız.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 29,
+        "text": "Sevgilinlə birlikdə hansı kitabı oxumalı olduğunuzu müzakirə etdiniz.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 30,
+        "text": "Sevgilinlə birinci görüşünüzü xatırladınız. Hər ikiniz utandınız.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 31,
+        "text": "Sevgilinlə bir-birinizdəki ən çox xoşladığınız şeyləri söylədilər. Gözəl an idi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 32,
+        "text": "Sevgilinlə vacib bir qərarı birlikdə aldınız. Razılıq çox asanlıqla gəldi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 33,
+        "text": "Sevgilinlə bir-birinizə qorxulu sirrlər söylədilər. İkisi də gülüşdünüz.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 34,
+        "text": "Sevgilinlə münasibətin qaranlıq bir tərəfi barədə açıq danışdınız. Çətin, amma vacib idi.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 35,
+        "text": "Sevgilinlə hər birinin ideal həyatını təsvir etdiniz. Çox oxşar idi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 36,
+        "text": "Sevgilinlə birlikdə yeni bir şey öyrənmək planı qurdunuz. O çox coşqulu idi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 37,
+        "text": "Sevgilinlə birinin bir hərəkəti barədə danışdınız. O anladı.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 38,
+        "text": "Sevgilinlə biri haqqında dedikodu etdiniz. Pis hiss etdiniz amma əyləncəli idi.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 9
+        }
+      },
+      {
+        "id": 39,
+        "text": "Sevgilinlə necə tanış olduğunuzu xatırladınız. Hər ikinizin versiyası fərqli idi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 40,
+        "text": "Sevgilinlə onun ən sevdiyi xatirəsini dinlədilər. Çox emosional idi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 41,
+        "text": "Sevgilinlə bir-birinizin heyranlıq duyduğu şəxsiyyətləri danışdınız.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 42,
+        "text": "Sevgilinlə qorxunc film izləyərkən danışdınız. O qorxub sənə sarıldı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 43,
+        "text": "Sevgilinlə bir-birinizin ailə dəyərlərini müzakirə etdiniz.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 44,
+        "text": "Sevgilinlə birlikdə müzikli nəqliyyatda söhbət etdiniz. Hamı baxırdı.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 45,
+        "text": "Sevgilinlə gecə yarısı telefonla uzun danışdınız. İkisi də ertəsi gün yorğun idi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 46,
+        "text": "Sevgilinlə münasibətin nə qədər inkişaf etdiyi barədə danışdınız. Hər ikinizdə göz yaşı gəldi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 47,
+        "text": "Sevgilinlə nişan planları barədə ilk dəfə ciddi danışdınız. Hər iki tərəf çox diqqətli idi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 48,
+        "text": "Sevgilinlə ailə qurmaq istiyib-istəmədiyi barədə danışdınız. Görüşlər uyğun idi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 49,
+        "text": "Sevgilinlə birlikdə xoşbəxtliyin sizin üçün nə olduğunu söylədilər. Eyni şeyləri dedilər.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 50,
+        "text": "Sevgilinlə gecə yarısı onun şikayətini dinlədilər. Sənin səhər işin var idi, amma qaldın.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 16
+        }
+      }
+    ],
+    "spendTime": [
+      {
+        "id": 1,
+        "text": "Sevgilinlə birlikdə dəniz kənarında gəzdiniz. O ayaqlarını suya vurdu.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 2,
+        "text": "Sevgilinlə birlikdə tort bişirdiniz. Hamısını yedilər, az qalmışdı şəkil çəkilsin.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 3,
+        "text": "Sevgilinlə kinoteatrda film izlədilər. O yarısında yuxuya getdi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 4,
+        "text": "Sevgilinlə birlikdə yüyürüşə getdiniz. O sənin tempinə çata bilmədi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 12,
+          "health": 5
+        }
+      },
+      {
+        "id": 5,
+        "text": "Sevgilinlə birlikdə restorana getdiniz. O hər şeyi bəyəndi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -25
+        }
+      },
+      {
+        "id": 6,
+        "text": "Sevgilinlə birlikdə gündoğumunu izlədilər. Sözlər lazım deyildi.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 7,
+        "text": "Sevgilinlə birlikdə piknikə getdiniz. O hər şeyi hazırlamışdı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 8,
+        "text": "Sevgilinlə birlikdə idman zalına getdiniz. O sənin getməyinə daha çox sevindi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14,
+          "health": 7
+        }
+      },
+      {
+        "id": 9,
+        "text": "Sevgilinlə birlikdə muzeyə getdiniz. O hər eksponat haqqında sual verdi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 10,
+        "text": "Sevgilinlə birlikdə lazer oyun oynadınız. O səni məğlub etdi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 11,
+        "text": "Sevgilinlə evdə birlikdə yemək bişirdiniz. Aşpazlıq yarışması düzəltdiniz.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 12,
+        "text": "Sevgilinlə birlikdə konsertə getdiniz. İkisi də coşdunuz.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17,
+          "money": -30
+        }
+      },
+      {
+        "id": 13,
+        "text": "Sevgilinlə birlikdə sənətkarlıq dərsinə getdiniz. O çox istedadlı çıxdı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 14,
+        "text": "Sevgilinlə birlikdə kafeye getdiniz. Saatlarla oturub danışdınız.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14,
+          "money": -12
+        }
+      },
+      {
+        "id": 15,
+        "text": "Sevgilinlə birlikdə at mindiniz. O əvvəl qorxdu, sonra sevdi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -20
+        }
+      },
+      {
+        "id": 16,
+        "text": "Sevgilinlə birlikdə evdə dizi baxdınız. Gecə yarısı qədər izlədilər.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 17,
+        "text": "Sevgilinlə birlikdə kitab oxuduğunuz sakit bir günortadan sonra keçirdiniz.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 18,
+        "text": "Sevgilinlə birlikdə arxadaşlarınızın toyuna getdiniz. Çox güldünüz.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 19,
+        "text": "Sevgilinlə birlikdə bowling oynadınız. Çox yarışdınız.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 20,
+        "text": "Sevgilinlə birlikdə fotoqrafiya dərsinə qoşuldunuz. Bir-birinizin şəklini çəkdiniz.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 21,
+        "text": "Sevgilinlə birlikdə parkda vəsait toplamaq üçün könüllü işlədilər.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 22,
+        "text": "Sevgilinlə birlikdə alış-verişə getdiniz. O hər dükkanda girdi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12,
+          "money": -40
+        }
+      },
+      {
+        "id": 23,
+        "text": "Sevgilinlə birlikdə körpü üstündə dayanıb şəhərə baxdınız.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 24,
+        "text": "Sevgilinlə birlikdə yaradıcılıq akşamı keçirdiniz — rəsm, musiqi, şeir.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 25,
+        "text": "Sevgilinlə birlikdə komşuya köçməyə kömək etdiniz. Yorucu, amma birlikdə idi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 26,
+        "text": "Sevgilinlə birlikdə çiçək bağçasına getdiniz. O hər bitkini tanıdı.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 27,
+        "text": "Sevgilinlə birlikdə çay dağlarında yürüş etdiniz. Hava mükəmməl idi.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 18,
+          "health": 8
+        }
+      },
+      {
+        "id": 28,
+        "text": "Sevgilinlə birlikdə evdə mum işığında yemək yedilər.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 19,
+          "money": -15
+        }
+      },
+      {
+        "id": 29,
+        "text": "Sevgilinlə birlikdə qayıqla dənizə çıxdınız. O qayığı öyrəndi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 30,
+        "text": "Sevgilinlə birlikdə gecə şəhəri gəzdiniz. Bakının işıqları gözəl idi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 31,
+        "text": "Sevgilinlə birlikdə astrologiyaya həsr olunmuş akşam keçirdiniz. O hər şeyi inandı.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 32,
+        "text": "Sevgilinlə birlikdə yoga sinfine getdiniz. Sən düşdün, o gülümsədi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14,
+          "health": 5
+        }
+      },
+      {
+        "id": 33,
+        "text": "Sevgilinlə birlikdə öz dilinizdə bir mahnı öyrəndiniz.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 34,
+        "text": "Sevgilinlə birlikdə bir-birinizin ailəsinə eyni vaxtda baş çəkdiniz. Analar xoşbəxt oldu.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 35,
+        "text": "Sevgilinlə birlikdə kiçik bir yolçuluq etdiniz. Qərara ani gəldiniz.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 19,
+          "money": -50
+        }
+      },
+      {
+        "id": 36,
+        "text": "Sevgilinlə birlikdə ulduz seyrə çıxdınız. O hər ulduza ad qoydu.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 37,
+        "text": "Sevgilinlə birlikdə ev baxışına getdiniz. Xəyal qurmaq çox əyləncəli idi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 38,
+        "text": "Sevgilinlə birlikdə şəhərin kənar hissəsini kəşf etdiniz. Gizli yerləri tapdınız.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 39,
+        "text": "Sevgilinlə birlikdə fərqli bir mətbəxi sınadınız. Hind yeməkləri çox isti idi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 40,
+        "text": "Sevgilinlə birlikdə qar yağışında bayıra çıxdınız. O uşaq kimi sevinclə oynadı.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 41,
+        "text": "Sevgilinlə birlikdə hamam kafesine getdiniz. Rahatladınız.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": -20
+        }
+      },
+      {
+        "id": 42,
+        "text": "Sevgilinlə birlikdə köhnə dostlarla görüşdünüz. O hamını sevdi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 43,
+        "text": "Sevgilinlə birlikdə ev layihəsi hazırladınız. O liderliy etdi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 44,
+        "text": "Sevgilinlə birlikdə bayram bazarına getdiniz. Əl işlərindən aldınız.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": -18
+        }
+      },
+      {
+        "id": 45,
+        "text": "Sevgilinlə birlikdə pulla bağlı oyun oynadınız. O qazandı.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 46,
+        "text": "Sevgilinlə birlikdə körpə qohuma baxdınız. O körpəyə sarıldı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 47,
+        "text": "Sevgilinlə birlikdə bəzək düzəltdiniz — bayram üçün. Hər ikiniz yaradıcı oldunuz.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 48,
+        "text": "Sevgilinlə birlikdə çay içdilər. Sadə, amma xoş idi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 49,
+        "text": "Sevgilinlə birlikdə sübh erkən oyandınız. O səninlə birlikdə izlər üçün geri yatmağı seçdi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 50,
+        "text": "Sevgilinlə birlikdə mahiyyətsiz bir şeyə güldünüz. Niyə güldüyünüzü unutdunuz.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 16
+        }
+      }
+    ],
+    "gift": [
+      {
+        "id": 1,
+        "text": "Sevgilinə çiçək dəstəsi gətirdin. O heyrətlə gülümsədi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -12
+        }
+      },
+      {
+        "id": 2,
+        "text": "Sevgilinə sevimli ətirini aldın. O sənin öyrəndiyinə inanmadı.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 18,
+          "money": -35
+        }
+      },
+      {
+        "id": 3,
+        "text": "Sevgilinə şokolad qutusu gətirdin. O paylaşdı amma çoxunu yedi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 13,
+          "money": -8
+        }
+      },
+      {
+        "id": 4,
+        "text": "Sevgilinə öz əlinlə yazdığın şeiri hədiyyə etdin. O ağladı.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": 0
+        }
+      },
+      {
+        "id": 5,
+        "text": "Sevgilinə bilet aldın — konsert, onun sevimli sənətçisi. O çılğınlıqla sevindi.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 19,
+          "money": -45
+        }
+      },
+      {
+        "id": 6,
+        "text": "Sevgilinə sevimli yeməyini bişirdin. O sənin buradan bilməyinə heyrətləndi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": 0
+        }
+      },
+      {
+        "id": 7,
+        "text": "Sevgilinə xüsusi hazırlanmış zərgərlik aldın. O dərhal taxdı.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": -60
+        }
+      },
+      {
+        "id": 8,
+        "text": "Sevgilinə o həmişə bəyəndiyi çantanı aldın. Heyrəti sifətindən aydın idi.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 19,
+          "money": -80
+        }
+      },
+      {
+        "id": 9,
+        "text": "Sevgilinə özün çəkdiyin portretini hədiyyə etdin. O divarına asdı.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": 0
+        }
+      },
+      {
+        "id": 10,
+        "text": "Sevgilinə iki bilet aldın — ölkə xaricinə. Birlikdə getdilər.",
+        "effects": {
+          "happiness": 20,
+          "relationship": 23,
+          "money": -200
+        }
+      },
+      {
+        "id": 11,
+        "text": "Sevgilinə kitab aldın — sevimli yazıçısının imzalı nüsxəsi. O ağladı.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 19,
+          "money": -40
+        }
+      },
+      {
+        "id": 12,
+        "text": "Sevgilinə ona məxsus rəsm çəkdirdin. O sevindi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": -30
+        }
+      },
+      {
+        "id": 13,
+        "text": "Sevgilinə ev bitkisi aldın. O ona ad qoydu.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14,
+          "money": -10
+        }
+      },
+      {
+        "id": 14,
+        "text": "Sevgilinə spa günü hədiyyə etdin. O çox ehtiyac duyurdu.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17,
+          "money": -40
+        }
+      },
+      {
+        "id": 15,
+        "text": "Sevgilinə onun sevimli restoranda rezervasiya etdin. Sürpriz idi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17,
+          "money": -35
+        }
+      },
+      {
+        "id": 16,
+        "text": "Sevgilinə onun adı yazılmış qol dəsti aldın. O məmnun qaldı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": -20
+        }
+      },
+      {
+        "id": 17,
+        "text": "Sevgilinə birinci görüşünüzün tarixini yazan kulon aldın. O dərhal taxdı.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": -45
+        }
+      },
+      {
+        "id": 18,
+        "text": "Sevgilinə sevimli rəngli şərf aldın. O hər gün taxdı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": -18
+        }
+      },
+      {
+        "id": 19,
+        "text": "Sevgilinə ailə şəkli olan albumunu hədiyyə etdin — birgə anılarınızdan.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 21,
+          "money": -30
+        }
+      },
+      {
+        "id": 20,
+        "text": "Sevgilinə onun sevdiyi musiqini canlı ifa etdin. Zərif idi.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": 0
+        }
+      },
+      {
+        "id": 21,
+        "text": "Sevgilinə ikili portret çəkdirdin. O hər gün baxdı.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": -35
+        }
+      },
+      {
+        "id": 22,
+        "text": "Sevgilinə rahatlıq dəsti aldın — çay, şam, kitab. O 'Bu mən üçündür!' dedi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -25
+        }
+      },
+      {
+        "id": 23,
+        "text": "Sevgilinə sürpriz tort hazırladın. O düşünmüşdü ki unutmuşsan.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 19,
+          "money": -15
+        }
+      },
+      {
+        "id": 24,
+        "text": "Sevgilinə öz əlinlə hazırladığın bilərziyi hədiyyə etdin. O ona məna verdi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": 0
+        }
+      },
+      {
+        "id": 25,
+        "text": "Sevgilinə maddiyyatca bahalı bir hədiyyə aldın, lakin sevimli rəngi deyildi. O yenə sevindi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13,
+          "money": -70
+        }
+      },
+      {
+        "id": 26,
+        "text": "Sevgilinə birlikdə bişirilmiş çörək hədiyyə etdin. Qəlbindən gəlmişdi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": 0
+        }
+      },
+      {
+        "id": 27,
+        "text": "Sevgilinə onun qorxusunu yendiyi üçün xüsusi qeyd etdin. Sürpriz şam etdi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": -25
+        }
+      },
+      {
+        "id": 28,
+        "text": "Sevgilinə musiqi albt aldın. O o sənətçini sev çoxdandı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15,
+          "money": -20
+        }
+      },
+      {
+        "id": 29,
+        "text": "Sevgilinə fotoqrafiya kursu hədiyyə etdin. O həmişə öyrənmək istəmişdi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17,
+          "money": -50
+        }
+      },
+      {
+        "id": 30,
+        "text": "Sevgilinə tikdirdiyin xüsusi paltar hədiyyə etdin. Ölçüsü mükəmməl idi.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": -80
+        }
+      },
+      {
+        "id": 31,
+        "text": "Sevgilinə əliboş gəldin. O narahat oldu.",
+        "effects": {
+          "happiness": -3,
+          "relationship": -5,
+          "money": 0
+        }
+      },
+      {
+        "id": 32,
+        "text": "Sevgilinə yaxşı olmayan ucuz hədiyyə aldın. O 'Çox gözəldir' dedi amma üzü bunu söyləmirdi.",
+        "effects": {
+          "happiness": 6,
+          "relationship": 7,
+          "money": -5
+        }
+      },
+      {
+        "id": 33,
+        "text": "Sevgilinə sürpriz piknik hazırladın — çiçəkli çəmənlikdə. O ağladı.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": -20
+        }
+      },
+      {
+        "id": 34,
+        "text": "Sevgilinə onun sevdiyi çiçəyi — dəstə dolusu — gətirdin. O üzünü gizlətdi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 17,
+          "money": -15
+        }
+      },
+      {
+        "id": 35,
+        "text": "Sevgilinə ona uyğun seçilmiş kitab aldın. O başladı dərhal oxumağa.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -18
+        }
+      },
+      {
+        "id": 36,
+        "text": "Sevgilinə eşitdiyi musiqini — uzaq şəhərden — gətirib hədiyyə etdin. O şoka girdi.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 19,
+          "money": -30
+        }
+      },
+      {
+        "id": 37,
+        "text": "Sevgilinə onun uşaqlıq şəklindən hazırlanmış kukla aldın. O ağladı, güldü, yenə ağladı.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 21,
+          "money": -40
+        }
+      },
+      {
+        "id": 38,
+        "text": "Sevgilinə iki nəfərlik şam yemyi rezerv etdin evdə. Özün hər şeyi hazırladın.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 19,
+          "money": -20
+        }
+      },
+      {
+        "id": 39,
+        "text": "Sevgilinə yazdıqlarından seçib kitabça hazırladın. O hər gün oxudu.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": 0
+        }
+      },
+      {
+        "id": 40,
+        "text": "Sevgilinə onun arzuladığı geyimi aldın — qiymətini bilmədən. Bahalı idi, amma dəyərli idi.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 18,
+          "money": -90
+        }
+      },
+      {
+        "id": 41,
+        "text": "Sevgilinə miniatür teraryum aldın. O heyran qaldı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16,
+          "money": -25
+        }
+      },
+      {
+        "id": 42,
+        "text": "Sevgilinə hər gün bir həftə boyunca kiçik notlar yazdın. Yeddinci gün ağladı.",
+        "effects": {
+          "happiness": 18,
+          "relationship": 22,
+          "money": 0
+        }
+      },
+      {
+        "id": 43,
+        "text": "Sevgilinə sürpriz bal ayı planı hazırladın — şəhər kənarında otel. O büsbütün hazırsız idi.",
+        "effects": {
+          "happiness": 20,
+          "relationship": 24,
+          "money": -150
+        }
+      },
+      {
+        "id": 44,
+        "text": "Sevgilinə gülər üzlü torunu aldın, amma tort yanıq çıxdı. O güldü, tortu yedi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 14,
+          "money": -15
+        }
+      },
+      {
+        "id": 45,
+        "text": "Sevgilinə köhnə bir mahnının notlarını əl işi ilə çərçivəyə vurduğun aldın.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": -20
+        }
+      },
+      {
+        "id": 46,
+        "text": "Sevgilinə əl-istehsal kağızdan çiçəklər hazırladın. O dedi bunlar solmur.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 18,
+          "money": 0
+        }
+      },
+      {
+        "id": 47,
+        "text": "Sevgilinə onun bəyəndiyi kahvəyi tapıb her sabah gətirdin. Bir həftə davam etdi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17,
+          "money": -15
+        }
+      },
+      {
+        "id": 48,
+        "text": "Sevgilinə sürpriz foto çəkilişi təşkil etdin. O özündə tanımadı.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": -60
+        }
+      },
+      {
+        "id": 49,
+        "text": "Sevgilinə zərgərlikçidə adlarınızı yazdan üzük aldın. O barmağından çıxarmadı.",
+        "effects": {
+          "happiness": 18,
+          "relationship": 22,
+          "money": -70
+        }
+      },
+      {
+        "id": 50,
+        "text": "Sevgilinə heç nə almadın, lakin bütün günü onunla birlikdə keçirdin. O dedi ən gözəl hədiyyə bu idi.",
+        "effects": {
+          "happiness": 17,
+          "relationship": 20,
+          "money": 0
+        }
+      }
+    ],
+    "fight": [
+      {
+        "id": 1,
+        "text": "Sevgilinlə gecə gec cavab vermədiyin üçün mübahisə etdiniz. Telefonu söndürmüşdün.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 2,
+        "text": "Sevgilinlə keçmiş münasibət barədə mübahisə etdiniz. Hər ikinizdə köhnə yaralar açıldı.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 3,
+        "text": "Sevgilinlə pul xərcləmə adəti barədə dava etdiniz. Çox fərqli yanaşmalarınız var idi.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 4,
+        "text": "Sevgilinlə planları son dəqiqə ləğv etdiyin üçün mübahisə etdiniz.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 5,
+        "text": "Sevgilinlə bir dostun barədə mübahisə etdiniz. O o dostu bəyənmirdi.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 6,
+        "text": "Sevgilinlə prioritetlər barədə dava etdiniz. O özünü sənin siyahında yuxarıda görmürdü.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 7,
+        "text": "Sevgilinlə onun ailəsi barədə mübahisə etdiniz. Sən düzgün bir şey dedin, amma vaxtı yox idi.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 8,
+        "text": "Sevgilinlə geyim seçimi barədə mübahisə etdiniz. O sənin bəzi geyimlərini bəyənmirdi.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 9,
+        "text": "Sevgilinlə gələcək planları barədə ciddi mübahisə etdiniz. Fikirləriniz fərqli idi.",
+        "effects": {
+          "happiness": -13,
+          "relationship": -15
+        }
+      },
+      {
+        "id": 10,
+        "text": "Sevgilinlə vaxt keçirməyin az olduğu barədə dava etdiniz. Hər ikiniz günahkar idi.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 11,
+        "text": "Sevgilinlə bir sözünü yanlış başa düşdüyün üçün mübahisə etdiniz. Uzun izahat lazım oldu.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 12,
+        "text": "Sevgilinlə sosial mediada paylaşımın barədə mübahisə etdiniz. O o şəkli bəyənmirdi.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -9
+        }
+      },
+      {
+        "id": 13,
+        "text": "Sevgilinlə kimlə vaxt keçirdiyini soruşarkən mübahisə etdiniz. Qısqanclıq var idi.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 14,
+        "text": "Sevgilinlə münasibətin ciddiyyəti barədə dava etdiniz. Hər ikinizin fərqli görüşü var idi.",
+        "effects": {
+          "happiness": -13,
+          "relationship": -16
+        }
+      },
+      {
+        "id": 15,
+        "text": "Sevgilinlə onun doğum günün haqqında sürpriz etmədiyinə görə dava etdiniz.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 16,
+        "text": "Sevgilinlə bir dostunla çox vaxt keçirdiyin barədə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 17,
+        "text": "Sevgilinlə onun ailəsinə yetərli diqqət göstərmədiyinə görə dava etdiniz.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 18,
+        "text": "Sevgilinlə vaxt gecikdirib gəldiyinə görə mübahisə etdiniz. O saatlarla müntəzir qalmışdı.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 19,
+        "text": "Sevgilinlə söz verdiyin işi etmədiyinə görə dava etdiniz.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 20,
+        "text": "Sevgilinlə eşitmək istəmədiyi bir həqiqəti söylədin. Artıq söylənmişdi.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 21,
+        "text": "Sevgilinlə qalan müddət barədə mübahisə etdiniz. O narahat idi.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 22,
+        "text": "Sevgilinlə onun sevdiyi bir şeyi tənqid etdin. O incidi.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 23,
+        "text": "Sevgilinlə münasibətin sürətinin nə qədər olması barədə dava etdiniz.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 24,
+        "text": "Sevgilinlə işdə bir həmkarın barədə mübahisə etdiniz. Qısqanclıq var idi.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 25,
+        "text": "Sevgilinlə doğum günündə nəyi etmək barədə mübahisə etdiniz. Razılaşa bilmədiniz.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -9
+        }
+      },
+      {
+        "id": 26,
+        "text": "Sevgilinlə hissləri ifadə etmədiyinə görə dava etdiniz. O sənin soyuq olduğunu dedi.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 27,
+        "text": "Sevgilinlə münasibət haqqında başqasına danışdığına görə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 28,
+        "text": "Sevgilinlə uzun müddət görüşməmək barədə gərginlik artdı.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 29,
+        "text": "Sevgilinlə o vaxt söylədiyin bir şeyi indi inkir etdin. O yadında saxlamışdı.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 30,
+        "text": "Sevgilinlə münasibəti daha ciddi etmək istəməmənə görə böyük dava etdiniz.",
+        "effects": {
+          "happiness": -14,
+          "relationship": -17
+        }
+      },
+      {
+        "id": 31,
+        "text": "Sevgilinlə bir şikayətini yanlış rəddə etdiyinə görə mübahisə etdiniz. Özün de haqlı deyildin.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 32,
+        "text": "Sevgilinlə dostlarının fikirlərinə çox əhəmiyyət verdiyinə görə dava etdiniz.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 33,
+        "text": "Sevgilinlə eşitdikdən sonra nə edəcəyinizi müzakirə etdiniz. Hər ikiniz qatı idi.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 34,
+        "text": "Sevgilinlə əhval-ruhiyyəni izah etmədiyinə görə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 35,
+        "text": "Sevgilinlə karyeranı münasibətin önünə qoyduğunuz barədə dava etdiniz.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 36,
+        "text": "Sevgilinlə birlikdə vaxt keçirərkən telefonla məşğul olduğuna görə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -9
+        }
+      },
+      {
+        "id": 37,
+        "text": "Sevgilinlə ailəsinin öz münasibətinizə müdaxiləsi barədə dava etdiniz.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 38,
+        "text": "Sevgilinlə etdiyin zarafatın yerində olmadığına görə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8
+        }
+      },
+      {
+        "id": 39,
+        "text": "Sevgilinlə sürpriz getməmişdi. O əvvəlcədən planlamağı istəyirdi.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -9
+        }
+      },
+      {
+        "id": 40,
+        "text": "Sevgilinlə hissləri kifayət qədər ifadə etmədiyinə görə böyük dava etdiniz.",
+        "effects": {
+          "happiness": -13,
+          "relationship": -15
+        }
+      },
+      {
+        "id": 41,
+        "text": "Sevgilinlə onun bir xüsusiyyətini tənqid etdin. O bağışlasa da, unutmadı.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 42,
+        "text": "Sevgilinlə kimin daha çox güzəşt etdiyi barədə mübahisə etdiniz.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11
+        }
+      },
+      {
+        "id": 43,
+        "text": "Sevgilinlə bir səfəri ləğv etdin. O çox gözləmişdi.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -13
+        }
+      },
+      {
+        "id": 44,
+        "text": "Sevgilinlə gözləntilər barədə çox kəskin söhbət etdiniz. Hər iki tərəf yaralandı.",
+        "effects": {
+          "happiness": -13,
+          "relationship": -15
+        }
+      },
+      {
+        "id": 45,
+        "text": "Sevgilinlə köhnə bir zədəni yenidən qaldırdın. Günlər keçmişdi, o unutmamışdı.",
+        "effects": {
+          "happiness": -12,
+          "relationship": -14
+        }
+      },
+      {
+        "id": 46,
+        "text": "Sevgilinlə bir qərarda ona soruşmadan qərar verdin. O özünü kənarlaşdırılmış hiss etdi.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -12
+        }
+      },
+      {
+        "id": 47,
+        "text": "Sevgilinlə ailə münasibətindəki fərqlər barədə ağır mübahisə etdiniz.",
+        "effects": {
+          "happiness": -13,
+          "relationship": -15
+        }
+      },
+      {
+        "id": 48,
+        "text": "Sevgilinlə küsüşdünüz. Heç biri əvvəl üzr istəmək istəmirdi.",
+        "effects": {
+          "happiness": -14,
+          "relationship": -16
+        }
+      },
+      {
+        "id": 49,
+        "text": "Sevgilinlə iki günlük susqunluqdan sonra axırda danışdınız. Ağır idi.",
+        "effects": {
+          "happiness": -11,
+          "relationship": -10
+        }
+      },
+      {
+        "id": 50,
+        "text": "Sevgilinlə çox ağır sözlər dedilər. O ağladı, sən peşman oldun. Amma artıq söylənmişdi.",
+        "effects": {
+          "happiness": -15,
+          "relationship": -18
+        }
+      }
+    ],
+    "propose": [
+      {
+        "id": 1,
+        "text": "Diz çöküb halqa uzatdın. O 'Bəli' deməzdən əvvəl ağladı, sonra ağladı.",
+        "effects": {
+          "happiness": 30,
+          "relationship": 40,
+          "money": -100
+        }
+      },
+      {
+        "id": 2,
+        "text": "Restoranda hamının gözü önündə evlilik tələb etdin. O utandı, amma 'Bəli' dedi.",
+        "effects": {
+          "happiness": 25,
+          "relationship": 35,
+          "money": -80
+        }
+      },
+      {
+        "id": 3,
+        "text": "Sevimli yerinizin — ilk görüşdüyünüz yerin — önündə teklif etdin. O dərhal ağladı.",
+        "effects": {
+          "happiness": 28,
+          "relationship": 38,
+          "money": -50
+        }
+      },
+      {
+        "id": 4,
+        "text": "Evdə mum işığında teklif etdin. O 'Düşünməliyəm' dedi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 15,
+          "money": -80
+        }
+      },
+      {
+        "id": 5,
+        "text": "Sürpriz teklif etdin, amma vaxtı uyğun deyildi. O 'Hələ hazır deyiləm' dedi.",
+        "effects": {
+          "happiness": -5,
+          "relationship": 5,
+          "money": -60
+        }
+      },
+      {
+        "id": 6,
+        "text": "Ailəsinin önündə teklif etdin. O sevincdən donub qaldı, sonra 'Bəli' dedi.",
+        "effects": {
+          "happiness": 27,
+          "relationship": 37,
+          "money": -90
+        }
+      },
+      {
+        "id": 7,
+        "text": "Gündoğumunda dağ üstündə teklif etdin. Heç kim baxmırdı — yalnız ikiniz vardınız.",
+        "effects": {
+          "happiness": 30,
+          "relationship": 42,
+          "money": -60
+        }
+      },
+      {
+        "id": 8,
+        "text": "Evdəki əşyaların arasında gizlədilmiş halqa tapdırdın. Sən köşəde gözləyirdin.",
+        "effects": {
+          "happiness": 26,
+          "relationship": 36,
+          "money": -70
+        }
+      },
+      {
+        "id": 9,
+        "text": "Filminizdə teklif etdin. O siftəyə güldü, sonra ağladı.",
+        "effects": {
+          "happiness": 25,
+          "relationship": 34,
+          "money": -50
+        }
+      },
+      {
+        "id": 10,
+        "text": "Teklif etdin, o 'Hə amma hazırlaşmaq lazımdır' dedi. Hər iki tərəf xoşbəxt idi.",
+        "effects": {
+          "happiness": 22,
+          "relationship": 30,
+          "money": -80
+        }
+      },
+      {
+        "id": 11,
+        "text": "Bağçada çiçəklər arasında teklif etdin. O 'Bəli' deməzdən əvvəl çiçəkləri öpdü.",
+        "effects": {
+          "happiness": 27,
+          "relationship": 37,
+          "money": -40
+        }
+      },
+      {
+        "id": 12,
+        "text": "Teklif etdin, amma halqa ölçüsü düzgün deyildi. O yenə 'Bəli' dedi.",
+        "effects": {
+          "happiness": 20,
+          "relationship": 28,
+          "money": -90
+        }
+      },
+      {
+        "id": 13,
+        "text": "Ailənin hər üzvünün razılığını aldıqdan sonra teklif etdin. O bunu öyrəndi, ağladı.",
+        "effects": {
+          "happiness": 29,
+          "relationship": 40,
+          "money": -70
+        }
+      },
+      {
+        "id": 14,
+        "text": "Teklif etdin — gözlənilmədən, yolda. O 'İndi?!' dedi, sonra 'Bəli'.",
+        "effects": {
+          "happiness": 24,
+          "relationship": 32,
+          "money": -30
+        }
+      },
+      {
+        "id": 15,
+        "text": "Teklifi dəfələrlə hazırladın. Anında unuddun nə deyəcəyini. O güldü, 'Bəli' dedi.",
+        "effects": {
+          "happiness": 25,
+          "relationship": 35,
+          "money": -80
+        }
+      },
+      {
+        "id": 16,
+        "text": "Teklif zamanı yanında musiqiçi vardı. O 'Bu çox hissiyatlı oldu' dedi.",
+        "effects": {
+          "happiness": 27,
+          "relationship": 37,
+          "money": -120
+        }
+      },
+      {
+        "id": 17,
+        "text": "Teklif etdin, o hələ hazır olmadığını bildirdi. Kədərli oldun, amma hərm etdin.",
+        "effects": {
+          "happiness": -10,
+          "relationship": -5,
+          "money": -80
+        }
+      },
+      {
+        "id": 18,
+        "text": "Teklif etdin, o 'Heç vaxt razı olmayacağam' dedi. Ürəyin parçalandı.",
+        "effects": {
+          "happiness": -30,
+          "relationship": -40,
+          "money": -80
+        }
+      },
+      {
+        "id": 19,
+        "text": "Gecə şəhərin ən gözəl mənzərəsindən teklif etdin. O 'Bəli' deməzdən əvvəl fotoqraf çəkdi.",
+        "effects": {
+          "happiness": 26,
+          "relationship": 36,
+          "money": -100
+        }
+      },
+      {
+        "id": 20,
+        "text": "Teklif etdin, o ağladı amma 'Bəli' dedi. Sonra senə sarıldı.",
+        "effects": {
+          "happiness": 30,
+          "relationship": 41,
+          "money": -70
+        }
+      },
+      {
+        "id": 21,
+        "text": "Yağmurlu bir gündə teklif etdin. O hər nə qədər nəm olsa da 'Bəli' dedi.",
+        "effects": {
+          "happiness": 28,
+          "relationship": 38,
+          "money": -50
+        }
+      },
+      {
+        "id": 22,
+        "text": "Teklif etdin — amma hazır deyildin tam. O sezdi, amma 'Bəli' dedi.",
+        "effects": {
+          "happiness": 20,
+          "relationship": 28,
+          "money": -70
+        }
+      },
+      {
+        "id": 23,
+        "text": "Uzun ayrılıqdan sonra ilk görüşdə teklif etdin. O heyrətlə donub qaldı.",
+        "effects": {
+          "happiness": 27,
+          "relationship": 37,
+          "money": -80
+        }
+      },
+      {
+        "id": 24,
+        "text": "Bayram gecəsindəki atəşfəşanın altında teklif etdin.",
+        "effects": {
+          "happiness": 29,
+          "relationship": 40,
+          "money": -60
+        }
+      },
+      {
+        "id": 25,
+        "text": "Teklif etdin, o 'Düşünərəm' dedi. Uzun bir gözləmə başladı.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 8,
+          "money": -80
+        }
+      },
+      {
+        "id": 26,
+        "text": "Ailəsinin ənənəsinə uyğun olaraq teklif etdin. O çox mütəəssir oldu.",
+        "effects": {
+          "happiness": 28,
+          "relationship": 39,
+          "money": -70
+        }
+      },
+      {
+        "id": 27,
+        "text": "Teklif etdin — sadə, ürəkdən. Heç bir süs yox idi. O dedi 'Bu mükəmməldir'.",
+        "effects": {
+          "happiness": 29,
+          "relationship": 40,
+          "money": -10
+        }
+      },
+      {
+        "id": 28,
+        "text": "Teklif etmədən əvvəl dizi çöküb danışmağa çalışdın, o artıq hər şeyi anlamışdı.",
+        "effects": {
+          "happiness": 25,
+          "relationship": 34,
+          "money": -80
+        }
+      },
+      {
+        "id": 29,
+        "text": "Teklif etdin, o 'Bir az tez deyilmi?' dedi. Hər ikiniz güldünüz.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": -80
+        }
+      },
+      {
+        "id": 30,
+        "text": "Sevimli mahnınızın sözlərini dəyişib teklif söylədin. O gülərək 'Bəli' dedi.",
+        "effects": {
+          "happiness": 29,
+          "relationship": 40,
+          "money": -20
+        }
+      },
+      {
+        "id": 31,
+        "text": "Şəhərin ən gözəl yerindəki reklam lövhəsindən teklif etdin. O güldü, sonra ağladı.",
+        "effects": {
+          "happiness": 27,
+          "relationship": 37,
+          "money": -150
+        }
+      },
+      {
+        "id": 32,
+        "text": "Teklif etmek istədin, lakin cürət edə bilmədin. Növbəti dəfəyə saxladın.",
+        "effects": {
+          "happiness": -5,
+          "relationship": -3,
+          "money": 0
+        }
+      },
+      {
+        "id": 33,
+        "text": "Teklif etdin, o sevincdən qışqırdı. Bütün restoran alqışladı.",
+        "effects": {
+          "happiness": 30,
+          "relationship": 42,
+          "money": -100
+        }
+      },
+      {
+        "id": 34,
+        "text": "Teklif etdin, o 'Sən bilirsənmi, mən sənə nə qədər sevincliyəm' dedi.",
+        "effects": {
+          "happiness": 30,
+          "relationship": 41,
+          "money": -80
+        }
+      },
+      {
+        "id": 35,
+        "text": "Teklif etmən həmin anda baş verdi — plansız, ürəkdən. O 'Bəli' dedi.",
+        "effects": {
+          "happiness": 28,
+          "relationship": 38,
+          "money": 0
+        }
+      },
+      {
+        "id": 36,
+        "text": "Teklif etdin, o ağlamağı saxlaya bilmədi. O dedi 'Səni çoxdan gözləyirdim'.",
+        "effects": {
+          "happiness": 31,
+          "relationship": 43,
+          "money": -80
+        }
+      },
+      {
+        "id": 37,
+        "text": "Teklif etdin, amma o 'Ailə razılığı lazımdır' dedi. Başqa bir mərhələ başladı.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 14,
+          "money": -80
+        }
+      },
+      {
+        "id": 38,
+        "text": "Teklif etdin — şeirlə. O ağladı, şeiri əzbərlədi.",
+        "effects": {
+          "happiness": 30,
+          "relationship": 42,
+          "money": 0
+        }
+      },
+      {
+        "id": 39,
+        "text": "Teklif etdin, o 'Cavab vermədən əvvəl sənə bir şey soyləmək istəyirəm' dedi. Hər şey dəyişdi.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 8,
+          "money": -80
+        }
+      },
+      {
+        "id": 40,
+        "text": "Teklif zamanı balıqları olan dəniz yanında idilər. O halqanı suya düşürdü, sən balıqçı kimi tutdun.",
+        "effects": {
+          "happiness": 27,
+          "relationship": 37,
+          "money": -70
+        }
+      },
+      {
+        "id": 41,
+        "text": "Teklif etdin — sevinclə, həyəcanla, sevgi ilə. O özü söylədi 'Bəli' deməzdən əvvəl.",
+        "effects": {
+          "happiness": 30,
+          "relationship": 42,
+          "money": -80
+        }
+      },
+      {
+        "id": 42,
+        "text": "Teklif etdin, o 'Bir gözləyək daha' dedi. Hər ikiniz çətin anlar keçirdiniz.",
+        "effects": {
+          "happiness": -2,
+          "relationship": 5,
+          "money": -80
+        }
+      },
+      {
+        "id": 43,
+        "text": "Teklif etdin, o dedi 'Sən nə etdiyini bilirsənmi?' Sonra 'Bəli' dedi.",
+        "effects": {
+          "happiness": 26,
+          "relationship": 36,
+          "money": -70
+        }
+      },
+      {
+        "id": 44,
+        "text": "Teklif etdin, o sevincdən hıçqırmağa başladı. Sən nə edəcəyini bilmədin.",
+        "effects": {
+          "happiness": 29,
+          "relationship": 40,
+          "money": -80
+        }
+      },
+      {
+        "id": 45,
+        "text": "Teklif etdin, o dərhal 'Bəli' dedi — heç bir tərəddüd olmadan.",
+        "effects": {
+          "happiness": 31,
+          "relationship": 43,
+          "money": -80
+        }
+      },
+      {
+        "id": 46,
+        "text": "Teklif etdin, o ağlamaqla gülmək arasında qaldı. Sonra 'Bəli' dedi.",
+        "effects": {
+          "happiness": 30,
+          "relationship": 41,
+          "money": -80
+        }
+      },
+      {
+        "id": 47,
+        "text": "Teklif zamanı əlindəki halqa düşdü. O onu toplamaq üçün əyildi, gülərək 'Bəli' dedi.",
+        "effects": {
+          "happiness": 27,
+          "relationship": 37,
+          "money": -90
+        }
+      },
+      {
+        "id": 48,
+        "text": "Teklif etdin, o 'Niyə bu qədər gözlədin?' dedi. İkisi də ağladı.",
+        "effects": {
+          "happiness": 30,
+          "relationship": 41,
+          "money": -80
+        }
+      },
+      {
+        "id": 49,
+        "text": "Teklif etdin, o hər şeyə 'Hə, hə, hə' dedi. Sonra anladı. Sonra ağladı. Sonra qucaqladı.",
+        "effects": {
+          "happiness": 32,
+          "relationship": 44,
+          "money": -80
+        }
+      },
+      {
+        "id": 50,
+        "text": "Teklif etdin — sadəcə 'Həmişəlik birlikdə olaq' dedin. O 'Bəli' dedi.",
+        "effects": {
+          "happiness": 30,
+          "relationship": 42,
+          "money": 0
+        }
+      }
+    ],
+    "psychologicalSupport": [
+      {
+        "id": 1,
+        "text": "Sevgilini kənar etdiyin işin ağrısından dinlədilər. Sən yalnız dinlədilər. O çox şükranlı idi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 2,
+        "text": "Sevgilin çox üzgün idi. Sən onun başını oxşadın, heç nə demədin. Bu bəs idi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 3,
+        "text": "Sevgilin böyük imtahandan qorxurdu. Sən saatlarla birlikdə hazırlaşdın.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 4,
+        "text": "Sevgilin ailəsi ilə problem yaşadı. Sən yanında oldun, heç nə çözməyə çalışmadın.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 5,
+        "text": "Sevgilin işdən çıxarıldı. Sən ona 'Hər şey yaxşı olacaq' dedin, amma yalnız hiss etdirmədin.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 6,
+        "text": "Sevgilin gündən-günə üzülürdü. Sən ona peşəkar kömək almağı təklif etdin. O razı oldu.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 7,
+        "text": "Sevgilin çox ağladı — niyəsini bilmirdi. Sən yalnız onun yanında oturub əlini tutdun.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 8,
+        "text": "Sevgilin uğursuzluqdan sonra özünü günahlandırırdı. Sən onu yönləndirdin.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 9,
+        "text": "Sevgilin yeni iş yeri üçün narahat idi. Sən ona hazırlaşmağa kömək etdin.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 10,
+        "text": "Sevgilin xəstəlendi. Sən yanında oldun, əlaclara baxdın, çay bişirdin.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17,
+          "health": 3
+        }
+      },
+      {
+        "id": 11,
+        "text": "Sevgilin bir yaxın dostuyla mübahisə etmişdi. Sən onu dinlədilər, tərəf tutmadın.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 12,
+        "text": "Sevgilin sosial mediada tənqid aldı. Sən onu qorumaq üçün yanında olduğunu bildirdin.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 13,
+        "text": "Sevgilin sənin görüşmək istəmədiyini düşünürdü. Sən onu yanlış olduğunu bildirdin.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 14,
+        "text": "Sevgilin uzun müddətdir sıxılırdı. Sən onu şəhərdən çıxarmaq üçün planladın.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 15,
+        "text": "Sevgilin keçmişdəki travmasından danışdı. Sən saatlarla dinlədilər. Heç bir tövsiyə vermədin.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 16,
+        "text": "Sevgilin gecə yarısı sənə zəng etdi — ağlayırdı. Sən yataqdan durib telefona cavab verdin.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 19
+        }
+      },
+      {
+        "id": 17,
+        "text": "Sevgilin özünü yetərli hiss etmirdi. Sən ona güclü tərəflərini saydın.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 18,
+        "text": "Sevgilin bir xeyirxah işdə könüllü olmaq istədi. Sən dəstək verdin.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 19,
+        "text": "Sevgilin həkimdən pis xəbər aldı. Sən yanında oldun, ona kömək etdin.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 20,
+        "text": "Sevgilin yeni şəhərə köçdüklərindən tənha hiss edirdi. Sən onu yeni yerə alışdırmağa kömək etdin.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 21,
+        "text": "Sevgilin əlaqəni kəsmək istədiği toksik bir dostundan danışdı. Sən dəstəklədin.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 22,
+        "text": "Sevgilin özünə inanmırdı. Sən 'Sənə inanıram' dedin. O güldü, ağladı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 23,
+        "text": "Sevgilin böyük bir məqsədindən vazkeçmək üzrə idi. Sən onu saxladın.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 24,
+        "text": "Sevgilin xoş xatirəsi getmişdi. Sən ona yeni xatirə yaratdın.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 25,
+        "text": "Sevgilin ağır bir qərar vermək üzrə idi. Sən onu tərk etmədin, yanında qaldın.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 26,
+        "text": "Sevgilin yuxusuz qalmışdı stres üzündən. Sən sakitləşdirici musiqi açdın.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 27,
+        "text": "Sevgilin uzun illərlik mübarizəsini danışdı. Sən heyranla dinlədilər.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 28,
+        "text": "Sevgilin bir yaxını vəfat etmişdi. Sən yanında oldun, heç bir söz demədin. Bu bəs idi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 29,
+        "text": "Sevgilin öz gözəlliyindən şübhə edirdi. Sən onun necə gözəl olduğunu söylədilər.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 30,
+        "text": "Sevgilin böyük bir qüsurunu sənə etiraf etdi. Sən onu bağışladın.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 31,
+        "text": "Sevgilin çox yorğun idi. Sən hamısını öhdəyə götürdün.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 32,
+        "text": "Sevgilin ilk uğursuzluğunu yaşadı. Sən ona uğursuzluğun dəyərini söylədilər.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 33,
+        "text": "Sevgilin stres altında özünü itirdi. Sən nəfəs məşqləri etdiniz birlikdə.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 34,
+        "text": "Sevgilin bir münasibəti bitirmişdi. Sən onu yönləndirdin.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 35,
+        "text": "Sevgilin özünü çarəsiz hiss edirdi. Sən 'Tək deyilsən' dedin.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 36,
+        "text": "Sevgilin uzun müddətdir hissini gizlətmişdi. Sən ona güvənli yer yaratdın.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 37,
+        "text": "Sevgilin qorxusunu sənə etiraf etdi. Sən 'Bu cəsarət istəyir' dedin.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 38,
+        "text": "Sevgilin keçmişdə yaralanan münasibəti barədə danışdı. Sən diqqətlə dinlədilər.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 39,
+        "text": "Sevgilin çox yorğun idi. Sən hamısını planladın, o yalnız gəldi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 40,
+        "text": "Sevgilin böyük bir problemini sənə bildirdi. Sən onu mühakimə etmədin.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 41,
+        "text": "Sevgilin özünü bağışlaya bilmirdi. Sən onu kənarda tutmadın.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 42,
+        "text": "Sevgilin ağır bir gün keçirmişdi. Sən onu evdə mum işığında gözlədilər.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 43,
+        "text": "Sevgilin həyatdan bezikdi. Sən kiçik bir sürpriz hazırladın. O sevinclə ağladı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 44,
+        "text": "Sevgilin sənin yanında özü ola bilirdi. Bu ən böyük dəstək idi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 45,
+        "text": "Sevgilin şübhəli görünürdü. Sən soruşmaq əvəzinə saatlarla yanında oturmuşdun.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 46,
+        "text": "Sevgilin böyük bir qorxusunu həll etdi. Sən onu mükəmməl qeyd etdin.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 47,
+        "text": "Sevgilin kənar edilmişdi. Sən onu dünyaya qaytardın.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 48,
+        "text": "Sevgilin özünü sevmirdi. Sən ona onu niyə sevdiyini söylədilər. Siyahı uzun idi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 19
+        }
+      },
+      {
+        "id": 49,
+        "text": "Sevgilin sahilindəki ən qaranlıq anını sənə etiraf etdi. Sən onu heç vaxt tərk etməyəcəyini bildirdin.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 20
+        }
+      },
+      {
+        "id": 50,
+        "text": "Sevgilin 'Hər şey yaxşı olacaqmı?' diye soruşdu. Sən 'Bilmirəm, amma mən həmişə yanındayam' dedin. Bu kifayət idi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 20
+        }
+      }
+    ],
+    "breakUp": [
+      {
+        "id": 1,
+        "text": "Ona münasibəti bitirmək istədiyini söylədin. O ağladı. Sən qapını bağladın.",
+        "effects": {
+          "happiness": -25,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 2,
+        "text": "O sənin münasibəti bitirmək istədiyini anlamadan əvvəl sən söylədilər. Ağır idi.",
+        "effects": {
+          "happiness": -20,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 3,
+        "text": "Hər ikiniz münasibətin getmədiyi üzərə razılaşdınız. Ağrılı idi, amma dürüst.",
+        "effects": {
+          "happiness": -18,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 4,
+        "text": "O sənin əvvəl birinizlə görüşdüyünü aşkarladı. Münasibət bitdi.",
+        "effects": {
+          "happiness": -30,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 5,
+        "text": "Uzaqlıq çox idi. Hər ikiniz bilirdiniz ki bu son idi. Sessizliklə bitdi.",
+        "effects": {
+          "happiness": -22,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 6,
+        "text": "Sən bitirmək istədin, o ağladı, sonra dedi 'Sənin qərarına hörmət edirəm'.",
+        "effects": {
+          "happiness": -18,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 7,
+        "text": "O bitirdi. Sən heyranlıqla qaldın. Anlamadın niyə.",
+        "effects": {
+          "happiness": -28,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 8,
+        "text": "Böyük bir dava sonrasında hər ikiniz 'Bu son' dediniz. İkisi də sözün ardında durdu.",
+        "effects": {
+          "happiness": -25,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 9,
+        "text": "O 'Biz fərqli insanlarıq' dedi. Sən razılaşdın. Ağrılı razılıq.",
+        "effects": {
+          "happiness": -20,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 10,
+        "text": "Sən bitirmək istədin, amma ona söyləyə bilmədin. Günlər keçdi. Axırda söylədilər.",
+        "effects": {
+          "happiness": -22,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 11,
+        "text": "O sənin artıq əvvəlki sən olmadığını bildirdi. Ayrıldınız.",
+        "effects": {
+          "happiness": -20,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 12,
+        "text": "Sən ona o istədiyin adam olmadığını söylədilər. Dürüst idi. Ağrılı idi.",
+        "effects": {
+          "happiness": -23,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 13,
+        "text": "Münasibət çox çətin olmuşdu. Hər ikiniz bitirmək qərarına gəldiniz.",
+        "effects": {
+          "happiness": -19,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 14,
+        "text": "O uzaq bir şəhərə köçdü. Uzaq münasibət mümkün deyildi. Bitdi.",
+        "effects": {
+          "happiness": -21,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 15,
+        "text": "Sən sabaha qədər düşündün. Axşam ona telefon etdin. Bitirdin.",
+        "effects": {
+          "happiness": -22,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 16,
+        "text": "O sənin seçimlərini bəyənmirdi. Sən dəyişə bilməzdin. Ayrıldınız.",
+        "effects": {
+          "happiness": -20,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 17,
+        "text": "Münasibət son bir ildə yalnız dava idi. Hər ikiniz yormmuşdunuz.",
+        "effects": {
+          "happiness": -19,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 18,
+        "text": "Sən onu sevirdın amma xoşbəxt etmirdin. Bitirdin çünki onu istəyirdin.",
+        "effects": {
+          "happiness": -24,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 19,
+        "text": "O sənlə münasibət qurmadan əvvəlki həyatına qayıtmaq istədi. Ayrıldınız.",
+        "effects": {
+          "happiness": -21,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 20,
+        "text": "Sən başqa birinə yönəldin. O anladı. Münasibət bitdi.",
+        "effects": {
+          "happiness": -28,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 21,
+        "text": "O artıq cavab vermirdi. Bir müddət sonra o bitirdi.",
+        "effects": {
+          "happiness": -22,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 22,
+        "text": "Hər ikinizdə artıq o ilk həyəcan yox idi. Razılaşdınız.",
+        "effects": {
+          "happiness": -17,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 23,
+        "text": "Ailəsi münasibətinizə qarşı idi. Siz dözə bilmədiniz. Bitdi.",
+        "effects": {
+          "happiness": -23,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 24,
+        "text": "O sənin həyat vizyonunla uyğun gəlmirdi. Bitirdin.",
+        "effects": {
+          "happiness": -20,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 25,
+        "text": "Sən çox uzun müddət gözləmişdin. Artıq daha gözləyə bilmirdin.",
+        "effects": {
+          "happiness": -22,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 26,
+        "text": "Hər ikiniz vacib qərarlarda razılaşmırdınız. Ayrıldınız.",
+        "effects": {
+          "happiness": -19,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 27,
+        "text": "O yeni bir münasibəti seçdi. Sən öyrəndin. Ürəyin sındı.",
+        "effects": {
+          "happiness": -30,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 28,
+        "text": "Sən onu əvvəlki kimi sevmirdın. Dürüst olmaq üçün bitirdin.",
+        "effects": {
+          "happiness": -20,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 29,
+        "text": "Hər ikinizdən biri söyləmədi, lakin hər ikiniz bilirdi ki bu son idi.",
+        "effects": {
+          "happiness": -18,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 30,
+        "text": "O bir gün sadəcə 'Artıq olmaz' dedi. Sən başa düşdün.",
+        "effects": {
+          "happiness": -23,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 31,
+        "text": "Münasibət yalnız alışqanlıqdan davam edirdi. Bitirdin çünki buna layiq deyildiniz.",
+        "effects": {
+          "happiness": -19,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 32,
+        "text": "O sənin hər qərarını tənqid edirdi. Daha dözə bilmirdin. Bitirdin.",
+        "effects": {
+          "happiness": -20,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 33,
+        "text": "Sən başqa bir şəhərə köçəcəkdin. O gəlmədi. Ayrıldınız.",
+        "effects": {
+          "happiness": -22,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 34,
+        "text": "Böyük bir xəyanəti ortaya çıxdı. Bağışlaya bilmədin. Bitdi.",
+        "effects": {
+          "happiness": -28,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 35,
+        "text": "O müstəqil olmaq istədi. Sən anladın. Ağrılı idi amma hörmətlə bitdi.",
+        "effects": {
+          "happiness": -20,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 36,
+        "text": "Hər ikinizin hissləri soyumuşdu. Dürüstcə etiraf etdiniz. Ayrıldınız.",
+        "effects": {
+          "happiness": -18,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 37,
+        "text": "O sənin xoşbəxt olmadığını görürdü. Sənin xatirinə bitirdi.",
+        "effects": {
+          "happiness": -21,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 38,
+        "text": "Sən çox istəmişdin, o az. Bu balans olmurdu. Bitdi.",
+        "effects": {
+          "happiness": -22,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 39,
+        "text": "O sənin keçmişini bağışlaya bilmədi. Ayrıldınız.",
+        "effects": {
+          "happiness": -23,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 40,
+        "text": "Hər ikiniz çox dəyişmişdiniz. Artıq eyni insanlar deyildiniz. Bitdi.",
+        "effects": {
+          "happiness": -20,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 41,
+        "text": "O sənin ailənin razılığını almadan davam etmək istəmirdi. Bitirdin.",
+        "effects": {
+          "happiness": -21,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 42,
+        "text": "Sən onu çox sevirdın amma o sənin əksini deyirdi. Dözə bilmədin. Bitdi.",
+        "effects": {
+          "happiness": -24,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 43,
+        "text": "O 'Biz dostlar kimi qalaq' dedi. Sən razılaşdın, lakin içindən parçalandın.",
+        "effects": {
+          "happiness": -22,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 44,
+        "text": "Münasibət yorucu olmuşdu. Hər ikiniz nəfəs almaq istəyirdiniz. Bitdi.",
+        "effects": {
+          "happiness": -19,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 45,
+        "text": "O sənin gündəlik həyatına uyğun gəlmirdi. Çətin qərar idi, amma bitirdin.",
+        "effects": {
+          "happiness": -20,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 46,
+        "text": "Hər ikiniz fərqli ölkəyə getmək üzrə idiniz. Gələcək yox idi. Ayrıldınız.",
+        "effects": {
+          "happiness": -21,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 47,
+        "text": "O sənə 'Sən hər şeysin, amma bu işləmir' dedi. Sən ağladın.",
+        "effects": {
+          "happiness": -26,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 48,
+        "text": "Sən bitirdikdən sonra o dedi 'Sənin qərarına hörmət edirəm'. Bu daha da ağır oldu.",
+        "effects": {
+          "happiness": -24,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 49,
+        "text": "Hər ikinizdə bitirmək cəsarəti yox idi. Axırda sən söylədin.",
+        "effects": {
+          "happiness": -22,
+          "relationship": -100
+        }
+      },
+      {
+        "id": 50,
+        "text": "O getdi. Sən hər şeyi olduğu kimi saxladın bir müddət. Sonra davam etdin.",
+        "effects": {
+          "happiness": -25,
+          "relationship": -100
+        }
+      }
+    ],
+    "borrowMoney": [
+      {
+        "id": 1,
+        "text": "Sevgilindən 50 manat istədin. O 'Niyə?' soruşmadan verdi.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 9,
+          "money": 50
+        }
+      },
+      {
+        "id": 2,
+        "text": "Sevgilindən pul istədin. O 'Nə vaxt qaytaracaqsan?' dedi. Gərginlik yarandı.",
+        "effects": {
+          "happiness": -3,
+          "relationship": -4,
+          "money": 100
+        }
+      },
+      {
+        "id": 3,
+        "text": "Sevgilindən kiçik məbləğ istədin. O könüllüklə verdi. Sən tez qaytardın.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 10,
+          "money": 30
+        }
+      },
+      {
+        "id": 4,
+        "text": "Səhər ona pul istədin. O 'Yenə?' dedi. Biraz utandın.",
+        "effects": {
+          "happiness": -5,
+          "relationship": -6,
+          "money": 80
+        }
+      },
+      {
+        "id": 5,
+        "text": "Sevgilindən böyük məbləğ istədin. O düşünüb verdi. Münasibətdə gərginlik qaldı.",
+        "effects": {
+          "happiness": -8,
+          "relationship": -10,
+          "money": 200
+        }
+      },
+      {
+        "id": 6,
+        "text": "Sevgilindən pul istədin. O verdi. Sən qaytarmağa unutdun. O xatırlatdı.",
+        "effects": {
+          "happiness": -4,
+          "relationship": -5,
+          "money": 60
+        }
+      },
+      {
+        "id": 7,
+        "text": "Sevgilindən pul istədin. O 'Sən daha çox qazanmalısan' dedi. Incidi.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -8,
+          "money": 0
+        }
+      },
+      {
+        "id": 8,
+        "text": "Sevgilindən pul istədin. O 'Nə üçün lazımdır?' soruşdu. Sən izah etdin. O verdi.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 6,
+          "money": 100
+        }
+      },
+      {
+        "id": 9,
+        "text": "Sevgilindən kirayə üçün pul istədin. O anladı, verdi. Sən tez qaytardın.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 9,
+          "money": 150
+        }
+      },
+      {
+        "id": 10,
+        "text": "Sevgilindən pul istədin. O 'Bu artıq üçüncü dəfədir' dedi. Şikayət başladı.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11,
+          "money": 80
+        }
+      },
+      {
+        "id": 11,
+        "text": "Sevgilindən pul istədin. O verdi amma sonra hər mübahisədə xatırlatdı.",
+        "effects": {
+          "happiness": -5,
+          "relationship": -7,
+          "money": 100
+        }
+      },
+      {
+        "id": 12,
+        "text": "Sevgilindən pul istədin. O 'Biz ailəyik, lazımdır götür' dedi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12,
+          "money": 120
+        }
+      },
+      {
+        "id": 13,
+        "text": "Sevgilindən pul istədin. O çox az idi, verdi. Sən istədiyindən çox aldın.",
+        "effects": {
+          "happiness": 4,
+          "relationship": 3,
+          "money": 50
+        }
+      },
+      {
+        "id": 14,
+        "text": "Sevgilindən pul istədin. O 'Mənim pulum da azdır' dedi. Hər ikiniz çətin anda idınız.",
+        "effects": {
+          "happiness": -3,
+          "relationship": -4,
+          "money": 0
+        }
+      },
+      {
+        "id": 15,
+        "text": "Sevgilindən pul istədin. O dərhal verdi. Sən teşekkür etdin. O sevindi.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 10,
+          "money": 70
+        }
+      },
+      {
+        "id": 16,
+        "text": "Sevgilindən pul istədin. O 'Hər zaman istəyə bilərsən' dedi. İnanılmaz hiss idi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13,
+          "money": 100
+        }
+      },
+      {
+        "id": 17,
+        "text": "Sevgilindən böyük məbləğ istədin. O 'Mümkün deyil' dedi. Sən başa düşdün.",
+        "effects": {
+          "happiness": -4,
+          "relationship": -3,
+          "money": 0
+        }
+      },
+      {
+        "id": 18,
+        "text": "Sevgilindən pul istədin. O verdi amma növbəti dəfə 'Borcunu qaytardın?' soruşdu.",
+        "effects": {
+          "happiness": -3,
+          "relationship": -4,
+          "money": 80
+        }
+      },
+      {
+        "id": 19,
+        "text": "Sevgilindən pul istədin. O 'Birlikdə pula baxaq' dedi. Münasibətin maliyyə planı başladı.",
+        "effects": {
+          "happiness": 6,
+          "relationship": 10,
+          "money": 100
+        }
+      },
+      {
+        "id": 20,
+        "text": "Sevgilindən pul istədin. O 'Nə qədər lazımdır?' soruşdu — nə qədər isə verdi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 11,
+          "money": 200
+        }
+      },
+      {
+        "id": 21,
+        "text": "Sevgilindən pul istədin. O 'Bu yaxın günlər çətin olacaq birlikdə' dedi.",
+        "effects": {
+          "happiness": -2,
+          "relationship": -3,
+          "money": 100
+        }
+      },
+      {
+        "id": 22,
+        "text": "Sevgilindən pul istədin. O verdi amma sifəti dəyişdi. Sən hiss etdin.",
+        "effects": {
+          "happiness": -5,
+          "relationship": -6,
+          "money": 90
+        }
+      },
+      {
+        "id": 23,
+        "text": "Sevgilindən pul istədin. O 'Bir şərtlə' dedi. Şərt saçmalı idi.",
+        "effects": {
+          "happiness": -3,
+          "relationship": -4,
+          "money": 80
+        }
+      },
+      {
+        "id": 24,
+        "text": "Sevgilindən pul istədin. O ona qatılmadan verdi. Sən dərhal qaytardın. O sevindi.",
+        "effects": {
+          "happiness": 9,
+          "relationship": 12,
+          "money": 60
+        }
+      },
+      {
+        "id": 25,
+        "text": "Sevgilindən pul istədin. O 'Sənə etibar edirəm' dedi. Sən onu doğrultdun.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13,
+          "money": 150
+        }
+      },
+      {
+        "id": 26,
+        "text": "Sevgilindən pul istədin. O 'Bunu niyə etməliyəm?' dedi. Dava başladı.",
+        "effects": {
+          "happiness": -9,
+          "relationship": -11,
+          "money": 0
+        }
+      },
+      {
+        "id": 27,
+        "text": "Sevgilindən pul istədin. O verdi. Sən artıq öyrəşmişdin. Bu pis idi.",
+        "effects": {
+          "happiness": -4,
+          "relationship": -6,
+          "money": 80
+        }
+      },
+      {
+        "id": 28,
+        "text": "Sevgilindən pul istədin. O 'Ailəndən istə' dedi. Biraz incidi.",
+        "effects": {
+          "happiness": -5,
+          "relationship": -6,
+          "money": 0
+        }
+      },
+      {
+        "id": 29,
+        "text": "Sevgilindən pul istədin. O verdi. Sən bunu unutmayacaqsan.",
+        "effects": {
+          "happiness": 7,
+          "relationship": 10,
+          "money": 100
+        }
+      },
+      {
+        "id": 30,
+        "text": "Sevgilindən pul istədin. O 'Sən iş tapmalısan' dedi. Ağrılı, lakin haqlı idi.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -5,
+          "money": 0
+        }
+      },
+      {
+        "id": 31,
+        "text": "Sevgilindən pul istədin. O 'Nə vaxt qaytaracaqsan?' soruşdu. Sən tarix verdin. Saxladın.",
+        "effects": {
+          "happiness": 6,
+          "relationship": 9,
+          "money": 100
+        }
+      },
+      {
+        "id": 32,
+        "text": "Sevgilindən pul istədin. O verdi, amma içindən çəkirdi ki bu yaxşı deyil.",
+        "effects": {
+          "happiness": -2,
+          "relationship": -3,
+          "money": 120
+        }
+      },
+      {
+        "id": 33,
+        "text": "Sevgilindən pul istədin. O 'Pulu birlikdə idarə etmək istəyirəm' dedi.",
+        "effects": {
+          "happiness": 5,
+          "relationship": 9,
+          "money": 100
+        }
+      },
+      {
+        "id": 34,
+        "text": "Sevgilindən pul istədin. O 'Sənin üçün hər şey edərəm' dedi. Ürəyin doldu.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14,
+          "money": 150
+        }
+      },
+      {
+        "id": 35,
+        "text": "Sevgilindən pul istədin. O verdi. Sən alışqanlığa düşdün. O fark etdi.",
+        "effects": {
+          "happiness": -5,
+          "relationship": -8,
+          "money": 80
+        }
+      },
+      {
+        "id": 36,
+        "text": "Sevgilindən pul istədin. O 'Çox pul istəyirsən' dedi. Münasibətdə pul mövzusu gərgin idi.",
+        "effects": {
+          "happiness": -7,
+          "relationship": -9,
+          "money": 100
+        }
+      },
+      {
+        "id": 37,
+        "text": "Sevgilindən pul istədin. O 'Mən daha az qazanıram' dedi. Hər ikiniz çətin anda idınız.",
+        "effects": {
+          "happiness": -4,
+          "relationship": -5,
+          "money": 0
+        }
+      },
+      {
+        "id": 38,
+        "text": "Sevgilindən pul istədin. O 'Hər zaman buradayam' dedi. Güvən bağı gücləndi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13,
+          "money": 150
+        }
+      },
+      {
+        "id": 39,
+        "text": "Sevgilindən pul istədin. O verdi amma özü öyrəndi sənin üçün artıq işləyib qazandığını.",
+        "effects": {
+          "happiness": 8,
+          "relationship": 12,
+          "money": 200
+        }
+      },
+      {
+        "id": 40,
+        "text": "Sevgilindən pul istədin. O 'Bu münasibəti mürəkkəb edir' dedi. Sən razılaşdın.",
+        "effects": {
+          "happiness": -6,
+          "relationship": -7,
+          "money": 0
+        }
+      },
+      {
+        "id": 41,
+        "text": "Sevgilindən pul istədin. O 'Bu dəfə verirəm, amma bu son dəfədir' dedi.",
+        "effects": {
+          "happiness": -4,
+          "relationship": -5,
+          "money": 100
+        }
+      },
+      {
+        "id": 42,
+        "text": "Sevgilindən pul istədin. O sevgi ilə verdi. Sən qəlbdən minnetdar oldun.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13,
+          "money": 80
+        }
+      },
+      {
+        "id": 43,
+        "text": "Sevgilindən pul istədin. O bilirdi sən müvəqqəti çətinlik içindəsən. Şərtsiz verdi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14,
+          "money": 150
+        }
+      },
+      {
+        "id": 44,
+        "text": "Sevgilindən pul istədin. O dərhal verdi. Sən artıq gözlənilmirdən qaytardın. O sevinclə şaşırdı.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15,
+          "money": 100
+        }
+      },
+      {
+        "id": 45,
+        "text": "Sevgilindən pul istədin. O 'Gözlə, sənə yaxşı bir iş tapacağam' dedi. Hər şeyindən artıq dəstək verdi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16,
+          "money": 80
+        }
+      },
+      {
+        "id": 46,
+        "text": "Sevgilindən pul istədin. O 'Qaytarma' dedi. Sən yenə qaytardın. O sevinclə aldı.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15,
+          "money": 100
+        }
+      },
+      {
+        "id": 47,
+        "text": "Sevgilindən pul istədin. O 'Mən də az qazanıram amma sənin üçün xərcləyərəm' dedi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16,
+          "money": 120
+        }
+      },
+      {
+        "id": 48,
+        "text": "Sevgilindən pul istədin. O 'Sənin üçün tutmuşdum' dedi. O öncədən bilmişdi.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18,
+          "money": 200
+        }
+      },
+      {
+        "id": 49,
+        "text": "Sevgilindən pul istədin. O verdi. Sən onu yemək yeyib verdiyin üçün daha xoşbəxt hiss etdin.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 13,
+          "money": 100
+        }
+      },
+      {
+        "id": 50,
+        "text": "Sevgilindən böyük bir məbləğ istədin — vacib bir ehtiyac üçün. O 'Bizik' dedi. Verdi. Sən ağladın.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 19,
+          "money": 300
+        }
+      }
+    ],
+    "compliment": [
+      {
+        "id": 1,
+        "text": "Ona 'Bugün çox gözəl görünürsən' dedin. O utanaraq güldü.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 2,
+        "text": "Ona 'Sənin gülüşün mənim ən sevimli məkanımdır' dedin. O sənə sarıldı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 3,
+        "text": "Ona 'Sənin yanında özüm oluram' dedin. O bir müddət susdü, sonra güldü.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 4,
+        "text": "Ona 'Dünya sənin sahib olduğun əzəmətə layiq deyil' dedin. O 'Çox romantikdir, həqiqidir?'",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 5,
+        "text": "Ona 'Sənin beynin bədənin qədər cazibədardır' dedin. O sevinclə güldü.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 6,
+        "text": "Ona 'Sənin xeyirxahlığın məni daha yaxşı insan etdir' dedin. O ağladı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 7,
+        "text": "Ona 'Sənin həyata baxışın məni hər gün ilhama gətirir' dedin. O düşündü.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 8,
+        "text": "Ona 'Bütün otaq sən girəndə işıqlanır' dedin. O 'Bunu kiminsə kitabından oxudun?' dedi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 9,
+        "text": "Ona 'Səni seçdiyim üçün hər gün fəxr edirəm' dedin. O sevinclə sarıldı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 10,
+        "text": "Ona gözlənilmədən 'Sən mükəmməlsən' dedin. O 'Yaxşı söylə' dedi, amma sevincliydi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 11,
+        "text": "Ona 'Sənin saçların bu gün xüsusilə gözəldir' dedin. O 'Hm, birini seçdin?' dedi.",
+        "effects": {
+          "happiness": 10,
+          "relationship": 11
+        }
+      },
+      {
+        "id": 12,
+        "text": "Ona 'Sənin səsin mənim ən sevimli musiqimdir' dedin. O utanaraq güldü.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 13,
+        "text": "Ona 'Sənin ilə olan hər an xatirəyə dönür' dedin. O 'Hətta dava etdiklərimiz?' dedi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 14,
+        "text": "Ona 'Sənin ailəni sevməyin məni sənə daha çox bağlayır' dedin. O dərin düşündü.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 15,
+        "text": "Ona 'Sənin cəsarətin məni hər zaman heyran edir' dedin. O sevinclə kabul etdi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 16,
+        "text": "Ona 'Sən düşündüğündən çox daha güclüsən' dedin. O ağladı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 17,
+        "text": "Ona 'Sənin yanında olmaq ən böyük xoşbəxtliyimdir' dedin. O səni öpdü.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 18,
+        "text": "Ona 'Sənin hər xətalın belə məhəbbətin bir parçasıdır' dedin. O 'Bu çox mürəkkəb bir tərif idi' dedi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 19,
+        "text": "Ona 'Sənin bişirdiklərin dünyada ən dadlıdır' dedin. O 'Bu şişirtmədir' dedi, amma sevindi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 20,
+        "text": "Ona 'Sən gözəl olmadan gözəllik mənasını bilmirdim' dedin. O 'Hm' dedi, lakin gülümsədi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 21,
+        "text": "Ona 'Sənin ağlın məni hər gün heyranlıqla doldurur' dedin. O sevinclə güldü.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 22,
+        "text": "Ona 'Sən olmasan ev ev deyildir' dedin. O 'Artıq romantikləşdirirsən' dedi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 23,
+        "text": "Ona 'Sənin güldüyündə bütün narahatlığım gedir' dedin. O güldü — bütün narahatlığın getdi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 24,
+        "text": "Ona 'Sənin vicdanın məni daha yaxşı adam etdi' dedin. O 'Nə baş verdi?' dedi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 25,
+        "text": "Ona 'Sənin xoşbəxt olduğunu görmək məni xoşbəxt edir' dedin. O dərin bir an yaşadı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 26,
+        "text": "Ona 'Bu geyim sənə çox yaraşır' dedin. O 'Bu birincidirmi?' dedi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 12
+        }
+      },
+      {
+        "id": 27,
+        "text": "Ona 'Sənin əlinlə hazırladığın hər şey xüsusidir' dedin. O sevinclə qaça çalışdı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 28,
+        "text": "Ona 'Sən mənim ən yaxşı qərarımsın' dedin. O 'Nəyin qarşısında?' dedi. İkisi güldünüz.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 29,
+        "text": "Ona 'Sənin ürəyi mükəmməldir' dedin. O 'Sən də mükəmməlsən' dedi.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 30,
+        "text": "Ona 'Sənin varlığın məni daha yaxşı hissləndirdir' dedin. O sənə baxdı. Uzun müddət.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 31,
+        "text": "Ona 'Sənin həyata baxışın dünyayı gözəl edir' dedin. O 'Bunu niyə söylədin?' dedi. 'Çünki həqiqiqtdir.'",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 32,
+        "text": "Ona 'Bu gün çox yorğun görünürsən, amma hələ də gözəlsən' dedin. O güldü.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 33,
+        "text": "Ona 'Sənin güclü tərəfin zəif anında da görünür' dedin. O ağladı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 34,
+        "text": "Ona 'Sən danışanda dinlərəm, çünki hər sözün dəyərlidir' dedin. O dərin nəfəs aldı.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 35,
+        "text": "Ona 'Sənin güldürmə tərzi unikaldır' dedin. O güldü — haqlı olduğunu sübut etdi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 36,
+        "text": "Ona 'Sənin empatin məni heyranlıqla doldurur' dedin. O 'Bu özündədir' dedi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 37,
+        "text": "Ona 'Sənin cəsarəti görəndə özüm daha cəsarətli hiss edirəm' dedin. O sevinclə güldü.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 38,
+        "text": "Ona 'Sənin yanındakı hər an qiymətlidir' dedin. O 'Hətta dava etdiklərimiz?' dedi.",
+        "effects": {
+          "happiness": 11,
+          "relationship": 13
+        }
+      },
+      {
+        "id": 39,
+        "text": "Ona 'Bu gün bütün günü sənin fikrini düşündüm' dedin. O utanaraq güldü.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 40,
+        "text": "Ona 'Sən kim olduğunla məni sevindirir, nə etdiyinlə yox' dedin. O ağladı.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 19
+        }
+      },
+      {
+        "id": 41,
+        "text": "Ona 'Sənin saçlarının bu anı, bu işıqda gözəlliyi yadımda qalacaq' dedin. O 'Bu çox şairanidir' dedi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 42,
+        "text": "Ona 'Sənin qulaqları dinləyəndə hiss edirəm ki, söylədiklərimin dəyəri var' dedin. O dərin düşündü.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 43,
+        "text": "Ona 'Sən kiçik anları böyük xatirəyə çevirə bilərsən' dedin. O 'Bu bir tərif idimi?' dedi.",
+        "effects": {
+          "happiness": 12,
+          "relationship": 14
+        }
+      },
+      {
+        "id": 44,
+        "text": "Ona 'Sənin dəyərlərin məni daha yaxşı insan olmağa məcbur edir' dedin. O sevinclə əlini sıxdı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 45,
+        "text": "Ona 'Sən öz xoşbəxtliyini yaradırsın, bu isə ən gözəl hissədir' dedin. O dərin bir an yaşadı.",
+        "effects": {
+          "happiness": 14,
+          "relationship": 17
+        }
+      },
+      {
+        "id": 46,
+        "text": "Ona 'Sənin yanında olmaq mənə enerji verir' dedin. O 'Sənin yanında da!' dedi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 15
+        }
+      },
+      {
+        "id": 47,
+        "text": "Ona 'Sənin iradən məni hər zaman ilhama gətirir' dedin. O sevinclə qəbul etdi.",
+        "effects": {
+          "happiness": 13,
+          "relationship": 16
+        }
+      },
+      {
+        "id": 48,
+        "text": "Ona 'Sən həyatıma rəng qatdın' dedin. O 'Hansı rəng?' dedi. 'Ən gözəli' dedin.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 18
+        }
+      },
+      {
+        "id": 49,
+        "text": "Ona 'Sən mövcud olduğun üçün dünya daha gözəldir' dedin. O gülümsədi. Uzun müddət.",
+        "effects": {
+          "happiness": 15,
+          "relationship": 19
+        }
+      },
+      {
+        "id": 50,
+        "text": "Ona heç bir şey demədin — sadəcə baxdın. O 'Niyə baxırsan?' dedi. 'Çünki lazımdır' dedin.",
+        "effects": {
+          "happiness": 16,
+          "relationship": 20
+        }
+      }
+    ],
+    "spy": {
+      "status": "locked",
+      "unlockVersion": "2.0",
+      "message": "Bu funksiya hələ aktiv deyil. Tezliklə gəlir! 🔒",
+      "events": []
+    }
+  }
+}
