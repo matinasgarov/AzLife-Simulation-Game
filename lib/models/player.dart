@@ -24,6 +24,8 @@ class FamilyMember extends Person {
   final String relation; // "Ana", "Ata", "Qardaş", "Bacı"
   String education;
   String job;
+  String maritalStatus;
+  List<String> diseases;
   int monthlyIncome;
   int totalMoney;
   int generosity; // 0-100
@@ -37,6 +39,8 @@ class FamilyMember extends Person {
     required this.relation,
     this.education = "Orta təhsil",
     this.job = "İşsiz",
+    this.maritalStatus = "Subay",
+    this.diseases = const [],
     this.monthlyIncome = 0,
     this.totalMoney = 1000,
     this.generosity = 50,
