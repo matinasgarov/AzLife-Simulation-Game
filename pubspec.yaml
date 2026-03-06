@@ -26,4 +26,5 @@ flutter:
     - assets/school_questions.json
     - assets/university_exams.json
     - assets/relationship_events.json
+    - assets/gameImages/
     - assets/sounds/

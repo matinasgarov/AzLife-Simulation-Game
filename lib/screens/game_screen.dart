@@ -32,7 +32,7 @@ class _GameScreenState extends State<GameScreen> {
   Map<String, dynamic>? _schoolQuestions;
   Map<String, dynamic>? _universityExams;
 
-  final List<String> _boyNames = ["Murad", "Elvin", "Nihad", "Tural", "Fuad", "Zaur", "Emil", "Oqtay", "Kənan", "Orxan"];
+  final List<String> _boyNames = ["Rüfət"];
   final List<String> _girlNames = ["Aysel", "Leyla", "Fidan", "Günay", "Nigar", "Sevda", "Aytən", "Lamiyə", "Nərmin", "Arzu"];
   
   final Map<String, List<int>> _jobIncomes = {
@@ -80,9 +80,13 @@ class _GameScreenState extends State<GameScreen> {
   void _initializeFamily() {
     // Birthplace logic for family wealth
     double multiplier = 1.0;
-    if (player.birthCity == "Bakı") multiplier = 1.5;
-    else if (player.birthCity == "Gəncə" || player.birthCity == "Sumqayıt") multiplier = 1.2;
-    else multiplier = 0.8;
+    if (player.birthCity == "Bakı") {
+      multiplier = 1.5;
+    } else if (player.birthCity == "Gəncə" || player.birthCity == "Sumqayıt") {
+      multiplier = 1.2;
+    } else {
+      multiplier = 0.8;
+    }
 
     var fatherJob = _jobIncomes.keys.toList()[_random.nextInt(_jobIncomes.length)];
     var motherJob = _jobIncomes.keys.toList()[_random.nextInt(_jobIncomes.length)];
@@ -412,7 +416,11 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void _finishUniversityExam(Map<String, dynamic> uni, bool passed) {
-    if (passed) SoundManager.playSuccess(); else SoundManager.playFail();
+    if (passed) {
+      SoundManager.playSuccess();
+    } else {
+      SoundManager.playFail();
+    }
     
     showDialog(
       context: context,
@@ -717,7 +725,7 @@ class _GameScreenState extends State<GameScreen> {
   Widget _buildActionButtons() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 15.0), 
-      color: Colors.blue.withOpacity(0.05), 
+      color: Colors.blue.withValues(alpha: 0.05), 
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
         children: [
@@ -727,7 +735,7 @@ class _GameScreenState extends State<GameScreen> {
           const SizedBox(width: 1), 
           GestureDetector(
             onTap: ageUp, 
-            child: Container(width: 70, height: 70, decoration: BoxDecoration(gradient: const LinearGradient(colors: [Colors.blueAccent, Colors.blue]), shape: BoxShape.circle, boxShadow: [BoxShadow(color: Colors.blue.withOpacity(0.3), blurRadius: 8, offset: Offset(0, 4))]), child: const Icon(Icons.add, size: 35, color: Colors.white))
+            child: Container(width: 70, height: 70, decoration: BoxDecoration(gradient: const LinearGradient(colors: [Colors.blueAccent, Colors.blue]), shape: BoxShape.circle, boxShadow: [BoxShadow(color: Colors.blue.withValues(alpha: 0.3), blurRadius: 8, offset: Offset(0, 4))]), child: const Icon(Icons.add, size: 35, color: Colors.white))
           ), 
           const SizedBox(width: 1), 
           _actionIconButton(Icons.favorite_rounded, "Münasibətlər", 1.0, _openRelationships), 
@@ -747,7 +755,7 @@ class _GameScreenState extends State<GameScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min, 
             children: [
-              Container(padding: const EdgeInsets.all(10), decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.blue.withOpacity(0.2))), child: Icon(icon, size: 24, color: Colors.blueAccent)), 
+              Container(padding: const EdgeInsets.all(10), decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.blue.withValues(alpha: 0.2))), child: Icon(icon, size: 24, color: Colors.blueAccent)), 
               const SizedBox(height: 4), 
               Text(label, textAlign: TextAlign.center, style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: Colors.blueAccent))
             ]

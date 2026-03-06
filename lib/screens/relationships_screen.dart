@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import '../models/player.dart';
-import '../services/sound_manager.dart';
 import 'person_interaction_screen.dart';
 
 class RelationshipsScreen extends StatefulWidget {
@@ -116,7 +114,7 @@ class _RelationshipsScreenState extends State<RelationshipsScreen> {
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         leading: CircleAvatar(
-          backgroundColor: Colors.blue.withOpacity(0.1),
+          backgroundColor: Colors.blue.withValues(alpha: 0.1),
           child: Icon(person.gender == Gender.male ? Icons.face : Icons.face_3, color: Colors.blueAccent),
         ),
         title: Text("${person.name} ${person.surname}", style: const TextStyle(fontWeight: FontWeight.bold)),

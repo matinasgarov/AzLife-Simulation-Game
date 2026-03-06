@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import '../models/player.dart';
 import '../services/sound_manager.dart';
+import 'mini_games_screen.dart';
 
 class PersonInteractionScreen extends StatefulWidget {
   final Player player;
@@ -46,9 +47,16 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
            _actionChip(Icons.card_giftcard_outlined, "Hədiyyə (20 AZN)", () => _handleFamilyInteraction(widget.person, "gift")),
            _actionChip(Icons.attach_money, "Pul istə", () => _handleFamilyInteraction(widget.person, "ask_money")),
            _actionChip(Icons.gavel_outlined, "Mübahisə", () => _handleFamilyInteraction(widget.person, "argue"), isNegative: true),
+           if (_isFather(widget.person))
+             _actionChip(Icons.sports_esports_outlined, "Oyun oyna", () => _playBoardGame(widget.person)),
         ],
       )
     );
+  }
+
+  bool _isFather(FamilyMember member) {
+    final relation = member.relation.toLowerCase();
+    return relation.contains("ata");
   }
 
   void _showFamilyProfile(FamilyMember member) {
@@ -80,14 +88,14 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
                       children: [
                         _profileRow("Yaş", "${member.age}"),
                         _profileRow("Status", member.maritalStatus),
-                        _profileRow("Təhsil", member.education),
                         _profileRow("İş", member.job),
+                        _profileRow("Aylıq gəlir", "${member.monthlyIncome} AZN"),
                         _profileRow("Xəstəlik", member.diseases.isEmpty ? "Yoxdur" : member.diseases.join(", ")),
                         const SizedBox(height: 10),
                         _statBar("Münasibət", member.relationship, Colors.green),
                         _statBar("Dindarlıq", member.religiousness, Colors.green),
                         _statBar("Səxavət", member.generosity, Colors.orange),
-                        _statBar("Pul", (member.totalMoney / 100).clamp(0, 100).toInt(), Colors.grey),
+                        _statBar("Gəlir səviyyəsi", _monthlyIncomePercent(member), Colors.green),
                       ],
                     ),
                   ),
@@ -128,6 +136,38 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
     );
   }
 
+  int _monthlyIncomePercent(FamilyMember member) {
+    final int byIncome = _incomePercentByAmount(member.monthlyIncome);
+    final int byJobCap = _incomePercentCapByJob(member.job);
+    return min(byIncome, byJobCap);
+  }
+
+  int _incomePercentByAmount(int income) {
+    if (income <= 500) return 20;
+    if (income <= 800) return 35;
+    if (income <= 1000) return 45;
+    if (income <= 1500) return 65;
+    if (income <= 2000) return 70;
+    if (income <= 3000) return 80;
+    if (income <= 5000) return 90;
+    return 100;
+  }
+
+  int _incomePercentCapByJob(String job) {
+    final normalized = job.toLowerCase();
+
+    if (normalized.contains("satıcı") || normalized.contains("satici")) return 35;
+    if (normalized.contains("fəhlə") || normalized.contains("fehle")) return 35;
+    if (normalized.contains("müəllim") || normalized.contains("muellim")) return 45;
+    if (normalized.contains("ofis")) return 65;
+    if (normalized.contains("sürücü") || normalized.contains("surucu")) return 65;
+    if (normalized.contains("həkim") || normalized.contains("hekim")) return 80;
+    if (normalized.contains("mühəndis") || normalized.contains("muhendis")) return 80;
+    if (normalized.contains("biznesmen")) return 90;
+
+    return 100;
+  }
+
   void _showResultDialog(String title, String content) {
     showDialog(
       context: context,
@@ -157,11 +197,37 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
-          side: BorderSide(color: isNegative ? Colors.red.withOpacity(0.2) : Colors.blue.withOpacity(0.2)),
+          side: BorderSide(color: isNegative ? Colors.red.withValues(alpha: 0.2) : Colors.blue.withValues(alpha: 0.2)),
         ),
         tileColor: Colors.white,
       ),
     );
+  }
+
+  void _addHistory(
+    FamilyMember member,
+    String message, {
+    int? relationshipDelta,
+    int? happinessDelta,
+    int? moneyDelta,
+  }) {
+    final effects = <String>[];
+    if (relationshipDelta != null && relationshipDelta != 0) {
+      effects.add("Münasibət ${relationshipDelta > 0 ? '+' : ''}$relationshipDelta");
+    }
+    if (happinessDelta != null && happinessDelta != 0) {
+      effects.add("Xoşbəxtlik ${happinessDelta > 0 ? '+' : ''}$happinessDelta");
+    }
+    if (moneyDelta != null && moneyDelta != 0) {
+      effects.add("Pul ${moneyDelta > 0 ? '+' : ''}$moneyDelta AZN");
+    }
+
+    final effectsText = effects.isEmpty ? "" : " (${effects.join(", ")})";
+    member.interactionHistory.insert(0, "[Yaş ${widget.player.age}] $message$effectsText");
+
+    if (member.interactionHistory.length > 40) {
+      member.interactionHistory.removeRange(40, member.interactionHistory.length);
+    }
   }
 
   void _handleFamilyInteraction(FamilyMember member, String type) {
@@ -182,19 +248,28 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
         if (effects.containsKey('relationship')) member.relationship = (member.relationship + (effects['relationship'] as int)).clamp(0, 100);
         
         logMsg = resultText;
+        _addHistory(
+          member,
+          resultText,
+          relationshipDelta: effects['relationship'] is int ? effects['relationship'] as int : null,
+          happinessDelta: effects['happiness'] is int ? effects['happiness'] as int : null,
+        );
         _showResultDialog(type == "conversation" ? "Söhbət" : "Vaxt Keçirmək", resultText);
       } else if (type == "gift") {
         if (widget.player.money >= 20) {
           widget.player.money -= 20;
           member.relationship = (member.relationship + 15).clamp(0, 100);
           logMsg = "${member.relation} hədiyyəni çox bəyəndi.";
+          _addHistory(member, logMsg, relationshipDelta: 15, moneyDelta: -20);
           _showResultDialog("Hədiyyə", logMsg);
         } else {
+          _addHistory(member, "Hədiyyə almaq üçün kifayət qədər pul olmadı.");
           _showResultDialog("Xəta", "Hədiyyə almaq üçün kifayət qədər pulun yoxdur!");
           return;
         }
       } else if (type == "ask_money") {
         if (member.askedMoneyThisYear) {
+          _addHistory(member, "Bu il yenidən pul istəndi, amma limit dolub.");
           _showResultDialog("Diqqət", "Bu il artıq ${member.relation}-dan pul istəmisən.");
           return;
         }
@@ -206,20 +281,51 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
           widget.player.money += amount;
           member.totalMoney -= amount;
           logMsg = "${member.relation} sənə $amount AZN verdi.";
+          _addHistory(member, logMsg, moneyDelta: amount);
           _showResultDialog("Pul istə", logMsg);
         } else {
           member.relationship = (member.relationship - 5).clamp(0, 100);
           logMsg = "${member.relation} sənə pul verməkdən imtina etdi.";
+          _addHistory(member, logMsg, relationshipDelta: -5);
           _showResultDialog("Rədd edildi", logMsg);
         }
       } else if (type == "argue") {
         member.relationship = (member.relationship - 15).clamp(0, 100);
         widget.player.happiness = (widget.player.happiness - 10).clamp(0, 100);
         logMsg = "${member.relation} ilə mübahisə etdin.";
+        _addHistory(member, logMsg, relationshipDelta: -15, happinessDelta: -10);
         _showResultDialog("Mübahisə", logMsg);
       }
       
       if (logMsg.isNotEmpty) widget.onAction(logMsg);
     });
+  }
+
+  Future<void> _playBoardGame(FamilyMember member) async {
+    final result = await Navigator.push<MiniGameResult>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => MiniGamesScreen(personName: member.relation),
+      ),
+    );
+
+    if (result == null || !mounted) return;
+
+    setState(() {
+      member.relationship = (member.relationship + result.relationshipDelta).clamp(0, 100);
+      widget.player.happiness = (widget.player.happiness + result.happinessDelta).clamp(0, 100);
+      _addHistory(
+        member,
+        result.logMessage,
+        relationshipDelta: result.relationshipDelta,
+        happinessDelta: result.happinessDelta,
+      );
+      widget.onAction(result.logMessage);
+    });
+
+    _showResultDialog(
+      "Oyun: ${result.gameName}",
+      "${result.logMessage}\n\nMünasibət: ${result.relationshipDelta > 0 ? '+' : ''}${result.relationshipDelta}\nXoşbəxtlik: ${result.happinessDelta > 0 ? '+' : ''}${result.happinessDelta}",
+    );
   }
 }

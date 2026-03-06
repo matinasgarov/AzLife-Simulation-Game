@@ -26,6 +26,7 @@ class FamilyMember extends Person {
   String job;
   String maritalStatus;
   List<String> diseases;
+  List<String> interactionHistory;
   int monthlyIncome;
   int totalMoney;
   int generosity; // 0-100
@@ -41,6 +42,7 @@ class FamilyMember extends Person {
     this.job = "İşsiz",
     this.maritalStatus = "Subay",
     this.diseases = const [],
+    List<String>? interactionHistory,
     this.monthlyIncome = 0,
     this.totalMoney = 1000,
     this.generosity = 50,
@@ -49,7 +51,7 @@ class FamilyMember extends Person {
     super.isAlive = true,
     super.age = 0,
     super.imagePath,
-  });
+  }) : interactionHistory = List<String>.from(interactionHistory ?? const []);
 }
 
 class SchoolMate extends Person {
