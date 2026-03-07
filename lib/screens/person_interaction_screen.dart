@@ -27,6 +27,12 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isFather = _isFather(widget.person);
+    final bool isCriticalRelationship = widget.person.relationship < 15;
+    final bool isSibling = _isSibling(widget.person);
+    final bool canTalkToSibling = !isSibling || widget.person.age >= 7; // Issue #7
+    final bool canBorrowFromSibling = isSibling && widget.person.age >= 18; // Issue #5
+
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
@@ -42,13 +48,23 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
-           _actionChip(Icons.chat_outlined, "Söhbət", () => _handleFamilyInteraction(widget.person, "conversation")),
+           if (canTalkToSibling)
+             _actionChip(Icons.chat_outlined, "Söhbət", () => _handleFamilyInteraction(widget.person, "conversation")),
+           
            _actionChip(Icons.celebration_outlined, "Vaxt keçir", () => _handleFamilyInteraction(widget.person, "spendTime")),
            _actionChip(Icons.card_giftcard_outlined, "Hədiyyə (20 AZN)", () => _handleFamilyInteraction(widget.person, "gift")),
-           _actionChip(Icons.attach_money, "Pul istə", () => _handleFamilyInteraction(widget.person, "ask_money")),
+           
+           if (!isSibling || canBorrowFromSibling)
+             _actionChip(Icons.attach_money, "Pul istə", () => _handleFamilyInteraction(widget.person, "ask_money")),
+           
            _actionChip(Icons.gavel_outlined, "Mübahisə", () => _handleFamilyInteraction(widget.person, "argue"), isNegative: true),
-           if (_isFather(widget.person))
-             _actionChip(Icons.sports_esports_outlined, "Oyun oyna", () => _playBoardGame(widget.person)),
+           
+           // Special Father Interactions
+           if (isFather && isCriticalRelationship)
+             _actionChip(Icons.flash_on, "Döyüş", () => _handleFamilyInteraction(widget.person, "physical_fight"), isNegative: true),
+           
+           // Issue #6: Play interaction for everyone
+           _actionChip(Icons.sports_esports_outlined, "Oyun oyna", () => _playBoardGame(widget.person)),
         ],
       )
     );
@@ -57,6 +73,11 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
   bool _isFather(FamilyMember member) {
     final relation = member.relation.toLowerCase();
     return relation.contains("ata");
+  }
+
+  bool _isSibling(FamilyMember member) {
+    final rel = member.relation.toLowerCase();
+    return rel.contains("qardaş") || rel.contains("bacı") || rel.contains("qardas") || rel.contains("baci");
   }
 
   void _showFamilyProfile(FamilyMember member) {
@@ -209,6 +230,7 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
     String message, {
     int? relationshipDelta,
     int? happinessDelta,
+    int? healthDelta,
     int? moneyDelta,
   }) {
     final effects = <String>[];
@@ -217,6 +239,9 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
     }
     if (happinessDelta != null && happinessDelta != 0) {
       effects.add("Xoşbəxtlik ${happinessDelta > 0 ? '+' : ''}$happinessDelta");
+    }
+    if (healthDelta != null && healthDelta != 0) {
+      effects.add("Sağlamlıq ${healthDelta > 0 ? '+' : ''}$healthDelta");
     }
     if (moneyDelta != null && moneyDelta != 0) {
       effects.add("Pul ${moneyDelta > 0 ? '+' : ''}$moneyDelta AZN");
@@ -235,13 +260,31 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
     
     String logMsg = "";
     String resultText = "";
+    final playerAge = widget.player.age;
 
     setState(() {
       if (type == "conversation" || type == "spendTime") {
-        List<dynamic> events = widget.eventsData!['parents'][type];
-        var event = events[_random.nextInt(events.length)];
+        List<dynamic> allEvents = widget.eventsData!['parents'][type];
         
-        resultText = event['text'].replaceAll("Atanla", "${member.relation}nla").replaceAll("Ananla", "${member.relation}nla").replaceAll("Atanın", "${member.relation}nın").replaceAll("Ananın", "${member.relation}nın");
+        final validEvents = allEvents.where((e) {
+          // Issue #1: If age key is missing, default to 13+ for safety.
+          final minAge = e['minAge'] ?? 13; 
+          final maxAge = e['maxAge'] ?? 99;
+          return playerAge >= minAge && playerAge <= maxAge;
+        }).toList();
+
+        if (validEvents.isEmpty) {
+           _showResultDialog("Diqqət", "Bu yaşda ${member.relation} ilə bu cür münasibət üçün uyğun mövzu tapılmadı.");
+           return;
+        }
+        
+        var event = validEvents[_random.nextInt(validEvents.length)];
+        
+        resultText = event['text']
+            .replaceAll("Atanla", "${member.relation}nla")
+            .replaceAll("Ananla", "${member.relation}nla")
+            .replaceAll("Atanın", "${member.relation}nın")
+            .replaceAll("Ananın", "${member.relation}nın");
         
         Map<String, dynamic> effects = event['effects'];
         if (effects.containsKey('happiness')) widget.player.happiness = (widget.player.happiness + (effects['happiness'] as int)).clamp(0, 100);
@@ -274,27 +317,75 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
           return;
         }
         member.askedMoneyThisYear = true;
-        double chance = (member.relationship * 0.4) + (member.generosity * 0.4) + ((member.totalMoney / 10000) * 20);
-        if (_random.nextInt(100) < chance) {
-          int amount = 5 + _random.nextInt(25);
-          if (member.totalMoney < amount) amount = member.totalMoney;
-          widget.player.money += amount;
-          member.totalMoney -= amount;
-          logMsg = "${member.relation} sənə $amount AZN verdi.";
-          _addHistory(member, logMsg, moneyDelta: amount);
-          _showResultDialog("Pul istə", logMsg);
-        } else {
+
+        // Father refuses to give money if relationship is too low
+        if (_isFather(member) && member.relationship < 30) {
           member.relationship = (member.relationship - 5).clamp(0, 100);
-          logMsg = "${member.relation} sənə pul verməkdən imtina etdi.";
+          logMsg = "${member.relation} acıqlı bir tonda 'Sənə veriləcək pulum yoxdur!' dedi.";
           _addHistory(member, logMsg, relationshipDelta: -5);
           _showResultDialog("Rədd edildi", logMsg);
+        } else {
+          double chance = (member.relationship * 0.4) + (member.generosity * 0.4) + ((member.totalMoney / 10000) * 20);
+          if (_random.nextInt(100) < chance) {
+            int amount = 5 + _random.nextInt(25);
+            if (member.totalMoney < amount) amount = member.totalMoney;
+            widget.player.money += amount;
+            member.totalMoney -= amount;
+            logMsg = "${member.relation} sənə $amount AZN verdi.";
+            _addHistory(member, logMsg, moneyDelta: amount);
+            _showResultDialog("Pul istə", logMsg);
+          } else {
+            member.relationship = (member.relationship - 5).clamp(0, 100);
+            logMsg = "${member.relation} sənə pul verməkdən imtina etdi.";
+            _addHistory(member, logMsg, relationshipDelta: -5);
+            _showResultDialog("Rədd edildi", logMsg);
+          }
         }
       } else if (type == "argue") {
+        List<dynamic> allFightEvents = widget.eventsData!['parents']['fight'];
+        
+        final validFightEvents = allFightEvents.where((e) {
+          // STRICT FILTERING: 
+          // If minAge is missing, default to 12 for fights per Issue #1
+          final minAge = e['minAge'] ?? 12;
+          final maxAge = e['maxAge'] ?? 99;
+          return playerAge >= minAge && playerAge <= maxAge;
+        }).toList();
+
+        if (validFightEvents.isEmpty) {
+           _showResultDialog("Diqqət", "Bu yaşda ciddi mübahisə mövzusu tapılmadı.");
+           return;
+        }
+
+        var event = validFightEvents[_random.nextInt(validFightEvents.length)];
+        resultText = event['text']
+            .replaceAll("Atanla", "${member.relation}nla")
+            .replaceAll("Ananla", "${member.relation}nla");
+
         member.relationship = (member.relationship - 15).clamp(0, 100);
         widget.player.happiness = (widget.player.happiness - 10).clamp(0, 100);
-        logMsg = "${member.relation} ilə mübahisə etdin.";
-        _addHistory(member, logMsg, relationshipDelta: -15, happinessDelta: -10);
+        
+        logMsg = resultText;
+
+        // If father and relationship is very low, he might hit you after an argument
+        if (_isFather(member) && member.relationship < 15 && _random.nextInt(100) < 40) {
+          widget.player.health = (widget.player.health - 20).clamp(0, 100);
+          logMsg += "\n\n${member.relation} çox qəzəbləndi və sənə şillə vurdu!";
+          _addHistory(member, logMsg, relationshipDelta: -15, happinessDelta: -10, healthDelta: -20);
+        } else {
+          _addHistory(member, logMsg, relationshipDelta: -15, happinessDelta: -10);
+        }
+        
         _showResultDialog("Mübahisə", logMsg);
+      } else if (type == "physical_fight") {
+        // Severe escalation for low relationship
+        member.relationship = (member.relationship - 30).clamp(0, 100);
+        widget.player.health = (widget.player.health - 35).clamp(0, 100);
+        widget.player.happiness = (widget.player.happiness - 25).clamp(0, 100);
+        
+        logMsg = "${member.relation} ilə əlbəyaxa dava etdin. O səni bərk döydü və evdən qovmaqla hədələdi.";
+        _addHistory(member, logMsg, relationshipDelta: -30, healthDelta: -35, happinessDelta: -25);
+        _showResultDialog("Döyüş", logMsg);
       }
       
       if (logMsg.isNotEmpty) widget.onAction(logMsg);

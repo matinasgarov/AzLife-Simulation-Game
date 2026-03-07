@@ -32,7 +32,7 @@ class _GameScreenState extends State<GameScreen> {
   Map<String, dynamic>? _schoolQuestions;
   Map<String, dynamic>? _universityExams;
 
-  final List<String> _boyNames = ["Rüfət"];
+  final List<String> _boyNames = ["Rüfət", "Məmməd", "Əli", "Vüqar", "Anar", "Elnur", "Tural", "Orxan", "Rəşad", "Nicat"];
   final List<String> _girlNames = ["Aysel", "Leyla", "Fidan", "Günay", "Nigar", "Sevda", "Aytən", "Lamiyə", "Nərmin", "Arzu"];
   
   final Map<String, List<int>> _jobIncomes = {
@@ -94,6 +94,8 @@ class _GameScreenState extends State<GameScreen> {
     var fatherRange = _jobIncomes[fatherJob]!;
     var motherRange = _jobIncomes[motherJob]!;
 
+    String fatherName = _boyNames[_random.nextInt(_boyNames.length)];
+
     player.family.add(FamilyMember(
         name: _girlNames[_random.nextInt(_girlNames.length)], 
         surname: player.surname, 
@@ -101,18 +103,20 @@ class _GameScreenState extends State<GameScreen> {
         relation: "Ana", 
         age: 25 + _random.nextInt(10),
         job: motherJob,
+        maritalStatus: "Evli", // Issue #3 fixed
         monthlyIncome: ((motherRange[0] + _random.nextInt(motherRange[1] - motherRange[0])) * multiplier).toInt(),
         generosity: _random.nextInt(101),
         religiousness: _random.nextInt(101),
         totalMoney: ((_random.nextInt(5000) + 1000) * multiplier).toInt()
     ));
     player.family.add(FamilyMember(
-        name: _boyNames[_random.nextInt(_boyNames.length)], 
+        name: fatherName, 
         surname: player.surname, 
         gender: Gender.male, 
         relation: "Ata", 
         age: 28 + _random.nextInt(10),
         job: fatherJob,
+        maritalStatus: "Evli", // Issue #3 fixed
         monthlyIncome: ((fatherRange[0] + _random.nextInt(fatherRange[1] - fatherRange[0])) * multiplier).toInt(),
         generosity: _random.nextInt(101),
         religiousness: _random.nextInt(101),
@@ -198,7 +202,14 @@ class _GameScreenState extends State<GameScreen> {
   void _checkSiblingBirth() {
     if (player.age > 1 && player.age < 15 && _random.nextDouble() < 0.1) {
       bool isBoy = _random.nextBool();
-      String name = isBoy ? _boyNames[_random.nextInt(_boyNames.length)] : _girlNames[_random.nextInt(_girlNames.length)];
+      
+      // Issue #4: Brothers name cannot be same as father's name
+      String? fatherName = player.family.firstWhere((m) => m.relation == "Ata").name;
+      String name;
+      do {
+        name = isBoy ? _boyNames[_random.nextInt(_boyNames.length)] : _girlNames[_random.nextInt(_girlNames.length)];
+      } while (isBoy && name == fatherName);
+
       player.family.add(FamilyMember(name: name, surname: player.surname, gender: isBoy ? Gender.male : Gender.female, relation: isBoy ? "Qardaş" : "Bacı", age: 0));
       logs.first.events.add("Sənin yeni bir ${isBoy ? 'qardaşın' : 'bacın'} dünyaya gəldi! Adını $name qoydular.");
     }
@@ -212,6 +223,11 @@ class _GameScreenState extends State<GameScreen> {
       player.happiness = (player.happiness + _random.nextInt(10) - 5).clamp(0, 100);
       player.smarts = (player.smarts + _random.nextInt(4) - 1).clamp(0, 100);
       player.looks = (player.looks + _random.nextInt(4) - 1).clamp(0, 100);
+
+      // Issue #2: Status change after age 10
+      if (player.age == 10 && player.title == "Körpə") {
+        player.title = "Yeniyetmə";
+      }
 
       for (var member in player.family) {
         member.askedMoneyThisYear = false;
@@ -326,7 +342,7 @@ class _GameScreenState extends State<GameScreen> {
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         title: const Text("Məzuniyyət Seçimi", style: TextStyle(fontWeight: FontWeight.bold)),
-        content: const Text("Universiteti bitirdin. Növbəti addımın nə olacaq?"),
+        content: const Text("Universiteti bitirdin. Növbəti addımın nə olacak?"),
         actions: [
           _choiceButton("Magistraturaya müraciət et", () {
             setState(() {

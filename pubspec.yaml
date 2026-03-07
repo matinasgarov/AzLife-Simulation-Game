@@ -22,9 +22,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/decisions.json
-    - assets/school_questions.json
-    - assets/university_exams.json
-    - assets/relationship_events.json
+    - assets/json/decisions.json
+    - assets/json/school_questions.json
+    - assets/json/university_exams.json
+    - assets/json/relationship_events.json
     - assets/gameImages/
     - assets/sounds/
