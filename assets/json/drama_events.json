@@ -1,0 +1,1099 @@
+{
+  "meta": {
+    "version": "1.0",
+    "triggerChance": 0.15,
+    "description": "Drama hadisələri — Qısqanc Qohum, Gizli Vurğun, Ailə Rəqibi",
+    "effectKeys": {
+      "happiness": "Xoşbəxtlik",
+      "relationship_parents": "Valideyn münasibəti",
+      "relationship_girlfriend": "Sevgili münasibəti",
+      "money": "Pul",
+      "smarts": "Ağıl",
+      "looks": "Görünüş",
+      "reputation": "Nüfuz"
+    }
+  },
+  "dramaTypes": {
+    "jealousCousin": {
+      "label": "Qısqanc Qohum",
+      "emoji": "😤",
+      "color": "#E8A020",
+      "events": [
+        {
+          "id": "jc_001",
+          "title": "Toy Süfrəsindəki Müqayisə",
+          "requirements": {
+            "minAge": 10,
+            "maxAge": 99
+          },
+          "trigger": "family_event",
+          "description": "Qohum toyu! Xalan sənə sarıldı, sonra əmioğlun Kamranla müqayisə etdi: 'Kamran universitetə qəbul oldu, sən nə etdin?' Hamı dinlir.",
+          "npcName": "Kamran əmioğlu",
+          "npcEmoji": "🤵",
+          "choices": [
+            {
+              "label": "Nailiyyətlərini sayıb danış",
+              "description": "Özünü sakit şəkildə müdafiə et",
+              "effects": {
+                "happiness": 5,
+                "reputation": 8
+              },
+              "outcome": "Hamı dinlidi. Xalan 'Afərin, bilmirdim' dedi. Kamranın sifəti dəyişdi."
+            },
+            {
+              "label": "Gülümsə, mövzunu dəyiş",
+              "description": "Ağıllı yolla qaç",
+              "effects": {
+                "happiness": 7,
+                "reputation": 3
+              },
+              "outcome": "Zəlzələ diplomatiyası. Süfrə sakit qaldı. Kamran qalib sayıldı, amma sən rahatsan."
+            },
+            {
+              "label": "Kamranı təbrik et, heç nə demə",
+              "description": "Böyüklük göstər",
+              "effects": {
+                "happiness": -3,
+                "reputation": 12,
+                "relationship_parents": 5
+              },
+              "outcome": "Atan 'Baxın bu oğlana' dedi fəxrlə. Ananın gözü doldu. Kamran nə edəcəyini bilmədi."
+            },
+            {
+              "label": "'Kamran nə qazanır ki?' de",
+              "description": "Birbaşa müqabilə et",
+              "effects": {
+                "happiness": -8,
+                "reputation": -10,
+                "relationship_parents": -8
+              },
+              "outcome": "Toy özünü dağıtdı. Atan səni bayıra çıxardı. 'Mübahisə etmək olmaz' dedi. Həmin axşam hamı susdu."
+            }
+          ]
+        },
+        {
+          "id": "jc_002",
+          "title": "İstehsal Qısqanclığı",
+          "requirements": {
+            "minAge": 16,
+            "maxAge": 35
+          },
+          "trigger": "random",
+          "description": "Əmioğlun Elçin yeni maşın aldı. Bütün ailə danışır. Atan sənə baxdı: 'Elçin öz pulu ilə aldı ha.' Sən tez baxdın — 'Elçin bank krediti ilə aldı' yazan bir paylaşım var instagramda.",
+          "npcName": "Elçin əmioğlu",
+          "npcEmoji": "🚗",
+          "choices": [
+            {
+              "label": "Kredit faktını paylaş",
+              "description": "İnstagram screenshot göstər",
+              "effects": {
+                "happiness": 3,
+                "reputation": -5,
+                "relationship_parents": -5
+              },
+              "outcome": "Atan dedi: 'Yenə telefonda nə axtarırsın.' Elçinin abıru tökülmedi, sənin reputasiyası azaldı."
+            },
+            {
+              "label": "Sus, vaxt göstərər",
+              "description": "Zaman hər şeyi həll edər",
+              "effects": {
+                "happiness": 4,
+                "reputation": 5
+              },
+              "outcome": "3 ay sonra Elçin kredit ödəyə bilmirdi. Maşını satdı. Sən heç nə demədin."
+            },
+            {
+              "label": "'Mən də alacağam, tezliklə' de",
+              "description": "Motivasiya sözü ver",
+              "effects": {
+                "happiness": 6,
+                "smarts": -3,
+                "money": -5
+              },
+              "outcome": "İndi söz vermisən. Özünü çətin vəziyyətə saldın. Atan gözliyir."
+            },
+            {
+              "label": "Elçini təbrik et, sən öz yolundasın",
+              "description": "Böyüklük göstər",
+              "effects": {
+                "happiness": 8,
+                "reputation": 10
+              },
+              "outcome": "Atan sənə saatlardan sonra dedi: 'Sən yaxşı adamsan, Elçindən artıqsan.' Bu ən böyük qalib olmaq idi."
+            }
+          ]
+        },
+        {
+          "id": "jc_003",
+          "title": "Məktəbdə Qırmızı Diplom Siyasəti",
+          "requirements": {
+            "minAge": 15,
+            "maxAge": 22
+          },
+          "trigger": "academic",
+          "description": "Xalının qızı Nərmin sinif birincisidir. Hər ailə yığıncağında adı çəkilir. Bu dəfə sən yaxşı qiymət aldın. Anan bunu qohumla paylaşdı. Nərminin anası: 'Yaxşıdır, Nərmin isə...' — başladı.",
+          "npcName": "Nərmin xalaoğlu",
+          "npcEmoji": "📚",
+          "choices": [
+            {
+              "label": "Sevinclə öz uğurunu danış",
+              "description": "Öz nailiyyətinə diqqət çək",
+              "effects": {
+                "happiness": 10,
+                "smarts": 3,
+                "reputation": 5
+              },
+              "outcome": "Anan sevinclə dinlədi. Nərminin anası müqayisəni bitirmək məcburiyyətinde qaldı."
+            },
+            {
+              "label": "Nərmini də tərifləyin",
+              "description": "Hər ikisinizin uğurunu qeyd et",
+              "effects": {
+                "happiness": 7,
+                "reputation": 12,
+                "relationship_parents": 5
+              },
+              "outcome": "Hamı 'Nə gözəl insandır' dedi. Nərmin özü sənə 'Sağ ol' mesaj göndərdi."
+            },
+            {
+              "label": "Mövzunu dəyiş, yeməkdən danış",
+              "description": "Diplomatik çıxış",
+              "effects": {
+                "happiness": 5
+              },
+              "outcome": "Dolma çox idi. Bütün süfrə dolma müzakirəsinə keçdi. Sən xilas oldun."
+            }
+          ]
+        },
+        {
+          "id": "jc_004",
+          "title": "Görücülüqdə Rəqib",
+          "requirements": {
+            "minAge": 18,
+            "maxAge": 30
+          },
+          "trigger": "random",
+          "description": "Ailən görücülük təşkil etdi. Qız sənə baxdı, sən ona baxdın. Yaxşı gedirdi. Sonra məlum oldu ki, əmioğlun Tural da həmin qızı istəyir. Ailə iki yerə parçalandı.",
+          "npcName": "Tural əmioğlu",
+          "npcEmoji": "💍",
+          "choices": [
+            {
+              "label": "Geri çəkil, qohum münasibəti qız sevgisindən üstündür",
+              "description": "Ailə sülhünü qoru",
+              "effects": {
+                "happiness": -10,
+                "relationship_parents": 15,
+                "reputation": 10
+              },
+              "outcome": "Atan 'Oğlum böyük işlər görəcək' dedi. Tural evləndi. Sən azad qaldın."
+            },
+            {
+              "label": "Qızın özündən soruş, o seçsin",
+              "description": "Demokratik yanaşma",
+              "effects": {
+                "happiness": 5,
+                "reputation": 8
+              },
+              "outcome": "Qız sənə 'Siz qohum məsələlərini özünüz həll edin' dedi. Hər ikisi çıxdı getdi."
+            },
+            {
+              "label": "Müsabiqəni qəbul et, hər ikisi görüşsün",
+              "description": "Şans sənin tərəfindədir",
+              "effects": {
+                "happiness": 3,
+                "relationship_parents": -10
+              },
+              "outcome": "Ailə gərgin idi. Qız Tural'ı seçdi. Məclislər bir il pis oldu."
+            }
+          ]
+        },
+        {
+          "id": "jc_005",
+          "title": "Sosial Mediada Gizli Müqayisə",
+          "requirements": {
+            "minAge": 14,
+            "maxAge": 35
+          },
+          "trigger": "random",
+          "description": "Əmioğlun uğurlarını paylaşdı Instagram'da. Xalan sənin anana WhatsApp'da göndərdi: 'Baxın oğlumuzun nailiyyətinə 🙏' — Anan sənə ekran görüntüsünü göndərdi: 'Sən nə etdin bu ay?'",
+          "npcName": "Rəşad əmioğlu",
+          "npcEmoji": "📱",
+          "choices": [
+            {
+              "label": "Öz uğurunu sakit danış",
+              "description": "Rəqabətə qatılma, özündən danış",
+              "effects": {
+                "happiness": 7,
+                "relationship_parents": 8
+              },
+              "outcome": "Anan memnun qaldı. Sən özün olmağa davam etdin."
+            },
+            {
+              "label": "'Sosial media hər şeyi göstərmir' de",
+              "description": "Həqiqəti söylə",
+              "effects": {
+                "happiness": 5,
+                "smarts": 5,
+                "relationship_parents": -3
+              },
+              "outcome": "Anan 'Sən həmişə bəhanə tapırsan' dedi. Amma düşündü."
+            },
+            {
+              "label": "Sən də bir nailiyyəti paylaş",
+              "description": "Sosial media mübarizəsinə gir",
+              "effects": {
+                "happiness": 3,
+                "reputation": 5,
+                "smarts": -5
+              },
+              "outcome": "Artıq sən də sosial media yarışındasın. Bu çox yorucu olacaq."
+            }
+          ]
+        },
+        {
+          "id": "jc_006",
+          "title": "Mirasda Əmioğlu Oyunu",
+          "requirements": {
+            "minAge": 25,
+            "maxAge": 99
+          },
+          "trigger": "family_event",
+          "description": "Nənən vəfat etdi. Ailə toplandı. Əmioğlun Fərid nənənin evi barədə iddia etdi: 'Mən baxırdım ona, ev mənə çatır.' Sən də baxırdın. Ailə gərginliyi artdı.",
+          "npcName": "Fərid əmioğlu",
+          "npcEmoji": "🏠",
+          "choices": [
+            {
+              "label": "Hüquqi yoldan get",
+              "description": "Vəkil tut",
+              "effects": {
+                "happiness": -5,
+                "money": -30,
+                "reputation": 5
+              },
+              "outcome": "Proses uzandı. Ailə parçalandı. Ev satıldı, pul bölündü. Kimse tam razı olmadı."
+            },
+            {
+              "label": "Ev Fəridə qalsın, ailə sülhü vacibdir",
+              "description": "Güzəştə get",
+              "effects": {
+                "happiness": -15,
+                "relationship_parents": 10,
+                "reputation": 20
+              },
+              "outcome": "Atan 'Oğlum ən böyük işi etdi' dedi. Fərid sonralar hər ziyarətdə narahat görünürdü."
+            },
+            {
+              "label": "Ailə şurası çağır, birlikdə qərar verin",
+              "description": "Demokratik həll",
+              "effects": {
+                "happiness": 2,
+                "reputation": 15,
+                "relationship_parents": 5
+              },
+              "outcome": "Ailə danışdı, ev satıldı, pul bərabər bölündü. Fərid razı olmadı. Amma ağlabatan idi."
+            }
+          ]
+        },
+        {
+          "id": "jc_007",
+          "title": "Uşaqlıqda Oyun Rəqabəti",
+          "requirements": {
+            "minAge": 7,
+            "maxAge": 13
+          },
+          "trigger": "random",
+          "description": "Əmioğlun Murad həmişə oyunlarda sənə qalib gəlir. Bu dəfə futbol matçında yenidən uddurmaq istədi. Meydanda bütün uşaqlar izliyir.",
+          "npcName": "Murad əmioğlu",
+          "npcEmoji": "⚽",
+          "choices": [
+            {
+              "label": "Çox məşq et, qazanmağa çalış",
+              "description": "Inadla çalış",
+              "effects": {
+                "happiness": 8,
+                "smarts": 2,
+                "health": 5
+              },
+              "outcome": "Çox çalışdın. Oyunun axırında bir qol vurdun. Murad küsdü. Sən sevindin."
+            },
+            {
+              "label": "Komanda oyunu oyna, hamı qazan",
+              "description": "Birlikdə uğur",
+              "effects": {
+                "happiness": 10,
+                "reputation": 8
+              },
+              "outcome": "Komandanla qalib gəldiniz. Murad da sevinmək məcburiyyətinde qaldı."
+            },
+            {
+              "label": "Oyunu tərk et",
+              "description": "Cavabsız qal",
+              "effects": {
+                "happiness": -5,
+                "reputation": -8
+              },
+              "outcome": "Murad qalib elan etdi. Sən üzülmüş getdin. Bu xatirəni uzun müddət daşıdın."
+            }
+          ]
+        },
+        {
+          "id": "jc_008",
+          "title": "Bayramda Hədiyyə Müqayisəsi",
+          "requirements": {
+            "minAge": 8,
+            "maxAge": 18
+          },
+          "trigger": "family_event",
+          "description": "Novruz bayramında əmioğluna daha çox pul verildi. Sən saydın. O da saydı. İkisi baxışdı. Anan hiss etdi.",
+          "npcName": "Samir əmioğlu",
+          "npcEmoji": "🎁",
+          "choices": [
+            {
+              "label": "Anana sor, niyə az verdilər",
+              "description": "Birbaşa soruş",
+              "effects": {
+                "happiness": -3,
+                "relationship_parents": -5
+              },
+              "outcome": "Anan dedi: 'Böyük uşaq az alır, məsuliyyəti artır.' Aydın olmadı amma susdun."
+            },
+            {
+              "label": "Heç nə demə, böyüklük göstər",
+              "description": "Sakit qal",
+              "effects": {
+                "happiness": -5,
+                "reputation": 10
+              },
+              "outcome": "Atan axşam sənə ayrıca 'əl pulu' verdi. 'Sən anladın' dedi. Daha çox idi."
+            },
+            {
+              "label": "Samirlə müqayisə et, ədalətsizliyi göstər",
+              "description": "Müqayisəylə etiraz et",
+              "effects": {
+                "happiness": -8,
+                "reputation": -10,
+                "relationship_parents": -10
+              },
+              "outcome": "Bayram pozuldu. Qohumlar baxa-baxa qaldı. Bu hadisə uzun müddət danışıldı."
+            }
+          ]
+        }
+      ]
+    },
+    "secretAdmirer": {
+      "label": "Gizli Vurğun",
+      "emoji": "💌",
+      "color": "#E84040",
+      "events": [
+        {
+          "id": "sa_001",
+          "title": "Anonim Məktub",
+          "requirements": {
+            "minAge": 13,
+            "maxAge": 20
+          },
+          "trigger": "school",
+          "description": "Çantanda anonim məktub tapdın: 'Seni çoxdan izliyirəm. Cümə axşamı 5-də məktəbin qarşısında ol.' İmza yoxdur. Xətt tanış deyil.",
+          "npcName": "Naməlum",
+          "npcEmoji": "💌",
+          "choices": [
+            {
+              "label": "Dostlara göstər, kimdir tapmağa çalış",
+              "description": "Şəbəkə aktivləşsin",
+              "effects": {
+                "happiness": 8,
+                "reputation": 5
+              },
+              "outcome": "Bütün sinif araşdırdı. Aydın oldu ki, 7-ci sinifdəki Aytən idi. Hər ikisi utandı."
+            },
+            {
+              "label": "Cümə axşamı get, gör kim çıxır",
+              "description": "Sirrə özün cavab tap",
+              "effects": {
+                "happiness": 10,
+                "relationship_girlfriend": 5
+              },
+              "outcome": "Sinif yoldaşın Leyla orada idi. Üzü qıpqırmızı. Çox gözəl an idi."
+            },
+            {
+              "label": "Məktubu yırt, əhəmiyyət vermə",
+              "description": "Maraqlanma",
+              "effects": {
+                "happiness": -3
+              },
+              "outcome": "Leyla bir həftə sənə baxmadı. Sən nə itirdiyini heç vaxt öyrənmədin."
+            },
+            {
+              "label": "Müəllimə göstər, narahat ol",
+              "description": "Yanlış qərar",
+              "effects": {
+                "happiness": -10,
+                "reputation": -15
+              },
+              "outcome": "Müəllim sinifə elan etdi. Bütün məktəb güldü. Sən isə heç vaxt bağışlamadın özünü."
+            }
+          ]
+        },
+        {
+          "id": "sa_002",
+          "title": "Birgə Layihə Bahanəsi",
+          "requirements": {
+            "minAge": 14,
+            "maxAge": 22
+          },
+          "trigger": "school",
+          "description": "Sinif yoldaşın Nigar hər gün sənə sual verir — həmişə layihə bəhanəsiylə. Bu gün açıqca dedi: 'Sənin ilə çay içmək istərdim.' Sinif susdü.",
+          "npcName": "Nigar",
+          "npcEmoji": "☕",
+          "choices": [
+            {
+              "label": "Qəbul et, çay iç",
+              "description": "Şansa bax",
+              "effects": {
+                "happiness": 12,
+                "relationship_girlfriend": 10
+              },
+              "outcome": "Çay 2 saata çevrildi. O sənin sevimli kitabını oxumuşdu. Çox gözəl an idi."
+            },
+            {
+              "label": "'Bir dost kimi gedə bilərik' de",
+              "description": "Sərhəd çiz",
+              "effects": {
+                "happiness": 5,
+                "relationship_girlfriend": 2
+              },
+              "outcome": "O qəbul etdi. Çay sakit keçdi. Hər ikisi nə istədiyini bilmirdi."
+            },
+            {
+              "label": "Rədd et, 'məşğulam' de",
+              "description": "İmtina et",
+              "effects": {
+                "happiness": -5,
+                "relationship_girlfriend": -8
+              },
+              "outcome": "Nigar daha sual vermədi. Sinif 'Niyə etdin?' deyərək baxdı. Sən də bilmirdin."
+            }
+          ]
+        },
+        {
+          "id": "sa_003",
+          "title": "Sevgili Varken Vurğun",
+          "requirements": {
+            "minAge": 16,
+            "maxAge": 30
+          },
+          "trigger": "random",
+          "description": "Sənin sevgilin var. Lakin işdəki/məktəbdəki Anar sənə açıqca maraq göstərir. Güldürür, kömək edir, hər yerdə peyda olur. Sevgilin hiss etdi.",
+          "npcName": "Anar",
+          "npcEmoji": "👀",
+          "choices": [
+            {
+              "label": "Sevgilinə açıq danış, birlikdə həll et",
+              "description": "Şəffaflıq en yaxşı siyasətdir",
+              "effects": {
+                "happiness": 8,
+                "relationship_girlfriend": 12
+              },
+              "outcome": "Sevgilin dinlədi. 'Sağ ol dürüst olduğun üçün' dedi. Anarla peşəkar münasibət qaldı."
+            },
+            {
+              "label": "Anarı laqeyd burax, öz-özünə keçər",
+              "description": "Vaxt həll edər",
+              "effects": {
+                "happiness": 3,
+                "relationship_girlfriend": -5
+              },
+              "outcome": "Sevgilin daha da şübhəlendi. 'Niyə heç nə etmirsən?' sualı gəldi."
+            },
+            {
+              "label": "Anara açıqca 'münasibətim var' de",
+              "description": "Birbaşa aydınlıq gətir",
+              "effects": {
+                "happiness": 7,
+                "relationship_girlfriend": 15
+              },
+              "outcome": "Anar anlayışla qəbul etdi. Sevgilin 'Bunu etdiyin üçün seni daha çox sevdim' dedi."
+            },
+            {
+              "label": "Hər ikisiylə vaxt keçirməyə davam et",
+              "description": "Problemdən qaç",
+              "effects": {
+                "happiness": -5,
+                "relationship_girlfriend": -20
+              },
+              "outcome": "Sevgilin aydın görüntü tələb etdi. Dava başladı. Hər iki münasibət risk altında."
+            }
+          ]
+        },
+        {
+          "id": "sa_004",
+          "title": "Sosial Mediada Gizli İzləyici",
+          "requirements": {
+            "minAge": 15,
+            "maxAge": 28
+          },
+          "trigger": "random",
+          "description": "Bir naməlum hesab hər paylaşımını bəyənir — hamısını. Şəkilsiz profil. Adı 'Şəhər Sakini'. Bu gün şərh yazdı: 'Çox gözəlsən 🌹' — Hamı gördü.",
+          "npcName": "Şəhər Sakini",
+          "npcEmoji": "🌹",
+          "choices": [
+            {
+              "label": "Hesabı blokla",
+              "description": "Narahat hiss edirsən",
+              "effects": {
+                "happiness": 3
+              },
+              "outcome": "Hesab bloklandı. Bir həftə sonra 'Şəhər Sakini 2' hesabı peyda oldu."
+            },
+            {
+              "label": "Şərhi bəyən, gör nə olacaq",
+              "description": "Maraq qalib gəldi",
+              "effects": {
+                "happiness": 5,
+                "reputation": -3
+              },
+              "outcome": "Hesab mesaj göndərdi: 'Salam, Günel xalaoğlununam.' Artıq maraqlı deyildi."
+            },
+            {
+              "label": "Hesabı dostlara göstər, araşdırın",
+              "description": "Birgə araşdırma",
+              "effects": {
+                "happiness": 8,
+                "reputation": 3
+              },
+              "outcome": "Dostların araşdırdı. Köhnə sinif yoldaşı idi. Uzun illər sonra görüşdünüz."
+            }
+          ]
+        },
+        {
+          "id": "sa_005",
+          "title": "Küçə Etirafı",
+          "requirements": {
+            "minAge": 14,
+            "maxAge": 25
+          },
+          "trigger": "random",
+          "description": "Məktəbdən/işdən çıxarkən qarşında dayanıb: 'Sizi çoxdan izliyirəm, xoşunuz gəlir mənə.' Dostların arxanda durub baxır. Hamı gözliyir.",
+          "npcName": "Tanımadığın biri",
+          "npcEmoji": "🌸",
+          "choices": [
+            {
+              "label": "Təşəkkür et, amma 'münasibətim var' de",
+              "description": "Dürüst və nəzakətli",
+              "effects": {
+                "happiness": 7,
+                "reputation": 10
+              },
+              "outcome": "O başını aşağı salıb getdi. Dostların 'Yaxşı etdin' dedi. Ürəyin bir az ağrıdı."
+            },
+            {
+              "label": "Telefon nömrəsi al, sonra düşün",
+              "description": "Fürsəti qiymətləndir",
+              "effects": {
+                "happiness": 5,
+                "relationship_girlfriend": -5
+              },
+              "outcome": "Nömrəni aldın. Zəng etmədin. O zəng etdi. Nə edəcəyini bilmirsən."
+            },
+            {
+              "label": "Güldün, qaçdın",
+              "description": "Gülünc qərar",
+              "effects": {
+                "happiness": -5,
+                "reputation": -10
+              },
+              "outcome": "Dostların bu hadisəni 3 ay danışdı. Hər toplantıda xatırladır."
+            }
+          ]
+        },
+        {
+          "id": "sa_006",
+          "title": "Müəllimin Sevgisi",
+          "requirements": {
+            "minAge": 13,
+            "maxAge": 18
+          },
+          "trigger": "school",
+          "description": "Ədəbiyyat müəlliminiz sənin yazılarını həmişə sinfə oxuyur, həmişə sənə baxır. Bu gün dərs sonrası qaldı: 'Sən çox istedadlısın, bizimlə qalmaq istərdim.' Narahat hiss etdin.",
+          "npcName": "Ədəbiyyat müəllimi",
+          "npcEmoji": "📖",
+          "choices": [
+            {
+              "label": "Valideyninə danış",
+              "description": "Böyüklərə bil",
+              "effects": {
+                "happiness": 5,
+                "relationship_parents": 8,
+                "smarts": 3
+              },
+              "outcome": "Valideynin məktəbə getdi. Vəziyyət həll oldu. Müəllim dəyişdi. Sən rahatladın."
+            },
+            {
+              "label": "Müdirə danış",
+              "description": "Rəsmi yolla həll et",
+              "effects": {
+                "happiness": 5,
+                "reputation": 5
+              },
+              "outcome": "Müdir ciddi qəbul etdi. Müəllim xəbərdar edildi. Sən daha rahat getdin dərsə."
+            },
+            {
+              "label": "Özün 'Bu münasib deyil' de",
+              "description": "Cəsarətli ol",
+              "effects": {
+                "happiness": 8,
+                "smarts": 5,
+                "reputation": 8
+              },
+              "outcome": "Müəllim utanıb uzaqlaşdı. Sən öz hüdudlarını qorumağı öyrəndin."
+            }
+          ]
+        },
+        {
+          "id": "sa_007",
+          "title": "İş Yerindəki Sevgi Məktubu",
+          "requirements": {
+            "minAge": 18,
+            "maxAge": 40
+          },
+          "trigger": "work",
+          "description": "Masa üstündə gül tapdın və not: 'Hər gün sizi görəndə gün açılır.' İş yerinin 12 nəfəri var. Kim olduğunu bilmirsən. Hamı baxır sənə.",
+          "npcName": "İş yoldaşı (naməlum)",
+          "npcEmoji": "🌻",
+          "choices": [
+            {
+              "label": "Ümumi bir 'Teşekkürler' paylaş çat-da",
+              "description": "Nəzakətli cavab",
+              "effects": {
+                "happiness": 8,
+                "reputation": 5
+              },
+              "outcome": "İş çatında hamı 'Ey' yazdı. Kim olduğu hər zaman sirr qaldı. Romantik idi."
+            },
+            {
+              "label": "Araşdır, kim olduğunu tap",
+              "description": "Meraqlısan",
+              "effects": {
+                "happiness": 5,
+                "reputation": -3
+              },
+              "outcome": "Mühasib Rauf idi. Gözlənilməzdi. Hər ikisi çox utandı."
+            },
+            {
+              "label": "Gülü atıb heç nə demə",
+              "description": "Laqeydlik",
+              "effects": {
+                "happiness": -5
+              },
+              "outcome": "Kim göndərəndisə, artıq cəhd etmedi. Sən bəlkə bir şeyi qaçırdın."
+            }
+          ]
+        },
+        {
+          "id": "sa_008",
+          "title": "Gizli Vurğun Etiraf Gecəsi",
+          "requirements": {
+            "minAge": 16,
+            "maxAge": 30,
+            "noGirlfriend": true
+          },
+          "trigger": "social",
+          "description": "Dost yığıncağında 'Həqiqət ya tapşırıq' oyunu oynandı. Biri sənə 'Kimdən xoşun gəlir?' soruşdu. Otaqda seni çoxdandır sevən Sevinc var. Hamı bilir. Sən bilmirsən ki o bilir.",
+          "npcName": "Sevinc",
+          "npcEmoji": "🎯",
+          "choices": [
+            {
+              "label": "Sevinci adla çağır",
+              "description": "Cəsur ol",
+              "effects": {
+                "happiness": 15,
+                "relationship_girlfriend": 20
+              },
+              "outcome": "Otaq partladı. Sevinc qıpqırmızı oldu. Gecə çox gözəl bitdi."
+            },
+            {
+              "label": "Ümumi cavab ver",
+              "description": "Qaç",
+              "effects": {
+                "happiness": 3
+              },
+              "outcome": "Sevinc sənə baxdı. Sən baxmadın. O başını döndərdi. Fürsət getdi."
+            },
+            {
+              "label": "Tapşırığı seç, sualdan qaç",
+              "description": "Tapşırığı götür",
+              "effects": {
+                "happiness": 5
+              },
+              "outcome": "Sənə 'Sulu mahnı oxu' tapşırdılar. Oxudun. Sevinc güldü. Bu da bir nəticə idi."
+            }
+          ]
+        }
+      ]
+    },
+    "familyRival": {
+      "label": "Ailə Rəqibi",
+      "emoji": "🏆",
+      "color": "#5B4CDD",
+      "events": [
+        {
+          "id": "fr_001",
+          "title": "Yeni Qonşu Uşağı Müqayisəsi",
+          "requirements": {
+            "minAge": 10,
+            "maxAge": 22
+          },
+          "trigger": "random",
+          "description": "Yeni qonşu köçdü. Oğlunun adı Kamil. O hər şeydə sənin kimi. Anan onları dəvət etdi. Masada: 'Kamil karate öyrənir, sən nə öyrənirsən?'",
+          "npcName": "Kamil (qonşunun oğlu)",
+          "npcEmoji": "🥋",
+          "choices": [
+            {
+              "label": "Öz maraqlarından coşquyla danış",
+              "description": "Özün ol",
+              "effects": {
+                "happiness": 10,
+                "reputation": 8
+              },
+              "outcome": "Kamil sənin marağına əsil maraq göstərdi. Siz dost oldunuz. Analar xoşbəxt qaldı."
+            },
+            {
+              "label": "Kamili dinlə, ondan öyrən",
+              "description": "Açıq ol",
+              "effects": {
+                "happiness": 8,
+                "smarts": 5
+              },
+              "outcome": "Kamil sənə karate haqqında çox şey danışdı. Sən qeydlər apardın. Anan heyrətiylə baxdı."
+            },
+            {
+              "label": "'Karate köhnədir' de",
+              "description": "Rəqabəti rədd et",
+              "effects": {
+                "happiness": 3,
+                "reputation": -8,
+                "relationship_parents": -5
+              },
+              "outcome": "Qonşu ailəsi narahat qaldı. Anan evdə 'Bu nə davranış idi?' dedi."
+            }
+          ]
+        },
+        {
+          "id": "fr_002",
+          "title": "Həmyaşıd Uğur Bülleteni",
+          "requirements": {
+            "minAge": 18,
+            "maxAge": 35
+          },
+          "trigger": "random",
+          "description": "Xalan oğlu Rövşən 26 yaşında öz şirkətini açdı. Bütün ailə danışır. Atan sənə baxdı: 'Rövşən Rövşən oldu, sən nə oldun?' Sən 26 yaşındasan.",
+          "npcName": "Rövşən",
+          "npcEmoji": "💼",
+          "choices": [
+            {
+              "label": "'Mən öz yolumda inkişaf edirəm' de",
+              "description": "Sakin cavab",
+              "effects": {
+                "happiness": 7,
+                "reputation": 5
+              },
+              "outcome": "Atan 'Yaxşı, amma sürət' dedi. Bu onun 'başa düşdüm' sözü idi."
+            },
+            {
+              "label": "Rövşəni araşdır, öyrən necə etdi",
+              "description": "Müsbət rəqabət",
+              "effects": {
+                "happiness": 10,
+                "smarts": 8,
+                "money": 5
+              },
+              "outcome": "Rövşən əslində atasının şirkətidir. Amma sen yenə öyrəndin. Faydalı idi."
+            },
+            {
+              "label": "Rövşənin zəif tərəflərini say",
+              "description": "Müqayisəni tersine çevir",
+              "effects": {
+                "happiness": -5,
+                "relationship_parents": -10,
+                "reputation": -8
+              },
+              "outcome": "Atan dedi: 'Sən həmişə başqasını aşağı çəkirsən.' Bu söz çox ağır gəldi."
+            },
+            {
+              "label": "Öz şirkətin haqqında plan danış",
+              "description": "İlhama çevir",
+              "effects": {
+                "happiness": 12,
+                "smarts": 5,
+                "relationship_parents": 8
+              },
+              "outcome": "Atan maraqlandı. 'Söylə görüm' dedi. Sən 1 saat danışdın. O dinlədi."
+            }
+          ]
+        },
+        {
+          "id": "fr_003",
+          "title": "Sinif Birincisi Müsabiqəsi",
+          "requirements": {
+            "minAge": 10,
+            "maxAge": 18
+          },
+          "trigger": "school",
+          "description": "İmtahan nəticələri açıqlandı. Sinif birincisi Əli — həmişəki kimi. Anan: 'Əlinin anası mənə zəng edib, oğlum birincidir dedi. Sən neçəncisin?' Sən çox yaxın idin.",
+          "npcName": "Əli",
+          "npcEmoji": "🥇",
+          "choices": [
+            {
+              "label": "Yerini dürüstcə söylə, növbəti dəfəyə vəd ver",
+              "description": "Dürüst ol",
+              "effects": {
+                "happiness": 6,
+                "smarts": 5,
+                "relationship_parents": 5
+              },
+              "outcome": "Anan 'Yaxşıdır, yaxşılaşmaq olar' dedi. Sən növbəti dönəm daha çox çalışdın."
+            },
+            {
+              "label": "Əliylə dostlaş, birgə oxuyun",
+              "description": "Rəqibi dosta çevir",
+              "effects": {
+                "happiness": 12,
+                "smarts": 10
+              },
+              "outcome": "Əli sənin ən güclü çalışma ortağın oldu. İkisi birlikdə daha yaxşı nəticə aldı."
+            },
+            {
+              "label": "'Birinci olmaq vacib deyil' de",
+              "description": "Fəlsəfi yanaşma",
+              "effects": {
+                "happiness": 5,
+                "relationship_parents": -5
+              },
+              "outcome": "Anan dedi: 'Bu fəlsəfəni kimin başına söyləyəcəksən?' Sən susdun."
+            }
+          ]
+        },
+        {
+          "id": "fr_004",
+          "title": "İş Müsahibəsindəki Tanış Üz",
+          "requirements": {
+            "minAge": 19,
+            "maxAge": 35
+          },
+          "trigger": "work",
+          "description": "İş müsahibəsinə getdin. Gözləmə otağında oturarkən qapı açıldı — içəri girdi Rəşad, köhnə sinif yoldaşın. İkisi baxışdı. Eyni işə müraciət edirsiniz.",
+          "npcName": "Rəşad",
+          "npcEmoji": "👔",
+          "choices": [
+            {
+              "label": "Salam ver, normal davam et",
+              "description": "Peşəkar qal",
+              "effects": {
+                "happiness": 8,
+                "reputation": 10
+              },
+              "outcome": "Müsahibə zamanı hər ikini ayrıca dəyərləndirildi. Sən aldın. Rəşad da başqa bir yerdə tapdı."
+            },
+            {
+              "label": "Rəşadla danış, birgə gözləyin",
+              "description": "Köhnə dostluq",
+              "effects": {
+                "happiness": 10,
+                "reputation": 7
+              },
+              "outcome": "Müsahibə gözləyərkən o qədər güldünüz ki, HR girəndə hər ikisinizi seçdi."
+            },
+            {
+              "label": "Rəşadı laqeyd burax, rəqib kimi bax",
+              "description": "Soyuq dayan",
+              "effects": {
+                "happiness": 3,
+                "reputation": -5
+              },
+              "outcome": "İşi aldın. Amma həmin günü xoş olmayan bir şəkildə xatırlayırsan."
+            }
+          ]
+        },
+        {
+          "id": "fr_005",
+          "title": "Ailə Yığıncağında İfrat Uğur Müqayisəsi",
+          "requirements": {
+            "minAge": 20,
+            "maxAge": 45
+          },
+          "trigger": "family_event",
+          "description": "Ailə yığıncağı. Xalan oğlu doktor oldu, əminin qızı evləndi, qardaşın iş promosyon aldı. Hamının gözü sənin üstündədir. 'Sən nə etdin bu il?'",
+          "npcName": "Bütün ailə",
+          "npcEmoji": "👨‍👩‍👧‍👦",
+          "choices": [
+            {
+              "label": "Kiçik, amma əsl uğurlarını danış",
+              "description": "Dürüst qiymətləndir",
+              "effects": {
+                "happiness": 8,
+                "reputation": 10,
+                "relationship_parents": 5
+              },
+              "outcome": "Hamı dinlədi. Bir əmi dedi: 'Bunlar çox vacib şeylərdir.' Sən rahatladın."
+            },
+            {
+              "label": "'Hər şey davam edir' de, güldür",
+              "description": "Zarafatla keç",
+              "effects": {
+                "happiness": 10,
+                "reputation": 8
+              },
+              "outcome": "Hamı güldü. Gərginlik dağıldı. Sən çox ağıllı çıxdın."
+            },
+            {
+              "label": "Uydurma uğur danış",
+              "description": "Pis fikir",
+              "effects": {
+                "happiness": -5,
+                "smarts": -5,
+                "reputation": -15
+              },
+              "outcome": "Biri suallar verdi, aydın olmadı. Sonradan hamı öyrəndi. Utanc uzun sürdü."
+            },
+            {
+              "label": "Susub hamını dinlə",
+              "description": "Bu dövrə keçiş üçün çalış",
+              "effects": {
+                "happiness": 5,
+                "relationship_parents": 8
+              },
+              "outcome": "Atan axşam sənə dedi: 'Bu il çətin idi, bilirəm. Gələn il sənin ilin olacaq.' Bu cümlə yetərli idi."
+            }
+          ]
+        },
+        {
+          "id": "fr_006",
+          "title": "Akademik Rəqiblik",
+          "requirements": {
+            "minAge": 12,
+            "maxAge": 20
+          },
+          "trigger": "school",
+          "description": "Sinifin ən ağıllısı olmağı həmişə xoşlayırdın. Bu dəfə yeni köçən şagird Fərəh hər imtahanda səndən yüksək qiymət alır. Müəllim onun adını çəkdi. Hamı sənə baxdı.",
+          "npcName": "Fərəh",
+          "npcEmoji": "🎓",
+          "choices": [
+            {
+              "label": "Fərəhlə dostlaş, birlikdə öyrənin",
+              "description": "Rəqibi dosta çevir",
+              "effects": {
+                "happiness": 12,
+                "smarts": 15
+              },
+              "outcome": "Fərəh sənin ən güclü tərəflərini, sən onun zəif tərəflərini tamamladın. İkisi birlikdə daha güclü oldunuz."
+            },
+            {
+              "label": "Daha çox çalış, qalib gəl",
+              "description": "Müsabiqəni qəbul et",
+              "effects": {
+                "happiness": 5,
+                "smarts": 10
+              },
+              "outcome": "Növbəti imtahanda sən birinci oldun. Fərəh sənə güldü. Rəqabət davam etdi."
+            },
+            {
+              "label": "Fərəhi gözdən salmağa çalış",
+              "description": "Pis yol",
+              "effects": {
+                "happiness": -8,
+                "smarts": -5,
+                "reputation": -15
+              },
+              "outcome": "Fərəh anladı. Müəllim anladı. Hamı anladı. Səndən uzaqlaşdılar."
+            }
+          ]
+        },
+        {
+          "id": "fr_007",
+          "title": "Yaşlı Bacı/Qardaş Kölgəsi",
+          "requirements": {
+            "minAge": 10,
+            "maxAge": 25
+          },
+          "trigger": "random",
+          "description": "Müəllimin sinifə sənin adını çəkdi: 'Sən Nizinskinin bacısı/qardaşısan?' — Böyük bacın/qardaşın bu məktəbin ən uğurlu məzunudur. Müəllim gülümsədi: 'Ümid edirəm sən də onun kimi olursan.'",
+          "npcName": "Böyük bacı/qardaş",
+          "npcEmoji": "👑",
+          "choices": [
+            {
+              "label": "'Bəli, amma mən özüm olacağam' de",
+              "description": "Öz kimliyini müəyyən et",
+              "effects": {
+                "happiness": 12,
+                "reputation": 10,
+                "smarts": 5
+              },
+              "outcome": "Müəllim heyrətlə baxdı. 'Yaxşı cavab' dedi. Sinif alqışladı."
+            },
+            {
+              "label": "Gülümsə, dərsə davam et",
+              "description": "Sakitcə qəbul et",
+              "effects": {
+                "happiness": 3,
+                "reputation": 3
+              },
+              "outcome": "Müəllim razı qaldı. Sən isə o cümləni evə qədər düşündün."
+            },
+            {
+              "label": "'O məndən daha ağıllıdır' de",
+              "description": "Özünü kiçilt",
+              "effects": {
+                "happiness": -8,
+                "smarts": -3,
+                "reputation": -5
+              },
+              "outcome": "Müəllim 'Özünə inanmaq lazımdır' dedi. Bu sözü unutmadın."
+            }
+          ]
+        },
+        {
+          "id": "fr_008",
+          "title": "Qonşunun Uğurlu Uşağı Sindromunun Zirvəsi",
+          "requirements": {
+            "minAge": 15,
+            "maxAge": 30
+          },
+          "trigger": "family_event",
+          "description": "Anan telefonda qonşu ilə danışır. Qoyur: 'Qonşunun oğlu Parisjə iş tapdı, doktor çıxıb.' Sonra sənə baxır. Sən otaqda idisən. Qonşunun oğlunu heç tanımırsan.",
+          "npcName": "Qonşunun uşağı (naməlum)",
+          "npcEmoji": "✈️",
+          "choices": [
+            {
+              "label": "'Ana, mən özüm üçün yaşayıram' de",
+              "description": "Sərhəd qoy",
+              "effects": {
+                "happiness": 8,
+                "relationship_parents": -5
+              },
+              "outcome": "Anan susdü. Sonra dedi: 'Bilirəm. Amma qorxuram.' Bu cümlə hər şeyi dəyişdi."
+            },
+            {
+              "label": "Oxşar bir hədəf müəyyən et, anana danış",
+              "description": "Motivasiyaya çevir",
+              "effects": {
+                "happiness": 10,
+                "smarts": 5,
+                "relationship_parents": 10
+              },
+              "outcome": "Anan sevindi. Sən həmin hədəfə ciddi yanaşmağa başladın."
+            },
+            {
+              "label": "'Qonşunun uşağı olsun o' de",
+              "description": "Tez cavab",
+              "effects": {
+                "happiness": 5,
+                "relationship_parents": -8
+              },
+              "outcome": "Anan qapını örtdü. Sən güldün. Amma axşam özün düşündün."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
