@@ -1,5 +1,7 @@
 enum Gender { male, female }
 
+enum FriendRelationType { friend, bestFriend, partner }
+
 class Person {
   final String name;
   final String surname;
@@ -59,6 +61,9 @@ class SchoolMate extends Person {
   int health;
   int smarts;
   int looks;
+  FriendRelationType relationType;
+  List<String> interactionHistory;
+  bool askedMoneyThisYear;
 
   SchoolMate({
     required super.name,
@@ -68,11 +73,14 @@ class SchoolMate extends Person {
     this.health = 100,
     this.smarts = 50,
     this.looks = 50,
+    this.relationType = FriendRelationType.friend,
+    List<String>? interactionHistory,
+    this.askedMoneyThisYear = false,
     super.relationship = 50,
     super.isAlive = true,
     super.age = 0,
     super.imagePath,
-  });
+  }) : interactionHistory = List<String>.from(interactionHistory ?? const []);
 }
 
 class Player {
@@ -105,6 +113,8 @@ class Player {
   int schoolActivity = 50;
   bool studiedHardThisYear = false;
   bool skippedSchoolThisYear = false;
+
+  bool hasPartner = false;
 
   List<FamilyMember> family = [];
   List<SchoolMate> friends = [];

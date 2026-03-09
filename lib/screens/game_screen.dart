@@ -7,6 +7,8 @@ import '../services/sound_manager.dart';
 import 'activities_screen.dart';
 import 'relationships_screen.dart';
 import 'occupation_screen.dart';
+import 'drama_manager.dart';
+import 'drama_dialog.dart';
 
 class YearLog {
   final int age;
@@ -64,13 +66,17 @@ class _GameScreenState extends State<GameScreen> {
 
   Future<void> _loadData() async {
     try {
-      final String decisionsResponse = await rootBundle.loadString('assets/decisions.json');
-      final String schoolResponse = await rootBundle.loadString('assets/school_questions.json');
-      final String uniResponse = await rootBundle.loadString('assets/university_exams.json');
+      final results = await Future.wait([
+        rootBundle.loadString('assets/json/decisions.json'),
+        rootBundle.loadString('assets/json/school_questions.json'),
+        rootBundle.loadString('assets/json/university_exams.json'),
+        DramaManager().load().then((_) => ''),
+      ]);
+
       setState(() {
-        _allDecisions = json.decode(decisionsResponse);
-        _schoolQuestions = json.decode(schoolResponse);
-        _universityExams = json.decode(uniResponse);
+        _allDecisions = json.decode(results[0]);
+        _schoolQuestions = json.decode(results[1]);
+        _universityExams = json.decode(results[2]);
       });
     } catch (e) {
       debugPrint("Error loading data: $e");
@@ -301,6 +307,33 @@ class _GameScreenState extends State<GameScreen> {
       logs.insert(0, YearLog(age: player.age, events: yearEvents));
       _checkSiblingBirth();
       _checkFriendRequest();
+      
+      // Roll for drama
+      final drama = DramaManager().rollDrama(
+        playerAge: player.age,
+        hasGirlfriend: player.hasPartner,
+        currentTrigger: player.isEnrolledInSchool ? 'school' : 'random',
+      );
+
+      if (drama != null) {
+        Future.delayed(const Duration(milliseconds: 600), () {
+          if (mounted) {
+            DramaDialog.show(
+              context,
+              event: drama,
+              player: player,
+              onDismiss: (outcome) {
+                if (mounted) {
+                  setState(() {
+                    logs.first.events.add("${drama.dramaEmoji} ${drama.title}: $outcome");
+                  });
+                }
+              },
+            );
+          }
+        });
+      }
+
       _handleDecisions();
     });
   }
@@ -716,14 +749,23 @@ class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
             _buildTopBar(),
-            Expanded(child: ListView.builder(padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10), itemCount: logs.length, itemBuilder: (context, index) => _buildYearSection(logs[index]))),
-            _buildActionButtons(),
+            const Divider(height: 1, color: Color(0xFFEEEEEE)),
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.only(bottom: 8),
+                itemCount: logs.length,
+                itemBuilder: (context, index) => _buildYearSection(logs[index]),
+              ),
+            ),
+            const Divider(height: 1, color: Color(0xFFEEEEEE)),
             _buildBottomStats(),
+            const Divider(height: 1, color: Color(0xFFEEEEEE)),
+            _buildNavBar(),
           ],
         ),
       ),
@@ -731,61 +773,167 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   Widget _buildTopBar() {
-    return Container(padding: const EdgeInsets.all(20.0), decoration: const BoxDecoration(color: Colors.white, boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 10, offset: Offset(0, 5))]), child: Row(children: [Text(player.getEmoji(), style: const TextStyle(fontSize: 40)), const SizedBox(width: 15), Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text("${player.name} ${player.surname}", style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)), Text("${player.title} • ${player.age} yaş", style: TextStyle(fontSize: 13, color: Colors.grey[600]))])), Text("${player.money} AZN", style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.green))]));
-  }
-
-  Widget _buildYearSection(YearLog yearLog) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [const SizedBox(height: 15), Text("Yaş : ${yearLog.age}", style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)), Container(width: 100, height: 1, color: Colors.grey[300], margin: const EdgeInsets.only(top: 4, bottom: 8)), ...yearLog.events.map((event) => Padding(padding: const EdgeInsets.only(bottom: 4.0), child: Text(event, style: const TextStyle(fontSize: 13, height: 1.4, color: Colors.black87))))]);
-  }
-
-  Widget _buildActionButtons() {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 15.0), 
-      color: Colors.blue.withValues(alpha: 0.05), 
+      color: Colors.white,
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly, 
         children: [
-          _actionIconButton(Icons.work_rounded, "Peşə", (player.isEnrolledInSchool || player.isEnrolledInUniversity) ? 1.0 : 0.4, _openOccupation),
-          const SizedBox(width: 1), 
-          _actionIconButton(Icons.account_balance_wallet_rounded, "Əmlak", 0.4, () {}), 
-          const SizedBox(width: 1), 
-          GestureDetector(
-            onTap: ageUp, 
-            child: Container(width: 70, height: 70, decoration: BoxDecoration(gradient: const LinearGradient(colors: [Colors.blueAccent, Colors.blue]), shape: BoxShape.circle, boxShadow: [BoxShadow(color: Colors.blue.withValues(alpha: 0.3), blurRadius: 8, offset: Offset(0, 4))]), child: const Icon(Icons.add, size: 35, color: Colors.white))
-          ), 
-          const SizedBox(width: 1), 
-          _actionIconButton(Icons.favorite_rounded, "Münasibətlər", 1.0, _openRelationships), 
-          const SizedBox(width: 1), 
-          _actionIconButton(Icons.local_play_rounded, "Fəaliyyətlər", player.age >= 7 ? 1.0 : 0.4, _openActivities)
-        ]
-      )
+          Text(player.getEmoji(), style: const TextStyle(fontSize: 46)),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "${player.name} ${player.surname}",
+                  style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800, color: Color(0xFF1565C0)),
+                ),
+                Text(
+                  player.title,
+                  style: const TextStyle(fontSize: 13, color: Color(0xFF888888)),
+                ),
+              ],
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(
+                "${player.money} AZN",
+                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800, color: Color(0xFF1A1A1A)),
+              ),
+              const Text("Bank Balansı", style: TextStyle(fontSize: 10, color: Color(0xFF888888))),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _actionIconButton(IconData icon, String label, double opacity, VoidCallback onTap) {
-    return Expanded(
-      child: Opacity(
-        opacity: opacity,
-        child: GestureDetector(
-          onTap: onTap, 
+  Widget _buildYearSection(YearLog yearLog) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Yaş: ${yearLog.age}",
+            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800, color: Color(0xFF1565C0)),
+          ),
+          const SizedBox(height: 6),
+          ...yearLog.events.map((event) => Padding(
+            padding: const EdgeInsets.only(bottom: 5),
+            child: Text(event, style: const TextStyle(fontSize: 14, height: 1.45, color: Color(0xFF333333))),
+          )),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildNavBar() {
+    final canWork = player.isEnrolledInSchool || player.isEnrolledInUniversity;
+    final canPlay  = player.age >= 7;
+
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.fromLTRB(0, 6, 0, 12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          _navItem(Icons.work_outline_rounded,             "Peşə",       canWork ? _openOccupation : null),
+          _navItem(Icons.account_balance_wallet_outlined,  "Əmlak",      null),
+          // ── Central Age button ──
+          GestureDetector(
+            onTap: ageUp,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  width: 62,
+                  height: 62,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF2EC95C),
+                    shape: BoxShape.circle,
+                    boxShadow: [BoxShadow(color: Color(0x552EC95C), blurRadius: 14, offset: Offset(0, 5))],
+                  ),
+                  child: const Icon(Icons.add, size: 30, color: Colors.white),
+                ),
+                const SizedBox(height: 4),
+                const Text("Yaş", style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: Color(0xFF2EC95C))),
+              ],
+            ),
+          ),
+          _navItem(Icons.favorite_border_rounded,          "Münasibət",  _openRelationships),
+          _navItem(Icons.sports_esports_outlined,          "Fəaliyyət",  canPlay ? _openActivities : null),
+        ],
+      ),
+    );
+  }
+
+  Widget _navItem(IconData icon, String label, VoidCallback? onTap) {
+    final active = onTap != null;
+    const color = Color(0xFF1565C0);
+    return Opacity(
+      opacity: active ? 1.0 : 0.35,
+      child: GestureDetector(
+        onTap: active ? () { SoundManager.playClick(); onTap(); } : null,
+        child: SizedBox(
+          width: 60,
           child: Column(
-            mainAxisSize: MainAxisSize.min, 
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Container(padding: const EdgeInsets.all(10), decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12), border: Border.all(color: Colors.blue.withValues(alpha: 0.2))), child: Icon(icon, size: 24, color: Colors.blueAccent)), 
-              const SizedBox(height: 4), 
-              Text(label, textAlign: TextAlign.center, style: const TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: Colors.blueAccent))
-            ]
-          )
+              Icon(icon, size: 26, color: color),
+              const SizedBox(height: 3),
+              Text(label, textAlign: TextAlign.center, style: const TextStyle(fontSize: 9, fontWeight: FontWeight.w700, color: color)),
+            ],
+          ),
         ),
-      )
+      ),
     );
   }
 
   Widget _buildBottomStats() {
-    return Container(padding: const EdgeInsets.fromLTRB(24, 15, 24, 25), decoration: const BoxDecoration(color: Colors.white, borderRadius: BorderRadius.vertical(top: Radius.circular(25))), child: Column(children: [_statProgress("Xoşbəxtlik", player.happiness, const Color(0xFF4C84FF)), _statProgress("Sağlamlıq", player.health, const Color(0xFFA58AF5)), _statProgress("Görünüş", player.looks, const Color(0xFFF5B971)), _statProgress("Ağıl", player.smarts, const Color(0xFFFCDD61))]));
+    return Container(
+      color: Colors.white,
+      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+      child: Column(
+        children: [
+          _statRow("😊", "Xoşbəxtlik", player.happiness, const Color(0xFF4BBDFF)),
+          _statRow("❤️", "Sağlamlıq",  player.health,    const Color(0xFFFF6B6B)),
+          _statRow("✨", "Görünüş",    player.looks,     const Color(0xFFFFB347)),
+          _statRow("🧠", "Ağıl",       player.smarts,    const Color(0xFF7B68EE)),
+        ],
+      ),
+    );
   }
 
-  Widget _statProgress(String label, int value, Color color) {
-    return Padding(padding: const EdgeInsets.symmetric(vertical: 5.0), child: Row(children: [SizedBox(width: 80, child: Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold))), Expanded(child: ClipRRect(borderRadius: BorderRadius.circular(8), child: LinearProgressIndicator(value: value / 100, minHeight: 10, backgroundColor: const Color(0xFFEEEEEE), valueColor: AlwaysStoppedAnimation<Color>(color)))), const SizedBox(width: 8), Text("$value%", style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold))]));
+  Widget _statRow(String emoji, String label, int value, Color color) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 3.5),
+      child: Row(
+        children: [
+          Text(emoji, style: const TextStyle(fontSize: 15)),
+          const SizedBox(width: 6),
+          SizedBox(width: 76, child: Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFF333333)))),
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(6),
+              child: LinearProgressIndicator(
+                value: value / 100,
+                minHeight: 11,
+                backgroundColor: const Color(0xFFEEEEEE),
+                valueColor: AlwaysStoppedAnimation<Color>(color),
+              ),
+            ),
+          ),
+          const SizedBox(width: 8),
+          SizedBox(
+            width: 32,
+            child: Text("$value%", textAlign: TextAlign.right, style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Color(0xFF555555))),
+          ),
+        ],
+      ),
+    );
   }
 }

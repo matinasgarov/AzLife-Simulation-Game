@@ -9,14 +9,12 @@ import '../models/player.dart';
 class DramaDialog extends StatefulWidget {
   final DramaEvent event;
   final Player player;
-  final bool hasGirlfriend;
-  final VoidCallback onDismiss;
+  final Function(String outcome) onDismiss;
 
   const DramaDialog({
     super.key,
     required this.event,
     required this.player,
-    required this.hasGirlfriend,
     required this.onDismiss,
   });
 
@@ -25,8 +23,7 @@ class DramaDialog extends StatefulWidget {
     BuildContext context, {
     required DramaEvent event,
     required Player player,
-    required bool hasGirlfriend,
-    required VoidCallback onDismiss,
+    required Function(String outcome) onDismiss,
   }) {
     return showGeneralDialog(
       context: context,
@@ -37,10 +34,9 @@ class DramaDialog extends StatefulWidget {
         scale: CurvedAnimation(parent: anim, curve: Curves.easeOutBack),
         child: FadeTransition(opacity: anim, child: child),
       ),
-      pageBuilder: (ctx, _, __) => DramaDialog(
+      pageBuilder: (ctx, _, _) => DramaDialog(
         event: event,
         player: player,
-        hasGirlfriend: hasGirlfriend,
         onDismiss: onDismiss,
       ),
     );
@@ -50,33 +46,11 @@ class DramaDialog extends StatefulWidget {
   State<DramaDialog> createState() => _DramaDialogState();
 }
 
-class _DramaDialogState extends State<DramaDialog>
-    with SingleTickerProviderStateMixin {
+class _DramaDialogState extends State<DramaDialog> {
 
   // ── State ──────────────────────────────────
   DramaChoice? _chosenChoice;
   bool _showOutcome = false;
-  late AnimationController _pulseCtrl;
-  late Animation<double> _pulseAnim;
-
-  // ── Init ───────────────────────────────────
-  @override
-  void initState() {
-    super.initState();
-    _pulseCtrl = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 900),
-    )..repeat(reverse: true);
-    _pulseAnim = Tween(begin: 0.97, end: 1.03).animate(
-      CurvedAnimation(parent: _pulseCtrl, curve: Curves.easeInOut),
-    );
-  }
-
-  @override
-  void dispose() {
-    _pulseCtrl.dispose();
-    super.dispose();
-  }
 
   // ── Color helper ───────────────────────────
   Color _typeColor() {
@@ -315,7 +289,7 @@ class _DramaDialogState extends State<DramaDialog>
 
   void _onContinue() {
     Navigator.of(context).pop();
-    widget.onDismiss();
+    widget.onDismiss(_chosenChoice!.outcome);
   }
 
   // ── Build ──────────────────────────────────
@@ -329,13 +303,11 @@ class _DramaDialogState extends State<DramaDialog>
         constraints: const BoxConstraints(maxWidth: 420),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: ScaleTransition(
-            scale: _pulseAnim,
-            child: Material(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(24),
-              clipBehavior: Clip.antiAlias,
-              child: Column(
+          child: Material(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(24),
+            clipBehavior: Clip.antiAlias,
+            child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
 
@@ -407,7 +379,6 @@ class _DramaDialogState extends State<DramaDialog>
                     ),
                   ),
                 ],
-              ),
             ),
           ),
         ),

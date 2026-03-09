@@ -73,108 +73,158 @@ class _CharacterCreationScreenState extends State<CharacterCreationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> sortedLocations = _locationRichness.keys.toList()..sort();
-    
+    final sortedLocations = _locationRichness.keys.toList()..sort();
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
-      appBar: AppBar(
-        title: const Text("Yeni Həyat", style: TextStyle(fontWeight: FontWeight.bold)),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.grey,
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            _buildTextField(_nameController, "Ad", Icons.person_outline),
-            const SizedBox(height: 16),
-            _buildTextField(_surnameController, "Soyad", Icons.family_restroom_outlined),
-            const SizedBox(height: 24),
-            const Text("Cinsiyyət", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                _genderOption("Kişi", Gender.male, Icons.male),
-                const SizedBox(width: 16),
-                _genderOption("Qadın", Gender.female, Icons.female),
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          // ── Header ─────────────────────────────────
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.fromLTRB(0, 60, 0, 28),
+            decoration: const BoxDecoration(
+              color: Color(0xFF1565C0),
+            ),
+            child: Column(
+              children: const [
+                Text("🇦🇿", style: TextStyle(fontSize: 52)),
+                SizedBox(height: 10),
+                Text(
+                  "AzLife",
+                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.w900, color: Colors.white, letterSpacing: 1.5),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  "Yeni Həyata Başla",
+                  style: TextStyle(fontSize: 14, color: Colors.white70, letterSpacing: 0.5),
+                ),
               ],
             ),
-            const SizedBox(height: 24),
-            const Text("Doğulduğunuz yer", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 8),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.black12),
-              ),
-              child: DropdownButtonHideUnderline(
-                child: DropdownButton<String>(
-                  value: _selectedCity,
-                  isExpanded: true,
-                  items: sortedLocations.map((loc) {
-                    return DropdownMenuItem(value: loc, child: Text(loc));
-                  }).toList(),
-                  onChanged: (val) => setState(() => _selectedCity = val!),
-                ),
+          ),
+
+          // ── Form ───────────────────────────────────
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _buildField(_nameController, "Ad"),
+                  const SizedBox(height: 16),
+                  _buildField(_surnameController, "Soyad"),
+                  const SizedBox(height: 28),
+
+                  _sectionLabel("Cinsiyyət"),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      _genderOption("👦  Kişi",  Gender.male),
+                      const SizedBox(width: 12),
+                      _genderOption("👧  Qadın", Gender.female),
+                    ],
+                  ),
+                  const SizedBox(height: 28),
+
+                  _sectionLabel("Doğulduğun yer"),
+                  const SizedBox(height: 10),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    decoration: BoxDecoration(
+                      color: const Color(0xFFF5F7FA),
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: const Color(0xFFDDDDDD)),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton<String>(
+                        value: _selectedCity,
+                        isExpanded: true,
+                        icon: const Icon(Icons.keyboard_arrow_down, color: Color(0xFF1565C0)),
+                        style: const TextStyle(fontSize: 15, color: Color(0xFF1A1A1A)),
+                        items: sortedLocations
+                            .map((loc) => DropdownMenuItem(value: loc, child: Text(loc)))
+                            .toList(),
+                        onChanged: (val) => setState(() => _selectedCity = val!),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+
+                  ElevatedButton(
+                    onPressed: _onStartLife,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF2EC95C),
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(vertical: 17),
+                      elevation: 0,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                    child: const Text(
+                      "HƏYATA BAŞLA",
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w900, letterSpacing: 1.2),
+                    ),
+                  ),
+                ],
               ),
             ),
-            const SizedBox(height: 40),
-            ElevatedButton(
-              onPressed: _onStartLife,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueAccent,
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                elevation: 0,
-              ),
-              child: const Text("HƏYATA BAŞLA", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 
-  Widget _buildTextField(TextEditingController controller, String label, IconData icon) {
+  Widget _sectionLabel(String text) {
+    return Text(text, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Color(0xFF888888), letterSpacing: 0.5));
+  }
+
+  Widget _buildField(TextEditingController controller, String label) {
     return TextField(
       controller: controller,
+      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
       decoration: InputDecoration(
         labelText: label,
-        prefixIcon: Icon(icon),
+        labelStyle: const TextStyle(color: Color(0xFF888888)),
         filled: true,
-        fillColor: Colors.white,
+        fillColor: const Color(0xFFF5F7FA),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Colors.black12),
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Color(0xFFDDDDDD)),
         ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Color(0xFFDDDDDD)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Color(0xFF1565C0), width: 2),
+        ),
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
       ),
     );
   }
 
-  Widget _genderOption(String title, Gender gender, IconData icon) {
-    bool isSelected = _selectedGender == gender;
+  Widget _genderOption(String label, Gender gender) {
+    final selected = _selectedGender == gender;
     return Expanded(
       child: GestureDetector(
         onTap: () => setState(() => _selectedGender = gender),
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 12),
+          padding: const EdgeInsets.symmetric(vertical: 14),
           decoration: BoxDecoration(
-            color: isSelected ? Colors.blueAccent : Colors.white,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: isSelected ? Colors.blueAccent : Colors.black12),
+            color: selected ? const Color(0xFF1565C0) : const Color(0xFFF5F7FA),
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(
+              color: selected ? const Color(0xFF1565C0) : const Color(0xFFDDDDDD),
+            ),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, color: isSelected ? Colors.white : Colors.black54),
-              const SizedBox(width: 8),
-              Text(title, style: TextStyle(color: isSelected ? Colors.white : Colors.black54, fontWeight: FontWeight.bold)),
-            ],
+          child: Text(
+            label,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w700,
+              color: selected ? Colors.white : const Color(0xFF555555),
+            ),
           ),
         ),
       ),

@@ -27,7 +27,7 @@
             "maxAge": 99
           },
           "trigger": "family_event",
-          "description": "Qohum toyu! Xalan sənə sarıldı, sonra əmioğlun Kamranla müqayisə etdi: 'Kamran universitetə qəbul oldu, sən nə etdin?' Hamı dinlir.",
+          "description": "Qohum toyu! Xalan sənə sarıldı, sonra əmioğlun Kamranla müqayisə etdi: 'Kamran universitetə qəbul oldu, sən nə etdin?' Hamı dinliyir.",
           "npcName": "Kamran əmioğlu",
           "npcEmoji": "🤵",
           "choices": [

@@ -135,64 +135,93 @@ class ActivitiesScreen extends StatelessWidget {
 
     final availableActivities = allActivities.where((a) => player.age >= a.minAge).toList();
 
+    final schoolActivities  = availableActivities.where((a) =>  a.isSchoolActivity).toList();
+    final generalActivities = availableActivities.where((a) => !a.isSchoolActivity).toList();
+
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text("Fəaliyyətlər", style: TextStyle(fontWeight: FontWeight.bold)),
+        title: const Text("FƏALİYYƏTLƏR", style: TextStyle(fontWeight: FontWeight.w900, letterSpacing: 1.2, color: Colors.white)),
         centerTitle: true,
+        backgroundColor: const Color(0xFF1565C0),
+        iconTheme: const IconThemeData(color: Colors.white),
+        elevation: 0,
       ),
       body: availableActivities.isEmpty
-          ? const Center(child: Text("Hələ çox balacasan."))
-          : ListView.builder(
-              padding: const EdgeInsets.all(16),
-              itemCount: availableActivities.length,
-              itemBuilder: (context, index) {
-                final activity = availableActivities[index];
-                return Card(
-                  margin: const EdgeInsets.only(bottom: 12),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                  elevation: 0,
-                  color: activity.isSchoolActivity ? Colors.orange[50] : Colors.white,
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    leading: Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        color: activity.isSchoolActivity ? Colors.orange.withValues(alpha: 0.1) : Colors.blueAccent.withValues(alpha: 0.1),
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(activity.icon, color: activity.isSchoolActivity ? Colors.orange : Colors.blueAccent),
-                    ),
-                    title: Row(
-                      children: [
-                        Text(activity.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-                        if (activity.isSchoolActivity)
-                          const Padding(
-                            padding: EdgeInsets.only(left: 8.0),
-                            child: Icon(Icons.school, size: 14, color: Colors.orange),
-                          ),
-                      ],
-                    ),
-                    subtitle: Text(activity.description),
-                    trailing: Text(
-                      activity.cost > 0 ? "${activity.cost} AZN" : "Pulsuz",
-                      style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.green),
-                    ),
-                    onTap: () {
-                      if (player.money >= activity.cost) {
-                        activity.onPerform(player);
-                        onActivityPerformed("Fəaliyyət: ${activity.name}");
-                        Navigator.pop(context);
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("Pulun yoxdur!")),
-                        );
-                      }
-                    },
-                  ),
-                );
-              },
+          ? const Center(child: Text("Hələ çox balacasan.", style: TextStyle(color: Color(0xFF888888))))
+          : ListView(
+              children: [
+                if (schoolActivities.isNotEmpty) ...[
+                  _sectionHeader("Məktəb"),
+                  ...schoolActivities.map((a) => _activityRow(context, a)),
+                ],
+                if (generalActivities.isNotEmpty) ...[
+                  _sectionHeader("Ümumi"),
+                  ...generalActivities.map((a) => _activityRow(context, a)),
+                ],
+              ],
             ),
+    );
+  }
+
+  Widget _sectionHeader(String title) {
+    return Container(
+      width: double.infinity,
+      color: const Color(0xFF555555),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      child: Text(
+        title,
+        style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.white, letterSpacing: 0.5),
+      ),
+    );
+  }
+
+  Widget _activityRow(BuildContext context, Activity activity) {
+    return InkWell(
+      onTap: () {
+        if (player.money >= activity.cost) {
+          activity.onPerform(player);
+          onActivityPerformed("Fəaliyyət: ${activity.name}");
+          Navigator.pop(context);
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Pulun yoxdur!")),
+          );
+        }
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(color: Color(0xFFEEEEEE))),
+        ),
+        child: Row(
+          children: [
+            Icon(activity.icon, size: 26, color: activity.isSchoolActivity ? const Color(0xFFE67E22) : const Color(0xFF1565C0)),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(activity.name, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Color(0xFF1A1A1A))),
+                  const SizedBox(height: 2),
+                  Text(activity.description, style: const TextStyle(fontSize: 12, color: Color(0xFF888888))),
+                ],
+              ),
+            ),
+            const SizedBox(width: 12),
+            Text(
+              activity.cost > 0 ? "${activity.cost} AZN" : "Pulsuz",
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+                color: activity.cost > 0 ? const Color(0xFF1565C0) : const Color(0xFF2EC95C),
+              ),
+            ),
+            const SizedBox(width: 4),
+            const Icon(Icons.chevron_right, color: Color(0xFFCCCCCC), size: 20),
+          ],
+        ),
+      ),
     );
   }
 }

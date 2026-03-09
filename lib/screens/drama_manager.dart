@@ -181,7 +181,6 @@ class DramaManager {
       }
       _isLoaded = true;
     } catch (e) {
-      // Use debugPrint instead of print for production-ready code
       // ignore: avoid_print
       print("DramaManager load error: $e");
     }
@@ -206,7 +205,7 @@ class DramaManager {
       if (e.requirements.noGirlfriend && hasGirlfriend) return false;
       if (e.requirements.trigger != null &&
           e.requirements.trigger != 'random' &&
-          e.requirements.trigger != currentTrigger) return false;
+          e.requirements.trigger != currentTrigger) { return false; }
       if (_triggeredThisLife.contains(e.id)) return false;
 
       return true;
@@ -230,7 +229,6 @@ class DramaManager {
     player.money += e.money;
     player.health = (player.health + e.health).clamp(0, 100);
 
-    // Apply relationship changes to parents
     for (var member in player.family) {
       if (member.relation == "Ata" || member.relation == "Ana") {
         member.relationship = (member.relationship + e.relationshipParents).clamp(0, 100);
