@@ -1,0 +1,14 @@
+{
+  "venues": [
+    { "id": "restaurant", "name": "Restoran",  "base_cost": 3000, "prestige": 3 },
+    { "id": "garden",     "name": "Bağ evi",   "base_cost": 5000, "prestige": 4 },
+    { "id": "hotel",      "name": "Otel zalı", "base_cost": 8000, "prestige": 5 },
+    { "id": "outdoor",    "name": "Açıq hava", "base_cost": 2000, "prestige": 2 }
+  ],
+  "guest_tiers": [
+    { "id": 1, "label": "Kiçik (20–50 nəfər)",   "multiplier": 1.0 },
+    { "id": 2, "label": "Orta (50–150 nəfər)",   "multiplier": 1.8 },
+    { "id": 3, "label": "Böyük (150–300 nəfər)", "multiplier": 2.8 },
+    { "id": 4, "label": "Nəhəng (300+ nəfər)",   "multiplier": 4.0 }
+  ]
+}

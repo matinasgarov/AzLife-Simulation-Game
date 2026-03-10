@@ -1,0 +1,90 @@
+{
+  "sevgini_ifade_et": {
+    "min_age": 13,
+    "messages": [
+      "{name} sənin sözlərindən sonra utanıb gülümsədi.",
+      "Ona nə qədər xüsusi olduğunu dedikdə, gözləri parladı.",
+      "{name} 'Mən də seni seviyorum' dedi və ürəyin döyüşü sürətləndi.",
+      "Sözlərinin onu necə xoşbəxt etdiyini hiss etdin.",
+      "{name} sənin yanağından öpdü və 'Çox gözəl söylədin' dedi.",
+      "Hissiyyatlarını ifadə etdikdə o, əlini tutdu.",
+      "'Sən mənim üçün çox vacibsən' dedikdə, {name} gözlərini doldurmağa başladı.",
+      "{name} 'Sənsiz həyat mənasız olardı' dedi.",
+      "Səmimi sözlərin onu çox hərəkatlandırdı.",
+      "O, sənin sözlərindən ilham alaraq da eyni şeylər söylədi.",
+      "{name} sənə sarılıb 'Bu gecə heç unutmaram' dedi.",
+      "Hisslərini açıqca bildirdikdən sonra aranızdakı bağ daha da gücləndi."
+    ]
+  },
+  "surpriz_et": {
+    "min_age": 14,
+    "messages": [
+      "{name} sürprizi görəndə əlini ağzına tutdu.",
+      "O, sürprizdən o qədər sevinmişdi ki, ağlamağa başladı.",
+      "'Bunu mənim üçün etdin?!' deyərək sənə atladı.",
+      "{name} 'Heç belə bir şey gözləmirdim' dedi, gözləri parlayırdı.",
+      "Sürpriz planın mükəmməl alındı, o məmnuniyyətdən donub qaldı.",
+      "{name} bu anı heç unutmayacağını söylədi.",
+      "Hazırladığın sürpriz onu tam mat qoydu.",
+      "O, sürprizi gördükdə düşünmədən sənə sarıldı.",
+      "{name} 'Bu ən gözəl gecəmdir' dedi.",
+      "Sürprizin onun gözlərini yaşartdı.",
+      "O gecə hər ikini xoş bir anı paylaşdı.",
+      "{name} sürprizi gördükdən sonra xoşbəxtliklə gülümsədi."
+    ]
+  },
+  "goruse_get": {
+    "min_age": 14,
+    "messages": [
+      "{name} ilə keçirdiyin axşam unudulmaz oldu.",
+      "Restoran seçimin onu çox təsir etdi.",
+      "{name} 'Bu yeri necə tapdın, çox gözəldir!' dedi.",
+      "Yemək zamanı saatların necə keçdiyini hiss etmədiniz.",
+      "{name} 'Daha tez-tez gəlməliyik' dedi.",
+      "O axşam sizin ən xoş xatirənizə çevrildi.",
+      "{name} yemək zamanı gülüşündən gözünü ayıra bilmədin.",
+      "Görüş o qədər gözəl alındı ki, ikisi də evə getmək istəmirdiniz.",
+      "{name} 'Səninlə hər yer xüsusi olur' dedi.",
+      "Axşam boyunca mükəmməl mövzular danışdınız."
+    ]
+  },
+  "hediyye_ver": {
+    "min_age": 13,
+    "messages": [
+      "{name} hədiyyəni açarkən uşaq kimi sevinmişdi.",
+      "O, hədiyyəni görüb 'Tam istədiyim bu idi!' dedi.",
+      "{name} hədiyyəni bağrına basıb 'Çox sağ ol' dedi.",
+      "Hədiyyəni seçərkən nə qədər diqqət etdiyini gördükdə {name} duygulandı.",
+      "Hədiyyə onun dodaqlarında gülümsəmə oynadı.",
+      "{name} 'Sən məni həmişə tanıyırsan' dedi.",
+      "Hədiyyən tam damağına dəydi.",
+      "{name} hər gün o hədiyyəni yanında gəzdirəcəyini vəd etdi."
+    ]
+  },
+  "mubahise_et": {
+    "min_age": 13,
+    "messages": [
+      "Mübahisə uzandı və ikisi də saatlarla soyuq davrandı.",
+      "{name} 'Sən heç məni dinləmirsən!' deyib qapını çırpdı.",
+      "Söhbət zamanı hər ikiniz də həddindən artıq dedilər.",
+      "{name} 'Bəlkə bir az fasilə lazımdır' dedi.",
+      "Mübahisə zamanı {name}-in gözlərindəki kədəri gördün.",
+      "Aramızdakı bu anlaşılmazlıq bir müddət soyuqluğa səbəb oldu.",
+      "{name} 'Bu mövzunu daha artıq danışmaq istəmirəm' dedi.",
+      "Mübahisə sonunda ikisi də susdu.",
+      "{name} kəskin bir cavab verib uzaqlaşdı.",
+      "Söhbətin sonunda {name} üzünü çevirdi."
+    ]
+  },
+  "ayril": {
+    "min_age": 14,
+    "messages": [
+      "{name} 'Bəlkə bu bizim üçün ən yaxşısıdır' dedi, lakin gözləri ağlırdı.",
+      "Ayrılıq sözünü eşidəndə {name} donub qaldı.",
+      "{name} 'Bunun üçün hazır deyildim' dedi.",
+      "Hər ikiniz çox ağladınız.",
+      "{name} 'Ümid edirəm ki, bir gün yaxşı dost qalaq' dedi.",
+      "Ayrılıq çox ağır oldu, {name} çox müddət sənə baxdı."
+    ]
+  }
+}

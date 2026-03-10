@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/player.dart';
+import 'mini_games_screen.dart';
+import 'wedding_planner_screen.dart';
 
 class Activity {
   final String name;
@@ -82,7 +84,7 @@ class ActivitiesScreen extends StatelessWidget {
         cost: 10,
         minAge: 7,
         onPerform: (p) {
-          p.smarts = (p.smarts + 8).clamp(0, 100);
+          p.smarts = (p.smarts + 3).clamp(0, 100); // nerfed: was +8
           p.happiness = (p.happiness + 5).clamp(0, 100);
           p.money -= 10;
         },
@@ -116,7 +118,7 @@ class ActivitiesScreen extends StatelessWidget {
         cost: 0,
         minAge: 13,
         onPerform: (p) {
-          p.smarts = (p.smarts + 10).clamp(0, 100);
+          p.smarts = (p.smarts + 4).clamp(0, 100); // nerfed: was +10
           p.happiness -= 2;
         },
       ),
@@ -138,6 +140,12 @@ class ActivitiesScreen extends StatelessWidget {
     final schoolActivities  = availableActivities.where((a) =>  a.isSchoolActivity).toList();
     final generalActivities = availableActivities.where((a) => !a.isSchoolActivity).toList();
 
+    // Find fiancée (if any) for wedding section
+    final fiance = player.friends.cast<SchoolMate?>().firstWhere(
+      (f) => f!.relationType == FriendRelationType.partner && f.partnerStatus == PartnerStatus.fiance,
+      orElse: () => null,
+    );
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -151,6 +159,10 @@ class ActivitiesScreen extends StatelessWidget {
           ? const Center(child: Text("Hələ çox balacasan.", style: TextStyle(color: Color(0xFF888888))))
           : ListView(
               children: [
+                if (fiance != null) ...[
+                  _sectionHeader("Toy", color: const Color(0xFFC0185A), icon: Icons.diamond),
+                  _weddingRow(context, fiance),
+                ],
                 if (schoolActivities.isNotEmpty) ...[
                   _sectionHeader("Məktəb"),
                   ...schoolActivities.map((a) => _activityRow(context, a)),
@@ -164,30 +176,135 @@ class ActivitiesScreen extends StatelessWidget {
     );
   }
 
-  Widget _sectionHeader(String title) {
+  Widget _sectionHeader(String title, {Color color = const Color(0xFF555555), IconData? icon}) {
     return Container(
       width: double.infinity,
-      color: const Color(0xFF555555),
+      color: color,
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      child: Text(
-        title,
-        style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.white, letterSpacing: 0.5),
+      child: Row(
+        children: [
+          if (icon != null) ...[
+            Icon(icon, size: 14, color: Colors.white),
+            const SizedBox(width: 6),
+          ],
+          Text(
+            title,
+            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Colors.white, letterSpacing: 0.5),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _weddingRow(BuildContext context, SchoolMate fiance) {
+    final isPlanned = fiance.weddingPlanStatus == "planned";
+    return InkWell(
+      onTap: () async {
+        if (isPlanned) {
+          showDialog(
+            context: context,
+            builder: (_) => AlertDialog(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              title: const Text("Toy planı", style: TextStyle(fontWeight: FontWeight.bold)),
+              content: Text(
+                "Nişanlı: ${fiance.name}\nYer: ${fiance.weddingVenue}\nTarix: ${fiance.weddingScheduledAge} yaşında\nÜmumi xərc: ${fiance.weddingTotalCost} AZN",
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("Bağla"),
+                ),
+              ],
+            ),
+          );
+          return;
+        }
+        final confirmed = await Navigator.push<bool>(
+          context,
+          MaterialPageRoute(
+            builder: (_) => WeddingPlannerScreen(player: player, partner: fiance),
+          ),
+        );
+        if (confirmed == true && context.mounted) {
+          onActivityPerformed("Toy planlaşdırıldı: ${fiance.weddingVenue}, ${fiance.weddingScheduledAge} yaşında");
+          Navigator.pop(context);
+        }
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+        decoration: const BoxDecoration(
+          border: Border(bottom: BorderSide(color: Color(0xFFEEEEEE))),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              isPlanned ? Icons.event_available : Icons.diamond_outlined,
+              size: 26,
+              color: const Color(0xFFC0185A),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    isPlanned ? "Toy məlumatı" : "Toyu planlaşdır",
+                    style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Color(0xFF1A1A1A)),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    isPlanned
+                        ? "${fiance.weddingVenue} · ${fiance.weddingScheduledAge} yaşında · ${fiance.weddingTotalCost} AZN"
+                        : "${fiance.name} ilə toyun yerini, qonaqlarını və tarixini planlaşdır.",
+                    style: const TextStyle(fontSize: 12, color: Color(0xFF888888)),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 12),
+            Text(
+              isPlanned ? "Planlaşdırılıb" : "Pulsuz",
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+                color: isPlanned ? const Color(0xFFC0185A) : const Color(0xFF2EC95C),
+              ),
+            ),
+            const SizedBox(width: 4),
+            const Icon(Icons.chevron_right, color: Color(0xFFCCCCCC), size: 20),
+          ],
+        ),
       ),
     );
   }
 
   Widget _activityRow(BuildContext context, Activity activity) {
     return InkWell(
-      onTap: () {
-        if (player.money >= activity.cost) {
-          activity.onPerform(player);
-          onActivityPerformed("Fəaliyyət: ${activity.name}");
-          Navigator.pop(context);
-        } else {
+      onTap: () async {
+        if (player.money < activity.cost) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text("Pulun yoxdur!")),
           );
+          return;
         }
+        // Çayxana launches mini-games sub-menu (Task 9)
+        if (activity.name == "Çayxana") {
+          activity.onPerform(player); // deduct cost + apply happiness
+          final result = await Navigator.push<MiniGameResult>(
+            context,
+            MaterialPageRoute(builder: (_) => const MiniGamesScreen(personName: "Çayxana Dostu")),
+          );
+          if (result != null) {
+            onActivityPerformed("Çayxana – ${result.gameName}: ${result.logMessage}");
+          } else {
+            onActivityPerformed("Fəaliyyət: ${activity.name}");
+          }
+          if (context.mounted) Navigator.pop(context);
+          return;
+        }
+        activity.onPerform(player);
+        onActivityPerformed("Fəaliyyət: ${activity.name}");
+        Navigator.pop(context);
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),

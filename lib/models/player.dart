@@ -2,6 +2,8 @@ enum Gender { male, female }
 
 enum FriendRelationType { friend, bestFriend, partner }
 
+enum PartnerStatus { partner, fiance, married }
+
 class Person {
   final String name;
   final String surname;
@@ -33,6 +35,8 @@ class FamilyMember extends Person {
   int totalMoney;
   int generosity; // 0-100
   int religiousness; // 0-100
+  int looks; // 0-100
+  int health; // 0-100
   bool askedMoneyThisYear = false;
 
   FamilyMember({
@@ -49,6 +53,8 @@ class FamilyMember extends Person {
     this.totalMoney = 1000,
     this.generosity = 50,
     this.religiousness = 50,
+    this.looks = 60,
+    this.health = 70,
     super.relationship = 100,
     super.isAlive = true,
     super.age = 0,
@@ -64,6 +70,19 @@ class SchoolMate extends Person {
   FriendRelationType relationType;
   List<String> interactionHistory;
   bool askedMoneyThisYear;
+  String occupation;
+  int partnerStartAge;
+  int netWorth;
+
+  // Proposal / wedding fields
+  PartnerStatus partnerStatus;
+  int proposalCooldownYears;
+  String weddingVenue;
+  int weddingGuestTier;
+  int weddingScheduledAge;
+  String weddingPlanStatus; // "none" | "planned"
+  int weddingTotalCost;
+  bool weddingDepositPaid;
 
   SchoolMate({
     required super.name,
@@ -76,6 +95,17 @@ class SchoolMate extends Person {
     this.relationType = FriendRelationType.friend,
     List<String>? interactionHistory,
     this.askedMoneyThisYear = false,
+    this.occupation = "",
+    this.partnerStartAge = 0,
+    this.netWorth = 0,
+    this.partnerStatus = PartnerStatus.partner,
+    this.proposalCooldownYears = 0,
+    this.weddingVenue = "",
+    this.weddingGuestTier = 1,
+    this.weddingScheduledAge = 0,
+    this.weddingPlanStatus = "none",
+    this.weddingTotalCost = 0,
+    this.weddingDepositPaid = false,
     super.relationship = 50,
     super.isAlive = true,
     super.age = 0,

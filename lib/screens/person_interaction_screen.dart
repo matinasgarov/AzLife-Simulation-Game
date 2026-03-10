@@ -114,8 +114,8 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
                         _profileRow("Xəstəlik", member.diseases.isEmpty ? "Yoxdur" : member.diseases.join(", ")),
                         const SizedBox(height: 10),
                         _statBar("Münasibət", member.relationship, Colors.green),
-                        _statBar("Dindarlıq", member.religiousness, Colors.green),
-                        _statBar("Səxavət", member.generosity, Colors.orange),
+                        _statBar("Görünüş",   member.looks,         Colors.orange),
+                        _statBar("Sağlamlıq", member.health,        Colors.redAccent),
                         _statBar("Gəlir səviyyəsi", _monthlyIncomePercent(member), Colors.green),
                       ],
                     ),
@@ -287,8 +287,17 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
             .replaceAll("Ananın", "${member.relation}nın");
         
         Map<String, dynamic> effects = event['effects'];
-        if (effects.containsKey('happiness')) widget.player.happiness = (widget.player.happiness + (effects['happiness'] as int)).clamp(0, 100);
-        if (effects.containsKey('relationship')) member.relationship = (member.relationship + (effects['relationship'] as int)).clamp(0, 100);
+        final double relMult = member.relationship < 40 ? 0.35 : 1.0; // Task 13: diminished returns
+        if (effects.containsKey('happiness')) {
+          final raw = effects['happiness'] as int;
+          final scaled = raw > 0 ? (raw * relMult).round() : raw;
+          widget.player.happiness = (widget.player.happiness + scaled).clamp(0, 100);
+        }
+        if (effects.containsKey('relationship')) {
+          final raw = effects['relationship'] as int;
+          final scaled = raw > 0 ? (raw * relMult).round() : raw;
+          member.relationship = (member.relationship + scaled).clamp(0, 100);
+        }
         
         logMsg = resultText;
         _addHistory(
@@ -301,7 +310,9 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
       } else if (type == "gift") {
         if (widget.player.money >= 20) {
           widget.player.money -= 20;
-          member.relationship = (member.relationship + 15).clamp(0, 100);
+          final double giftMult = member.relationship < 40 ? 0.35 : 1.0;
+          final int giftBoost = (15 * giftMult).round();
+          member.relationship = (member.relationship + giftBoost).clamp(0, 100);
           logMsg = "${member.relation} hədiyyəni çox bəyəndi.";
           _addHistory(member, logMsg, relationshipDelta: 15, moneyDelta: -20);
           _showResultDialog("Hədiyyə", logMsg);

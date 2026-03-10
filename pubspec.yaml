@@ -27,5 +27,8 @@ flutter:
     - assets/json/university_exams.json
     - assets/json/relationship_events.json
     - assets/json/drama_events.json
+    - assets/json/love_interactions.json
+    - assets/json/restaurants.json
+    - assets/json/wedding_config.json
     - assets/gameImages/
     - assets/sounds/

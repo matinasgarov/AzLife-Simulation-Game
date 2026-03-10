@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 import '../models/player.dart';
 import '../services/sound_manager.dart';
+import 'restaurant_picker_screen.dart';
+import 'wedding_planner_screen.dart';
 
 class FriendInteractionScreen extends StatefulWidget {
   final Player player;
@@ -23,6 +27,47 @@ class FriendInteractionScreen extends StatefulWidget {
 
 class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
   final Random _random = Random();
+  Map<String, dynamic>? _loveMessages;
+  final Map<String, List<int>> _msgIndexes = {};
+
+  static const List<String> _occupations = [
+    "Tələbə", "Müəllim", "Həkim", "Mühəndis", "Dizayner",
+    "Mühasib", "Hüquqşünas", "Proqramçı", "Jurnalist", "Menecer",
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadLoveMessages();
+  }
+
+  Future<void> _loadLoveMessages() async {
+    try {
+      final data = await rootBundle.loadString('assets/json/love_interactions.json');
+      if (mounted) setState(() => _loveMessages = json.decode(data));
+    } catch (e) {
+      debugPrint("Could not load love_interactions.json: $e");
+    }
+  }
+
+  /// Returns a random message from the given key, cycling without repeats.
+  String _pickMessage(String key, String fallback) {
+    if (_loveMessages == null) return fallback;
+    final section = _loveMessages![key] as Map<String, dynamic>?;
+    if (section == null) return fallback;
+    final messages = List<String>.from(section['messages'] as List);
+    if (!_msgIndexes.containsKey(key) || _msgIndexes[key]!.isEmpty) {
+      _msgIndexes[key] = List.generate(messages.length, (i) => i)..shuffle(_random);
+    }
+    final idx = _msgIndexes[key]!.removeLast();
+    return messages[idx].replaceAll('{name}', widget.friend.name);
+  }
+
+  /// Scales a positive stat delta by 0.35 when relationship is below 40.
+  int _scale(int value) {
+    if (value <= 0) return value;
+    return widget.friend.relationship < 40 ? (value * 0.35).round() : value;
+  }
 
   bool get _isPartner => widget.friend.relationType == FriendRelationType.partner;
 
@@ -102,26 +147,74 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
   // ── Partner action module ────────────────────────
 
   List<Widget> _partnerActions() {
-    return [
-      _actionChip(Icons.restaurant_outlined,    "Görüşə get (30 AZN)",  _handleDate,         isRomantic: true),
-      _actionChip(Icons.favorite_rounded,        "Sevgini ifadə et",     _handleExpressLove,  isRomantic: true),
-      _actionChip(Icons.card_giftcard_outlined,  "Hədiyyə ver (20 AZN)", _handleGift,         isRomantic: true),
-      _actionChip(Icons.celebration,             "Sürpriz et (40 AZN)",  _handleSurprise,     isRomantic: true),
-      _actionChip(Icons.gavel_outlined,          "Mübahisə et",          _handlePartnerArgue, isNegative: true),
-      _actionChip(Icons.heart_broken_outlined,   "Ayrıl",                _handleBreakUp,      isNegative: true),
+    final ps = widget.friend.partnerStatus;
+
+    // Actions available for all partner statuses
+    final base = [
+      _actionChip(Icons.restaurant_outlined,   "Görüşə get",           _handleDate,         isRomantic: true),
+      _actionChip(Icons.favorite_rounded,       "Sevgini ifadə et",     _handleExpressLove,  isRomantic: true),
+      _actionChip(Icons.card_giftcard_outlined, "Hədiyyə ver (20 AZN)", _handleGift,         isRomantic: true),
+      _actionChip(Icons.celebration,            "Sürpriz et (40 AZN)",  _handleSurprise,     isRomantic: true),
     ];
+
+    if (ps == PartnerStatus.married) {
+      return [
+        ...base,
+        _actionChip(Icons.gavel_outlined,        "Mübahisə et",    _handlePartnerArgue, isNegative: true),
+        _actionChip(Icons.heart_broken_outlined,  "Boşan",          _handleBreakUp,      isNegative: true),
+      ];
+    }
+
+    if (ps == PartnerStatus.fiance) {
+      return [
+        ...base,
+        _actionChip(Icons.diamond_outlined, "Toy planlaşdır", _handleWeddingPlan, isRomantic: true),
+        _actionChip(Icons.heart_broken_outlined, "Nişanı pozaq", _handleBreakUp, isNegative: true),
+      ];
+    }
+
+    // PartnerStatus.partner
+    final cooldown = widget.friend.proposalCooldownYears;
+    final canPropose = widget.player.age >= 18 &&
+        widget.friend.relationship >= 70 &&
+        cooldown <= 0;
+    return [
+      ...base,
+      if (canPropose)
+        _actionChip(Icons.diamond_outlined, "Evlilik təklifi et", _handleProposal, isRomantic: true),
+      if (!canPropose && widget.player.age >= 18 && widget.friend.relationship >= 70 && cooldown > 0)
+        _disabledChip(Icons.diamond_outlined, "Evlilik təklifi et ($cooldown il gözlə)"),
+      _actionChip(Icons.gavel_outlined,       "Mübahisə et", _handlePartnerArgue, isNegative: true),
+      _actionChip(Icons.heart_broken_outlined, "Ayrıl",       _handleBreakUp,      isNegative: true),
+    ];
+  }
+
+  Widget _disabledChip(IconData icon, String label) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 12.0),
+      child: ListTile(
+        leading: Icon(icon, color: Colors.grey),
+        title: Text(label, style: const TextStyle(color: Colors.grey, fontWeight: FontWeight.bold)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+          side: const BorderSide(color: Color(0xFFDDDDDD)),
+        ),
+        tileColor: const Color(0xFFF5F5F5),
+      ),
+    );
   }
 
   // ── Friend handlers ──────────────────────────────
 
   void _handleTalk() {
     setState(() {
-      final delta = 5 + _random.nextInt(6);
+      final raw = 5 + _random.nextInt(6);
+      final delta = _scale(raw);
       widget.friend.relationship = (widget.friend.relationship + delta).clamp(0, 100);
-      widget.player.happiness = (widget.player.happiness + 5).clamp(0, 100);
+      widget.player.happiness = (widget.player.happiness + _scale(5)).clamp(0, 100);
       _checkBestFriendUpgrade();
       final msg = "${widget.friend.name} ilə maraqlı söhbət etdin.";
-      _addHistory(msg, relationshipDelta: delta, happinessDelta: 5);
+      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(5));
       widget.onAction(msg);
       _showResultDialog("Söhbət", msg);
     });
@@ -129,12 +222,13 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
 
   void _handleSpendTime() {
     setState(() {
-      final delta = 8 + _random.nextInt(8);
+      final raw = 8 + _random.nextInt(8);
+      final delta = _scale(raw);
       widget.friend.relationship = (widget.friend.relationship + delta).clamp(0, 100);
-      widget.player.happiness = (widget.player.happiness + 10).clamp(0, 100);
+      widget.player.happiness = (widget.player.happiness + _scale(10)).clamp(0, 100);
       _checkBestFriendUpgrade();
       final msg = "${widget.friend.name} ilə əla vaxt keçirdin.";
-      _addHistory(msg, relationshipDelta: delta, happinessDelta: 10);
+      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(10));
       widget.onAction(msg);
       _showResultDialog("Vaxt Keçirmək", msg);
     });
@@ -147,10 +241,11 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     }
     setState(() {
       widget.player.money -= 20;
-      widget.friend.relationship = (widget.friend.relationship + 15).clamp(0, 100);
+      final delta = _scale(15);
+      widget.friend.relationship = (widget.friend.relationship + delta).clamp(0, 100);
       _checkBestFriendUpgrade();
-      final msg = "${widget.friend.name} hədiyyəni çox bəyəndi.";
-      _addHistory(msg, relationshipDelta: 15, moneyDelta: -20);
+      final msg = _pickMessage('hediyye_ver', "${widget.friend.name} hədiyyəni çox bəyəndi.");
+      _addHistory(msg, relationshipDelta: delta, moneyDelta: -20);
       widget.onAction(msg);
       _showResultDialog("Hədiyyə", msg);
     });
@@ -163,14 +258,15 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     }
     setState(() {
       widget.player.money -= 50;
-      widget.player.happiness = (widget.player.happiness + 15).clamp(0, 100);
+      widget.player.happiness = (widget.player.happiness + _scale(15)).clamp(0, 100);
       widget.player.health = (widget.player.health - 5).clamp(0, 100);
-      widget.friend.relationship = (widget.friend.relationship + 20).clamp(0, 100);
+      final delta = _scale(20);
+      widget.friend.relationship = (widget.friend.relationship + delta).clamp(0, 100);
       _checkBestFriendUpgrade();
       const msg = "Əla şənlik oldu! Çox əyləndiniz, amma sonra yoruldunuz.";
-      _addHistory(msg, relationshipDelta: 20, happinessDelta: 15, healthDelta: -5, moneyDelta: -50);
+      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(15), healthDelta: -5, moneyDelta: -50);
       widget.onAction(msg);
-      _showResultDialog("Şənlik 🎉", msg);
+      _showResultDialog("Şənlik", msg);
     });
   }
 
@@ -184,8 +280,11 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     final score = widget.friend.relationship + _random.nextInt(30) - 10;
     if (score >= 65) {
       setState(() {
-        widget.friend.relationType = FriendRelationType.partner; // ← state transition
+        widget.friend.relationType = FriendRelationType.partner;
         widget.player.hasPartner = true;
+        widget.friend.partnerStartAge = widget.player.age;
+        widget.friend.occupation = _occupations[_random.nextInt(_occupations.length)];
+        widget.friend.netWorth = 500 + _random.nextInt(49501); // 500–50000
         final msg = "${widget.friend.name} təklifini qəbul etdi! Artıq sevgilinizsiz.";
         _addHistory(msg, relationshipDelta: 20, happinessDelta: 15);
         widget.onAction(msg);
@@ -212,31 +311,65 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
 
   // ── Partner handlers ─────────────────────────────
 
-  void _handleDate() {
-    if (widget.player.money < 30) {
-      _showResultDialog("Xəta", "Görüş üçün kifayət qədər pulun yoxdur! (30 AZN lazımdır)");
+  Future<void> _handleDate() async {
+    final restaurant = await Navigator.push<Map<String, dynamic>>(
+      context,
+      MaterialPageRoute(builder: (_) => RestaurantPickerScreen(player: widget.player)),
+    );
+    if (restaurant == null || !mounted) return;
+    final cost = restaurant['cost_azn'] as int;
+    final tier = (restaurant['price_range'] as String).length.clamp(1, 4);
+    final relBoost = [8, 12, 16, 20][tier - 1];
+    setState(() {
+      widget.player.money -= cost;
+      final relDelta = _scale(relBoost);
+      final hapDelta = _scale(12 + tier * 2);
+      widget.friend.relationship = (widget.friend.relationship + relDelta).clamp(0, 100);
+      widget.player.happiness = (widget.player.happiness + hapDelta).clamp(0, 100);
+      final restaurantName = restaurant['name'] as String;
+      final base = _pickMessage('goruse_get', "${widget.friend.name} ilə gözəl bir görüş keçirdin.");
+      final msg = "$base ($restaurantName)";
+      _addHistory(msg, relationshipDelta: relDelta, happinessDelta: hapDelta, moneyDelta: -cost);
+      widget.onAction(msg);
+      _showResultDialog("Görüş", msg);
+    });
+  }
+
+  Future<void> _handleWeddingPlan() async {
+    if (widget.friend.weddingPlanStatus == "planned") {
+      _showResultDialog(
+        "Toy planı",
+        "Toy artıq planlaşdırılıb!\n"
+        "Yer: ${widget.friend.weddingVenue}\n"
+        "Tarix: ${widget.friend.weddingScheduledAge} yaşında\n"
+        "Ümumi xərc: ${widget.friend.weddingTotalCost} AZN",
+      );
       return;
     }
-    setState(() {
-      widget.player.money -= 30;
-      widget.friend.relationship = (widget.friend.relationship + 10).clamp(0, 100);
-      widget.player.happiness = (widget.player.happiness + 15).clamp(0, 100);
-      final msg = "${widget.friend.name} ilə gözəl bir görüş keçirdin.";
-      _addHistory(msg, relationshipDelta: 10, happinessDelta: 15, moneyDelta: -30);
+    final confirmed = await Navigator.push<bool>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => WeddingPlannerScreen(player: widget.player, partner: widget.friend),
+      ),
+    );
+    if (confirmed == true && mounted) {
+      setState(() {});
+      final msg = "${widget.friend.name} ilə toy planlaşdırıldı! (${widget.friend.weddingVenue}, ${widget.friend.weddingScheduledAge} yaşında)";
       widget.onAction(msg);
-      _showResultDialog("Görüş 🍽️", msg);
-    });
+      _showResultDialog("Toy planlaşdırıldı!", msg);
+    }
   }
 
   void _handleExpressLove() {
     setState(() {
-      final delta = 5 + _random.nextInt(8);
+      final raw = 5 + _random.nextInt(8);
+      final delta = _scale(raw);
       widget.friend.relationship = (widget.friend.relationship + delta).clamp(0, 100);
-      widget.player.happiness = (widget.player.happiness + 10).clamp(0, 100);
-      final msg = "${widget.friend.name} sənin sevgini duymaqdan çox xoşhal oldu.";
-      _addHistory(msg, relationshipDelta: delta, happinessDelta: 10);
+      widget.player.happiness = (widget.player.happiness + _scale(10)).clamp(0, 100);
+      final msg = _pickMessage('sevgini_ifade_et', "${widget.friend.name} sənin sevgini duymaqdan çox xoşhal oldu.");
+      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(10));
       widget.onAction(msg);
-      _showResultDialog("Sevgi İfadəsi 💬", msg);
+      _showResultDialog("Sevgi İfadəsi", msg);
     });
   }
 
@@ -247,12 +380,14 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     }
     setState(() {
       widget.player.money -= 40;
-      widget.friend.relationship = (widget.friend.relationship + 20).clamp(0, 100);
-      widget.player.happiness = (widget.player.happiness + 20).clamp(0, 100);
-      final msg = "${widget.friend.name} sürprizindən çox təsirlənd! Bu an heç unutulmayacaq.";
-      _addHistory(msg, relationshipDelta: 20, happinessDelta: 20, moneyDelta: -40);
+      final relDelta = _scale(20);
+      final hapDelta = _scale(20);
+      widget.friend.relationship = (widget.friend.relationship + relDelta).clamp(0, 100);
+      widget.player.happiness = (widget.player.happiness + hapDelta).clamp(0, 100);
+      final msg = _pickMessage('surpriz_et', "${widget.friend.name} sürprizindən çox təsirlənd!");
+      _addHistory(msg, relationshipDelta: relDelta, happinessDelta: hapDelta, moneyDelta: -40);
       widget.onAction(msg);
-      _showResultDialog("Sürpriz 🎁", msg);
+      _showResultDialog("Sürpriz", msg);
     });
   }
 
@@ -354,7 +489,11 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     final (label, color, icon) = switch (widget.friend.relationType) {
       FriendRelationType.friend     => ("Dost",       Colors.blueAccent, Icons.people),
       FriendRelationType.bestFriend => ("Yaxın Dost", Colors.purple,     Icons.people_alt),
-      FriendRelationType.partner    => ("Sevgili",    Colors.pink,       Icons.favorite),
+      FriendRelationType.partner    => switch (widget.friend.partnerStatus) {
+        PartnerStatus.fiance  => ("Nişanlı",        const Color(0xFFC0185A), Icons.diamond),
+        PartnerStatus.married => (widget.friend.gender == Gender.female ? "Arvad" : "Ər", const Color(0xFF8B0000), Icons.favorite),
+        _                     => ("Sevgili",         Colors.pink, Icons.favorite),
+      },
     };
 
     return Container(
@@ -415,8 +554,13 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
               child: Column(
                 children: [
                   _profileRow("Yaş", "${widget.friend.age}"),
-                  _profileRow("Cins",
-                      widget.friend.gender == Gender.male ? "Kişi" : "Qadın"),
+                  _profileRow("Cins", widget.friend.gender == Gender.male ? "Kişi" : "Qadın"),
+                  if (_isPartner && widget.friend.occupation.isNotEmpty)
+                    _profileRow("Peşə", widget.friend.occupation),
+                  if (_isPartner && widget.friend.partnerStartAge > 0)
+                    _profileRow("Birlikdə", "${widget.player.age - widget.friend.partnerStartAge} il"),
+                  if (_isPartner && widget.friend.netWorth > 0)
+                    _profileRow("Sərvət", "${widget.friend.netWorth} AZN"),
                   const SizedBox(height: 10),
                   _statBar("Münasibət", widget.friend.relationship, Colors.green),
                   _statBar("Ağıl",      widget.friend.smarts,       Colors.blueAccent),
@@ -433,11 +577,20 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
 
   // ── Shared UI helpers ────────────────────────────
 
-  String _relationLabel(FriendRelationType type) => switch (type) {
-        FriendRelationType.friend     => "Dost",
-        FriendRelationType.bestFriend => "Yaxın Dost",
-        FriendRelationType.partner    => "Sevgili",
+  String _relationLabel(FriendRelationType type) {
+    if (type == FriendRelationType.partner) {
+      return switch (widget.friend.partnerStatus) {
+        PartnerStatus.fiance  => "Nişanlı",
+        PartnerStatus.married => widget.friend.gender == Gender.female ? "Arvad" : "Ər",
+        _                     => "Sevgili",
       };
+    }
+    return switch (type) {
+      FriendRelationType.friend     => "Dost",
+      FriendRelationType.bestFriend => "Yaxın Dost",
+      _                             => "Sevgili",
+    };
+  }
 
   Widget _actionChip(
     IconData icon,
@@ -506,6 +659,62 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
         ],
       ),
     );
+  }
+
+  // ── Proposal system (Task 12) ────────────────────
+
+  void _handleProposal() {
+    const locations = [
+      {"name": "Restoran",  "bonus": 1.2},
+      {"name": "Park",      "bonus": 1.0},
+      {"name": "Ev",        "bonus": 0.9},
+      {"name": "Sahil",     "bonus": 1.15},
+      {"name": "Dam üstü",  "bonus": 1.1},
+    ];
+    showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: const Text("Yer seçin", style: TextStyle(fontWeight: FontWeight.bold)),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: locations.map((loc) => ListTile(
+            leading: const Icon(Icons.place_outlined, color: Color(0xFFE91E63)),
+            title: Text(loc["name"] as String),
+            onTap: () {
+              Navigator.pop(ctx);
+              _resolveProposal(loc["bonus"] as double, loc["name"] as String);
+            },
+          )).toList(),
+        ),
+      ),
+    );
+  }
+
+  void _resolveProposal(double locationBonus, String locationName) {
+    final successChance = (widget.friend.relationship / 100) * locationBonus;
+    final success = _random.nextDouble() < successChance;
+    setState(() {
+      if (success) {
+        widget.friend.partnerStatus = PartnerStatus.fiance;
+        widget.friend.relationship = (widget.friend.relationship + 30).clamp(0, 100);
+        widget.player.happiness = (widget.player.happiness + 30).clamp(0, 100);
+        final msg = "${widget.friend.name} evlilik təklifini qəbul etdi! $locationName-da nişanlandınız!";
+        _addHistory(msg, relationshipDelta: 30, happinessDelta: 30);
+        widget.onAction(msg);
+        SoundManager.playSuccess();
+        _showResultDialog("Evlilik Təklifi", msg);
+      } else {
+        widget.friend.proposalCooldownYears = 2;
+        widget.friend.relationship = (widget.friend.relationship - 10).clamp(0, 100);
+        widget.player.happiness = (widget.player.happiness - 15).clamp(0, 100);
+        final msg = "${widget.friend.name} hələ hazır deyildir dedi.";
+        _addHistory(msg, relationshipDelta: -10, happinessDelta: -15);
+        widget.onAction(msg);
+        SoundManager.playFail();
+        _showResultDialog("Evlilik Təklifi", msg);
+      }
+    });
   }
 
   void _showResultDialog(String title, String content) {

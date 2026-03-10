@@ -102,32 +102,43 @@ class _GameScreenState extends State<GameScreen> {
 
     String fatherName = _boyNames[_random.nextInt(_boyNames.length)];
 
+    final motherHealth = 40 + _random.nextInt(61); // 40-100
+    final fatherHealth = 40 + _random.nextInt(61);
+
     player.family.add(FamilyMember(
-        name: _girlNames[_random.nextInt(_girlNames.length)], 
-        surname: player.surname, 
-        gender: Gender.female, 
-        relation: "Ana", 
+        name: _girlNames[_random.nextInt(_girlNames.length)],
+        surname: player.surname,
+        gender: Gender.female,
+        relation: "Ana",
         age: 25 + _random.nextInt(10),
         job: motherJob,
-        maritalStatus: "Evli", // Issue #3 fixed
+        maritalStatus: "Evli",
         monthlyIncome: ((motherRange[0] + _random.nextInt(motherRange[1] - motherRange[0])) * multiplier).toInt(),
         generosity: _random.nextInt(101),
         religiousness: _random.nextInt(101),
+        looks: 30 + _random.nextInt(61),   // 30-90
+        health: motherHealth,
         totalMoney: ((_random.nextInt(5000) + 1000) * multiplier).toInt()
     ));
     player.family.add(FamilyMember(
-        name: fatherName, 
-        surname: player.surname, 
-        gender: Gender.male, 
-        relation: "Ata", 
+        name: fatherName,
+        surname: player.surname,
+        gender: Gender.male,
+        relation: "Ata",
         age: 28 + _random.nextInt(10),
         job: fatherJob,
-        maritalStatus: "Evli", // Issue #3 fixed
+        maritalStatus: "Evli",
         monthlyIncome: ((fatherRange[0] + _random.nextInt(fatherRange[1] - fatherRange[0])) * multiplier).toInt(),
         generosity: _random.nextInt(101),
         religiousness: _random.nextInt(101),
+        looks: 30 + _random.nextInt(61),   // 30-90
+        health: fatherHealth,
         totalMoney: ((_random.nextInt(10000) + 2000) * multiplier).toInt()
     ));
+
+    // Task 8: Player starting health inherited from parents
+    final inheritedHealth = ((motherHealth + fatherHealth) / 2 * (0.85 + _random.nextDouble() * 0.3)).round();
+    player.health = inheritedHealth.clamp(10, 100);
   }
 
   void _checkFriendRequest() {
@@ -227,7 +238,7 @@ class _GameScreenState extends State<GameScreen> {
       player.age++;
       player.health = (player.health + _random.nextInt(10) - 5).clamp(0, 100);
       player.happiness = (player.happiness + _random.nextInt(10) - 5).clamp(0, 100);
-      player.smarts = (player.smarts + _random.nextInt(4) - 1).clamp(0, 100);
+      player.smarts = (player.smarts + _random.nextInt(2) - 1).clamp(0, 100); // nerfed: was nextInt(4)
       player.looks = (player.looks + _random.nextInt(4) - 1).clamp(0, 100);
 
       // Issue #2: Status change after age 10
@@ -242,6 +253,18 @@ class _GameScreenState extends State<GameScreen> {
       }
       for (var friend in player.friends) {
         friend.age++;
+        if (friend.proposalCooldownYears > 0) {
+          friend.proposalCooldownYears--;
+        }
+        // Wedding trigger: execute wedding when scheduled age is reached
+        if (friend.relationType == FriendRelationType.partner &&
+            friend.partnerStatus == PartnerStatus.fiance &&
+            friend.weddingScheduledAge > 0 &&
+            friend.weddingScheduledAge == player.age) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            _triggerWedding(friend);
+          });
+        }
       }
 
       List<String> yearEvents = [];
@@ -586,7 +609,7 @@ class _GameScreenState extends State<GameScreen> {
                 setState(() {
                   if (idx == q['correctIndex']) {
                     SoundManager.playSuccess();
-                    player.smarts += 5;
+                    player.smarts = (player.smarts + 2).clamp(0, 100); // nerfed: was +5
                     player.grades = (player.grades + 5).clamp(0, 100);
                     logs.first.events.add(q['successLog']);
                   } else {
@@ -693,6 +716,35 @@ class _GameScreenState extends State<GameScreen> {
           );
         }).toList(),
       ),
+    );
+  }
+
+  void _triggerWedding(SchoolMate partner) {
+    if (!mounted) return;
+    final remaining = partner.weddingTotalCost - (partner.weddingTotalCost * 0.3).round();
+    if (player.money < remaining) {
+      setState(() {
+        final msg = "${partner.name} ilə toy keçirilə bilmədi — yetəri qədər pul yox idi. Toy ləğv edildi.";
+        logs.first.events.add(msg);
+        partner.weddingPlanStatus = "none";
+        partner.weddingScheduledAge = 0;
+        partner.weddingDepositPaid = false;
+      });
+      _showGameNotification("Toy ləğv edildi", "${partner.name} ilə toyunuz pul çatışmazlığı səbəbilə ləğv edildi.");
+      return;
+    }
+    setState(() {
+      player.money -= remaining;
+      partner.partnerStatus = PartnerStatus.married;
+      partner.weddingPlanStatus = "done";
+      final msg = "${partner.name} ilə toy etdiniz! Artıq evlisiniz. (${partner.weddingVenue})";
+      logs.first.events.add(msg);
+      player.happiness = (player.happiness + 25).clamp(0, 100);
+    });
+    SoundManager.playSuccess();
+    _showGameNotification(
+      "Toy Mübarək!",
+      "${partner.name} ilə ${partner.weddingVenue}-da möhtəşəm toy keçirdiniz!\n\nXərc: $remaining AZN\nArtıq evlisiniz.",
     );
   }
 
@@ -899,21 +951,21 @@ class _GameScreenState extends State<GameScreen> {
       padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
       child: Column(
         children: [
-          _statRow("😊", "Xoşbəxtlik", player.happiness, const Color(0xFF4BBDFF)),
-          _statRow("❤️", "Sağlamlıq",  player.health,    const Color(0xFFFF6B6B)),
-          _statRow("✨", "Görünüş",    player.looks,     const Color(0xFFFFB347)),
-          _statRow("🧠", "Ağıl",       player.smarts,    const Color(0xFF7B68EE)),
+          _statRow(Icons.sentiment_satisfied_alt, "Xoşbəxtlik", player.happiness, const Color(0xFF4BBDFF)),
+          _statRow(Icons.favorite,              "Sağlamlıq",  player.health,    const Color(0xFFFF6B6B)),
+          _statRow(Icons.auto_awesome,          "Görünüş",    player.looks,     const Color(0xFFFFB347)),
+          _statRow(Icons.psychology,            "Ağıl",       player.smarts,    const Color(0xFF7B68EE)),
         ],
       ),
     );
   }
 
-  Widget _statRow(String emoji, String label, int value, Color color) {
+  Widget _statRow(IconData icon, String label, int value, Color color) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 3.5),
       child: Row(
         children: [
-          Text(emoji, style: const TextStyle(fontSize: 15)),
+          Icon(icon, size: 15, color: color),
           const SizedBox(width: 6),
           SizedBox(width: 76, child: Text(label, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFF333333)))),
           Expanded(
