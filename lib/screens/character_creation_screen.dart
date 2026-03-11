@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import '../models/player.dart';
-import 'loading_screen.dart';
 import 'game_screen.dart';
 
 class CharacterCreationScreen extends StatefulWidget {
@@ -54,20 +53,12 @@ class _CharacterCreationScreenState extends State<CharacterCreationScreen> {
       gender: _selectedGender,
       birthCity: _selectedCity,
       smarts: finalSmarts,
+      imageVariant: Random().nextInt(100),
     );
 
-    Navigator.push(
+    Navigator.pushReplacement(
       context,
-      MaterialPageRoute(
-        builder: (context) => LoadingScreen(
-          onFinished: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => GameScreen(player: player)),
-            );
-          },
-        ),
-      ),
+      MaterialPageRoute(builder: (context) => GameScreen(player: player)),
     );
   }
 

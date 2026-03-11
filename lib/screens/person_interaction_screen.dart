@@ -27,11 +27,37 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (!widget.person.isAlive) {
+      return Scaffold(
+        backgroundColor: const Color(0xFFF5F5F5),
+        appBar: AppBar(
+          backgroundColor: Colors.white, elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.blueAccent),
+          title: Text(widget.person.name, style: const TextStyle(color: Colors.black87, fontWeight: FontWeight.bold)),
+          centerTitle: true,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.brightness_5, size: 64, color: Color(0xFF78909C)),
+              const SizedBox(height: 16),
+              Text("${widget.person.name} ${widget.person.surname}", style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 8),
+              const Text("Vəfat edib", style: TextStyle(fontSize: 16, color: Color(0xFF78909C))),
+              const SizedBox(height: 4),
+              Text("Allah rəhmət eləsin, ondan gəldik ona gedəcəyik", style: TextStyle(fontSize: 14, color: Colors.grey[500])),
+            ],
+          ),
+        ),
+      );
+    }
+
     final bool isFather = _isFather(widget.person);
     final bool isCriticalRelationship = widget.person.relationship < 15;
     final bool isSibling = _isSibling(widget.person);
-    final bool canTalkToSibling = !isSibling || widget.person.age >= 7; // Issue #7
-    final bool canBorrowFromSibling = isSibling && widget.person.age >= 18; // Issue #5
+    final bool canTalkToSibling = !isSibling || widget.person.age >= 7;
+    final bool canBorrowFromSibling = isSibling && widget.person.age >= 18;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F5),
@@ -50,20 +76,18 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
         children: [
            if (canTalkToSibling)
              _actionChip(Icons.chat_outlined, "Söhbət", () => _handleFamilyInteraction(widget.person, "conversation")),
-           
+
            _actionChip(Icons.celebration_outlined, "Vaxt keçir", () => _handleFamilyInteraction(widget.person, "spendTime")),
            _actionChip(Icons.card_giftcard_outlined, "Hədiyyə (20 AZN)", () => _handleFamilyInteraction(widget.person, "gift")),
-           
+
            if (!isSibling || canBorrowFromSibling)
              _actionChip(Icons.attach_money, "Pul istə", () => _handleFamilyInteraction(widget.person, "ask_money")),
-           
+
            _actionChip(Icons.gavel_outlined, "Mübahisə", () => _handleFamilyInteraction(widget.person, "argue"), isNegative: true),
-           
-           // Special Father Interactions
+
            if (isFather && isCriticalRelationship)
              _actionChip(Icons.flash_on, "Döyüş", () => _handleFamilyInteraction(widget.person, "physical_fight"), isNegative: true),
-           
-           // Issue #6: Play interaction for everyone
+
            _actionChip(Icons.sports_esports_outlined, "Oyun oyna", () => _playBoardGame(widget.person)),
         ],
       )

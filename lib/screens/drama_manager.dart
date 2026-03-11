@@ -190,6 +190,14 @@ class DramaManager {
     _triggeredThisLife.clear();
   }
 
+  Set<String> get triggeredThisLife => Set.unmodifiable(_triggeredThisLife);
+
+  void restoreTriggered(Set<String> ids) {
+    _triggeredThisLife
+      ..clear()
+      ..addAll(ids);
+  }
+
   DramaEvent? rollDrama({
     required int playerAge,
     bool hasGirlfriend = false,

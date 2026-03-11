@@ -8,24 +8,39 @@ import 'activities_screen.dart';
 import 'relationships_screen.dart';
 import 'occupation_screen.dart';
 import 'drama_manager.dart';
-import 'drama_dialog.dart';
+import '../services/save_manager.dart';
+import '../utils/avatar_utils.dart';
 
 class YearLog {
   final int age;
   final List<String> events;
 
   YearLog({required this.age, required this.events});
+
+  Map<String, dynamic> toJson() => {'age': age, 'events': events};
+
+  factory YearLog.fromJson(Map<String, dynamic> j) => YearLog(
+        age: j['age'] as int,
+        events: List<String>.from(j['events'] as List? ?? []),
+      );
 }
 
 class GameScreen extends StatefulWidget {
   final Player player;
-  const GameScreen({super.key, required this.player});
+  final List<YearLog>? initialLogs;
+  final int initialEarlyDecisionCount;
+  const GameScreen({
+    super.key,
+    required this.player,
+    this.initialLogs,
+    this.initialEarlyDecisionCount = 0,
+  });
 
   @override
   State<GameScreen> createState() => _GameScreenState();
 }
 
-class _GameScreenState extends State<GameScreen> {
+class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
   late Player player;
   List<YearLog> logs = [];
   final Random _random = Random();
@@ -36,7 +51,13 @@ class _GameScreenState extends State<GameScreen> {
 
   final List<String> _boyNames = ["Rüfət", "Məmməd", "Əli", "Vüqar", "Anar", "Elnur", "Tural", "Orxan", "Rəşad", "Nicat"];
   final List<String> _girlNames = ["Aysel", "Leyla", "Fidan", "Günay", "Nigar", "Sevda", "Aytən", "Lamiyə", "Nərmin", "Arzu"];
-  
+  static const _surnames = [
+    "Məmmədov", "Əliyev", "Həsənov", "Hüseynov", "Quliyev",
+    "Babayev", "Əhmədov", "Rəhimov", "İsmayılov", "Nəsirov",
+    "Cəfərov", "Mustafayev", "Kərimov", "Səfərov", "Orucov",
+    "Abbasov", "Vəliyev", "Rzayev", "Sultanov", "Novruzov",
+  ];
+
   final Map<String, List<int>> _jobIncomes = {
     "Müəllim": [500, 1000],
     "Həkim": [1000, 3000],
@@ -51,17 +72,48 @@ class _GameScreenState extends State<GameScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     player = widget.player;
     _loadData();
-    _initializeFamily();
-    logs.add(YearLog(age: 0, events: [
-      "Sən ${player.birthCity} şəhərində anadan olmusan.",
-      "Sən sağlam ${player.gender == Gender.male ? 'oğlan' : 'qız'} uşağısan.",
-      "Valideynlərin çox xoşbəxtdir."
-    ]));
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      SoundManager.playBabyBorn();
-    });
+
+    if (widget.initialLogs != null) {
+      // Restoring from save
+      logs = widget.initialLogs!;
+      _earlyDecisionCountTotal = widget.initialEarlyDecisionCount;
+    } else {
+      // New game
+      _initializeFamily();
+      logs.add(YearLog(age: 0, events: [
+        "Sən ${player.birthCity} şəhərində anadan olmusan.",
+        "Sən sağlam ${player.gender == Gender.male ? 'oğlan' : 'qız'} uşağısan.",
+        "Valideynlərin çox xoşbəxtdir."
+      ]));
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        SoundManager.playBabyBorn();
+      });
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      _autoSave();
+    }
+  }
+
+  Future<void> _autoSave() async {
+    await GameSaveManager.save(SaveData(
+      player: player,
+      logs: logs,
+      earlyDecisionCountTotal: _earlyDecisionCountTotal,
+      dramaTriggered: DramaManager().triggeredThisLife,
+    ));
   }
 
   Future<void> _loadData() async {
@@ -118,7 +170,8 @@ class _GameScreenState extends State<GameScreen> {
         religiousness: _random.nextInt(101),
         looks: 30 + _random.nextInt(61),   // 30-90
         health: motherHealth,
-        totalMoney: ((_random.nextInt(5000) + 1000) * multiplier).toInt()
+        totalMoney: ((_random.nextInt(5000) + 1000) * multiplier).toInt(),
+        imageVariant: _random.nextInt(100),
     ));
     player.family.add(FamilyMember(
         name: fatherName,
@@ -133,7 +186,8 @@ class _GameScreenState extends State<GameScreen> {
         religiousness: _random.nextInt(101),
         looks: 30 + _random.nextInt(61),   // 30-90
         health: fatherHealth,
-        totalMoney: ((_random.nextInt(10000) + 2000) * multiplier).toInt()
+        totalMoney: ((_random.nextInt(10000) + 2000) * multiplier).toInt(),
+        imageVariant: _random.nextInt(100),
     ));
 
     // Task 8: Player starting health inherited from parents
@@ -148,13 +202,14 @@ class _GameScreenState extends State<GameScreen> {
       
       SchoolMate potentialFriend = SchoolMate(
         name: name,
-        surname: "Məmmədov",
+        surname: _surnames[_random.nextInt(_surnames.length)],
         gender: isBoy ? Gender.male : Gender.female,
-        age: player.age,
+        age: player.age + _random.nextInt(3) - 1,
         money: _random.nextInt(500),
         health: 50 + _random.nextInt(51),
         smarts: 30 + _random.nextInt(71),
         looks: 30 + _random.nextInt(71),
+        imageVariant: _random.nextInt(100),
       );
 
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -227,7 +282,7 @@ class _GameScreenState extends State<GameScreen> {
         name = isBoy ? _boyNames[_random.nextInt(_boyNames.length)] : _girlNames[_random.nextInt(_girlNames.length)];
       } while (isBoy && name == fatherName);
 
-      player.family.add(FamilyMember(name: name, surname: player.surname, gender: isBoy ? Gender.male : Gender.female, relation: isBoy ? "Qardaş" : "Bacı", age: 0));
+      player.family.add(FamilyMember(name: name, surname: player.surname, gender: isBoy ? Gender.male : Gender.female, relation: isBoy ? "Qardaş" : "Bacı", age: 0, imageVariant: _random.nextInt(100)));
       logs.first.events.add("Sənin yeni bir ${isBoy ? 'qardaşın' : 'bacın'} dünyaya gəldi! Adını $name qoydular.");
     }
   }
@@ -246,18 +301,46 @@ class _GameScreenState extends State<GameScreen> {
         player.title = "Yeniyetmə";
       }
 
+      List<String> yearEvents = [];
+
       for (var member in player.family) {
         member.askedMoneyThisYear = false;
         member.age++;
         member.totalMoney += member.monthlyIncome * 12;
+        // Natural aging: health decline after 60
+        if (member.isAlive && member.age > 60) {
+          member.health -= _random.nextInt(5) + 1;
+        }
+        if (member.isAlive && member.age > 75) {
+          member.health -= _random.nextInt(5) + 2;
+        }
+        // Death check
+        if (member.health <= 0 && member.isAlive) {
+          member.isAlive = false;
+          member.health = 0;
+          yearEvents.add("💀 ${member.relation}ın ${member.name} vəfat etdi. Allah rəhmət eləsin.");
+        }
       }
       for (var friend in player.friends) {
         friend.age++;
         if (friend.proposalCooldownYears > 0) {
           friend.proposalCooldownYears--;
         }
+        // Elderly friends health decline
+        if (friend.isAlive && friend.age > 70) {
+          friend.health -= _random.nextInt(4) + 1;
+        }
+        if (friend.health <= 0 && friend.isAlive) {
+          friend.isAlive = false;
+          friend.health = 0;
+          yearEvents.add("💀 Dostun ${friend.name} vəfat etdi.");
+          if (friend.relationType == FriendRelationType.partner) {
+            player.hasPartner = false;
+          }
+        }
         // Wedding trigger: execute wedding when scheduled age is reached
-        if (friend.relationType == FriendRelationType.partner &&
+        if (friend.isAlive &&
+            friend.relationType == FriendRelationType.partner &&
             friend.partnerStatus == PartnerStatus.fiance &&
             friend.weddingScheduledAge > 0 &&
             friend.weddingScheduledAge == player.age) {
@@ -266,8 +349,6 @@ class _GameScreenState extends State<GameScreen> {
           });
         }
       }
-
-      List<String> yearEvents = [];
       
       if (player.isInMilitary) {
         player.militaryYearsServed++;
@@ -339,26 +420,14 @@ class _GameScreenState extends State<GameScreen> {
       );
 
       if (drama != null) {
-        Future.delayed(const Duration(milliseconds: 600), () {
-          if (mounted) {
-            DramaDialog.show(
-              context,
-              event: drama,
-              player: player,
-              onDismiss: (outcome) {
-                if (mounted) {
-                  setState(() {
-                    logs.first.events.add("${drama.dramaEmoji} ${drama.title}: $outcome");
-                  });
-                }
-              },
-            );
-          }
-        });
+        final choice = drama.choices[_random.nextInt(drama.choices.length)];
+        DramaManager().applyChoice(choice: choice, player: player);
+        logs.first.events.add("${drama.dramaEmoji} ${drama.title}: ${choice.outcome}");
       }
 
       _handleDecisions();
     });
+    _autoSave();
   }
 
   void _showPostSchoolChoice() {
@@ -830,7 +899,7 @@ class _GameScreenState extends State<GameScreen> {
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
       child: Row(
         children: [
-          Text(player.getEmoji(), style: const TextStyle(fontSize: 46)),
+          PersonAvatar(gender: player.gender, age: player.age, variant: player.imageVariant, radius: 28),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -856,6 +925,21 @@ class _GameScreenState extends State<GameScreen> {
               ),
               const Text("Bank Balansı", style: TextStyle(fontSize: 10, color: Color(0xFF888888))),
             ],
+          ),
+          const SizedBox(width: 8),
+          GestureDetector(
+            onTap: () async {
+              await _autoSave();
+              if (mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Oyun saxlandı'),
+                    duration: Duration(seconds: 1),
+                  ),
+                );
+              }
+            },
+            child: const Icon(Icons.save_outlined, size: 24, color: Color(0xFF1565C0)),
           ),
         ],
       ),

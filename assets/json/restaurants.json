@@ -25,7 +25,9 @@
   { "name": "Fisincan Cafe",             "cuisine": "Azərbaycan/Kafe","price_range": "$$",  "cost_azn": 25, "min_relationship_score": 15 },
   { "name": "CafeCity",                  "cuisine": "Kafe/Yerli",    "price_range": "$",    "cost_azn": 15, "min_relationship_score": 0  },
   { "name": "La Quzu",                   "cuisine": "Qafqaz/Yerli",  "price_range": "$",    "cost_azn": 12, "min_relationship_score": 0  },
-  { "name": "Anadolu Restorani",         "cuisine": "Türk",          "price_range": "$",    "cost_azn": 12, "min_relationship_score": 0  },
+  { "name": "Anadolu Restorani",         "cuisine": "Türk",          "price_range": "$$",    "cost_azn": 20, "min_relationship_score": 0  },
   { "name": "Bake & Roll Sushi Bar",     "cuisine": "Yapon",         "price_range": "$",    "cost_azn": 15, "min_relationship_score": 0  },
-  { "name": "Caravan Baku",              "cuisine": "Fast Food/Avropa","price_range": "$",  "cost_azn": 10, "min_relationship_score": 0  }
+  { "name": "Caravan Baku",              "cuisine": "Fast Food/Avropa","price_range": "$",  "cost_azn": 10, "min_relationship_score": 0  },
+  { "name": "Elşadın Qırğın dönəri",     "cuisine": "Fast Food/Türk", "price_range": "$",  "cost_azn": 8, "min_relationship_score": 0  },
+  { "name": "Avtoş Dönər",               "cuisine": "Fast Food/Türk", "price_range": "$",  "cost_azn": 7, "min_relationship_score": 0  }
 ]

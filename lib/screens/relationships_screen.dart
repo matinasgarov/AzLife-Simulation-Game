@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../models/player.dart';
 import 'person_interaction_screen.dart';
 import 'friend_interaction_screen.dart';
+import '../utils/avatar_utils.dart';
 
 class RelationshipsScreen extends StatefulWidget {
   final Player player;
@@ -36,11 +37,12 @@ class _RelationshipsScreenState extends State<RelationshipsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Split family into sub-groups for section bands
-    final parents   = widget.player.family.where((m) => m.relation == "Ana" || m.relation == "Ata").toList();
-    final siblings  = widget.player.family.where((m) => m.relation == "Qardaş" || m.relation == "Bacı").toList();
-    final partners  = widget.player.friends.where((f) => f.relationType == FriendRelationType.partner).toList();
-    final friends   = widget.player.friends.where((f) => f.relationType != FriendRelationType.partner).toList();
+    // Split family into sub-groups, filter out dead
+    final parents   = widget.player.family.where((m) => (m.relation == "Ana" || m.relation == "Ata") && m.isAlive).toList();
+    final siblings  = widget.player.family.where((m) => (m.relation == "Qardaş" || m.relation == "Bacı") && m.isAlive).toList();
+    final partners  = widget.player.friends.where((f) => f.relationType == FriendRelationType.partner && f.isAlive).toList();
+    final friends   = widget.player.friends.where((f) => f.relationType == FriendRelationType.friend || f.relationType == FriendRelationType.bestFriend).where((f) => f.isAlive).toList();
+    final exes      = widget.player.friends.where((f) => f.relationType == FriendRelationType.ex && f.isAlive).toList();
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -54,7 +56,7 @@ class _RelationshipsScreenState extends State<RelationshipsScreen> {
       body: ListView(
         children: [
           if (partners.isNotEmpty) ...[
-            _sectionBand("Sevgilim", color: const Color(0xFFC0185A), leadingIcon: Icons.favorite),
+            _sectionBand(_partnerSectionTitle(partners.first), color: const Color(0xFFC0185A), leadingIcon: Icons.favorite),
             ...partners.map((f) => _friendRow(f)),
           ],
           if (parents.isNotEmpty) ...[
@@ -69,9 +71,21 @@ class _RelationshipsScreenState extends State<RelationshipsScreen> {
             _sectionBand("Dostlar"),
             ...friends.map((f) => _friendRow(f)),
           ],
+          if (exes.isNotEmpty) ...[
+            _sectionBand("Keçmiş sevgililər", color: const Color(0xFF78909C), leadingIcon: Icons.heart_broken),
+            ...exes.map((f) => _friendRow(f)),
+          ],
         ],
       ),
     );
+  }
+
+  String _partnerSectionTitle(SchoolMate partner) {
+    return switch (partner.partnerStatus) {
+      PartnerStatus.married => "Həyat yoldaşım",
+      PartnerStatus.fiance  => "Nişanlım",
+      PartnerStatus.partner => "Sevgilim",
+    };
   }
 
   Widget _sectionBand(String title, {Color color = const Color(0xFF555555), IconData? leadingIcon}) {
@@ -99,6 +113,8 @@ class _RelationshipsScreenState extends State<RelationshipsScreen> {
       name: "${member.name} ${member.surname}",
       subtitle: member.relation,
       gender: member.gender,
+      age: member.age,
+      imageVariant: member.imageVariant,
       relationship: member.relationship,
       onTap: () => Navigator.push(
         context,
@@ -119,11 +135,14 @@ class _RelationshipsScreenState extends State<RelationshipsScreen> {
       FriendRelationType.partner    => "Sevgili",
       FriendRelationType.bestFriend => "Yaxın Dost",
       FriendRelationType.friend     => "Dost",
+      FriendRelationType.ex         => "Keçmiş",
     };
     return _personRow(
       name: "${friend.name} ${friend.surname}",
       subtitle: label,
       gender: friend.gender,
+      age: friend.age,
+      imageVariant: friend.imageVariant,
       relationship: friend.relationship,
       isPartner: friend.relationType == FriendRelationType.partner,
       isBestFriend: friend.relationType == FriendRelationType.bestFriend,
@@ -145,6 +164,8 @@ class _RelationshipsScreenState extends State<RelationshipsScreen> {
     required String name,
     required String subtitle,
     required Gender gender,
+    required int age,
+    required int imageVariant,
     required int relationship,
     required VoidCallback onTap,
     bool isPartner = false,
@@ -155,13 +176,6 @@ class _RelationshipsScreenState extends State<RelationshipsScreen> {
         : relationship > 30
             ? const Color(0xFF4BBDFF)
             : const Color(0xFFFF6B6B);
-
-    final avatarBg = gender == Gender.male
-        ? const Color(0xFFDCEEFF)
-        : const Color(0xFFFFDCEE);
-    final avatarIconColor = gender == Gender.male
-        ? const Color(0xFF1565C0)
-        : const Color(0xFFAD1457);
 
     return InkWell(
       onTap: onTap,
@@ -180,14 +194,11 @@ class _RelationshipsScreenState extends State<RelationshipsScreen> {
                     shape: BoxShape.circle,
                     border: Border.all(color: barColor, width: 2.5),
                   ),
-                  child: CircleAvatar(
+                  child: PersonAvatar(
+                    gender: gender,
+                    age: age,
+                    variant: imageVariant,
                     radius: 22,
-                    backgroundColor: avatarBg,
-                    child: Icon(
-                      gender == Gender.male ? Icons.face : Icons.face_3,
-                      color: avatarIconColor,
-                      size: 25,
-                    ),
                   ),
                 ),
                 if (isPartner)

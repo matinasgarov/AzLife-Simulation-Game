@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/character_creation_screen.dart';
+import 'screens/loading_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ class AzLifeApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: 'Roboto', // Standard clean font
       ),
-      home: const CharacterCreationScreen(),
+      home: const LoadingScreen(),
     );
   }
 }

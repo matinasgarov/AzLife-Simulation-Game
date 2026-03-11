@@ -70,11 +70,14 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
   }
 
   bool get _isPartner => widget.friend.relationType == FriendRelationType.partner;
+  bool get _isEx => widget.friend.relationType == FriendRelationType.ex;
 
   bool get _canAskOut =>
+      widget.player.age >= 16 &&
       widget.friend.gender != widget.player.gender &&
       !widget.player.hasPartner &&
-      !_isPartner;
+      !_isPartner &&
+      !_isEx;
 
   // ── Build ────────────────────────────────────────
 
@@ -116,7 +119,8 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
   List<Widget> _buildActionList() {
     return switch (widget.friend.relationType) {
       FriendRelationType.partner => _partnerActions(),
-      _ => _friendActions(),
+      FriendRelationType.ex      => _exActions(),
+      _                          => _friendActions(),
     };
   }
 
@@ -202,6 +206,46 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
         tileColor: const Color(0xFFF5F5F5),
       ),
     );
+  }
+
+  // ── Ex action module ────────────────────────────
+
+  List<Widget> _exActions() {
+    final canAskOutAgain = widget.player.age >= 16 &&
+        widget.friend.gender != widget.player.gender &&
+        !widget.player.hasPartner &&
+        widget.friend.relationship >= 40;
+    return [
+      _actionChip(Icons.chat_outlined,    "Söhbət et",     _handleTalk),
+      _actionChip(Icons.gavel_outlined,   "Mübahisə et",   _handlePartnerArgue, isNegative: true),
+      if (canAskOutAgain)
+        _actionChip(Icons.favorite_outline, "Yenidən birlikdə ol", _handleAskOutEx, isRomantic: true),
+      _actionChip(Icons.person_remove_outlined, "Əlaqəni kəs", _handleEndContact, isNegative: true),
+    ];
+  }
+
+  void _handleAskOutEx() {
+    setState(() {
+      final score = widget.friend.relationship + _random.nextInt(41) - 10;
+      if (score >= 80) {
+        widget.friend.relationType = FriendRelationType.partner;
+        widget.player.hasPartner = true;
+        widget.friend.relationship = (widget.friend.relationship + 15).clamp(0, 100);
+        widget.player.happiness = (widget.player.happiness + 10).clamp(0, 100);
+        SoundManager.playSuccess();
+        final msg = "${widget.friend.name} ilə yenidən birlikdə oldun!";
+        _addHistory(msg, relationshipDelta: 15, happinessDelta: 10);
+        widget.onAction(msg);
+        _showResultDialog("Yenidən birlikdə!", msg);
+      } else {
+        widget.friend.relationship = (widget.friend.relationship - 10).clamp(0, 100);
+        SoundManager.playFail();
+        final msg = "${widget.friend.name} təklifini rədd etdi.";
+        _addHistory(msg, relationshipDelta: -10);
+        widget.onAction(msg);
+        _showResultDialog("Rədd", msg);
+      }
+    });
   }
 
   // ── Friend handlers ──────────────────────────────
@@ -416,12 +460,17 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     );
     if (confirmed != true || !mounted) return;
     setState(() {
-      widget.friend.relationType = FriendRelationType.friend; // ← reverse transition
+      widget.friend.relationType = FriendRelationType.ex;
       widget.player.hasPartner = false;
-      widget.friend.relationship = (widget.friend.relationship - 25).clamp(0, 100);
+      widget.friend.relationship = _random.nextInt(10); // 0-9, below 10%
+      widget.friend.partnerStatus = PartnerStatus.partner; // reset status
+      widget.friend.proposalCooldownYears = 0;
+      widget.friend.weddingPlanStatus = "none";
+      widget.friend.weddingScheduledAge = 0;
+      widget.friend.weddingDepositPaid = false;
       widget.player.happiness = (widget.player.happiness - 20).clamp(0, 100);
       final msg = "${widget.friend.name} ilə ayrıldın. Çox çətin idi.";
-      _addHistory(msg, relationshipDelta: -25, happinessDelta: -20);
+      _addHistory(msg, happinessDelta: -20);
       widget.onAction(msg);
     });
     SoundManager.playFail();
@@ -489,6 +538,7 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     final (label, color, icon) = switch (widget.friend.relationType) {
       FriendRelationType.friend     => ("Dost",       Colors.blueAccent, Icons.people),
       FriendRelationType.bestFriend => ("Yaxın Dost", Colors.purple,     Icons.people_alt),
+      FriendRelationType.ex         => ("Keçmiş",     const Color(0xFF78909C), Icons.heart_broken),
       FriendRelationType.partner    => switch (widget.friend.partnerStatus) {
         PartnerStatus.fiance  => ("Nişanlı",        const Color(0xFFC0185A), Icons.diamond),
         PartnerStatus.married => (widget.friend.gender == Gender.female ? "Arvad" : "Ər", const Color(0xFF8B0000), Icons.favorite),
@@ -588,6 +638,7 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     return switch (type) {
       FriendRelationType.friend     => "Dost",
       FriendRelationType.bestFriend => "Yaxın Dost",
+      FriendRelationType.ex         => "Keçmiş",
       _                             => "Sevgili",
     };
   }
