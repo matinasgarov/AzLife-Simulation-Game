@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/player.dart';
 import 'mini_games_screen.dart';
 import 'wedding_planner_screen.dart';
+import 'driving/driving_game_screen.dart';
 
 class Activity {
   final String name;
@@ -132,6 +133,14 @@ class ActivitiesScreen extends StatelessWidget {
           p.happiness = (p.happiness + 8).clamp(0, 100);
           p.health = (p.health + 2).clamp(0, 100);
         },
+      ),
+      Activity(
+        name: "Maşın sür",
+        description: "Şəhərdə maşın sür, yanacaq doldur, gəzintiyə çıx.",
+        icon: Icons.directions_car,
+        cost: 0,
+        minAge: 16,
+        onPerform: (p) {},
       ),
     ];
 
@@ -285,6 +294,17 @@ class ActivitiesScreen extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text("Pulun yoxdur!")),
           );
+          return;
+        }
+        // Driving mini-game
+        if (activity.name == "Maşın sür") {
+          final result = await Navigator.push<Map<String, dynamic>>(
+            context,
+            MaterialPageRoute(builder: (_) => DrivingGameScreen(player: player)),
+          );
+          final log = result?['log'] as String? ?? "Fəaliyyət: Maşın sürdü";
+          onActivityPerformed(log);
+          if (context.mounted) Navigator.pop(context);
           return;
         }
         // Çayxana launches mini-games sub-menu (Task 9)

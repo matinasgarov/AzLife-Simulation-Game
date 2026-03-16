@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import '../models/player.dart';
 import '../services/sound_manager.dart';
+import 'driving/driving_game_screen.dart';
 import 'mini_games_screen.dart';
 
 class PersonInteractionScreen extends StatefulWidget {
@@ -89,6 +90,10 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
              _actionChip(Icons.flash_on, "Döyüş", () => _handleFamilyInteraction(widget.person, "physical_fight"), isNegative: true),
 
            _actionChip(Icons.sports_esports_outlined, "Oyun oyna", () => _playBoardGame(widget.person)),
+
+           // Father car sneaking — launches driving mini-game with police chase
+           if (isFather && widget.player.age >= 14 && widget.player.age <= 17 && widget.person.monthlyIncome >= 1500)
+             _actionChip(Icons.directions_car_outlined, "Maşını qaçırt 🚗", () => _handleFatherDriving(widget.person)),
         ],
       )
     );
@@ -424,6 +429,55 @@ class _PersonInteractionScreenState extends State<PersonInteractionScreen> {
       }
       
       if (logMsg.isNotEmpty) widget.onAction(logMsg);
+    });
+  }
+
+  Future<void> _handleFatherDriving(FamilyMember father) async {
+    final result = await Navigator.push<Map<String, dynamic>>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => DrivingGameScreen(
+          player: widget.player,
+          launchContext: 'father_interaction',
+        ),
+      ),
+    );
+
+    if (result == null || !mounted) return;
+
+    final endReason = result['endReason'] as String?;
+
+    setState(() {
+      String msg;
+      if (endReason == 'caught') {
+        // Police caught — harsh penalty
+        final oldRel = father.relationship;
+        father.relationship = 40;
+        widget.player.money = (widget.player.money - 200).clamp(0, 999999);
+        msg = "Polislər maşınını əlindən aldı, Atan bölməyə gəlib səni çıxartmalı oldu. 🚔";
+        _addHistory(father, msg, relationshipDelta: 40 - oldRel, moneyDelta: -200);
+        SoundManager.playFail();
+      } else if (endReason == 'escaped') {
+        // Made it home — mild penalty
+        father.relationship = (father.relationship - 5).clamp(0, 100);
+        msg = "Maşını qaçırtdın ama bu sənə baha başa gələcəkdi 😅";
+        _addHistory(father, msg, relationshipDelta: -5);
+      } else {
+        // Normal exit (via X button) — session-based rewards
+        final sessionTime = (result['sessionTime'] as double?) ?? 0;
+        if (sessionTime >= 30) {
+          father.relationship = (father.relationship + 5).clamp(0, 100);
+          widget.player.happiness = (widget.player.happiness + 3).clamp(0, 100);
+          msg = "Atan sənin sürmənidən məmnun qaldı! 🚗";
+          _addHistory(father, msg, relationshipDelta: 5, happinessDelta: 3);
+        } else {
+          father.relationship = (father.relationship + 1).clamp(0, 100);
+          msg = "Atan daha çox sürməni gözləyirdi...";
+          _addHistory(father, msg, relationshipDelta: 1);
+        }
+      }
+      widget.onAction(msg);
+      _showResultDialog("Maşın Sürüşü", msg);
     });
   }
 

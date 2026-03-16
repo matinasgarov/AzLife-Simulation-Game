@@ -131,7 +131,7 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
       _actionChip(Icons.chat_outlined,         "Söhbət et",            _handleTalk),
       _actionChip(Icons.people_outlined,        "Vaxt keçir",           _handleSpendTime),
       _actionChip(Icons.card_giftcard_outlined, "Hədiyyə ver (20 AZN)", _handleGift),
-      _actionChip(Icons.celebration,            "Şənlik qur (50 AZN)",  _handleParty),
+      _actionChip(Icons.celebration,            "Party-lə (50 AZN)",  _handleParty),
       if (_canAskOut)
         _actionChip(
           Icons.favorite_outline,
@@ -252,13 +252,13 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
 
   void _handleTalk() {
     setState(() {
-      final raw = 5 + _random.nextInt(6);
+      final raw = 2 + _random.nextInt(3);
       final delta = _scale(raw);
       widget.friend.relationship = (widget.friend.relationship + delta).clamp(0, 100);
-      widget.player.happiness = (widget.player.happiness + _scale(5)).clamp(0, 100);
+      widget.player.happiness = (widget.player.happiness + _scale(3)).clamp(0, 100);
       _checkBestFriendUpgrade();
       final msg = "${widget.friend.name} ilə maraqlı söhbət etdin.";
-      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(5));
+      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(3));
       widget.onAction(msg);
       _showResultDialog("Söhbət", msg);
     });
@@ -266,13 +266,13 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
 
   void _handleSpendTime() {
     setState(() {
-      final raw = 8 + _random.nextInt(8);
+      final raw = 3 + _random.nextInt(4);
       final delta = _scale(raw);
       widget.friend.relationship = (widget.friend.relationship + delta).clamp(0, 100);
-      widget.player.happiness = (widget.player.happiness + _scale(10)).clamp(0, 100);
+      widget.player.happiness = (widget.player.happiness + _scale(5)).clamp(0, 100);
       _checkBestFriendUpgrade();
       final msg = "${widget.friend.name} ilə əla vaxt keçirdin.";
-      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(10));
+      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(5));
       widget.onAction(msg);
       _showResultDialog("Vaxt Keçirmək", msg);
     });
@@ -285,7 +285,7 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     }
     setState(() {
       widget.player.money -= 20;
-      final delta = _scale(15);
+      final delta = _scale(6);
       widget.friend.relationship = (widget.friend.relationship + delta).clamp(0, 100);
       _checkBestFriendUpgrade();
       final msg = _pickMessage('hediyye_ver', "${widget.friend.name} hədiyyəni çox bəyəndi.");
@@ -302,13 +302,13 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     }
     setState(() {
       widget.player.money -= 50;
-      widget.player.happiness = (widget.player.happiness + _scale(15)).clamp(0, 100);
-      widget.player.health = (widget.player.health - 5).clamp(0, 100);
-      final delta = _scale(20);
+      widget.player.happiness = (widget.player.happiness + _scale(8)).clamp(0, 100);
+      widget.player.health = (widget.player.health - 3).clamp(0, 100);
+      final delta = _scale(8);
       widget.friend.relationship = (widget.friend.relationship + delta).clamp(0, 100);
       _checkBestFriendUpgrade();
       const msg = "Əla şənlik oldu! Çox əyləndiniz, amma sonra yoruldunuz.";
-      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(15), healthDelta: -5, moneyDelta: -50);
+      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(8), healthDelta: -3, moneyDelta: -50);
       widget.onAction(msg);
       _showResultDialog("Şənlik", msg);
     });
@@ -363,11 +363,11 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     if (restaurant == null || !mounted) return;
     final cost = restaurant['cost_azn'] as int;
     final tier = (restaurant['price_range'] as String).length.clamp(1, 4);
-    final relBoost = [8, 12, 16, 20][tier - 1];
+    final relBoost = [3, 5, 7, 10][tier - 1];
     setState(() {
       widget.player.money -= cost;
       final relDelta = _scale(relBoost);
-      final hapDelta = _scale(12 + tier * 2);
+      final hapDelta = _scale(5 + tier * 2);
       widget.friend.relationship = (widget.friend.relationship + relDelta).clamp(0, 100);
       widget.player.happiness = (widget.player.happiness + hapDelta).clamp(0, 100);
       final restaurantName = restaurant['name'] as String;
@@ -406,12 +406,12 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
 
   void _handleExpressLove() {
     setState(() {
-      final raw = 5 + _random.nextInt(8);
+      final raw = 2 + _random.nextInt(4);
       final delta = _scale(raw);
       widget.friend.relationship = (widget.friend.relationship + delta).clamp(0, 100);
-      widget.player.happiness = (widget.player.happiness + _scale(10)).clamp(0, 100);
+      widget.player.happiness = (widget.player.happiness + _scale(5)).clamp(0, 100);
       final msg = _pickMessage('sevgini_ifade_et', "${widget.friend.name} sənin sevgini duymaqdan çox xoşhal oldu.");
-      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(10));
+      _addHistory(msg, relationshipDelta: delta, happinessDelta: _scale(5));
       widget.onAction(msg);
       _showResultDialog("Sevgi İfadəsi", msg);
     });
@@ -424,8 +424,8 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
     }
     setState(() {
       widget.player.money -= 40;
-      final relDelta = _scale(20);
-      final hapDelta = _scale(20);
+      final relDelta = _scale(8);
+      final hapDelta = _scale(8);
       widget.friend.relationship = (widget.friend.relationship + relDelta).clamp(0, 100);
       widget.player.happiness = (widget.player.happiness + hapDelta).clamp(0, 100);
       final msg = _pickMessage('surpriz_et', "${widget.friend.name} sürprizindən çox təsirlənd!");
@@ -437,11 +437,11 @@ class _FriendInteractionScreenState extends State<FriendInteractionScreen> {
 
   void _handlePartnerArgue() {
     setState(() {
-      final relDelta = -10 - _random.nextInt(10); // -10 to -19
+      final relDelta = -5 - _random.nextInt(6); // -5 to -10
       widget.friend.relationship = (widget.friend.relationship + relDelta).clamp(0, 100);
-      widget.player.happiness = (widget.player.happiness - 10).clamp(0, 100);
+      widget.player.happiness = (widget.player.happiness - 5).clamp(0, 100);
       final msg = "${widget.friend.name} ilə ciddi bir mübahisə etdiniz.";
-      _addHistory(msg, relationshipDelta: relDelta, happinessDelta: -10);
+      _addHistory(msg, relationshipDelta: relDelta, happinessDelta: -5);
       widget.onAction(msg);
       _showResultDialog("Mübahisə", msg);
     });

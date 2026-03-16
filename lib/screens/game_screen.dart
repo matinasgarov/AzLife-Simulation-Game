@@ -196,45 +196,154 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
   }
 
   void _checkFriendRequest() {
-    if (player.age >= 6 && player.age <= 18 && _random.nextDouble() < 0.15) {
-      bool isBoy = _random.nextBool();
-      String name = isBoy ? _boyNames[_random.nextInt(_boyNames.length)] : _girlNames[_random.nextInt(_girlNames.length)];
-      
-      SchoolMate potentialFriend = SchoolMate(
-        name: name,
-        surname: _surnames[_random.nextInt(_surnames.length)],
-        gender: isBoy ? Gender.male : Gender.female,
-        age: player.age + _random.nextInt(3) - 1,
-        money: _random.nextInt(500),
-        health: 50 + _random.nextInt(51),
-        smarts: 30 + _random.nextInt(71),
-        looks: 30 + _random.nextInt(71),
-        imageVariant: _random.nextInt(100),
-      );
+    // Determine life context and base chance
+    String? context;
+    double chance;
 
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        _showFriendRequestDialog(potentialFriend);
-      });
+    if (player.isEnrolledInSchool && player.age >= 6) {
+      context = 'school';
+      chance = 0.15;
+    } else if (player.isEnrolledInUniversity) {
+      context = 'university';
+      chance = 0.12;
+    } else if (player.isInMilitary) {
+      context = 'military';
+      chance = 0.20;
+    } else if (player.age >= 18 && player.age < 70) {
+      context = 'adult';
+      chance = 0.10;
+    } else {
+      return;
     }
+
+    // Diminishing returns based on active friend count
+    final activeFriends = player.friends.where((f) => f.isAlive).length;
+    if (activeFriends >= 15) return;
+    if (activeFriends >= 10) chance *= 0.5;
+
+    if (_random.nextDouble() >= chance) return;
+
+    final potentialFriend = _generatePerson(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _showFriendRequestDialog(potentialFriend);
+    });
+  }
+
+  SchoolMate _generatePerson(String context) {
+    bool isBoy = _random.nextBool();
+    String name = isBoy
+        ? _boyNames[_random.nextInt(_boyNames.length)]
+        : _girlNames[_random.nextInt(_girlNames.length)];
+
+    int age;
+    int smarts;
+    int looks;
+    int health;
+    int money;
+    String occupation = "";
+    int netWorth = 0;
+
+    switch (context) {
+      case 'school':
+        age = player.age + _random.nextInt(3) - 1;
+        smarts = 30 + _random.nextInt(71);
+        looks = 30 + _random.nextInt(71);
+        health = 50 + _random.nextInt(51);
+        money = _random.nextInt(500);
+        break;
+
+      case 'university':
+        age = player.age + _random.nextInt(5) - 2;
+        smarts = 50 + _random.nextInt(51);
+        looks = 30 + _random.nextInt(71);
+        health = 50 + _random.nextInt(51);
+        money = _random.nextInt(800);
+        occupation = "Tələbə";
+        break;
+
+      case 'military':
+        isBoy = true;
+        name = _boyNames[_random.nextInt(_boyNames.length)];
+        age = player.age + _random.nextInt(3) - 1;
+        smarts = 30 + _random.nextInt(51);
+        looks = 30 + _random.nextInt(71);
+        health = 60 + _random.nextInt(41);
+        money = _random.nextInt(200);
+        occupation = "Əsgər";
+        break;
+
+      case 'adult':
+      default:
+        age = (player.age + _random.nextInt(11) - 5).clamp(18, 90);
+        smarts = 20 + _random.nextInt(81);
+        looks = 20 + _random.nextInt(71);
+        health = 30 + _random.nextInt(61);
+        final jobs = _jobIncomes.keys.toList();
+        occupation = jobs[_random.nextInt(jobs.length)];
+        final range = _jobIncomes[occupation]!;
+        final monthlyIncome = range[0] + _random.nextInt(range[1] - range[0]);
+        final workYears = (age - 18).clamp(0, 50);
+        netWorth = monthlyIncome * 12 * workYears ~/ 3 + _random.nextInt(5000);
+        money = monthlyIncome * _random.nextInt(6);
+        break;
+    }
+
+    return SchoolMate(
+      name: name,
+      surname: _surnames[_random.nextInt(_surnames.length)],
+      gender: isBoy ? Gender.male : Gender.female,
+      age: age,
+      money: money,
+      health: health,
+      smarts: smarts,
+      looks: looks,
+      imageVariant: _random.nextInt(100),
+      occupation: occupation,
+      netWorth: netWorth,
+    );
   }
 
   void _showFriendRequestDialog(SchoolMate friend) {
+    final title = switch (friend.occupation) {
+      "Tələbə" => "Yeni Kursyoldaşı",
+      "Əsgər"  => "Yeni Silah Yoldaşı",
+      String o when o.isNotEmpty => "Yeni Tanışlıq",
+      _ => "Yeni Dostluq Təklifi",
+    };
+    final intro = switch (friend.occupation) {
+      "Tələbə" => "${friend.name} universitetdə səninlə tanış olmaq istəyir.",
+      "Əsgər"  => "${friend.name} hərbi xidmətdə səninlə dost olmaq istəyir.",
+      String o when o.isNotEmpty => "${friend.name} ($o) səninlə tanış olmaq istəyir.",
+      _ => "${friend.name} səninlə dost olmaq istəyir. Onun statusu:",
+    };
+
     showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-        title: const Text("Yeni Dostluq Təklifi", style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("${friend.name} səninlə dost olmaq istəyir. Onun statusu:", style: const TextStyle(fontSize: 14)),
+            Text(intro, style: const TextStyle(fontSize: 14)),
             const SizedBox(height: 15),
             _friendStatRow("Ağıl", friend.smarts),
             _friendStatRow("Görünüş", friend.looks),
             _friendStatRow("Sağlamlıq", friend.health),
             _friendStatRow("Maddi vəziyyət", friend.money, isMoney: true),
+            if (friend.occupation.isNotEmpty && friend.occupation != "Tələbə" && friend.occupation != "Əsgər")
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text("Peşə", style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
+                    Text(friend.occupation, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.bold, color: Colors.blueAccent)),
+                  ],
+                ),
+              ),
           ],
         ),
         actions: [
@@ -247,7 +356,10 @@ class _GameScreenState extends State<GameScreen> with WidgetsBindingObserver {
             onPressed: () {
               setState(() {
                 player.friends.add(friend);
-                logs.first.events.add("${friend.name} ilə dost oldun.");
+                final logMsg = friend.occupation.isNotEmpty && friend.occupation != "Tələbə" && friend.occupation != "Əsgər"
+                    ? "${friend.name} (${friend.occupation}) ilə tanış olub dost oldun."
+                    : "${friend.name} ilə dost oldun.";
+                logs.first.events.add(logMsg);
               });
               Navigator.pop(context);
             },
